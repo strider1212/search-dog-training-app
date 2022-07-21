@@ -1,0 +1,19 @@
+{
+  "name": "search-dog-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strider1212/search-dog-training-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strider1212/search-dog-training-app/issues"
+  },
+  "homepage": "https://github.com/strider1212/search-dog-training-app#readme"
+}
