@@ -1,0 +1,11 @@
+{
+  "userId": 123123123123,
+  "username": "jimmy",
+  "password": "john",
+  "firstName": "Jimothy",
+  "lastName": "Jonathan"
+  "email": "jimmy@gmail.com",
+  "admin": true,
+  "dateCreated": "raw data data",
+  "k9s": ["Spike", "Furry"]
+}
