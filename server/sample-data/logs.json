@@ -112,6 +112,7 @@
       "distractions": ["scat"] 
     },
     "water - open": {
+      "water": true,
       "placement": {
         "submerged": {
           "scent_source": "tissue",
@@ -130,6 +131,7 @@
       "temperature": 45  
     },
     "shoreline": {
+      "water": true,
       "placement": {
         "submerged": {
           "scent_source": "tissue",
