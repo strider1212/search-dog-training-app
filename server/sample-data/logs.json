@@ -17,8 +17,8 @@
   "wind_speed": "low",
   "humidity": "low",
   "terrain": {
-    "water": false,
     "building - closed": {
+      "water": false,
       "placement": {
         "Elivated": {
           "scent_source": "tissue",
@@ -44,6 +44,7 @@
       "distractions": ["N/A"] 
     },
     "vehicle": {
+      "water": false,
       "placement": {
         "Surface": {
           "scent_source": "tissue",
@@ -59,6 +60,7 @@
       "distractions": ["N/A"] 
     },
     "building-outside": {
+      "water": false,
       "placement": {
         "Surface": {
           "scent_source": "tissue",
@@ -74,6 +76,7 @@
       "distractions": ["dog food"] 
     }, 
     "woods - thin": {
+      "water": false,
       "placement": {
         "Surface": {
           "scent_source": "body - parial",
@@ -89,6 +92,7 @@
       "distractions": ["deer"] 
     },
     "building - open": {
+      "water": false,
       "placement": {
         "Surface": {
           "scent_source": "tissue",
@@ -100,12 +104,12 @@
           "source_container": "fabric",
           "time": 300000
         }},
-        "placed_by": {
-          "person": "Tracey Horner",
-          "order_placer_worked": 2
-        },
-        "blind": false,
-        "distractions": ["scat"] 
+      "placed_by": {
+        "person": "Tracey Horner",
+        "order_placer_worked": 2
+      },
+      "blind": false,
+      "distractions": ["scat"] 
     },
     "water - open": {
       "placement": {
