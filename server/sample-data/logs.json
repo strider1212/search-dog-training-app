@@ -17,6 +17,7 @@
   "wind_speed": "low",
   "humidity": "low",
   "terrain": {
+    "water": false,
     "building - closed": {
       "placement": {
         "Elivated": {
@@ -142,4 +143,5 @@
       "salinity": "fresh",
       "temperature": 35
     }
-  },
+  }
+}
