@@ -97,8 +97,7 @@
         }},
         "placed_by": {
           "person": "Tracey Horner",
-          "order_placer_worked": 2,
-          "time": 300000
+          "order_placer_worked": 2
         },
         "blind": false 
     },
