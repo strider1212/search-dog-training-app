@@ -35,7 +35,8 @@
       "placed_by": {
         "person": "Susan Cushing",
         "order_placer_worked": 1
-      } 
+      },
+      "blind": true 
     },
     "vehicle": {
       "placement": {
@@ -47,7 +48,8 @@
       "placed_by": {
         "person": "Cheryl Burke",
         "order_placer_worked": 3
-      } 
+      },
+      "blind": false 
     },
     "building-outside": {
       "placement": {
@@ -59,7 +61,8 @@
       "placed_by": {
         "person": "Tracey Horner",
         "order_placer_worked": 3
-      } 
+      },
+      "blind": false 
     }, 
     "woods - thin": {
       "placement": {
@@ -71,7 +74,8 @@
       "placed_by": {
         "person": "Cheryl Burke",
         "order_placer_worked": 2
-      } 
+      },
+      "blind": true 
     },
     "building - open": {
       "placement": {
@@ -86,7 +90,8 @@
         "placed_by": {
           "person": "Tracey Horner",
           "order_placer_worked": 2
-        } 
+        },
+        "blind": false 
     },
     "water - open": {
       "placement": {
@@ -98,7 +103,8 @@
       "placed_by": {
         "person": "Susan Cushing",
         "order_placer_worked": 1
-      }, 
+      },
+      "blind": true,
       "depth": "50ft",
       "water_type": "tidal (high tide)",
       "salinity": "sea (salt)", 
@@ -114,7 +120,8 @@
       "placed_by": {
         "person": "Susan Cushing",
         "order_placer_worked": 1
-      }, 
+      },
+      "blind": true, 
       "depth": "25ft",
       "water_type": "creek",
       "salinity": "fresh",
