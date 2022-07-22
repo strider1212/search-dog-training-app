@@ -1,0 +1,36 @@
+{
+  "year": 2022,
+  "date": "raw data",
+  "address": "100 Search Rd. Greensboro, NY 10987",
+  "training": "team",
+  "training_type": "K9 & General",
+  "k9_name": "Spike",
+  "general_hours": 1,
+  "traing_hours": 4,
+  "travel_hours": 3,
+  "aggregate_hours": 8,
+  "mileage": 140,
+  "tolls": 0,
+  "time_of_day": "all day",
+  "weather": "Sun, Part",
+  "temperature": "cold",
+  "wind_speed": "low",
+  "humidity": "low",
+  "terrain": {
+    "building - closed": {
+      "placement": ["Elivated", "Surface", "Surface"]
+    },
+    "vehicle": {
+      "placement": ["Surface"]
+    },
+    "building-outside": {
+      "placement": ["Surface"]
+    }, 
+    "woods - thin": {
+      "placement": ["Surface"]
+    },
+    "building - open": {
+      "placement": ["Surface", "Surface"]
+    },
+    "water - open": 
+  },
