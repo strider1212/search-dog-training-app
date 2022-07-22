@@ -19,54 +19,54 @@
   "terrain": {
     "building - closed": {
       "placement": {
-        "Elivated": {}, 
-        "Surface": {}, 
-        "Surface": {}
+        "Elivated": {
+          "scent_source": "tissue"
+        }, 
+        "Surface": {
+          "scent_source": "blood"
+        }, 
+        "Surface": {
+          "scent_source": "bone"
+        }
       },
-      "scent": ["tissue", "blood", "bone"],
       "source_container": ["glass", "fabric"]
     },
     "vehicle": {
       "placement": {
         "Surface": {
-
+          "scent_source": "tissue"
         }
-      },
-      "scent": ["tissue"]
+      }
     },
     "building-outside": {
       "placement": {
         "Surface": {
-
+          "scent_source": "tissue"
         }
-      },
-      "scent": ["tissue"]
+      }
     }, 
     "woods - thin": {
       "placement": {
         "Surface": {
-
+          "scent_source": "body - parial"
         }
-      },
-      "scent": ["body - parial"]
+      }
     },
     "building - open": {
       "placement": {
         "Surface": {
-
+          "scent_source": "tissue"
         }, 
         "Surface": {
-
-        }},
-      "scent": ["tissue", "blood"]
+          "scent_source": "blood"
+        }}
     },
     "water - open": {
       "placement": {
         "submerged": {
-
+          "scent_source": "tissue"
         }
       },
-      "scent": ["tissue"],
       "depth": "50ft",
       "water_type": "tidal (high tide)",
       "salinity": "sea (salt)", 
@@ -75,10 +75,9 @@
     "shoreline": {
       "placement": {
         "submerged": {
-          
+          "scent_source": "tissue"
         }
       },
-      "scent": ["tissue"],
       "depth": "25ft",
       "water_type": "creek",
       "salinity": "fresh",
