@@ -31,7 +31,11 @@
           "scent_source": "bone",
           "source_container": "N/A"
         }
-      }
+      },
+      "placed_by": {
+        "person": "Susan Cushing",
+        "order_placer_worked": 1
+      } 
     },
     "vehicle": {
       "placement": {
@@ -39,7 +43,11 @@
           "scent_source": "tissue",
           "source_container": "metal"
         }
-      }
+      },
+      "placed_by": {
+        "person": "Cheryl Burke",
+        "order_placer_worked": 3
+      } 
     },
     "building-outside": {
       "placement": {
@@ -47,7 +55,11 @@
           "scent_source": "tissue",
           "source_container": "glass"
         }
-      }
+      },
+      "placed_by": {
+        "person": "Tracey Horner",
+        "order_placer_worked": 3
+      } 
     }, 
     "woods - thin": {
       "placement": {
@@ -55,7 +67,11 @@
           "scent_source": "body - parial",
           "source_container": "fabric"
         }
-      }
+      },
+      "placed_by": {
+        "person": "Cheryl Burke",
+        "order_placer_worked": 2
+      } 
     },
     "building - open": {
       "placement": {
@@ -66,7 +82,11 @@
         "Surface": {
           "scent_source": "blood",
           "source_container": "fabric"
-        }}
+        }},
+        "placed_by": {
+          "person": "Tracey Horner",
+          "order_placer_worked": 2
+        } 
     },
     "water - open": {
       "placement": {
@@ -75,6 +95,10 @@
           "source_container": "metal"
         }
       },
+      "placed_by": {
+        "person": "Susan Cushing",
+        "order_placer_worked": 1
+      }, 
       "depth": "50ft",
       "water_type": "tidal (high tide)",
       "salinity": "sea (salt)", 
@@ -87,6 +111,10 @@
           "source_container": "fabric"
         }
       },
+      "placed_by": {
+        "person": "Susan Cushing",
+        "order_placer_worked": 1
+      }, 
       "depth": "25ft",
       "water_type": "creek",
       "salinity": "fresh",
