@@ -39,7 +39,8 @@
         "person": "Susan Cushing",
         "order_placer_worked": 1
       },
-      "blind": true 
+      "blind": true,
+      "distractions": ["N/A"] 
     },
     "vehicle": {
       "placement": {
@@ -53,7 +54,8 @@
         "person": "Cheryl Burke",
         "order_placer_worked": 3
       },
-      "blind": false 
+      "blind": false,
+      "distractions": ["N/A"] 
     },
     "building-outside": {
       "placement": {
@@ -67,7 +69,8 @@
         "person": "Tracey Horner",
         "order_placer_worked": 3
       },
-      "blind": false 
+      "blind": false,
+      "distractions": ["dog food"] 
     }, 
     "woods - thin": {
       "placement": {
@@ -81,7 +84,8 @@
         "person": "Cheryl Burke",
         "order_placer_worked": 2
       },
-      "blind": true 
+      "blind": true,
+      "distractions": ["deer"] 
     },
     "building - open": {
       "placement": {
@@ -99,7 +103,8 @@
           "person": "Tracey Horner",
           "order_placer_worked": 2
         },
-        "blind": false 
+        "blind": false,
+        "distractions": ["scat"] 
     },
     "water - open": {
       "placement": {
@@ -113,6 +118,7 @@
         "order_placer_worked": 1
       },
       "blind": true,
+      "distractions": ["N/A"],
       "depth": "50ft",
       "water_type": "tidal (high tide)",
       "salinity": "sea (salt)", 
@@ -130,6 +136,7 @@
         "order_placer_worked": 1
       },
       "blind": true, 
+      "distractions": ["N/A"],
       "depth": "25ft",
       "water_type": "creek",
       "salinity": "fresh",
