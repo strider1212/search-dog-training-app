@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/strider1212/search-dog-training-app/issues"
   },
-  "homepage": "https://github.com/strider1212/search-dog-training-app#readme"
+  "homepage": "https://github.com/strider1212/search-dog-training-app#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
