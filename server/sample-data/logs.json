@@ -18,19 +18,70 @@
   "humidity": "low",
   "terrain": {
     "building - closed": {
-      "placement": ["Elivated", "Surface", "Surface"]
+      "placement": {
+        "Elivated": {}, 
+        "Surface": {}, 
+        "Surface": {}
+      },
+      "scent": ["tissue", "blood", "bone"],
+      "source_container": ["glass", "fabric"]
     },
     "vehicle": {
-      "placement": ["Surface"]
+      "placement": {
+        "Surface": {
+
+        }
+      },
+      "scent": ["tissue"]
     },
     "building-outside": {
-      "placement": ["Surface"]
+      "placement": {
+        "Surface": {
+
+        }
+      },
+      "scent": ["tissue"]
     }, 
     "woods - thin": {
-      "placement": ["Surface"]
+      "placement": {
+        "Surface": {
+
+        }
+      },
+      "scent": ["body - parial"]
     },
     "building - open": {
-      "placement": ["Surface", "Surface"]
+      "placement": {
+        "Surface": {
+
+        }, 
+        "Surface": {
+
+        }},
+      "scent": ["tissue", "blood"]
     },
-    "water - open": 
+    "water - open": {
+      "placement": {
+        "submerged": {
+
+        }
+      },
+      "scent": ["tissue"],
+      "depth": "50ft",
+      "water_type": "tidal (high tide)",
+      "salinity": "sea (salt)", 
+      "temperature": 45  
+    },
+    "shoreline": {
+      "placement": {
+        "submerged": {
+          
+        }
+      },
+      "scent": ["tissue"],
+      "depth": "25ft",
+      "water_type": "creek",
+      "salinity": "fresh",
+      "temperature": 35
+    }
   },
