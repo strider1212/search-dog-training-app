@@ -5,6 +5,7 @@
   "firstName": "Jimothy",
   "lastName": "Jonathan",
   "email": "jimmy@gmail.com",
+  "phone_number": 1231231234,
   "dateCreated": "raw data data",
   "k9s": ["Spike", "Furry"]
 }
