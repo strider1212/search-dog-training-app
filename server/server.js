@@ -3,7 +3,7 @@ const app = express();
 
 const PORT = 3000;
 
-//app.use(express.json)
+app.use(express.json())
 //use app.route() to chaine routes. See https://expressjs.com/en/guide/routing.html
 //make modular with express.Router(). ibid.
 
