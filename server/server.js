@@ -63,6 +63,8 @@ app.route('/users/:id')
       "email": req.query.email,
       "phoneNumber": req.query.phoneNumber,
       "dateCreated": new Date(),
+      //query must must be formatted like
+      //&k9s[]=spike&k9s[]=lucey
       "k9s": req.query.k9s
     })
     console.log(postUser)
