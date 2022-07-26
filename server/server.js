@@ -1,15 +1,14 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-require('dotenv').config();
+require('dotenv').config({path: '../.env'});
 
 const { User } = require('./mongoose/user');
 
-console.log(process.env)
-
-mongoose.connect('mongodb+srv://strider1212:KtZxygIgOzheV762@cluster0.tgm5d.mongodb.net/search-dog-test');
-
+const ATLAS_CONNECT = process.env.ATLAS_CONNECT;
 const PORT = 3000;
+
+mongoose.connect(ATLAS_CONNECT);
 
 app.use(express.json())
 
