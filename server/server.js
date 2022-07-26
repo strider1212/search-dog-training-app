@@ -8,8 +8,7 @@ const PORT = 3000;
 
 app.use(express.json())
 
-//create a schema
-//create a model
+//create a model inside of post function
 //instantiate model inside of application
 //impliment in post function using the model
   //get to work first
@@ -52,6 +51,8 @@ const userSchema = new mongoose.Schema({
     required: true
   },
 })
+
+const User = mongoose.model('User', userSchema);
 
 app.route('/users/:id')
   .post((res, req) => {
