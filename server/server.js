@@ -12,8 +12,6 @@ mongoose.connect(ATLAS_CONNECT);
 
 app.use(express.json())
 
-//test comment
-
 app.route('/users/:id')
   .post(async (req, res) =>  {
     //check all field on the front end
