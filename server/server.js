@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 const { User } = require('./mongoose/user');
-const mongooseConnect = require('../')
+
+console.log(process.env.mongooseConnect)
 
 mongoose.connect('mongodb+srv://strider1212:KtZxygIgOzheV762@cluster0.tgm5d.mongodb.net/search-dog-test');
 
