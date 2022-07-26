@@ -22,8 +22,7 @@ app.route('/users/:id')
         return data
       }
     }).clone()
-    console.log(user)
-    res.send();
+    res.status(201).send(user)
   })
   .post(async (req, res) =>  {
     //check all field on the front end
