@@ -26,7 +26,7 @@ app.route('/users/:id')
       //&k9s[]=spike&k9s[]=lucey
       "k9s": req.query.k9s
     })
-    console.log(postUser)
+    postUser.save()
     res.send()
   })
 
