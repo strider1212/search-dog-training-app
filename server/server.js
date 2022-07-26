@@ -19,6 +19,7 @@ app.route('/users/:id')
     
     res.status(201).send(user)
   })
+  
   .post(async (req, res) =>  {
     //check all field on the front end
     let postUser = new User({
