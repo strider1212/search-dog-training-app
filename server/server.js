@@ -13,7 +13,7 @@ app.use(express.json())
 //make modular
 
 app.route('/users/:id')
-  .post(function (req, res) {
+  .post((req, res) =>  {
     let postUser = new User({
       "username": req.query.username,
       "password": req.query.password,
