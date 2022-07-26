@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  "phone_number": {
+  "phoneNumber": {
     type: Number,
     required: true
   },
@@ -61,7 +61,7 @@ app.route('/users/:id')
       "firstName": req.query.firstName,
       "lastName": req.query.lastName,
       "email": req.query.email,
-      "phone_number": {
+      "phoneNumber": {
         type: Number,
         required: true
       },
