@@ -12,6 +12,7 @@ app.use(express.json())
 
 app.route('/users/:id')
   .post(async (req, res) =>  {
+    //check all field on the front end
     let postUser = new User({
       "username": req.query.username,
       "password": req.query.password,
