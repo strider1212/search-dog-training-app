@@ -54,13 +54,14 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 app.route('/users/:id')
-  .post((res, req) => {
+  .post((req, res) => {
     let postUser = new User({
       "username": req.query.username
     })
     console.log(postUser)
-    res.end()
+    res.send()
   })
+
 
 
 app.listen(PORT, () => {
