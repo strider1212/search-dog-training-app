@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-const { User } = require('./mongoose/user')
+const { User } = require('./mongoose/user');
+const mongooseConnect = require('../')
 
 mongoose.connect('mongodb+srv://strider1212:KtZxygIgOzheV762@cluster0.tgm5d.mongodb.net/search-dog-test');
 
