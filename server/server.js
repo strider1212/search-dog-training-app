@@ -10,8 +10,6 @@ const PORT = 3000;
 
 app.use(express.json())
 
-//make modular
-
 app.route('/users/:id')
   .post(async (req, res) =>  {
     let postUser = new User({
