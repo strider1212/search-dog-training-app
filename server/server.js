@@ -46,7 +46,7 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   "k9s": {
-    type: Array,
+    type: [String],
     required: true
   }
 })
@@ -54,7 +54,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 app.route('/users/:id')
-  .post((req, res) => {
+  .post(function (req, res) {
     let postUser = new User({
       "username": req.query.username,
       "password": req.query.password,
@@ -63,10 +63,7 @@ app.route('/users/:id')
       "email": req.query.email,
       "phoneNumber": req.query.phoneNumber,
       "dateCreated": new Date(),
-      "k9s": {
-        type: Array,
-        required: true
-      }
+      "k9s": req.query.k9s
     })
     console.log(postUser)
     res.send()
