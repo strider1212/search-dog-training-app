@@ -15,6 +15,13 @@ app.use(express.json())
 app.route('/users/:id')
   .get(async (req, res) => {
     const id = req.params.id;
+    const user = await User.findById(id, (err, data) => {
+      if (err) {
+        return err
+      } else {
+        return data
+      }
+    }).clone()
     console.log(user)
     res.send();
   })
