@@ -61,10 +61,7 @@ app.route('/users/:id')
       "firstName": req.query.firstName,
       "lastName": req.query.lastName,
       "email": req.query.email,
-      "phoneNumber": {
-        type: Number,
-        required: true
-      },
+      "phoneNumber": req.query.phoneNumber,
       "dateCreated": {
         type: Date,
         required: true
