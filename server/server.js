@@ -15,6 +15,9 @@ app.use(express.json())
 app.route('/users/:id')
   .get(async (req, res) => {
     const id = req.params.id;
+    if (id.length !== 24) {
+      res.status(400).send('You must enter an ID of 24 characters')
+    }
     const user = await User.findById(id, (err, data) => {
       if (err) {
         return err
@@ -22,7 +25,11 @@ app.route('/users/:id')
         return data
       }
     }).clone()
-    res.status(201).send(user)
+    if (!user) {
+      res.sendStatus(404)
+    } else {
+      res.status(201).send(user)
+    }
   })
   .post(async (req, res) =>  {
     //check all field on the front end
