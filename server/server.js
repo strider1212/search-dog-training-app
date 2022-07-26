@@ -60,10 +60,7 @@ app.route('/users/:id')
       "password": req.query.password,
       "firstName": req.query.firstName,
       "lastName": req.query.lastName,
-      "email": {
-        type: String,
-        required: true
-      },
+      "email": req.query.email,
       "phone_number": {
         type: Number,
         required: true
