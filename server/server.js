@@ -13,7 +13,7 @@ app.use(express.json())
 //make modular
 
 app.route('/users/:id')
-  .post((req, res) =>  {
+  .post(async (req, res) =>  {
     let postUser = new User({
       "username": req.query.username,
       "password": req.query.password,
@@ -26,7 +26,7 @@ app.route('/users/:id')
       //&k9s[]=spike&k9s[]=lucey
       "k9s": req.query.k9s
     })
-    postUser.save()
+    await postUser.save()
     res.send()
   })
 
