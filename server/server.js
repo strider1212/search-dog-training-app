@@ -59,10 +59,7 @@ app.route('/users/:id')
       "username": req.query.username,
       "password": req.query.password,
       "firstName": req.query.firstName,
-      "lastName": {
-        type: String,
-        required: true
-      },
+      "lastName": req.query.lastName,
       "email": {
         type: String,
         required: true
