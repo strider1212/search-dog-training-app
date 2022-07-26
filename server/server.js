@@ -13,6 +13,11 @@ mongoose.connect(ATLAS_CONNECT);
 app.use(express.json())
 
 app.route('/users/:id')
+  .get(async (req, res) => {
+    const id = req.params.id;
+    console.log(user)
+    res.send();
+  })
   .post(async (req, res) =>  {
     //check all field on the front end
     let postUser = new User({
