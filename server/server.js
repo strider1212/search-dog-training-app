@@ -18,13 +18,7 @@ app.route('/users/:id')
     if (id.length !== 24) {
       res.status(400).send('You must enter an ID of 24 characters')
     }
-    const user = await User.findById(id, (err, data) => {
-      if (err) {
-        return err
-      } else {
-        return data
-      }
-    }).clone()
+    const user = await User.findById(id).clone()
     
     res.status(201).send(user)
   })
