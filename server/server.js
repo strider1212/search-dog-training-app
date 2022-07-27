@@ -7,8 +7,9 @@ const { User } = require('./mongoose/user');
 
 const connectUsername = process.env.USERNAME;
 const connectPassword = process.env.PASSWORD;
+const connectDatabase = process.env.DATABASE;
 
-const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@cluster0.tgm5d.mongodb.net/search-dog-test`;
+const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@cluster0.tgm5d.mongodb.net/${connectDatabase}`;
 const PORT = 3000;
 
 mongoose.connect(ATLAS_CONNECT);
