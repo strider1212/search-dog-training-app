@@ -5,7 +5,10 @@ require('dotenv').config({path: '../.env'});
 
 const { User } = require('./mongoose/user');
 
-const ATLAS_CONNECT = process.env.ATLAS_CONNECT;
+const connectUsername = process.env.USERNAME;
+const connectPassword = process.env.PASSWORD;
+
+const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@cluster0.tgm5d.mongodb.net/search-dog-test`;
 const PORT = 3000;
 
 mongoose.connect(ATLAS_CONNECT);
@@ -43,3 +46,8 @@ app.route('/users/:id')
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}.`)
 })
+
+
+//refactor .env
+//refactor POST /users/:id to be for /users
+//handle error
