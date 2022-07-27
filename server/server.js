@@ -43,9 +43,9 @@ app.route('/users')
 
 app.route('/users/:id')
   .get(async (req, res) => {
+    //require id be 24 characters on the front end
     const id = req.params.id;
     const user = await User.findById(id).clone()
-    
     res.status(201).send(user)
   })
 
