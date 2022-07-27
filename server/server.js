@@ -16,14 +16,7 @@ mongoose.connect(ATLAS_CONNECT);
 
 app.use(express.json())
 
-app.route('/users/:id')
-  .get(async (req, res) => {
-    const id = req.params.id;
-    const user = await User.findById(id).clone()
-    
-    res.status(201).send(user)
-  })
-
+app.route('/users')
   .post(async (req, res) =>  {
     //check all field on the front end
     let postUser = new User({
@@ -42,13 +35,18 @@ app.route('/users/:id')
     res.sendStatus(201);
   })
 
-
+app.route('/users/:id')
+  .get(async (req, res) => {
+    const id = req.params.id;
+    const user = await User.findById(id).clone()
+    
+    res.status(201).send(user)
+  })
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}.`)
 })
 
 
-//refactor .env
 //refactor POST /users/:id to be for /users
 //handle error
