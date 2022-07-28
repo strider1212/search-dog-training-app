@@ -42,12 +42,25 @@ app.route('/users')
   })
 
 app.route('/users/:id')
-  .get(async (req, res) => {
+  .get((req, res) => {
     //require id be 24 characters on the front end
     const id = req.params.id;
-    await User.findById(id, (err, user) => {
-      res.status(201).send(user);
-    }).clone().catch((err) => {console.log(err)})
+    User.findById(id, (err, user) => {
+      if (err) {
+        console.error(err);
+        res.status(404).end();
+        return
+      }
+      
+      if (user) {
+        res.status(200)
+        return
+      }
+
+      console.log('How did we get here?')
+    }).clone()
+
+    res.end()
   })
 
 app.listen(PORT, () => {
