@@ -45,22 +45,20 @@ app.route('/users/:id')
   .get((req, res) => {
     //require id be 24 characters on the front end
     const id = req.params.id;
-    User.findById(id, (err, user) => {
+    User.findById(id, (err, user) =>{
       if (err) {
-        console.error(err);
-        res.status(404).end();
-        return
+         console.error(err)
+         res.status(404).end()
+         return
       }
-      
+    
       if (user) {
-        res.status(200)
-        return
+         res.status(200).json(user)
+         return
       }
-
-      console.log('How did we get here?')
-    }).clone()
-
-    res.end()
+    
+      console.error('how did we get here?')
+    })
   })
 
 app.listen(PORT, () => {
