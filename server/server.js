@@ -48,7 +48,7 @@ app.route('/users/:id')
     await User.findById(id, (err, user) => {
       if (err) throw err;
       res.status(201).send(user);
-    }).clone().catch(function(err){ console.log(err)})
+    }).clone().catch((err) => {console.log(err)})
   })
 
 app.listen(PORT, () => {
