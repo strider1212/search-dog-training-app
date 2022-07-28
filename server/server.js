@@ -46,8 +46,12 @@ app.route('/users/:id')
     //require id be 24 characters on the front end
     const id = req.params.id;
     await User.findById(id, (err, user) => {
-      if (err) throw err;
-      res.status(201).send(user);
+      try {
+        res.status(201).send(user);
+      } catch (err) {
+        console.log(err)
+      }
+      
     }).clone().catch((err) => {console.log(err)})
   })
 
