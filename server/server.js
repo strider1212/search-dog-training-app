@@ -53,7 +53,7 @@ app.route('/users/:id')
       }
     
       if (user) {
-         res.status(200).json(user)
+         res.status(200).send(user)
          return
       }
     
