@@ -92,4 +92,10 @@ router.put('/:id', (req, res) => {
   })
 })
 
+
+router.delete('/:id', (req, res) => {
+  console.log('it is connected!')
+  res.end()
+})
+
 module.exports = router;
