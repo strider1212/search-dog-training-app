@@ -23,6 +23,9 @@ app.use(express.json())
 
 //routes and methods
 app.route('/users')
+  .get((req, res) => {
+    
+  })
   .post((req, res) =>  {
     //check all field on the front end
     let postUser = new User({
