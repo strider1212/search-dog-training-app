@@ -59,8 +59,10 @@ router.get('/:id', (req, res) => {
   })
 })
 
-router.put('/users/:id', (req, res) => {
-  
+router.put('/:id', (req, res) => {
+  const id = req.params.id;
+  console.log(id)
+  res.end()
 })
 
 module.exports = router;
