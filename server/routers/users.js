@@ -112,8 +112,23 @@ router.delete('/:id', (req, res) => {
 })
 
 router.get('/:id/k9s', (req, res) => {
-  console.log('connected')
-  res.end()
+  const id = req.params.id;
+
+  User.findById(id, (err, user) =>{
+    if (err) {
+       console.error(err)
+       res.status(404).end()
+       return
+    }
+  
+    if (user) {
+       res.status(200).send(user.k9s)
+       return
+    }
+  
+    console.error('how did we get here?')
+  })
+
 }) 
 
 module.exports = router;
