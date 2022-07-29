@@ -61,8 +61,9 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id;
-  console.log(id)
-  res.end()
+  User.findByIdAndUpdate(id, {firstName: "Leopold"}, {new: true}, (err, updatedUser) => {
+    res.send(updatedUser.firstName)
+  })
 })
 
 module.exports = router;
