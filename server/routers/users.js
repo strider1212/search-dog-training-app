@@ -71,16 +71,6 @@ router.put('/:id', (req, res) => {
     return
   }
 
-  const valueToInt = parseInt(value)
-
-  if (key === 'phoneNumber' && typeof valueToInt != 'number') {
-    console.error("You must enter a number for 'phoneNumber'")
-    res.status(404).end()
-    return
-  }
-
-  //add an error handler for NAN with phoneNumber
-
   User.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedUser) => {
     if (err) {
       console.error(err)
