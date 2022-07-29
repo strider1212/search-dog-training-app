@@ -130,4 +130,9 @@ router.get('/:id/k9s', (req, res) => {
   })
 }) 
 
+router.post('/:id/k9s', (req, res) => {
+  console.log('it is connected')
+  res.end()
+})
+
 module.exports = router;
