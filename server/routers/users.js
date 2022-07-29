@@ -65,6 +65,12 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
+  //identify whether we are trying to access the key k9s
+  //identify the original key
+  //identify the new value
+  //change using splice
+  //exit the function
+
 
   User.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedUser) => {
     if (err) {
