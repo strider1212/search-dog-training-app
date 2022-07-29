@@ -128,7 +128,6 @@ router.get('/:id/k9s', (req, res) => {
   
     console.error('how did we get here?')
   })
-
 }) 
 
 module.exports = router;
