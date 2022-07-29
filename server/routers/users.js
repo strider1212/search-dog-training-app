@@ -61,8 +61,19 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id;
-  User.findByIdAndUpdate(id, {firstName: "Leopold"}, {new: true}, (err, updatedUser) => {
-    res.send(updatedUser.firstName)
+  User.findByIdAndUpdate(id, {firstName: "Jeremy"}, {new: true}, (err, updatedUser) => {
+    if (err) {
+      console.error(err)
+      res.status(404).send('The ID must be 24 characters.').end()
+      return
+   }
+
+   if (updatedUser) {
+    res.status(200).send(updatedUser.firstName)
+    return
+   }
+    
+   console.error('how did we get here?')
   })
 })
 
