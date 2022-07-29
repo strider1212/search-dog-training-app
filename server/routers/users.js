@@ -65,13 +65,13 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
-  //identify the original value
-  //change using splice
-  //exit the function
+  if (key !== 'username' && key !== 'password' && key !== 'firstName' && key !== 'lastName' && key !== 'email' && key !== 'phoneNumber' && key !== 'k9s') {
+    console.error("Key must match userSchema.")
+    res.status(404).end()
+    return
+  }
 
-  //test for invalid keys
-  
-
+  //add an error handler for NAN with phoneNumber
 
   User.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedUser) => {
     if (err) {
