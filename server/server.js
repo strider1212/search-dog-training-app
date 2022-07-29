@@ -24,7 +24,21 @@ app.use(express.json())
 //routes and methods
 app.route('/users')
   .get((req, res) => {
-    
+    User.find({}, (err, users) => {
+      if (err) {
+        console.error(err)
+        res.status(404).end()
+        return
+      }
+
+     if (users) {
+      res.status(200).send(users)
+      return
+     }
+
+     console.error('how did we get here?')
+
+    })
   })
   .post((req, res) =>  {
     //check all field on the front end
