@@ -38,7 +38,7 @@ app.route('/users')
       "k9s": req.query.k9s
     })
     await postUser.save()
-    res.sendStatus(201);
+    res.status(201).send(postUser);
   })
 
 app.route('/users/:id')
