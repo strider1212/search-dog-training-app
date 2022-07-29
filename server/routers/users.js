@@ -92,7 +92,6 @@ router.put('/:id', (req, res) => {
   })
 })
 
-
 //make sure that this is accompanied by a warning message in the front end and only executable by the admin or user themself
 //the user and deleter should also recieve an email
 router.delete('/:id', (req, res) => {
@@ -111,5 +110,10 @@ router.delete('/:id', (req, res) => {
     }
   })
 })
+
+router.get('/:id/k9s', (req, res) => {
+  console.log('connected')
+  res.end()
+}) 
 
 module.exports = router;
