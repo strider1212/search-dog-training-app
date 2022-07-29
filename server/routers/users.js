@@ -131,7 +131,6 @@ router.get('/:id/k9s', (req, res) => {
 }) 
 
 router.post('/:id/k9s', async (req, res) => {
-  //push query to array
   const id = req.params.id;
   const k9ToAdd = req.query.k9
   
@@ -143,13 +142,12 @@ router.post('/:id/k9s', async (req, res) => {
     }
 
     if (user) {
-      return user.k9s;
+      return user;
     }
   }).clone()
 
   k9Array.k9s.push(k9ToAdd);
   res.status(200).send(k9Array);
-
 })
 
 module.exports = router;
