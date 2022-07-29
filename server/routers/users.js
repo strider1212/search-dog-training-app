@@ -146,8 +146,6 @@ router.post('/:id/k9s', (req, res) => {
       return
     }
   })
-
-  
 })
 
 module.exports = router;
