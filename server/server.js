@@ -48,7 +48,7 @@ app.route('/users/:id')
     User.findById(id, (err, user) =>{
       if (err) {
          console.error(err)
-         res.status(404).end()
+         res.status(404).send('The ID must be 24 characters.').end()
          return
       }
     
