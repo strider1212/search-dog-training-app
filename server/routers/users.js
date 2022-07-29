@@ -38,5 +38,23 @@ router.post('/', (req, res) =>  {
   postUser.save()
   res.status(201).send(postUser);
 })
+router.get('/:id', (req, res) => {
+  //require id be 24 characters on the front end
+  const id = req.params.id;
+  User.findById(id, (err, user) =>{
+    if (err) {
+       console.error(err)
+       res.status(404).send('The ID must be 24 characters.').end()
+       return
+    }
+  
+    if (user) {
+       res.status(200).send(user)
+       return
+    }
+  
+    console.error('how did we get here?')
+  })
+})
 
 module.exports = router;
