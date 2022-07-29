@@ -23,7 +23,7 @@ app.use(express.json())
 
 //routes and methods
 app.route('/users')
-  .post(async (req, res) =>  {
+  .post((req, res) =>  {
     //check all field on the front end
     let postUser = new User({
       "username": req.query.username,
@@ -37,7 +37,7 @@ app.route('/users')
       //&k9s[]=spike&k9s[]=lucey
       "k9s": req.query.k9s
     })
-    await postUser.save()
+    postUser.save()
     res.status(201).send(postUser);
   })
 
