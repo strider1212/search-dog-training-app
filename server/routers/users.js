@@ -1,3 +1,4 @@
+const { query } = require('express');
 const express = require('express')
 const router = express.Router()
 
@@ -61,7 +62,10 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id;
-  User.findByIdAndUpdate(id, {firstName: "Keith"}, {new: true}, (err, updatedUser) => {
+  const key = req.query.key;
+  const value = req.query.value;
+
+  User.findByIdAndUpdate(id, {firstName: value}, {new: true}, (err, updatedUser) => {
     if (err) {
       console.error(err)
       res.status(404).end()
