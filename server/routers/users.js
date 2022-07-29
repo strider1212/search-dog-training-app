@@ -61,7 +61,7 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id;
-  User.findByIdAndUpdate(id, {firstName: "Jeremy"}, {new: true}, (err, updatedUser) => {
+  User.findByIdAndUpdate(id, {firstName: "Keith"}, {new: true}, (err, updatedUser) => {
     if (err) {
       console.error(err)
       res.status(404).end()
@@ -69,7 +69,7 @@ router.put('/:id', (req, res) => {
    }
 
    if (updatedUser) {
-    res.status(200).send(updatedUser.firstName)
+    res.status(200).send(updatedUser)
     return
    }
     
