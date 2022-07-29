@@ -130,11 +130,11 @@ router.get('/:id/k9s', (req, res) => {
   })
 }) 
 
-router.post('/:id/k9s', async (req, res) => {
+router.post('/:id/k9s', (req, res) => {
   const id = req.params.id;
   const k9ToAdd = req.query.k9
   
-  let k9Array = await User.findById(id, (err, user) => {
+  User.findByIdAndUpdate(id, {$push : {k9s: k9ToAdd}}, {new: true}, (err, user) => {
     if (err) {
       console.error(err)
       res.status(404).end()
@@ -142,12 +142,12 @@ router.post('/:id/k9s', async (req, res) => {
     }
 
     if (user) {
-      return user;
+      res.status(201).send(user)
+      return
     }
-  }).clone()
+  })
 
-  k9Array.k9s.push(k9ToAdd);
-  res.status(200).send(k9Array);
+  
 })
 
 module.exports = router;
