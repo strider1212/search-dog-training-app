@@ -131,8 +131,12 @@ router.get('/:id/k9s', (req, res) => {
 }) 
 
 router.post('/:id/k9s', (req, res) => {
-  console.log('it is connected')
-  res.end()
+  //identify k9 name from query
+  //idenify array
+  //push query to array
+  const k9ToAdd = req.query.k9
+  console.log(k9ToAdd)
+  res.end() 
 })
 
 module.exports = router;
