@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
 
   })
 })
+
 router.post('/', (req, res) =>  {
   //check all field on the front end
   let postUser = new User({
@@ -38,6 +39,7 @@ router.post('/', (req, res) =>  {
   postUser.save()
   res.status(201).send(postUser);
 })
+
 router.get('/:id', (req, res) => {
   //require id be 24 characters on the front end
   const id = req.params.id;
@@ -55,6 +57,10 @@ router.get('/:id', (req, res) => {
   
     console.error('how did we get here?')
   })
+})
+
+router.put('/users/:id', (req, res) => {
+  
 })
 
 module.exports = router;
