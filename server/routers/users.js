@@ -65,11 +65,12 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
-  //identify whether we are trying to access the key k9s
-  //identify the original key
-  //identify the new value
+  //identify the original value
   //change using splice
   //exit the function
+
+  //test for invalid keys
+  
 
 
   User.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedUser) => {
@@ -79,10 +80,15 @@ router.put('/:id', (req, res) => {
       return
    }
 
-   if (updatedUser) {
-    res.status(200).send(updatedUser)
-    return
-   }
+    if (key === 'k9s') {
+      res.status(404).send('Cannot update this category in this way. Can only add or delete from k9s.')
+      return
+    }
+
+    if (updatedUser) {
+      res.status(200).send(updatedUser)
+      return
+    }
     
    console.error('how did we get here?')
   })
