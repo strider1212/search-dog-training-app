@@ -73,8 +73,6 @@ router.put('/:id', (req, res) => {
       return
    }
 
-   console.log(Object.keys(updatedUser))
-
    if (updatedUser) {
     res.status(200).send(updatedUser)
     return
