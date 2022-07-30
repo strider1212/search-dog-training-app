@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const { waterSchema } = require('./water');
+
 const logSchema = new mongoose.Schema({
   "created_by": {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   "date": Date,
