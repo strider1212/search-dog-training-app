@@ -39,35 +39,33 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  console.log('connect')
-  res.end()
-  // const id = req.params.id;
-  // const key = req.query.key;
-  // const value = req.query.value;
+  const id = req.params.id;
+  const key = req.query.key;
+  const value = req.query.value;
 
-  // if (key !== 'username' && key !== 'password' && key !== 'firstName' && key !== 'lastName' && key !== 'email' && key !== 'phoneNumber' && key !== 'k9s') {
-  //   console.error("Key must match userSchema.")
-  //   res.status(404).end()
-  //   return
-  // }
+  if (key !== 'team_name' && key !== 'created_by' && key !== 'date_created' && key !== 'members' && key !== 'admin_members') {
+    console.error("Key must match userSchema.")
+    res.status(404).end()
+    return
+  }
 
-  // User.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedUser) => {
-  //   if (err) {
-  //     console.error(err)
-  //     res.status(404).end()
-  //     return
-  //  }
+  Team.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedTeam) => {
+    if (err) {
+      console.error(err)
+      res.status(404).end()
+      return
+   }
 
-  //   if (key === 'k9s') {
-  //     res.status(404).send('Cannot update this category in this way. Can only add or delete from k9s.')
-  //     return
-  //   }
+    if (key === 'members' || admin_members) {
+      res.status(404).send('Cannot update this category in this way. Can only add or delete.')
+      return
+    }
 
-  //   if (updatedUser) {
-  //     res.status(200).send(updatedUser)
-  //     return
-  //   }
+    if (updatedTeam) {
+      res.status(200).send(updatedTeam)
+      return
+    }
     
-  //  console.error('how did we get here?')
-  // })
+   console.error('how did we get here?')
+  })
 })
