@@ -164,7 +164,9 @@ router.post('/:id/k9s', (req, res) => {
 
 router.delete('/:id/k9s/:k9', (req, res) => {
   //will delete two of the same, though they shouldn't be there
-  console.log('connected')
+  const individualk9 = req.params.k9;
+
+  console.log(individualk9)
   res.end()
 })
 
