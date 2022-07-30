@@ -69,3 +69,8 @@ router.put('/:id', (req, res) => {
    console.error('how did we get here?')
   })
 })
+
+router.delete('/:id', (req, res) => {
+  console.log('check')
+  res.end()
+})
