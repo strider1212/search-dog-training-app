@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
     "wind_speed": req.query.wind_speed,
     //weather API
     "humidity": req.query.humidity,
-    "placement_descpription": req.query.placement_descpription,
+    "placement_description": req.query.placement_description,
     //ID of user
     //select from available users 
     "placed_by": req.query.placed_by,

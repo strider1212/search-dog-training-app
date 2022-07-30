@@ -66,7 +66,7 @@ const logSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  "placement_descpription": {
+  "placement_description": {
     type: String,
     required: true
   },
