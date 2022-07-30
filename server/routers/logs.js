@@ -138,8 +138,20 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  console.log('connected BOOOY!!!')
-  res.end()
+  const id = req.params.id;
+
+  Log.findByIdAndDelete(id, (err, log) => {
+    if (err) {
+      console.error(err)
+      res.status(400).end()
+      return
+    }
+
+    if (log) {
+      res.status(200).send(`Log #${log._id} was deleted.`)
+      return
+    }
+  })
 })
 
 module.exports = router;
