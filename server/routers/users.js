@@ -163,7 +163,6 @@ router.post('/:id/k9s', (req, res) => {
 })
 
 router.delete('/:id/k9s/:k9', (req, res) => {
-  //will delete two of the same, though they shouldn't be there
   const id = req.params.id;
   const k9 = req.params.k9;
 
