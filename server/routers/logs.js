@@ -45,4 +45,9 @@ router.post('/', (req, res) => {
   res.status(201).send(postLog);
 })
 
+router.get('/', (req, res) => {
+  console.log('connected')
+  res.end()
+})
+
 module.exports = router;
