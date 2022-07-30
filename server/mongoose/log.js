@@ -97,15 +97,6 @@ const logSchema = new mongoose.Schema({
   }
 })
 
-
-
-  //water schema
-  //individual member schema
-    //member
-    //blind?
-    //k9
-
-
 const Log = mongoose.model('Log', logSchema);
 
 module.exports = {logSchema, Log}
