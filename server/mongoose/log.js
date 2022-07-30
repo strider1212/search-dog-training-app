@@ -94,6 +94,10 @@ const logSchema = new mongoose.Schema({
   "water_data": {
     child: waterSchema,
     required: false
+  },
+  "individual_runs": {
+    children: [memberSchema],
+    required: false
   }
 })
 
