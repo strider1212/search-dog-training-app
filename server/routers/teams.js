@@ -71,6 +71,18 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  console.log('check')
-  res.end()
+  const id = req.params.id;
+
+  Team.findByIdAndDelete(id, (err, team) => {
+    if (err) {
+      console.error(err)
+      res.status(400).end()
+      return
+    }
+
+    if (team) {
+      res.status(200).send(`${team.team_name}'s account was deleted.`)
+      return
+    }
+  })
 })
