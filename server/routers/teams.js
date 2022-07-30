@@ -37,3 +37,37 @@ router.get('/:id', (req, res) => {
       console.error('how did we get here?')
     })
 })
+
+router.put('/:id', (req, res) => {
+  console.log('connect')
+  res.end()
+  // const id = req.params.id;
+  // const key = req.query.key;
+  // const value = req.query.value;
+
+  // if (key !== 'username' && key !== 'password' && key !== 'firstName' && key !== 'lastName' && key !== 'email' && key !== 'phoneNumber' && key !== 'k9s') {
+  //   console.error("Key must match userSchema.")
+  //   res.status(404).end()
+  //   return
+  // }
+
+  // User.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedUser) => {
+  //   if (err) {
+  //     console.error(err)
+  //     res.status(404).end()
+  //     return
+  //  }
+
+  //   if (key === 'k9s') {
+  //     res.status(404).send('Cannot update this category in this way. Can only add or delete from k9s.')
+  //     return
+  //   }
+
+  //   if (updatedUser) {
+  //     res.status(200).send(updatedUser)
+  //     return
+  //   }
+    
+  //  console.error('how did we get here?')
+  // })
+})
