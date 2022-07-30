@@ -186,7 +186,7 @@ router.delete('/:id/k9s/:k9', (req, res) => {
       if (err) {
         console.error(err)
         res.status(404).end()
-        return
+        return;
       }
 
       if (data) {
@@ -194,10 +194,6 @@ router.delete('/:id/k9s/:k9', (req, res) => {
         return
       }
     })
-
-    // User.findOneAndDelete({k9s: match}, (err, data) => {
-    //   res.status(201).send(`Successfully deleted ${k9} from user account.`)
-    // })
   })
 
 
