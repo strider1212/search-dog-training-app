@@ -1,12 +1,30 @@
 const mongoose = require('mongoose');
 
 const waterSchema = new mongoose.Schema({
-  "open": Boolean,
-  "submerged": Boolean,
-  "depth": Number,
-  "salt_water": Boolean,
-  "water_type": String,
-  "temperature": Number
+  "open": {
+    type: Boolean,
+    required: true
+  },
+  "submerged": {
+    type: Boolean,
+    required: true
+  },
+  "depth": {
+    type: Number,
+    required: true
+  },
+  "salt_water": {
+    type: Boolean,
+    required: true
+  },
+  "water_type": {
+    type: String,
+    required: true
+  },
+  "temperature": {
+    type: Number,
+    required: true
+  }
 })
 
 const Water = mongoose.model('Water', waterSchema);
