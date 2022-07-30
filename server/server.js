@@ -7,6 +7,7 @@ require('dotenv').config({path: '../.env'});
 //routers
 const users = require('./routers/users');
 const teams = require('./routers/teams')
+const logs = require('./routers/logs')
 
 //.env imports
 const connectUsername = process.env.USERNAME;
@@ -25,6 +26,7 @@ app.use(express.json())
 //routes and methods
 app.use('/users', users);
 app.use('/teams', teams);
+app.use('/logs', logs)
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}.`)

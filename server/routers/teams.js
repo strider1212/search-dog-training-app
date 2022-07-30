@@ -3,8 +3,6 @@ const router = express.Router();
 
 const { Team } = require('../mongoose/team');
 
-module.exports = router;
-
 router.post('/', (req, res) => {
   let postTeam = new Team({
     "team_name": req.query.team_name,
@@ -86,3 +84,5 @@ router.delete('/:id', (req, res) => {
     }
   })
 })
+
+module.exports = router;
