@@ -149,8 +149,6 @@ router.post('/:id/k9s', (req, res) => {
     const currentK9s = user.k9s;
     var unique = currentK9s.filter((v, i, a) => a.indexOf(v) === i);
 
-    console.log(`unqiue: ${unique}, currentk9s: ${currentK9s}`)
-
     if(!arrayEquals(currentK9s, unique)) {
       currentK9s.pop();
       res.status(404).send('Cannot have two k9s of the same name per user.').end()
