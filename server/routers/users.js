@@ -143,9 +143,6 @@ router.post('/:id/k9s', (req, res) => {
       return
     }
 
-    //if it does, pop()
-    //status, end, and return
-
     const currentK9s = user.k9s;
     var unique = currentK9s.filter((v, i, a) => a.indexOf(v) === i);
 
@@ -157,7 +154,6 @@ router.post('/:id/k9s', (req, res) => {
       return
     }
     
-
     if (user) {
       res.status(201).send(user)
       return
