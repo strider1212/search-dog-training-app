@@ -7,11 +7,12 @@ module.exports = router;
 
 router.post('/', (req, res) => {
   let postTeam = new Team({
-    "team_name": req.query.team_name,
-    "created_by": {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    "date_created": Date,
-    "members": Array,
-    "admin_members": Array
+    "team_name": String,
+    //memberID
+    "created_by": req.query.created_by,
+    "date_created": new Date(),
+    "members": req.query.members,
+    "admin_members": req.query.admin_members
   })
   res.status(201).send(postTeam)
 })
