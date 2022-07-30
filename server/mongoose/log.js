@@ -26,7 +26,7 @@ const logSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  "traing_hours": {
+  "training_hours": {
     type: Number, 
     required: true
   },
