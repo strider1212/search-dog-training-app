@@ -164,10 +164,45 @@ router.post('/:id/k9s', (req, res) => {
 
 router.delete('/:id/k9s/:k9', (req, res) => {
   //will delete two of the same, though they shouldn't be there
-  const individualk9 = req.params.k9;
+  const id = req.params.id;
+  const k9 = req.params.k9;
 
-  console.log(individualk9)
-  res.end()
+  User.findById(id, (err, user) => {
+    if (err) {
+      console.error(err)
+      res.status(404).end()
+      return
+    }
+
+    const userk9s = user.k9s;
+    let match;
+    userk9s.map(dog => {
+      if (dog === k9) {
+        match = dog;
+      }
+    })
+
+    User.findByIdAndUpdate(id, {$pull:{k9s: match}}, {new: true}, (err, data) => {
+      if (err) {
+        console.error(err)
+        res.status(404).end()
+        return
+      }
+
+      if (data) {
+        res.status(201).send(`Successfully deleted ${k9} from user account.`).end()
+        return
+      }
+    })
+
+    // User.findOneAndDelete({k9s: match}, (err, data) => {
+    //   res.status(201).send(`Successfully deleted ${k9} from user account.`)
+    // })
+  })
+
+
+  
+  
 })
 
 module.exports = router;
