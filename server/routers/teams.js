@@ -21,6 +21,19 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  console.log('connected')
-  res.end()
+   const id = req.params.id;
+    Team.findById(id, (err, team) =>{
+      if (err) {
+        console.error(err)
+        res.status(404).end()
+        return
+      }
+    
+      if (team) {
+        res.status(200).send(team)
+        return
+      }
+    
+      console.error('how did we get here?')
+    })
 })
