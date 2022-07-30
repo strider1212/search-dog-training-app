@@ -116,7 +116,7 @@ router.put('/:id', (req, res) => {
     return
   }
 
-  User.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedLog) => {
+  Log.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedLog) => {
     if (err) {
       console.error(err)
       res.status(404).end()
