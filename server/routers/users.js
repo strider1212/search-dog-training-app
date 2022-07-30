@@ -39,7 +39,7 @@ router.post('/', (req, res) =>  {
     //&k9s[]=spike&k9s[]=lucey
     "k9s": req.query.k9s
   })
-  postUser.save()
+  postUser.save();
   res.status(201).send(postUser);
 })
 

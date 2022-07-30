@@ -16,5 +16,6 @@ router.post('/', (req, res) => {
     //?admin_members[]=ID
     "admin_members": req.query.admin_members
   })
-  res.status(201).send(postTeam)
+  postTeam.save();
+  res.status(201).send(postTeam);
 })
