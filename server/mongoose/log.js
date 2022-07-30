@@ -17,7 +17,7 @@ const logSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  "Team": {
+  "team": {
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Team',
     required: true
