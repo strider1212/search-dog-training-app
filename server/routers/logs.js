@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
     //teamID
     "team": req.query.team,
     "training_type": req.query.training_type,
-    "training_hours": req.query.traing_hours,
+    "training_hours": req.query.training_hours,
     "travel_hours": req.query.travel_hours,
     //self-calculate on the front-end
     "aggregate_hours": req.query.aggregate_hours,
