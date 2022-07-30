@@ -7,7 +7,7 @@ module.exports = router;
 
 router.post('/', (req, res) => {
   let postTeam = new Team({
-    "team_name": String,
+    "team_name": req.query.team_name,
     //memberID
     "created_by": req.query.created_by,
     "date_created": new Date(),
