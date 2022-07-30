@@ -11,7 +11,9 @@ router.post('/', (req, res) => {
     //memberID
     "created_by": req.query.created_by,
     "date_created": new Date(),
+    //?members[]=ID
     "members": req.query.members,
+    //?admin_members[]=ID
     "admin_members": req.query.admin_members
   })
   res.status(201).send(postTeam)
