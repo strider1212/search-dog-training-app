@@ -56,7 +56,7 @@ router.put('/:id', (req, res) => {
       return
    }
 
-    if (key === 'members' || admin_members) {
+    if (key === 'members' || key === 'admin_members') {
       res.status(404).send('Cannot update this category in this way. Can only add or delete.')
       return
     }
