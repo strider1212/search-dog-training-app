@@ -82,4 +82,9 @@ router.get('/:id', (req, res) => {
   })
 })
 
+router.put('/:id', (req, res) => {
+  console.log('connected')
+  res.end()
+})
+
 module.exports = router;
