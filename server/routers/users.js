@@ -4,6 +4,8 @@ const router = express.Router()
 
 const { User } = require('../mongoose/user');
 
+const arrayEquals = require('../utils/arrayEquals')
+
 
 router.get('/', (req, res) => {
   User.find({}, (err, users) => {
@@ -149,7 +151,7 @@ router.post('/:id/k9s', (req, res) => {
 
     console.log(`unqiue: ${unique}, currentk9s: ${currentK9s}`)
 
-    if(unique != currentK9s) {
+    if(!arrayEquals(currentK9s, unique)) {
       currentK9s.pop();
       res.status(404).send('Cannot have two k9s of the same name per user.').end()
       return
