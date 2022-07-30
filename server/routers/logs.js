@@ -3,6 +3,9 @@ const router = express.Router();
 
 const { Log } = require('../mongoose/log')
 
-console.log('testing logs.js')
+router.post('/', (req, res) => {
+  console.log('connected')
+  res.end()
+})
 
 module.exports = router;
