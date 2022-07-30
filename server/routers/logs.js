@@ -29,8 +29,8 @@ router.post('/', (req, res) => {
     "water": req.query,
     //water_data and inidividual_runs aren't going to be posted with this individual post they will be added on their own
   })
-  console.log('connected')
-  res.end()
+  postLog.save();
+  res.status(201).send(postLog);
 })
 
 module.exports = router;
