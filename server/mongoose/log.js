@@ -21,12 +21,13 @@ const logSchema = new mongoose.Schema({
   "temperature": String,
   "wind_speed": String,
   "humidity": Number,
-  "land/water?": String,
   "placement": String,
   "scent_source": String,
   "source_container": String,
   "time": Number,
-  "placed_by": {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  "placed_by": {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  "water": Boolean,
+  "water_data": waterSchema
 })
 
 
