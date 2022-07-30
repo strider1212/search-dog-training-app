@@ -22,35 +22,12 @@ router.post('/', (req, res) => {
     "wind_speed": req.query.wind_speed,
     "humidity": req.query.humidity,
     "placement_descpription": req.query.placement_descpription,
-    "placed_by": {
-      type: mongoose.Schema.Types.ObjectId, 
-      ref: 'User',
-      required: true
-    },
-    "scent_source": {
-      type: String,
-      required: true
-    },
-    "source_container": {
-      type: String,
-      required: true
-    },
-    "time": {
-      type: Date,
-      required: true
-    },
-    "water": {
-      type: Boolean,
-      required: true
-    },
-    "water_data": {
-      child: waterSchema,
-      required: false
-    },
-    "individual_runs": {
-      children: [memberSchema],
-      required: false
-    }
+    "placed_by": req.query.placed_by,
+    "scent_source": req.query.scent_source,
+    "source_container": req.query.source_container,
+    "time": new Date(),
+    "water": req.query,
+    //water_data and inidividual_runs aren't going to be posted with this individual post they will be added on their own
   })
   console.log('connected')
   res.end()
