@@ -11,9 +11,9 @@ router.post('/', (req, res) => {
     //memberID
     "created_by": req.query.created_by,
     "date_created": new Date(),
-    //?members[]=ID
+    //?members[]=memberID
     "members": req.query.members,
-    //?admin_members[]=ID
+    //?admin_members[]=memberID
     "admin_members": req.query.admin_members
   })
   postTeam.save();
