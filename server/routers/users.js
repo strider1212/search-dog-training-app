@@ -146,6 +146,7 @@ router.post('/:id/k9s', (req, res) => {
     const currentK9s = user.k9s;
     var unique = currentK9s.filter((v, i, a) => a.indexOf(v) === i);
 
+    //checks to see if dog name has already been added by user
     if(!arrayEquals(currentK9s, unique)) {
       User.findByIdAndUpdate(id, {$pop : {k9s: 1}}, {new: true}, (err, user ) => {
         console.log('no new k9 added')
@@ -153,7 +154,7 @@ router.post('/:id/k9s', (req, res) => {
       res.status(404).send('Cannot have more than one dog by the same name per user').end()
       return
     }
-    
+
     if (user) {
       res.status(201).send(user)
       return
