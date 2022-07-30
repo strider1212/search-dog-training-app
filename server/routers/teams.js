@@ -19,3 +19,8 @@ router.post('/', (req, res) => {
   postTeam.save();
   res.status(201).send(postTeam);
 })
+
+router.get('/:id', (req, res) => {
+  console.log('connected')
+  res.end()
+})
