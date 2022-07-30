@@ -3,38 +3,106 @@ const mongoose = require('mongoose');
 const { waterSchema } = require('./water');
 
 const logSchema = new mongoose.Schema({
-  "created_by": {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  "date": Date,
-  "address": String,
-  "Team": {type: mongoose.Schema.Types.ObjectId, ref: 'Team'},
-  "training_type": String,
-  "member_name": {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  "k9_name": {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  "general_hours": Number,
-  "traing_hours": Number,
-  "travel_hours": Number,
-  "aggregate_hours": Number,
-  "mileage": Number,
-  "tolls": Number,
-  "time_of_day": String,
-  "weather": String,
-  "temperature": String,
-  "wind_speed": String,
-  "humidity": Number,
-  "placement": String,
-  "scent_source": String,
-  "source_container": String,
-  "time": Number,
-  "placed_by": {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  "water": Boolean,
-  "water_data": waterSchema
+  "log_created_by": {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User',
+    required: true
+  },
+  "date": {
+    type: Date,
+    required: true
+  },
+  "address": {
+    type: String,
+    required: true
+  },
+  "Team": {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Team',
+    required: true
+  },
+  "training_type": {
+    type: String,
+    required: false
+  },
+  "traing_hours": {
+    type: Number, 
+    required: true
+  },
+  "travel_hours": {
+    type: Number,
+    required: true
+  },
+  "aggregate_hours": {
+    type: Number,
+    required: true
+  },
+  "mileage": {
+    type: Number,
+    required: true
+  },
+  "tolls": {
+    type: Number,
+    required: true
+  },
+  "time_of_day": {
+    type: String,
+    required: true
+  },
+  "weather": {
+    type: String,
+    required: true
+  },
+  "temperature": {
+    type: String,
+    required: true
+  },
+  "wind_speed": {
+    type: String,
+    required: true
+  },
+  "humidity": {
+    type: Number,
+    required: true
+  },
+  "placement_descpription": {
+    type: String,
+    required: true
+  },
+  "placed_by": {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User',
+    required: true
+  },
+  "scent_source": {
+    type: String,
+    required: true
+  },
+  "source_container": {
+    type: String,
+    required: true
+  },
+  "time": {
+    type: Date,
+    required: true
+  },
+  "water": {
+    type: Boolean,
+    required: true
+  },
+  "water_data": {
+    child: waterSchema,
+    required: false
+  }
 })
 
 
 
   //water schema
   //individual member schema
+    //member
     //blind?
+    //k9
 
   
   
