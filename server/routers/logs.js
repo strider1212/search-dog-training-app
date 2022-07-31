@@ -5,23 +5,10 @@ const { Log } = require('../mongoose/log');
 
 const logsKeyArray = require('../data/keyArray');
 const keyChecker = require('../utils/keyChecker');
+const getAll = require('../methodFunctions/getAll')
 
 router.get('/', (req, res) => {
-  Log.find({}, (err, logs) => {
-    if (err) {
-      console.error(err)
-      res.status(404).end()
-      return
-    }
-
-   if (logs) {
-    res.status(200).send(logs)
-    return
-   }
-
-   console.error('how did we get here?')
-
-  })
+  getAll(Log, 'logs', req, res);
 })
 
 router.post('/', (req, res) => {
