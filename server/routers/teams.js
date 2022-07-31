@@ -6,6 +6,7 @@ const { Team } = require('../mongoose/team');
 const teamsKeyArray = require('../data/keyArray')
 const keyChecker = require('../utils/keyChecker')
 const postNew = require('../methodFunctions/postNew')
+const getById = require('../methodFunctions/getById')
 
 router.post('/', (req, res) => {
   let postTeam = new Team({
@@ -22,21 +23,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-   const id = req.params.id;
-    Team.findById(id, (err, team) =>{
-      if (err) {
-        console.error(err)
-        res.status(404).end()
-        return
-      }
-    
-      if (team) {
-        res.status(200).send(team)
-        return
-      }
-    
-      console.error('how did we get here?')
-    })
+  getById(Team, 'teams', req, res);
 })
 
 router.put('/:id', (req, res) => {
