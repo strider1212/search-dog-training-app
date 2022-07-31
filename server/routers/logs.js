@@ -5,7 +5,8 @@ const { Log } = require('../mongoose/log');
 
 const logsKeyArray = require('../data/keyArray');
 const keyChecker = require('../utils/keyChecker');
-const getAll = require('../methodFunctions/getAll')
+const getAll = require('../methodFunctions/getAll');
+const postNew = require('../methodFunctions/postNew');
 
 router.get('/', (req, res) => {
   getAll(Log, 'logs', req, res);
@@ -49,8 +50,7 @@ router.post('/', (req, res) => {
     "water": req.query.water
     //water_data and inidividual_runs aren't going to be posted with this individual post they will be added on their own
   })
-  postLog.save();
-  res.status(201).send(postLog);
+  postNew(postLog, Log, req, res);
 })
 
 router.get('/:id', (req, res) => {
