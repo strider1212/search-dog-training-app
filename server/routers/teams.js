@@ -5,6 +5,7 @@ const { Team } = require('../mongoose/team');
 
 const teamsKeyArray = require('../data/keyArray')
 const keyChecker = require('../utils/keyChecker')
+const postNew = require('../methodFunctions/postNew')
 
 router.post('/', (req, res) => {
   let postTeam = new Team({
@@ -17,8 +18,7 @@ router.post('/', (req, res) => {
     //?admin_members[]=memberID
     "admin_members": req.query.admin_members
   })
-  postTeam.save();
-  res.status(201).send(postTeam);
+  postNew(postTeam, Team, req, res);
 })
 
 router.get('/:id', (req, res) => {
