@@ -6,6 +6,24 @@ const { Log } = require('../mongoose/log');
 const logsKeyArray = require('../data/keyArray');
 const keyChecker = require('../utils/keyChecker');
 
+router.get('/', (req, res) => {
+  Log.find({}, (err, logs) => {
+    if (err) {
+      console.error(err)
+      res.status(404).end()
+      return
+    }
+
+   if (logs) {
+    res.status(200).send(logs)
+    return
+   }
+
+   console.error('how did we get here?')
+
+  })
+})
+
 router.post('/', (req, res) => {
   let postLog = new Log({
     //populated automatically in the front end
@@ -46,24 +64,6 @@ router.post('/', (req, res) => {
   })
   postLog.save();
   res.status(201).send(postLog);
-})
-
-router.get('/', (req, res) => {
-  Log.find({}, (err, logs) => {
-    if (err) {
-      console.error(err)
-      res.status(404).end()
-      return
-    }
-
-   if (logs) {
-    res.status(200).send(logs)
-    return
-   }
-
-   console.error('how did we get here?')
-
-  })
 })
 
 router.get('/:id', (req, res) => {
