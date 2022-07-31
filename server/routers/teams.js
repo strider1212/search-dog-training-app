@@ -3,6 +3,9 @@ const router = express.Router();
 
 const { Team } = require('../mongoose/team');
 
+const teamsKeyArray = require('../data/keyArray')
+const keyChecker = require('../utils/keyChecker')
+
 router.post('/', (req, res) => {
   let postTeam = new Team({
     "team_name": req.query.team_name,
@@ -41,7 +44,7 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
-  if (key !== 'team_name' && key !== 'created_by' && key !== 'date_created' && key !== 'members' && key !== 'admin_members') {
+  if (!keyChecker(key, teamsKeyArray.teamsKeyArray)) {
     console.error("Key must match userSchema.")
     res.status(404).end()
     return
