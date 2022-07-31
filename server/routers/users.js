@@ -9,6 +9,7 @@ const arrayEquals = require('../utils/arrayEquals')
 const keyChecker = require('../utils/keyChecker')
 const usersKeyArray = require('../data/keyArray')
 const getAll = require('../methodFunctions/getAll')
+const postNew = require('../methodFunctions/postNew')
 
 
 router.get('/', (req, res) => {
@@ -29,8 +30,7 @@ router.post('/', (req, res) =>  {
     //&k9s[]=spike&k9s[]=lucey
     "k9s": req.query.k9s
   })
-  postUser.save();
-  res.status(201).send(postUser);
+  postNew(postUser, User, req, res)
 })
 
 router.get('/:id', (req, res) => {
