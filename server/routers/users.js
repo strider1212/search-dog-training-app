@@ -8,24 +8,11 @@ const { User } = require('../mongoose/user');
 const arrayEquals = require('../utils/arrayEquals')
 const keyChecker = require('../utils/keyChecker')
 const usersKeyArray = require('../data/keyArray')
+const getAll = require('../methodFunctions/getAll')
 
 
 router.get('/', (req, res) => {
-  User.find({}, (err, users) => {
-    if (err) {
-      console.error(err)
-      res.status(404).end()
-      return
-    }
-
-   if (users) {
-    res.status(200).send(users)
-    return
-   }
-
-   console.error('how did we get here?')
-
-  })
+  getAll(User, 'users', req, res)
 })
 
 router.post('/', (req, res) =>  {
