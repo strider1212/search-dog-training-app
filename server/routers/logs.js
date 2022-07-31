@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const { Log } = require('../mongoose/log')
+const { Log } = require('../mongoose/log');
+
+const logsKeyArray = require('../data/keyArray');
+const keyChecker = require('../utils/keyChecker');
 
 router.post('/', (req, res) => {
   let postLog = new Log({
@@ -87,30 +90,7 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
-  if (
-    key !== 'log_created_by' && 
-    key !== 'date' && 
-    key !== 'address' && 
-    key !== 'team' && 
-    key !== 'training_type' && 
-    key !== 'training_hours' && 
-    key !== 'travel_hours' &&
-    key !== 'aggregate_hours' &&
-    key !== 'mileage' &&
-    key !== 'tolls' &&
-    key !== 'time_of_day' &&
-    key !== 'weather' &&
-    key !== 'temperature' &&
-    key !== 'wind_speed' &&
-    key !== 'humidity' &&
-    key !== 'placement_description' &&
-    key !== 'placed_by' &&
-    key !== 'scent_source' &&
-    key !== 'source_container' &&
-    key !== 'time' &&
-    key !== 'water' &&
-    key !== 'water_data' &&
-    key !== 'individual_runs') {
+  if (!keyChecker(key, logsKeyArray.logsKeyArray)) {
     console.error("Key must match userSchema.")
     res.status(404).end()
     return
