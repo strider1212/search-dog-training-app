@@ -2,7 +2,7 @@ const { query } = require('express');
 const express = require('express')
 const router = express.Router()
 
-const { User, postUser } = require('../mongoose/user');
+const { User } = require('../mongoose/user');
 
 //utils & data
 const arrayEquals = require('../utils/arrayEquals')
