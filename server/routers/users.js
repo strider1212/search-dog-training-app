@@ -4,7 +4,10 @@ const router = express.Router()
 
 const { User } = require('../mongoose/user');
 
+//utils & data
 const arrayEquals = require('../utils/arrayEquals')
+const keyChecker = require('../utils/keyChecker')
+const usersKeyArray = require('../data/keyArray')
 
 
 router.get('/', (req, res) => {
@@ -67,7 +70,7 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
-  if (key !== 'username' && key !== 'password' && key !== 'firstName' && key !== 'lastName' && key !== 'email' && key !== 'phoneNumber' && key !== 'k9s') {
+  if (!keyChecker(key, usersKeyArray.usersKeyArray)) {
     console.error("Key must match userSchema.")
     res.status(404).end()
     return
