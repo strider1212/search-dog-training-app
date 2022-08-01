@@ -43,7 +43,6 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const id = req.params.id;
   const key = req.query.key;
   const value = req.query.value;
 
@@ -58,7 +57,7 @@ router.put('/:id', (req, res) => {
     return
   }
 
-  putById(id, key, value, User, 'user', req, res)
+  putById(key, value, User, 'user', req, res)
 })
 
 //make sure that this is accompanied by a warning message in the front end and only executable by the admin or user themself
