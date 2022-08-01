@@ -95,6 +95,7 @@ router.post('/water', async (req, res) => {
     "salt_water": req.query.salt_water,
     "water_type": req.query.water_type,
     "temperature": req.query.temperature,
+    //log ID
     "associated_log": associatedLog
   })
 
@@ -128,6 +129,7 @@ router.post('/individual_runs', async (req, res) => {
     "k9": req.query.k9,
     "distractions": req.query.distractions,
     "notes": req.query.notes,
+    //log ID
     "associated_log": associatedLog
   })
 
