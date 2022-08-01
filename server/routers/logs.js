@@ -7,8 +7,6 @@ const { Individual_Runs } = require('../mongoose/individual_runs')
 
 const { logsKeyArray } = require('../data/keyArray');
 const { logsKeyMatch } = require('../data/keyMatchArray');
-const keyChecker = require('../utils/keyChecker');
-const arrayKeyChecker = require('../utils/arrayKeyChecker');
 const getAll = require('../methodFunctions/getAll');
 const postNew = require('../methodFunctions/postNew');
 const getById = require('../methodFunctions/getById');
@@ -65,20 +63,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const key = req.query.key;
-
-  if (arrayKeyChecker(logsKeyMatch, key)) {
-    res.status(404).send('Cannot update this category in this way. Can only add or delete.')
-    return
-  }
-  
-  if (!keyChecker(key, logsKeyArray)) {
-    console.error("Key must match userSchema.")
-    res.status(404).end()
-    return
-  }
-
-  putById(key, Log, 'logs', req, res);
+  putById(Log, 'logs', logsKeyMatch, logsKeyArray, req, res);
 })
 
 router.delete('/:id', (req, res) => {
