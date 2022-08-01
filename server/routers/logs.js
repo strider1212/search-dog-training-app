@@ -7,6 +7,7 @@ const { Individual_Runs } = require('../mongoose/individual_runs')
 
 const { logsKeyArray } = require('../data/keyArray');
 const { logsKeyMatch } = require('../data/keyMatchArray');
+const { waterKeyArray } = require('../data/keyArray');
 const getAll = require('../methodFunctions/getAll');
 const postNew = require('../methodFunctions/postNew');
 const getById = require('../methodFunctions/getById');
@@ -94,6 +95,10 @@ router.post('/water', async (req, res) => {
 
 router.get('/water/:id', (req, res) => {
   getById(Water, 'item', req, res)
+})
+
+router.put('/water/:id', (req, res) => {
+  putById(Water, 'item', [], waterKeyArray, req, res)
 })
 
 router.post('/individual_runs', async (req, res) => {
