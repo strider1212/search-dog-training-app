@@ -8,6 +8,7 @@ const keyChecker = require('../utils/keyChecker');
 const getAll = require('../methodFunctions/getAll');
 const postNew = require('../methodFunctions/postNew');
 const getById = require('../methodFunctions/getById');
+const putById = require('../methodFunctions/putById');
 
 router.get('/', (req, res) => {
   getAll(Log, 'logs', req, res);
@@ -63,31 +64,18 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
+  if (key === 'individual_runs') {
+    res.status(404).send('Cannot update this category in this way. Can only add or delete.')
+    return
+  }
+  
   if (!keyChecker(key, logsKeyArray.logsKeyArray)) {
     console.error("Key must match userSchema.")
     res.status(404).end()
     return
   }
 
-  Log.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedLog) => {
-    if (err) {
-      console.error(err)
-      res.status(404).end()
-      return
-   }
-
-    if (key === 'individual_runs') {
-      res.status(404).send('Cannot update this category in this way. Can only add or delete.')
-      return
-    }
-
-    if (updatedLog) {
-      res.status(200).send(updatedLog)
-      return
-    }
-    
-   console.error('how did we get here?')
-  })
+  putById(id, key, value, Log, 'logs', req, res);
 })
 
 router.delete('/:id', (req, res) => {
