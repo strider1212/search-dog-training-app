@@ -132,8 +132,9 @@ router.post('/individual_runs', async (req, res) => {
   })
 
   await logIndividual_runs.save();
+  await console.log(logIndividual_runs)
 
-  await Log.findByIdAndUpdate(associatedLog, {$push: {"individual_runs.children": logIndividual_runs._id}}, {new: true, lean: true}, (err, log) => {
+  await Log.findByIdAndUpdate(associatedLog, {$push: {"individual_runs.children": logIndividual_runs}}, (err, log) => {
     if (err) {
       console.error(err)
       res.status(404).end()
