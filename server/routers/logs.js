@@ -4,7 +4,9 @@ const router = express.Router();
 const { Log } = require('../mongoose/log');
 
 const logsKeyArray = require('../data/keyArray');
+const { logsKeyMatch } = require('../data/keyMatchArray');
 const keyChecker = require('../utils/keyChecker');
+const arrayKeyChecker = require('../utils/arrayKeyChecker');
 const getAll = require('../methodFunctions/getAll');
 const postNew = require('../methodFunctions/postNew');
 const getById = require('../methodFunctions/getById');
@@ -65,7 +67,7 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
-  if (key === 'individual_runs') {
+  if (arrayKeyChecker(logsKeyMatch, key)) {
     res.status(404).send('Cannot update this category in this way. Can only add or delete.')
     return
   }
