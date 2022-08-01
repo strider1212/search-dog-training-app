@@ -6,4 +6,6 @@ const logsKeyArray = ['log_created_by', 'date', 'address', 'team', 'training_typ
 
 const waterKeyArray = ['open', 'submerged', 'depth', 'salt_water', 'water_type', 'temperature', 'associated_log'];
 
-module.exports = { usersKeyArray, teamsKeyArray, logsKeyArray, waterKeyArray }
+const individual_runsKeyArray = ['user', 'time', 'blind', 'k9', 'distractions', 'notes', 'associated_log'];
+
+module.exports = { usersKeyArray, teamsKeyArray, logsKeyArray, waterKeyArray, individual_runsKeyArray }
