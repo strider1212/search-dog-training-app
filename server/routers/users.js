@@ -10,7 +10,8 @@ const keyChecker = require('../utils/keyChecker')
 const usersKeyArray = require('../data/keyArray')
 const getAll = require('../methodFunctions/getAll')
 const postNew = require('../methodFunctions/postNew')
-const getById = require('../methodFunctions/getById');
+const getById = require('../methodFunctions/getById')
+const putById = require('../methodFunctions/putById')
 
 
 router.get('/', (req, res) => {
@@ -43,31 +44,18 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
+  if (key === 'k9s') {
+    res.status(404).send('Cannot update this category in this way. Can only add or delete from k9s.')
+    return
+  }
+
   if (!keyChecker(key, usersKeyArray.usersKeyArray)) {
     console.error("Key must match userSchema.")
     res.status(404).end()
     return
   }
 
-  User.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedUser) => {
-    if (err) {
-      console.error(err)
-      res.status(404).end()
-      return
-   }
-
-    if (key === 'k9s') {
-      res.status(404).send('Cannot update this category in this way. Can only add or delete from k9s.')
-      return
-    }
-
-    if (updatedUser) {
-      res.status(200).send(updatedUser)
-      return
-    }
-    
-   console.error('how did we get here?')
-  })
+  putById(id, key, value, User, 'user', req, res)
 })
 
 //make sure that this is accompanied by a warning message in the front end and only executable by the admin or user themself
