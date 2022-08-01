@@ -118,6 +118,16 @@ router.post('/water', async (req, res) => {
 })
 
 router.post('/individual_runs', (res, res) => {
+  const associatedLog = req.query.associated_log
+
+  const individual_runs = new Individual_Runs({
+    //member ID
+    "member": req.query.member,
+    "time": req.query.time,
+    "blind": req.query.blind,
+    "k9": req.query.k9,
+    "distractions": req.query.distractions,
+    "notes": req.query.notes
 
 })
 

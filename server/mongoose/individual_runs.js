@@ -8,24 +8,23 @@ const individual_runsSchema = new mongoose.Schema({
   }, 
   "time": {
     type: Date,
-    required: true,
+    required: true
   },
   "blind": {
     type: Boolean,
-    required: true,
+    required: true
   },
   "k9": {
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'User',
-    required: true,
+    type: String,
+    required: true
   },
   "distractions": {
     type: [String],
-    required: true,
+    required: true
   },
   "notes": {
     type: String,
-    required: true,
+    required: true
   }
 });
 
