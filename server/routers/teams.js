@@ -32,7 +32,6 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const key = req.query.key;
-  const value = req.query.value;
 
   if (arrayKeyChecker(teamsKeyMatch, key)) {
     res.status(404).send('Cannot update this category in this way. Can only add or delete.')
@@ -45,7 +44,7 @@ router.put('/:id', (req, res) => {
     return
   }
 
-  putById(key, value, Team, 'teams', req, res);
+  putById(key, Team, 'teams', req, res);
 })
 
 router.delete('/:id', (req, res) => {
