@@ -1,5 +1,3 @@
-
-
 const putById = (id, key, value, model, placeholder, req, res) => {
 
   model.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, placeholder) => {
