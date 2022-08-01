@@ -134,4 +134,8 @@ router.put('/individual_runs/:id', (req, res) => {
   putById(Individual_Runs, 'item', [], individual_runsKeyArray, req, res)
 })
 
+router.delete('/individual_runs/:id', (req, res) => {
+  deleteById(Individual_Runs, 'item', req, res)
+})
+
 module.exports = router;
