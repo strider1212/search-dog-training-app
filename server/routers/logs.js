@@ -92,6 +92,10 @@ router.post('/water', async (req, res) => {
   postChildrenSchemas(waterLog, Log, associatedLog, keyValuePair, res);
 })
 
+router.get('/water/:id', (req, res) => {
+  getById(Water, 'item', req, res)
+})
+
 router.post('/individual_runs', async (req, res) => {
   const associatedLog = req.query.associated_log
 
