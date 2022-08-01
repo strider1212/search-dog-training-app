@@ -7,6 +7,7 @@ const teamsKeyArray = require('../data/keyArray')
 const keyChecker = require('../utils/keyChecker')
 const postNew = require('../methodFunctions/postNew')
 const getById = require('../methodFunctions/getById')
+const putById = require('../methodFunctions/putById')
 
 router.post('/', (req, res) => {
   let postTeam = new Team({
@@ -31,31 +32,18 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
+  if (key === 'members' || key === 'admin_members') {
+    res.status(404).send('Cannot update this category in this way. Can only add or delete.')
+    return
+  }
+  
   if (!keyChecker(key, teamsKeyArray.teamsKeyArray)) {
     console.error("Key must match userSchema.")
     res.status(404).end()
     return
   }
 
-  Team.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, updatedTeam) => {
-    if (err) {
-      console.error(err)
-      res.status(404).end()
-      return
-   }
-
-    if (key === 'members' || key === 'admin_members') {
-      res.status(404).send('Cannot update this category in this way. Can only add or delete.')
-      return
-    }
-
-    if (updatedTeam) {
-      res.status(200).send(updatedTeam)
-      return
-    }
-    
-   console.error('how did we get here?')
-  })
+  putById(id, key, value, Team, 'teams', req, res);
 })
 
 router.delete('/:id', (req, res) => {
