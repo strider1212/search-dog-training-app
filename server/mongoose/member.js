@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const memberSchema = new mongoose.Schema({
+const individual_runsSchema = new mongoose.Schema({
   "member": {
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User',
@@ -29,6 +29,6 @@ const memberSchema = new mongoose.Schema({
   }
 });
 
-const Member = mongoose.model('Member', memberSchema);
+const Individual_Runs = mongoose.model('Member', individual_runsSchema);
 
-module.exports = {memberSchema, Member}
+module.exports = {memberSchindividual_runsSchemaema, Individual_Runs}
