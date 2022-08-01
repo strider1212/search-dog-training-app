@@ -118,23 +118,22 @@ router.post('/water', async (req, res) => {
 })
 
 router.post('/individual_runs', async (req, res) => {
-  // const associatedLog = req.query.associated_log
+  const associatedLog = req.query.associated_log
 
-  const individual_runs = new Individual_Runs({
+  const logIndividual_runs = new Individual_Runs({
     //member ID
     "user": req.query.user,
     "time": req.query.time,
     "blind": req.query.blind,
     "k9": req.query.k9,
     "distractions": req.query.distractions,
-    "notes": req.query.notes
+    "notes": req.query.notes,
+    "associated_log": associatedLog
   })
 
-  await individual_runs.save();
+  await logIndividual_runs.save();
 
-  await console.log(individual_runs._id)
-
-  await Log.findByIdAndUpdate(associatedLog, {individual_runs: individual_runs._id}, {new: true, lean: true}, (err, log) => {
+  await Log.findByIdAndUpdate(associatedLog, {$push: {"individual_runs.children": logIndividual_runs._id}}, {new: true, lean: true}, (err, log) => {
     if (err) {
       console.error(err)
       res.status(404).end()
