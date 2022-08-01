@@ -85,6 +85,8 @@ router.delete('/:id', (req, res) => {
 })
 
 router.post('/water', async (req, res) => {
+  const associatedLog = req.query.associated_log
+  
   const waterLog = new Water({
     "open": req.query.open,
     "submerged": req.query.submerged,
@@ -92,7 +94,7 @@ router.post('/water', async (req, res) => {
     "salt_water": req.query.salt_water,
     "water_type": req.query.water_type,
     "temperature": req.query.temperature,
-    "associated_log": req.query.associated_log
+    "associated_log": associatedLog
   })
 
   await waterLog.save();
