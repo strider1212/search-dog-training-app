@@ -7,7 +7,7 @@ const { User } = require('../mongoose/user');
 //utils & data
 const arrayEquals = require('../utils/arrayEquals')
 const keyChecker = require('../utils/keyChecker')
-const usersKeyArray = require('../data/keyArray')
+const { usersKeyArray } = require('../data/keyArray')
 const { usersKeyMatch } = require('../data/keyMatchArray')
 const getAll = require('../methodFunctions/getAll')
 const postNew = require('../methodFunctions/postNew')
@@ -52,7 +52,7 @@ router.put('/:id', (req, res) => {
     return
   }
 
-  if (!keyChecker(key, usersKeyArray.usersKeyArray)) {
+  if (!keyChecker(key, usersKeyArray)) {
     console.error("Key must match userSchema.")
     res.status(404).end()
     return
