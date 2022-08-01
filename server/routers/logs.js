@@ -12,6 +12,7 @@ const postNew = require('../methodFunctions/postNew');
 const getById = require('../methodFunctions/getById');
 const putById = require('../methodFunctions/putById');
 const deleteById = require('../methodFunctions/deleteById');
+const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 
 router.get('/', (req, res) => {
   getAll(Log, 'logs', req, res);
@@ -84,23 +85,7 @@ router.post('/water', async (req, res) => {
     "associated_log": associatedLog
   })
 
-  await waterLog.save();
-
-  await Log.findByIdAndUpdate(associatedLog, {water_data: waterLog._id}, {new: true, lean: true}, (err, log) => {
-    if (err) {
-      console.error(err)
-      res.status(404).end()
-      return
-   }
-
-
-    if (log) {
-      res.status(200).send(log)
-      return
-    }
-    
-   console.error('how did we get here?')
-  }).clone()
+  postChildrenSchemas(waterLog, Log, associatedLog, res);
 })
 
 router.post('/individual_runs', async (req, res) => {
@@ -119,7 +104,6 @@ router.post('/individual_runs', async (req, res) => {
   })
 
   await logIndividual_runs.save();
-  await console.log(logIndividual_runs)
 
   await Log.findByIdAndUpdate(associatedLog, {$push: {"individual_runs.children": logIndividual_runs}}, (err, log) => {
     if (err) {
