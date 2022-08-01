@@ -93,6 +93,8 @@ router.post('/water', (req, res) => {
     "water_type": req.query.water_type,
     "temperature": req.query.temperature
   })
+
+  postNew(waterLog, Water, req, res)
   //save the water log (use function)
   //identify the log it is being attached to 
   //put the id of this put request to the log
