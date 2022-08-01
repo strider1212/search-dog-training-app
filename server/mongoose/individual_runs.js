@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const individual_runsSchema = new mongoose.Schema({
-  "member": {
+  "user": {
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User',
     required: true
@@ -25,9 +25,13 @@ const individual_runsSchema = new mongoose.Schema({
   "notes": {
     type: String,
     required: true
+  },
+  "associated_log": {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true
   }
 });
 
 const Individual_Runs = mongoose.model('Member', individual_runsSchema);
 
-module.exports = {memberSchindividual_runsSchemaema, Individual_Runs}
+module.exports = {individual_runsSchema, Individual_Runs}

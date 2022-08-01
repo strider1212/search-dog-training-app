@@ -117,17 +117,38 @@ router.post('/water', async (req, res) => {
   }).clone()
 })
 
-router.post('/individual_runs', (res, res) => {
-  const associatedLog = req.query.associated_log
+router.post('/individual_runs', async (req, res) => {
+  // const associatedLog = req.query.associated_log
 
   const individual_runs = new Individual_Runs({
     //member ID
-    "member": req.query.member,
+    "user": req.query.user,
     "time": req.query.time,
     "blind": req.query.blind,
     "k9": req.query.k9,
     "distractions": req.query.distractions,
     "notes": req.query.notes
+  })
+
+  await individual_runs.save();
+
+  await console.log(individual_runs._id)
+
+  await Log.findByIdAndUpdate(associatedLog, {individual_runs: individual_runs._id}, {new: true, lean: true}, (err, log) => {
+    if (err) {
+      console.error(err)
+      res.status(404).end()
+      return
+   }
+
+
+    if (log) {
+      res.status(200).send(log)
+      return
+    }
+    
+   console.error('how did we get here?')
+  }).clone()
 
 })
 
