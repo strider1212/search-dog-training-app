@@ -6,7 +6,6 @@ const { User } = require('../mongoose/user');
 
 //utils & data
 const arrayEquals = require('../utils/arrayEquals')
-const keyChecker = require('../utils/keyChecker')
 const { usersKeyArray } = require('../data/keyArray')
 const { usersKeyMatch } = require('../data/keyMatchArray')
 const getAll = require('../methodFunctions/getAll')
@@ -14,7 +13,6 @@ const postNew = require('../methodFunctions/postNew')
 const getById = require('../methodFunctions/getById')
 const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
-const arrayKeyChecker = require('../utils/arrayKeyChecker');
 
 
 router.get('/', (req, res) => {

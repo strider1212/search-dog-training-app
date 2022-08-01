@@ -3,14 +3,12 @@ const router = express.Router();
 
 const { Team } = require('../mongoose/team');
 
-const { teamsKeyArray } = require('../data/keyArray')
-const { teamsKeyMatch } = require('../data/keyMatchArray')
-const keyChecker = require('../utils/keyChecker')
-const postNew = require('../methodFunctions/postNew')
-const getById = require('../methodFunctions/getById')
+const { teamsKeyArray } = require('../data/keyArray');
+const { teamsKeyMatch } = require('../data/keyMatchArray');
+const postNew = require('../methodFunctions/postNew');
+const getById = require('../methodFunctions/getById');
 const putById = require('../methodFunctions/putById');
 const deleteById = require('../methodFunctions/deleteById');
-const arrayKeyChecker = require('../utils/arrayKeyChecker');
 
 router.post('/', (req, res) => {
   let postTeam = new Team({
@@ -31,20 +29,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const key = req.query.key;
-
-  if (arrayKeyChecker(teamsKeyMatch, key)) {
-    res.status(404).send('Cannot update this category in this way. Can only add or delete.')
-    return
-  }
-  
-  if (!keyChecker(key, teamsKeyArray)) {
-    console.error("Key must match userSchema.")
-    res.status(404).end()
-    return
-  }
-
-  putById(key, Team, 'teams', req, res);
+  putById(Team, 'teams', teamsKeyMatch, teamsKeyArray, req, res);
 })
 
 router.delete('/:id', (req, res) => {
