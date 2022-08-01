@@ -84,18 +84,20 @@ router.delete('/:id', (req, res) => {
   deleteById(Log, 'logs', req, res);
 })
 
-router.post('/water', (req, res) => {
+router.post('/water', async (req, res) => {
   const waterLog = new Water({
     "open": req.query.open,
     "submerged": req.query.submerged,
     "depth": req.query.depth,
     "salt_water": req.query.salt_water,
     "water_type": req.query.water_type,
-    "temperature": req.query.temperature
+    "temperature": req.query.temperature,
+    "associated_log": req.query.associated_log
   })
 
-  postNew(waterLog, Water, req, res)
-  //save the water log (use function)
+  await waterLog.save();
+  res.end();
+
   //identify the log it is being attached to 
   //put the id of this put request to the log
 })
