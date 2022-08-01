@@ -31,7 +31,6 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const id = req.params.id;
   const key = req.query.key;
   const value = req.query.value;
 
@@ -46,7 +45,7 @@ router.put('/:id', (req, res) => {
     return
   }
 
-  putById(id, key, value, Team, 'teams', req, res);
+  putById(key, value, Team, 'teams', req, res);
 })
 
 router.delete('/:id', (req, res) => {
