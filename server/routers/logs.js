@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const { Log } = require('../mongoose/log');
+const { Water } = require('../mongoose/water');
 
 const { logsKeyArray } = require('../data/keyArray');
 const { logsKeyMatch } = require('../data/keyMatchArray');
@@ -81,6 +82,20 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   deleteById(Log, 'logs', req, res);
+})
+
+router.post('/water', (req, res) => {
+  const waterLog = new Water({
+    "open": req.query.open,
+    "submerged": req.query.submerged,
+    "depth": req.query.depth,
+    "salt_water": req.query.salt_water,
+    "water_type": req.query.water_type,
+    "temperature": req.query.temperature
+  })
+  //save the water log (use function)
+  //identify the log it is being attached to 
+  //put the id of this put request to the log
 })
 
 module.exports = router;
