@@ -12,6 +12,7 @@ const getAll = require('../methodFunctions/getAll')
 const postNew = require('../methodFunctions/postNew')
 const getById = require('../methodFunctions/getById')
 const putById = require('../methodFunctions/putById')
+const deleteById = require('../methodFunctions/deleteById')
 
 
 router.get('/', (req, res) => {
@@ -63,18 +64,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
 
-  User.findByIdAndDelete(id, (err, user) => {
-    if (err) {
-      console.error(err)
-      res.status(400).end()
-      return
-    }
-
-    if (user) {
-      res.status(200).send(`${user.username}'s account was deleted.`)
-      return
-    }
-  })
+  deleteById(id, User, 'users', req, res);
 })
 
 router.get('/:id/k9s', (req, res) => {
