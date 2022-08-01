@@ -98,10 +98,22 @@ router.post('/water', async (req, res) => {
   })
 
   await waterLog.save();
-  res.end();
 
-  //identify the log it is being attached to 
-  //put the id of this put request to the log
+  await Log.findByIdAndUpdate(associatedLog, {water_data: waterLog._id}, {new: true, lean: true}, (err, log) => {
+    if (err) {
+      console.error(err)
+      res.status(404).end()
+      return
+   }
+
+
+    if (log) {
+      res.status(200).send(log)
+      return
+    }
+    
+   console.error('how did we get here?')
+  }).clone()
 })
 
 module.exports = router;
