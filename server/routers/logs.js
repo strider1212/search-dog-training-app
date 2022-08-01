@@ -85,7 +85,10 @@ router.post('/water', async (req, res) => {
     "associated_log": associatedLog
   })
 
-  postChildrenSchemas(waterLog, Log, associatedLog, res);
+  const key = 'water_data';
+  const value = waterLog._id;
+
+  postChildrenSchemas(waterLog, Log, associatedLog, key, value, res);
 })
 
 router.post('/individual_runs', async (req, res) => {
