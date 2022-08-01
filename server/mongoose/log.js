@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { waterSchema } = require('./water');
-const { memberSchema } = require('./member');
+const { memberSchema } = require('./individual_runs');
 
 const logSchema = new mongoose.Schema({
   "log_created_by": {

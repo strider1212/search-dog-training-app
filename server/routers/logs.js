@@ -3,6 +3,7 @@ const router = express.Router();
 
 const { Log } = require('../mongoose/log');
 const { Water } = require('../mongoose/water');
+const { Individual_Runs } = require('../mongoose/individual_runs')
 
 const { logsKeyArray } = require('../data/keyArray');
 const { logsKeyMatch } = require('../data/keyMatchArray');
@@ -114,6 +115,10 @@ router.post('/water', async (req, res) => {
     
    console.error('how did we get here?')
   }).clone()
+})
+
+router.post('/individual_runs', (res, res) => {
+
 })
 
 module.exports = router;
