@@ -8,11 +8,13 @@ const { User } = require('../mongoose/user');
 const arrayEquals = require('../utils/arrayEquals')
 const keyChecker = require('../utils/keyChecker')
 const usersKeyArray = require('../data/keyArray')
+const { userKeyMatch } = require('../data/keyMatchArray')
 const getAll = require('../methodFunctions/getAll')
 const postNew = require('../methodFunctions/postNew')
 const getById = require('../methodFunctions/getById')
 const putById = require('../methodFunctions/putById')
-const deleteById = require('../methodFunctions/deleteById')
+const deleteById = require('../methodFunctions/deleteById');
+const arrayKeyChecker = require('../utils/arrayKeyChecker');
 
 
 router.get('/', (req, res) => {
@@ -45,8 +47,8 @@ router.put('/:id', (req, res) => {
   const key = req.query.key;
   const value = req.query.value;
 
-  if (key === 'k9s') {
-    res.status(404).send('Cannot update this category in this way. Can only add or delete from k9s.')
+  if (arrayKeyChecker(userKeyMatch, key)) {
+    res.status(404).send('Cannot update this category in this way. Can only add or delete this category.').end()
     return
   }
 
