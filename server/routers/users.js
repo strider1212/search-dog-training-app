@@ -43,20 +43,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const key = req.query.key;
-
-  if (arrayKeyChecker(usersKeyMatch, key)) {
-    res.status(404).send('Cannot update this category in this way. Can only add or delete this category.').end()
-    return
-  }
-
-  if (!keyChecker(key, usersKeyArray)) {
-    console.error("Key must match userSchema.")
-    res.status(404).end()
-    return
-  }
-
-  putById(key, User, 'user', req, res)
+  putById(User, 'user', usersKeyMatch, usersKeyArray, req, res)
 })
 
 //make sure that this is accompanied by a warning message in the front end and only executable by the admin or user themself
