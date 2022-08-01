@@ -80,9 +80,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  const id = req.params.id;
-
-  deleteById(id, Log, 'logs', req, res);
+  deleteById(Log, 'logs', req, res);
 })
 
 module.exports = router;
