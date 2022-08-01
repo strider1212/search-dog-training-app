@@ -9,6 +9,7 @@ const getAll = require('../methodFunctions/getAll');
 const postNew = require('../methodFunctions/postNew');
 const getById = require('../methodFunctions/getById');
 const putById = require('../methodFunctions/putById');
+const deleteById = require('../methodFunctions/deleteById');
 
 router.get('/', (req, res) => {
   getAll(Log, 'logs', req, res);
@@ -81,18 +82,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
 
-  Log.findByIdAndDelete(id, (err, log) => {
-    if (err) {
-      console.error(err)
-      res.status(400).end()
-      return
-    }
-
-    if (log) {
-      res.status(200).send(`Log #${log._id} was deleted.`)
-      return
-    }
-  })
+  deleteById(id, Log, 'logs', req, res);
 })
 
 module.exports = router;
