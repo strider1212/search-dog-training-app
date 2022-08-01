@@ -64,7 +64,6 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const key = req.query.key;
-  const value = req.query.value;
 
   if (arrayKeyChecker(logsKeyMatch, key)) {
     res.status(404).send('Cannot update this category in this way. Can only add or delete.')
@@ -77,7 +76,7 @@ router.put('/:id', (req, res) => {
     return
   }
 
-  putById(key, value, Log, 'logs', req, res);
+  putById(key, Log, 'logs', req, res);
 })
 
 router.delete('/:id', (req, res) => {
