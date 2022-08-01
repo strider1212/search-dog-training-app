@@ -2,8 +2,6 @@ const arrayKeyChecker = (array, key) => {
   const holder = [];
 
   const match = key;
-
-  console.log(array)
   
   array.map(key => {
     if (key === match) {
