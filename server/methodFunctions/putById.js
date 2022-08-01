@@ -1,5 +1,6 @@
-const putById = (key, value, model, placeholder, req, res) => {
+const putById = (key, model, placeholder, req, res) => {
   const id = req.params.id;
+  const value = req.query.value;
 
   model.findByIdAndUpdate(id, {[key]: value}, {new: true, lean: true}, (err, placeholder) => {
     if (err) {

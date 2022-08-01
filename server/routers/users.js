@@ -44,7 +44,6 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const key = req.query.key;
-  const value = req.query.value;
 
   if (arrayKeyChecker(usersKeyMatch, key)) {
     res.status(404).send('Cannot update this category in this way. Can only add or delete this category.').end()
@@ -57,7 +56,7 @@ router.put('/:id', (req, res) => {
     return
   }
 
-  putById(key, value, User, 'user', req, res)
+  putById(key, User, 'user', req, res)
 })
 
 //make sure that this is accompanied by a warning message in the front end and only executable by the admin or user themself
