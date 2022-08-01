@@ -7,7 +7,7 @@ const individual_runsSchema = new mongoose.Schema({
     required: true
   }, 
   "time": {
-    type: Date,
+    type: String,
     required: true
   },
   "blind": {
