@@ -107,24 +107,9 @@ router.post('/individual_runs', async (req, res) => {
     "associated_log": associatedLog
   })
 
-  await logIndividual_runs.save();
+  const keyValuePair = {$push: {"individual_runs.children": logIndividual_runs}};
 
-  await Log.findByIdAndUpdate(associatedLog, {$push: {"individual_runs.children": logIndividual_runs}}, (err, log) => {
-    if (err) {
-      console.error(err)
-      res.status(404).end()
-      return
-   }
-
-
-    if (log) {
-      res.status(200).send(log)
-      return
-    }
-    
-   console.error('how did we get here?')
-  }).clone()
-
+  postChildrenSchemas(logIndividual_runs, Log, associatedLog, keyValuePair, res);
 })
 
 module.exports = router;
