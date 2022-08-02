@@ -47,4 +47,9 @@ router.post('/login/password',
     res.redirect('/profile');
   });
 
+router.get('/profile', (req, res) => {
+  console.log('profile page');
+  res.end();
+})
+
 module.exports = router;
