@@ -28,6 +28,14 @@ passport.serializeUser((user, done) => {
   done(null, user._id);
 })
 
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    if (err) return done(err);
+
+    done(null, user);
+  })
+})
+
 router.get('/login', function(req, res, next) {
   console.log('connected')
   res.end()
