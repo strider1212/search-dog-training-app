@@ -1,4 +1,4 @@
-const getById = (model, placeholder, req, res) => {
+const getById = (model, req, res) => {
   //require id be 24 characters on the front end
   const id = req.params.id;
   model.findById(id, (err, placeholder) =>{
