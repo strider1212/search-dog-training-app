@@ -1,4 +1,4 @@
-const deleteById = (model, placeholder, req, res) => {
+const deleteById = (model, req, res) => {
   const id = req.params.id;
 
   model.findByIdAndDelete(id, (err, placeholder) => {
