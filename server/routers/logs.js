@@ -70,7 +70,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  deleteById(Log, 'logs', req, res);
+  deleteById(Log, req, res);
 })
 
 router.post('/water', async (req, res) => {
