@@ -127,7 +127,7 @@ router.post('/individual_runs', async (req, res) => {
 })
 
 router.get('/individual_runs/:id', (req, res) => {
-  getById(Individual_Runs, 'item', req, res)
+  getById(Individual_Runs, req, res)
 })
 
 router.put('/individual_runs/:id', (req, res) => {
