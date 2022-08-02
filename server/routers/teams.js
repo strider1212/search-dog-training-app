@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  putById(Team, 'teams', teamsKeyMatch, teamsKeyArray, req, res);
+  putById(Team, teamsKeyMatch, teamsKeyArray, req, res);
 })
 
 router.delete('/:id', (req, res) => {
