@@ -32,6 +32,6 @@ const individual_runsSchema = new mongoose.Schema({
   }
 });
 
-const Individual_Runs = mongoose.model('Member', individual_runsSchema);
+const Individual_Runs = mongoose.model('Individual_Runs', individual_runsSchema);
 
 module.exports = {individual_runsSchema, Individual_Runs}
