@@ -4,7 +4,7 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const router = express.Router();
 
-passport.initialize() 
+app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(
