@@ -58,7 +58,7 @@ router.post('/', (req, res) => {
     "water": req.query.water
     //water_data and inidividual_runs aren't going to be posted with this individual post they will be added on their own
   })
-  postNew(postLog, Log, req, res);
+  postNew(postLog, res);
 })
 
 router.get('/:id', (req, res) => {
