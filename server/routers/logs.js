@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  getById(Log, 'logs', req, res);
+  getById(Log, req, res);
 })
 
 router.put('/:id', (req, res) => {
