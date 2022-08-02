@@ -99,7 +99,7 @@ router.get('/water/:id', (req, res) => {
 })
 
 router.put('/water/:id', (req, res) => {
-  putById(Water, 'item', [], waterKeyArray, req, res)
+  putById(Water, [], waterKeyArray, req, res)
 })
 
 router.delete('/water/:id', (req, res) => {
