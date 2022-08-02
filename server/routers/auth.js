@@ -1,6 +1,6 @@
 const express = require('express');
 const passport = require('passport');
-const LocalStrategy = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 
 
 const router = express.Router();
@@ -13,7 +13,7 @@ router.get('/login', function(req, res, next) {
 router.post('/login/password',
   passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }),
   function(req, res) {
-    res.redirect('/~' + req.user.username);
+    res.redirect('/');
   });
 
 module.exports = router;
