@@ -95,7 +95,7 @@ router.post('/water', async (req, res) => {
 })
 
 router.get('/water/:id', (req, res) => {
-  getById(Water, 'item', req, res)
+  getById(Water, req, res)
 })
 
 router.put('/water/:id', (req, res) => {
