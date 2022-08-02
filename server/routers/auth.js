@@ -10,4 +10,10 @@ router.get('/login', function(req, res, next) {
   res.end()
 });
 
+router.post('/login/password',
+  passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }),
+  function(req, res) {
+    res.redirect('/~' + req.user.username);
+  });
+
 module.exports = router;
