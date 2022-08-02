@@ -5,6 +5,19 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const router = express.Router();
 
+passport.use(
+  "local",
+  new LocalStrategy((username, password, done) => {
+    const authenticated = username === "John" && password === "Smith";
+
+    if (authenticated) {
+      return done(null, { myUser: "user", myID: 1234 });
+    } else {
+      return done(null, false);
+    }
+  })
+);
+
 router.get('/login', function(req, res, next) {
   console.log('connected')
   res.end()
