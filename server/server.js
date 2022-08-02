@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 require('dotenv').config({path: '../.env'});
+var passport = require('passport');
+var LocalStrategy = require('passport-local');
 
 //routers
 const users = require('./routers/users');
