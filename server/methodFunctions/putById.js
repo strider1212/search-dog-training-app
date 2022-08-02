@@ -1,7 +1,7 @@
 const keyChecker = require('../utils/keyChecker');
 const arrayKeyChecker = require('../utils/arrayKeyChecker');
 
-const putById = (model, placeholder, arrayKeyCheckerArray, keyCheckerArray, req, res) => {
+const putById = (model, arrayKeyCheckerArray, keyCheckerArray, req, res) => {
   const id = req.params.id;
   const key = req.query.key;
   const value = req.query.value;
