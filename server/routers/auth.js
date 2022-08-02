@@ -24,6 +24,10 @@ passport.use(
   })
 );
 
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+})
+
 router.get('/login', function(req, res, next) {
   console.log('connected')
   res.end()
