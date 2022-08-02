@@ -16,7 +16,7 @@ const deleteById = require('../methodFunctions/deleteById');
 
 
 router.get('/', (req, res) => {
-  getAll(User, 'users', req, res)
+  getAll(User, res)
 })
 
 router.post('/', (req, res) =>  {

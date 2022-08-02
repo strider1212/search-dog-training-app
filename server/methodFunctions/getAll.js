@@ -1,4 +1,4 @@
-const getAll = (model, placeholder, req, res) => {
+const getAll = (model, res) => {
   model.find({}, (err, placeholder) => {
     if (err) {
       console.error(err)
