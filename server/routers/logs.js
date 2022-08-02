@@ -66,7 +66,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  putById(Log, 'logs', logsKeyMatch, logsKeyArray, req, res);
+  putById(Log, logsKeyMatch, logsKeyArray, req, res);
 })
 
 router.delete('/:id', (req, res) => {
