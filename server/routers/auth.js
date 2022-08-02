@@ -1,8 +1,8 @@
 const express = require('express');
+const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-const router = express.Router();
 
 app.use(passport.initialize());
 app.use(passport.session());
