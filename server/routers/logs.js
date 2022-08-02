@@ -17,7 +17,7 @@ const deleteById = require('../methodFunctions/deleteById');
 const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 
 router.get('/', (req, res) => {
-  getAll(Log, 'logs', req, res);
+  getAll(Log, res);
 })
 
 router.post('/', (req, res) => {
