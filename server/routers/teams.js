@@ -33,7 +33,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  deleteById(Team, 'teams', req, res);
+  deleteById(Team, req, res);
 })
 
 module.exports = router;
