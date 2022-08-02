@@ -103,7 +103,7 @@ router.put('/water/:id', (req, res) => {
 })
 
 router.delete('/water/:id', (req, res) => {
-  deleteById(Water, 'item', req, res)
+  deleteById(Water, req, res)
 })
 
 router.post('/individual_runs', async (req, res) => {
