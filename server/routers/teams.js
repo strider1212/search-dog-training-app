@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  getById(Team, 'teams', req, res);
+  getById(Team, req, res);
 })
 
 router.put('/:id', (req, res) => {
