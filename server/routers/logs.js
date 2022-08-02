@@ -135,7 +135,7 @@ router.put('/individual_runs/:id', (req, res) => {
 })
 
 router.delete('/individual_runs/:id', (req, res) => {
-  deleteById(Individual_Runs, 'item', req, res)
+  deleteById(Individual_Runs, req, res)
 })
 
 module.exports = router;
