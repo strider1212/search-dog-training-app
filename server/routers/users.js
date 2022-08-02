@@ -33,7 +33,7 @@ router.post('/', (req, res) =>  {
     //&k9s[]=spike&k9s[]=lucey
     "k9s": req.query.k9s
   })
-  postNew(postUser, User, req, res)
+  postNew(postUser, res)
 })
 
 router.get('/:id', (req, res) => {

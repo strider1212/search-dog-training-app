@@ -1,4 +1,4 @@
-const postNew = (instantiation, model, req, res) => {
+const postNew = (instantiation, res) => {
   instantiation
   instantiation.save();
   res.status(201).send(instantiation);
