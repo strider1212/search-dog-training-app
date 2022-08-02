@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
     //?admin_members[]=memberID
     "admin_members": req.query.admin_members
   })
-  postNew(postTeam, Team, req, res);
+  postNew(postTeam, res);
 })
 
 router.get('/:id', (req, res) => {
