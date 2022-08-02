@@ -131,7 +131,7 @@ router.get('/individual_runs/:id', (req, res) => {
 })
 
 router.put('/individual_runs/:id', (req, res) => {
-  putById(Individual_Runs, 'item', [], individual_runsKeyArray, req, res)
+  putById(Individual_Runs, [], individual_runsKeyArray, req, res)
 })
 
 router.delete('/individual_runs/:id', (req, res) => {
