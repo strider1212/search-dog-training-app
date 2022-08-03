@@ -49,4 +49,6 @@ router.post('/login/password',
 
 //create a logout using req.logout (https://www.codecademy.com/courses/user-authentication-authorization-express/lessons/passport-js-local-authentication/exercises/logging-out)
 
+//bcrypt (https://www.codecademy.com/courses/user-authentication-authorization-express/lessons/bcrypt/exercises/using-bcrypt-to-hash-passwords)
+
 module.exports = router;
