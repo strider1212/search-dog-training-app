@@ -24,7 +24,7 @@ router.post('/', (req, res) =>  {
   //check all field on the front end
   let postUser = new User({
     "username": req.query.username,
-    "password": req.query.password,
+    "password": hasher(req.query.password, 10),
     "firstName": req.query.firstName,
     "lastName": req.query.lastName,
     "email": req.query.email,

@@ -6,8 +6,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const { User } = require('../mongoose/user');
 
 
-app.use(passport.initialize());
-app.use(passport.session());
+router.use(passport.initialize());
+router.use(passport.session());
 
 passport.use(
   "local",
