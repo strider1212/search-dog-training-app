@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
 
 const { User } = require('../mongoose/user');
 const compareHash = require('../utils/compareHash');
 
 
 router.use(passport.initialize());
+router.use(express.session());
 router.use(passport.session());
 
 passport.use(
