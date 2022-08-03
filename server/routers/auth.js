@@ -9,7 +9,12 @@ const compareHash = require('../utils/compareHash');
 
 
 router.use(passport.initialize());
-router.use(express.session());
+router.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 router.use(passport.session());
 
 passport.use(
