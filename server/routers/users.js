@@ -13,6 +13,7 @@ const postNew = require('../methodFunctions/postNew')
 const getById = require('../methodFunctions/getById')
 const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
+const hasher = require('../utils/hasher');
 
 
 router.get('/', (req, res) => {
