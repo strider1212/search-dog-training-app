@@ -44,11 +44,12 @@ router.get('/login', function(req, res, next) {
   res.end()
 });
 
-router.post('/login/password',
+router.post('/login/password', 
   passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }),
   function(req, res) {
     res.redirect('/');
-  });
+  }
+  );
 
 //create a logout using req.logout (https://www.codecademy.com/courses/user-authentication-authorization-express/lessons/passport-js-local-authentication/exercises/logging-out)
 
