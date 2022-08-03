@@ -18,9 +18,9 @@ passport.use(
 
       if (!user) return done(null, false);
 
-      const hasPassword = 
+      const hasPassword = compareHash(password, user.password);
 
-      if (user.password != password) return done(null, false);
+      if (!hasPassword) return done(null, false);
 
       return done(null, user);
     })
