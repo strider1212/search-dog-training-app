@@ -20,11 +20,11 @@ router.get('/', (req, res) => {
   getAll(User, res)
 })
 
-router.post('/', (req, res) =>  {
+router.post('/', async (req, res) =>  {
   //check all field on the front end
   let postUser = new User({
     "username": req.query.username,
-    "password": hasher(req.query.password, 10),
+    "password": await hasher(req.query.password, 10),
     "firstName": req.query.firstName,
     "lastName": req.query.lastName,
     "email": req.query.email,
