@@ -4,6 +4,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const { User } = require('../mongoose/user');
+const compareHash = require('../utils/compareHash');
 
 
 router.use(passport.initialize());
@@ -16,6 +17,8 @@ passport.use(
       if (err) return done(err);
 
       if (!user) return done(null, false);
+
+      const hasPassword = 
 
       if (user.password != password) return done(null, false);
 
