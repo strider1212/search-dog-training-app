@@ -9,7 +9,7 @@ const initializePassport = require('../utils/passportConfig');
 const flash = require('express-flash');
 require('dotenv').config({path: '../.env'})
 
-initializePassport(passport, (username) => {
+initializePassport(passport, username => {
   User.findOne({username: username}, (err, user) => {
     if (user.username === username) {
       return username;
