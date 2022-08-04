@@ -11,7 +11,8 @@ const { User } = require('../mongoose/user');
 router.use(express.urlencoded({extended: false}))
 
 router.get('/', (req, res) => {
-  res.render('index.ejs', {name: 'Josh'})
+  console.log('test get');
+  res.send('got auth page')
 })
 
 router.get('/login', (req, res) => {
