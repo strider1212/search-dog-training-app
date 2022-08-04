@@ -47,4 +47,4 @@ router.post('/login', passport.authenticate('local', (req, res) => {
   res.end();
 }))
 
-module.exports = router;
+module.exports = routers;
