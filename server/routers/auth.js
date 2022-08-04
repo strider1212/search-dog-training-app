@@ -5,6 +5,8 @@ const LocalStrategy = require('passport-local').Strategy
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const postNew = require('../methodFunctions/postNew');
+const { initializePassport } = require('../utils/passportConfig');
+initializePassport(passport);
 
 const { User } = require('../mongoose/user');
 
