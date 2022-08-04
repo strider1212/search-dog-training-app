@@ -29,20 +29,21 @@ router.get('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
   const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    const postUser = new User({
-      "username": req.query.username,
-      "password": hashedPassword,
-      "firstName": req.query.firstName,
-      "lastName": req.query.lastName,
-      "email": req.query.email,
-      "phoneNumber": req.query.phoneNumber,
-      "dateCreated": new Date(),
-      //query must must be formatted like
-      //&k9s[]=spike&k9s[]=lucey
-      "k9s": req.query.k9s
-    })
-    await postNew(postUser, res)
+  const postUser = new User({
+    "username": req.query.username,
+    "password": hashedPassword,
+    "firstName": req.query.firstName,
+    "lastName": req.query.lastName,
+    "email": req.query.email,
+    "phoneNumber": req.query.phoneNumber,
+    "dateCreated": new Date(),
+    //query must must be formatted like
+    //&k9s[]=spike&k9s[]=lucey
+    "k9s": req.query.k9s
+  })
+    
   try {
+    await postNew(postUser, res)
     res.redirect('/login');
   } catch {
     res.redirect('/register')
