@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-  res.render('login.ejs', {name: 'Josh'})
+  console.log('You are at the login page')
+  res.send('You are at the login page')
 })
 
 router.post('/login', (req, res) => {
