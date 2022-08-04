@@ -26,7 +26,8 @@ router.post('/login', (req, res) => {
 
 
 router.get('/register', (req, res) => {
-  res.render('register.ejs', {name: 'Josh'})
+  console.log('You are at the register page')
+  res.send('You are at the register page')
 })
 
 router.post('/register', async (req, res) => {
