@@ -45,13 +45,7 @@ router.post('/register', async (req, res) => {
     "k9s": req.query.k9s
   })
     
-  try {
-    await postNew(postUser, res)
-    res.redirect('/login');
-  } catch {
-    res.redirect('/register')
-  }
-  console.log(postUser)
+  postNew(postUser, res);
 })
 
 
