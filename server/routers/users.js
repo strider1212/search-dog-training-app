@@ -20,22 +20,22 @@ router.get('/', (req, res) => {
   getAll(User, res)
 })
 
-router.post('/', async (req, res) =>  {
-  //check all field on the front end
-  let postUser = new User({
-    "username": req.query.username,
-    "password": await hasher(req.query.password, 10),
-    "firstName": req.query.firstName,
-    "lastName": req.query.lastName,
-    "email": req.query.email,
-    "phoneNumber": req.query.phoneNumber,
-    "dateCreated": new Date(),
-    //query must must be formatted like
-    //&k9s[]=spike&k9s[]=lucey
-    "k9s": req.query.k9s
-  })
-  postNew(postUser, res)
-})
+// router.post('/', async (req, res) =>  {
+//   //check all field on the front end
+//   let postUser = new User({
+//     "username": req.query.username,
+//     "password": await hasher(req.query.password, 10),
+//     "firstName": req.query.firstName,
+//     "lastName": req.query.lastName,
+//     "email": req.query.email,
+//     "phoneNumber": req.query.phoneNumber,
+//     "dateCreated": new Date(),
+//     //query must must be formatted like
+//     //&k9s[]=spike&k9s[]=lucey
+//     "k9s": req.query.k9s
+//   })
+//   postNew(postUser, res)
+// })
 
 router.get('/:id', (req, res) => {
   getById(User, req, res);

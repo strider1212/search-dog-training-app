@@ -22,6 +22,8 @@ const PORT = 3000;
 
 mongoose.connect(ATLAS_CONNECT);
 
+app.set('view-engine', 'ejs');
+
 //middleware
 app.use(express.json())
 

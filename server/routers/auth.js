@@ -3,48 +3,52 @@ const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy
 const session = require('express-session');
+const bcrypt = require('bcrypt');
+const postNew = require('../methodFunctions/postNew');
 
 const { User } = require('../mongoose/user');
 
+router.use(express.urlencoded({extended: false}))
 
-router.use(session({secret: 'secrete cat'}));
-
-router.use(passport.initialize());
-router.use(passport.session());
-
-passport.use('local', new LocalStrategy(function(username, password, done) {
-  User.findOne({username: username}, (err, user) => {
-    if (err) return done(err);
-
-    if (!user) return done(null, false);
-
-    if (user.password != password) return done(null, false);
-
-    return done(null, user);
-  });
-}));
-
-passport.serializeUser((user, done) => {
-  done(null, user._id);
-});
-
-passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => {
-    if (err) return done(err);
-    return done(null, user);
-  });
-});
-
-router.post('/login', passport.authenticate('local', {successRedirect: '/profile', failureRedirect: '/signin'}))
-
-router.get('/profile', (req, res) => {
-  console.log('redirected!');
-  res.send("Hey, hello from the server!");
+router.get('/', (req, res) => {
+  res.render('index.ejs', {name: 'Josh'})
 })
 
-router.get('/signin', (req, res) => {
-  console.log('gotta sign in');
-  res.end();
+router.get('/login', (req, res) => {
+  res.render('login.ejs', {name: 'Josh'})
 })
+
+router.post('/login', (req, res) => {
+  
+})
+
+
+router.get('/register', (req, res) => {
+  res.render('register.ejs', {name: 'Josh'})
+})
+
+router.post('/register', async (req, res) => {
+  const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const postUser = new User({
+      "username": req.query.username,
+      "password": hashedPassword,
+      "firstName": req.query.firstName,
+      "lastName": req.query.lastName,
+      "email": req.query.email,
+      "phoneNumber": req.query.phoneNumber,
+      "dateCreated": new Date(),
+      //query must must be formatted like
+      //&k9s[]=spike&k9s[]=lucey
+      "k9s": req.query.k9s
+    })
+    await postNew(postUser, res)
+  try {
+    res.redirect('/login');
+  } catch {
+    res.redirect('/register')
+  }
+  console.log(postUser)
+})
+
 
 module.exports = router;
