@@ -3,13 +3,30 @@ const router = express.Router();
 const passport = require('passport');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
-const postNew = require('../methodFunctions/postNew');
-const { initializePassport } = require('../utils/passportConfig');
-initializePassport(passport);
-
 const { User } = require('../mongoose/user');
+const postNew = require('../methodFunctions/postNew');
+const initializePassport = require('../utils/passportConfig');
+const flash = require('express-flash');
+require('dotenv').config({path: '../.env'})
 
-router.use(express.urlencoded({extended: false}))
+initializePassport(passport, (username) => {
+  User.findOne({username: username}, (err, user) => {
+    if (user.username === username) {
+      return username;
+    } else {
+      return false;
+    }
+  })
+});
+
+router.use(express.urlencoded({extended: false}));
+router.use(flash());
+router.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+router.use(passport.session())
 
 router.get('/', (req, res) => {
   console.log('test get');
@@ -21,9 +38,11 @@ router.get('/login', (req, res) => {
   res.send('You are at the login page')
 })
 
-router.post('/login', (req, res) => {
-  
-})
+router.post('/login', passport.authenticate('local', {
+  successMessage: 'login successful',
+  failureMessage: 'login failed',
+  failureFlash: true
+}))
 
 
 router.get('/register', (req, res) => {
