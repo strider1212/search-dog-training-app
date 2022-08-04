@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const postNew = require('../methodFunctions/postNew');
