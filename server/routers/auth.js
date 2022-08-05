@@ -75,3 +75,5 @@ router.delete("/logout", (req,res) => {
   res.redirect("/login")
   console.log(`-------> User Logged out`)
 })
+
+module.exports = router;
