@@ -17,7 +17,6 @@ router.use(passport.initialize())
 router.use(passport.session())    
 
 authUser = async (user, password, done) => {
-  //Search the user, password in the DB to authenticate the user
   User.findOne({username: user}, (err, user) => {
     if(err) return done(err);
  
@@ -30,3 +29,7 @@ authUser = async (user, password, done) => {
 }
 
 passport.use(new LocalStrategy (authUser))
+
+passport.serializeUser( (userObj, done) => {
+  done(null, userObj)
+})
