@@ -33,3 +33,7 @@ passport.use(new LocalStrategy (authUser))
 passport.serializeUser( (userObj, done) => {
   done(null, userObj)
 })
+
+passport.deserializeUser((userObj, done) => {
+  done (null, userObj )
+})
