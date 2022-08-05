@@ -42,3 +42,9 @@ router.post ("/login", passport.authenticate('local', {
   successRedirect: "/home",
   failureRedirect: "/login",
 }))
+
+router.delete("/logout", (req,res) => {
+  req.logOut()
+  res.redirect("/login")
+  console.log(`-------> User Logged out`)
+})
