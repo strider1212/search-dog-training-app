@@ -12,5 +12,5 @@ router.use(session({
 }))
 
 router.use(passport.initialize()) 
-
 router.use(passport.session())    
+passport.use(new LocalStrategy (authUser))
