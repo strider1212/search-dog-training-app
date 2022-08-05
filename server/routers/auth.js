@@ -7,6 +7,33 @@ require('dotenv').config({path: '/Users/joshuacushing/code/Parsity/final-project
 
 const { User } = require('../mongoose/user');
 
+//TESTING ONLY
+printData = (req, res, next) => {
+  console.log("\n==============================")
+  console.log(`------------>  ${count++}`)
+
+  console.log(`req.body.username -------> ${req.body.username}`) 
+  console.log(`req.body.password -------> ${req.body.password}`)
+
+  console.log(`\n req.session.passport -------> `)
+  console.log(req.session.passport)
+
+  console.log(`\n req.user -------> `) 
+  console.log(req.user) 
+
+  console.log("\n Session and Cookie")
+  console.log(`req.session.id -------> ${req.session.id}`) 
+  console.log(`req.session.cookie -------> `) 
+  console.log(req.session.cookie) 
+
+  console.log("===========================================\n")
+
+  next()
+}
+
+router.use(printData)
+//TESTING ONLY
+
 router.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false ,
