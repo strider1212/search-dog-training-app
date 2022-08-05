@@ -7,10 +7,18 @@ require('dotenv').config({path: '/Users/joshuacushing/code/Parsity/final-project
 
 const { User } = require('../mongoose/user');
 
+router.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false ,
+  saveUninitialized: true ,
+}))
+
+router.use(passport.initialize()) 
+router.use(passport.session())    
+
 //TESTING ONLY
 printData = (req, res, next) => {
   console.log("\n==============================")
-  console.log(`------------>  ${count++}`)
 
   console.log(`req.body.username -------> ${req.body.username}`) 
   console.log(`req.body.password -------> ${req.body.password}`)
@@ -33,15 +41,6 @@ printData = (req, res, next) => {
 
 router.use(printData)
 //TESTING ONLY
-
-router.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false ,
-  saveUninitialized: true ,
-}))
-
-router.use(passport.initialize()) 
-router.use(passport.session())    
 
 authUser = async (user, password, done) => {
   User.findOne({username: user}, (err, user) => {
