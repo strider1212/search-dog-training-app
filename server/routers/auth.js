@@ -16,6 +16,28 @@ router.use(session({
 router.use(passport.initialize()) 
 router.use(passport.session())    
 
+authUser = async (user, password, done) => {
+  User.findOne({username: user}, (err, user) => {
+    if(err) return done(err);
+ 
+    if(!user) return done(null, false);
+
+    if(user.password != password) return done(null, false);
+
+    return done(null, user)
+  })
+}
+
+passport.use(new LocalStrategy (authUser))
+
+passport.serializeUser( (userObj, done) => {
+  done(null, userObj)
+})
+
+passport.deserializeUser((userObj, done) => {
+  done (null, userObj )
+})
+
 //TESTING ONLY
 printData = (req, res, next) => {
   console.log("\n==============================")
@@ -42,32 +64,12 @@ printData = (req, res, next) => {
 router.use(printData)
 //TESTING ONLY
 
-authUser = async (user, password, done) => {
-  User.findOne({username: user}, (err, user) => {
-    if(err) return done(err);
- 
-    if(!user) return done(null, false);
-
-    if(user.password != password) return done(null, false);
-
-    return done(null, user)
-  })
-}
-
-passport.use(new LocalStrategy (authUser))
-
-passport.serializeUser( (userObj, done) => {
-  done(null, userObj)
-})
-
-passport.deserializeUser((userObj, done) => {
-  done (null, userObj )
-})
-
 router.post ("/login", passport.authenticate('local', {
   successRedirect: "/home",
   failureRedirect: "/login",
 }))
+
+
 
 router.delete("/logout", (req,res) => {
   req.logOut()
