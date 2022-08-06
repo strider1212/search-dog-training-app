@@ -14,12 +14,18 @@ const getById = require('../methodFunctions/getById')
 const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
 const hasher = require('../utils/hasher');
+require('dotenv').config();
 
 //authorization
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const session = require('express-session')
 
+router.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
 
 router.get('/', (req, res) => {
   getAll(User, res)
