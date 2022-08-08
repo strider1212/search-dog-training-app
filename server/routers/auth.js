@@ -8,8 +8,8 @@ const bodyParser = require("body-parser");
 
 const LocalStrategy = require("passport-local").Strategy;
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.json());
 
 router.use(session({ 
   secret: process.env.SESSION_SECRET,

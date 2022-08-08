@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 require('dotenv').config({path: __dirname + '/.env'});
+const cors = require('cors');
 
 //routers
 const users = require('./routers/users');
@@ -25,6 +26,11 @@ app.set('view-engine', 'ejs');
 
 //middleware
 app.use(express.json())
+app.use(
+  cors({
+    origin: 'http://localhost:3001'
+  })
+)
 
 //routes and methods
 app.use('/users', users);

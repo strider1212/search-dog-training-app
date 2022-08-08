@@ -1,10 +1,14 @@
 
 
 export const Login = () => {
-  const url = 'http://localhost:3001/auth/login'
-  fetch(url, {
+  const url = 'http://localhost:3000/auth/login'
+  const postLogin = async () => {
+    await fetch(url, {
     method: 'POST'
-  })
+    })
+    .then(res => console.log(res))
+  }
+   
 
   return (
     <form>
@@ -24,7 +28,7 @@ export const Login = () => {
         id="password" 
         />
       </div>
-      <button type="button" className="btn btn-primary">Submit</button>
+      <button type="button" className="btn btn-primary" onClick={postLogin}>Submit</button>
     </form>
   )
 }
