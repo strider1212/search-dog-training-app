@@ -6,8 +6,13 @@ export const Login = () => {
   return (
     <form>
       <div>
-        <label htmlFor="username">Username:</label>
-        <input type="text" className="form-control" id="username" />
+        <label htmlFor="username" >Username:</label>
+        <input 
+        type="text" 
+        className="form-control" 
+        id="username" 
+        onInput={(e) => setUsername(e.target.value)}
+        />
       </div>
       <div>
         <label htmlFor="password">Password:</label>
