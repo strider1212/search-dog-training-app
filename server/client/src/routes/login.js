@@ -1,4 +1,8 @@
 export const Login = () => {
-  return <div>Login.js</div>
+  return (
+    <form>
+      <button type="button" className="btn btn-primary">Submit</button>
+    </form>
+  )
 }
 
