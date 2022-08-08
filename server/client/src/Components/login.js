@@ -14,7 +14,7 @@ export const Login = () => {
   }
 
   const [username, setUsername] = useState('');
-   
+  const [password, setPassword] = useState('');
 
   return (
     <form>
@@ -33,6 +33,7 @@ export const Login = () => {
         type="password" 
         className="form-control" 
         id="password" 
+        onInput={e => setPassword(e.target.value)}
         />
       </div>
       <button type="button" className="btn btn-primary" onClick={postLogin}>Submit</button>
