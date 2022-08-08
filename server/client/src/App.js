@@ -1,9 +1,9 @@
-
+import { Login } from "./routes/login";
 
 function App() {
   return (
     <div>
-      testing App.js
+      <Login />
     </div>
   );
 }
