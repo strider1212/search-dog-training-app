@@ -143,8 +143,6 @@ router.delete('/:id/k9s/:k9', (req, res) => {
       }
     })
   })
-
-
   
   
 })
