@@ -1,17 +1,40 @@
+require('dotenv').config();
 const express = require('express')
 const router = express.Router()
 const session = require('express-session');
-require('dotenv').config();
+const passport = require("passport");
+const bodyParser = require("body-parser");
+
+
+const LocalStrategy = require("passport-local").Strategy;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 router.use(session({ 
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }));
+router.use(passport.initialize())
+
+passport.use('local', new LocalStrategy((username, password, done) => {
+  const authenticated = username === "John" && password === "Smith";
+
+    if (authenticated) {
+      return done(null, { myUser: "user", myID: 1234 });
+    } else {
+      return done(null, false);
+    }
+}))
 
 router.get('/login', (req, res) => {
   console.log('testing GET /login')
   res.send('test GET /login')
+})
+
+router.post('/login', (req, res) => {
+  res.send(req.body)
 })
 
 module.exports = router;
