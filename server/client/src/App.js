@@ -6,7 +6,7 @@ import { Registration } from "./routes/registration";
 function App() {
   return (
     <Routes>
-      <Route path='/login' element={<Login />}/>
+      <Route path='/users/login' element={<Login />}/>
       <Route path='/registration' element={<Registration />}/>
     </Routes>
   );
