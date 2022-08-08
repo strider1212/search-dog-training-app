@@ -1,6 +1,6 @@
-import { Login } from "./routes/login";
+import { Login } from "./Components/login";
 import { Routes, Route } from 'react-router-dom';
-import { Registration } from "./routes/registration";
+import { Registration } from "./Components/registration";
 
 
 function App() {
