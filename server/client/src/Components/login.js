@@ -1,13 +1,19 @@
-
+import { useState } from 'react';
 
 export const Login = () => {
   const url = 'http://localhost:3000/auth/login'
-  const postLogin = async () => {
+  const postLogin = async (username, password) => {
     await fetch(url, {
-    method: 'POST'
+    method: 'POST',
+    body: {
+      username: username,
+      password: password
+    }
     })
-    .then(res => console.log(res))
+    .then(data => console.log(data))
   }
+
+  const [username, setUsername] = useState('');
    
 
   return (
@@ -18,6 +24,7 @@ export const Login = () => {
         type="text" 
         className="form-control" 
         id="username" 
+        onInput={e => setUsername(e.target.value)}
         />
       </div>
       <div>
