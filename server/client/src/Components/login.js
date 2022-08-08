@@ -5,10 +5,10 @@ export const Login = () => {
   const postLogin = async (username, password) => {
     await fetch(url, {
     method: 'POST',
-    body: JSON.stringify({
+    body: {
       username: username,
       password: password
-    })
+    }
     })
     .then(data => console.log(data))
   }
