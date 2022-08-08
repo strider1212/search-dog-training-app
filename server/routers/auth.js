@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 
 const LocalStrategy = require("passport-local").Strategy;
 
-router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 router.use(session({ 
@@ -33,7 +33,8 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-  res.send(req.body)
+  console.log(req.body)
+  res.send()
 })
 
 module.exports = router;
