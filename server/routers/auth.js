@@ -29,7 +29,6 @@ passport.use('local', new LocalStrategy((username, password, done) => {
 }))
 
 router.get('/login', (req, res) => {
-  console.log('testing GET /login')
   res.send('test GET /login')
 })
 

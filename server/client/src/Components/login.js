@@ -5,10 +5,10 @@ export const Login = () => {
   const postLogin = async (username, password) => {
     await fetch(url, {
     method: 'POST',
-    body: {
+    body: JSON.stringify({
       username: username,
       password: password
-    }
+    })
     })
     .then(data => console.log(data))
   }
@@ -36,7 +36,7 @@ export const Login = () => {
         onInput={e => setPassword(e.target.value)}
         />
       </div>
-      <button type="button" className="btn btn-primary" onClick={postLogin}>Submit</button>
+      <button type="button" className="btn btn-primary" onClick={() => postLogin(username, password)}>Submit</button>
     </form>
   )
 }
