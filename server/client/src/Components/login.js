@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 export const Login = () => {
   const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <form>
@@ -16,7 +17,12 @@ export const Login = () => {
       </div>
       <div>
         <label htmlFor="password">Password:</label>
-        <input type="password" className="form-control" id="password" />
+        <input 
+        type="password" 
+        className="form-control" 
+        id="password" 
+        onInput={(e) => setPassword(e.target.value)}
+        />
       </div>
       <button type="button" className="btn btn-primary">Submit</button>
     </form>
