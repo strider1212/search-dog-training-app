@@ -18,9 +18,27 @@ router.use(session({
   saveUninitialized: true
 }));
 router.use(passport.initialize())
+router.use(passport.session());
+
+passport.serializeUser((user, done) => {
+  console.log(user);
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
 
 passport.use('local', new LocalStrategy((username, password, done) => {
-  
+  User.findOne({username: username}, (err, user) => {
+    if(err) return done(err)
+
+    if(!user) return done(null, false)
+
+    if(user.password != password) return done(null, false)
+
+    return done(null, user)
+  })
 }))
 
 router.get('/login', (req, res) => {
@@ -30,8 +48,7 @@ router.get('/login', (req, res) => {
 router.post('/login', 
 passport.authenticate('local', {
   successRedirect: '/auth/',
-  failureRedirect: '/auth/login',
-  session: false
+  failureRedirect: '/auth/login'
 }),
 (req, res) => {
   res.send(req.body)
