@@ -3,6 +3,8 @@ import { useState } from 'react';
 export const Login = () => {
   const url = 'http://localhost:3000/auth/login'
   const postLogin = async (username, password) => {
+    console.log(`First, it take username "${username}" and password "${password}" from the inputs and passes them into postLogin. From there, it will submit a POST request to url ${url}.
+    Go to the server console to further follow along.`)
     await fetch(url, {
     method: 'POST',
     body: JSON.stringify({

@@ -21,22 +21,42 @@ router.use(passport.initialize())
 router.use(passport.session());
 
 passport.serializeUser((user, done) => {
+  console.log(`serializeUser will then take the user as an argument. The user is console logged below:`)
   console.log(user)
+  console.log('serializeUser will then pass the user\'s id through the done argument, which is console logged below:')
+  console.log(user._id)
   done(null, user._id);
 });
 
 passport.deserializeUser((id, done) => {
+  console.log(`Then, deserializeUser will pick up the user's id, which is console logged below:`)
+  console.log(id)
   User.findById(id, (err, user) => {
+    console.log(`Then, User.findById will search the database by the id. It will produce an error or a user.`)
+    console.log('error:')
+    console.log(err)
+    console.log('user:')
+    console.log(user)
     if(err) return done(err)
     done(null, user);
   })
 });
 
 passport.use('local', new LocalStrategy((username, password, done) => {
+  console.log(`Then, it will enter the LocalStrategy Middleware, where it will pass a 'username' (${username}) and 'password' (${password}) argument.`)
   User.findOne({username: username}, (err, user) => {
+    console.log(`Then, it will search the database by the username (${username}).`)
+    console.log(`It will take pass either an error or a user. Both are logged below, error followed by user:`)
+    console.log(err)
+    console.log(user)
     if(err) return done(err)
 
     if(!user) return done(null, false)
+
+    console.log(`This it will check to see that 'user.password' (${user.password}) matches the password passed as an argument (${password}).`)
+
+    if(user.password === password) console.log(`It does, so it will return done(null, user), which will pass the user to serializeUser. The user is console logged below:` )
+    console.log(user)
 
     if(user.password != password) return done(null, false)
 
@@ -48,11 +68,21 @@ router.get('/login', (req, res) => {
   res.send(req.body)
 })
 
-router.post('/login', 
+const postRequestMiddleware = (req, res, next) => {
+  console.log(`Then it will travel to the POST request on the server side as the value below: `)
+  console.log(req.body)
+  next()
+}
+
+
+router.post(
+'/login', 
+postRequestMiddleware,
 passport.authenticate('local'),
 (req, res) => {
   res.send(req.body)
-})
+}
+)
 
 router.get('/', (req, res) => {
   res.send(req.body)
