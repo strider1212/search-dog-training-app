@@ -21,7 +21,6 @@ router.use(passport.initialize())
 router.use(passport.session());
 
 passport.serializeUser((user, done) => {
-  console.log(user);
   done(null, user);
 });
 
@@ -52,8 +51,7 @@ passport.authenticate('local', {
 }),
 (req, res) => {
   res.send(req.body)
-}
-)
+})
 
 router.get('/', (req, res) => {
   res.send(req.body)
