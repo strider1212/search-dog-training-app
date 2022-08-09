@@ -21,6 +21,7 @@ router.use(passport.initialize())
 router.use(passport.session());
 
 passport.serializeUser((user, done) => {
+  console.log(user)
   done(null, user);
 });
 
@@ -47,7 +48,7 @@ router.get('/login', (req, res) => {
 router.post('/login', 
 passport.authenticate('local', { failureRedirect: '/auth/login'}),
 (req, res) => {
-  res.redirect('/')
+  res.redirect('/auth/')
 })
 
 router.get('/', (req, res) => {
