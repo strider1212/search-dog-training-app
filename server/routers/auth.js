@@ -34,14 +34,18 @@ router.get('/login', (req, res) => {
 
 router.post('/login', 
 passport.authenticate('local', {
-  successMessage: 'success',
-  failureMessage: 'failure',
+  successRedirect: '/',
+  failureRedirect: '/login',
   session: false
 }),
 (req, res) => {
   res.send(req.body)
 }
 )
+
+router.get('/', (req, res) => {
+  res.send('logged in')
+})
 
 
 module.exports = router;
