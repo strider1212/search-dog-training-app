@@ -5,12 +5,21 @@ const session = require('express-session');
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const { User } = require('../mongoose/user');
+// const cookieSession = require("cookie-session");
 
 
 const LocalStrategy = require("passport-local").Strategy;
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
+
+// router.use(
+//   cookieSession({
+//     name: "session",
+//     keys: process.env.SESSION_SECRET,
+//     maxAge: 24 * 60 * 60 * 1000, // 24 hours
+//   })
+// );
 
 router.use(session({ 
   secret: process.env.SESSION_SECRET,
