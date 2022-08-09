@@ -29,7 +29,7 @@ passport.use('local', new LocalStrategy((username, password, done) => {
 }))
 
 router.get('/login', (req, res) => {
-  res.send('test GET /login')
+  res.send(req.body)
 })
 
 router.post('/login', 
@@ -44,7 +44,7 @@ passport.authenticate('local', {
 )
 
 router.get('/', (req, res) => {
-  res.send('logged in')
+  res.send(req.body)
 })
 
 
