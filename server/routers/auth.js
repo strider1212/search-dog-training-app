@@ -32,9 +32,16 @@ router.get('/login', (req, res) => {
   res.send('test GET /login')
 })
 
-router.post('/login', (req, res) => {
-  console.log(req.body)
+router.post('/login', 
+passport.authenticate('local', {
+  successMessage: 'success',
+  failureMessage: 'failure',
+  session: false
+}),
+(req, res) => {
   res.send(req.body)
-})
+}
+)
+
 
 module.exports = router;

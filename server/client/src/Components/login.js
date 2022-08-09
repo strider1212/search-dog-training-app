@@ -11,6 +11,7 @@ export const Login = () => {
       }),
     headers: {'Content-Type': 'application/json'}
     })
+    // .then(res => console.log(res))
     .then(res => res.json())
     .then(data => console.log(data))
   }
