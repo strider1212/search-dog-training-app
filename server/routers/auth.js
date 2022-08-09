@@ -22,11 +22,13 @@ router.use(passport.session());
 
 passport.serializeUser((user, done) => {
   console.log(user)
-  done(null, user);
+  done(null, user._id);
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(null, user);
+  })
 });
 
 passport.use('local', new LocalStrategy((username, password, done) => {
