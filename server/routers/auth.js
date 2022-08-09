@@ -49,9 +49,9 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', 
-passport.authenticate('local', { failureRedirect: '/auth/login'}),
+passport.authenticate('local'),
 (req, res) => {
-  res.redirect('/auth/')
+  res.send(req.body)
 })
 
 router.get('/', (req, res) => {
