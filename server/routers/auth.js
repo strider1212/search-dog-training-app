@@ -4,6 +4,7 @@ const router = express.Router()
 const session = require('express-session');
 const passport = require("passport");
 const bodyParser = require("body-parser");
+const { User } = require('../mongoose/user');
 
 
 const LocalStrategy = require("passport-local").Strategy;
@@ -19,13 +20,7 @@ router.use(session({
 router.use(passport.initialize())
 
 passport.use('local', new LocalStrategy((username, password, done) => {
-  const authenticated = username === "John" && password === "Smith";
-
-    if (authenticated) {
-      return done(null, { myUser: "user", myID: 1234 });
-    } else {
-      return done(null, false);
-    }
+  
 }))
 
 router.get('/login', (req, res) => {
