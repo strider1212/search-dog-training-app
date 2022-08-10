@@ -11,84 +11,82 @@ const NewLog = () => {
       </div>
       <div className="form-group">
         <label htmlFor="time">Time:</label>
-        <input type="time" className="form-control" id="time" placeholder="Your Name..." />
+        <input type="time" className="form-control" id="time" />
       </div>
       <div className="form-group">
         <label htmlFor="address">Address:</label>
-        <input type="text" className="form-control" id="address" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="address" placeholder="Address of the training..." />
       </div>
       <div className="form-group">
         <label htmlFor="team">Team:</label>
-        <input type="text" className="form-control" id="team" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="team" placeholder="Team Name..." />
       </div>
       <div className="form-group">
         <label htmlFor="training-type">Training Type:</label>
-        <input type="text" className="form-control" id="training-type" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="training-type" placeholder="Training type..." />
       </div>
       <div className="form-group">
         <label htmlFor="training-hours">Training Hours:</label>
-        <input type="number" className="form-control" id="training-hours" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="training-hours" placeholder="Enter a number (can use decimals)..." />
       </div>
       <div className="form-group">
         <label htmlFor="travel-hours">Travel Hours:</label>
-        <input type="number" className="form-control" id="travel-hours" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="travel-hours" placeholder="Enter a number (can use decimals)..." />
       </div>
       <div className="form-group">
         <label htmlFor="aggregiate-hours">Aggregiate Hours:</label>
-        <input type="number" className="form-control" id="aggregiate-hours" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="aggregiate-hours" placeholder="Enter a number (can use decimals)..." />
       </div>
       <div className="form-group">
         <label htmlFor="number">Mileage:</label>
-        <input type="text" className="form-control" id="mileage" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="mileage" placeholder="Enter a number for the number of miles driven..." />
       </div>
       <div className="form-group">
         <label htmlFor="tolls">Tolls:</label>
-        <input type="number" className="form-control" id="tolls" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="tolls" placeholder="Enter a number..." />
       </div>
       <div className="form-group">
         <label htmlFor="time-of-day">Time of Day:</label>
-        <input type="text" className="form-control" id="time-of-day" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="time-of-day" placeholder="e.g. morning, after, etc. ..." />
       </div>
       <div className="form-group">
         <label htmlFor="weather">Weather:</label>
-        <input type="text" className="form-control" id="weather" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="weather" />
       </div>
       <div className="form-group">
         <label htmlFor="tempterature">Temperature:</label>
-        <input type="number" className="form-control" id="tempterature" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="tempterature" placeholder="Enter a number for degrees fahrenheit..." />
       </div>
       <div className="form-group">
         <label htmlFor="wind-speed">Wind Speed:</label>
-        <input type="number" className="form-control" id="wind-speed" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="wind-speed" placeholder="Enter a number for MPH..." />
       </div>
       <div className="form-group">
         <label htmlFor="humidity">Humidity:</label>
-        <input type="number" className="form-control" id="humidity" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="humidity" placeholder="Enter a number..." />
       </div>
       <div className="form-group">
         <label htmlFor="placement-description">Placement Description:</label>
-        <input type="text" className="form-control" id="placement-description" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="placement-description" placeholder="Placement Description..." />
       </div>
       <div className="form-group">
         <label htmlFor="placed-by">Placed by:</label>
-        <input type="text" className="form-control" id="placed-by" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="placed-by" placeholder="Person who placed the source..." />
       </div>
       <div className="form-group">
         <label htmlFor="scent-source">Scent Source:</label>
-        <input type="text" className="form-control" id="scent-source" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="scent-source" placeholder="Kind of source used..." />
       </div>
       <div className="form-group">
         <label htmlFor="source-container">Source Container:</label>
-        <input type="text" className="form-control" id="source-container" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="source-container" placeholder="What the source was in..." />
       </div>
       <div className="form-group">
-        <label htmlFor="water">Water:</label>
-        <input type="checkbox" className="form-control" id="water" placeholder="Your Name..." />
+        <label htmlFor="water" className="form-check-label">Water:</label>
+        <input type="checkbox" className="form-check-input" id="water" placeholder="Your Name..." />
       </div>
     </form>
-  )
-   
-     
+  )   
 }
     
 export default NewLog;
