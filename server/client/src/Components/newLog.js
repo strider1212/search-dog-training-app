@@ -1,6 +1,11 @@
 import axios from 'axios';
 
 const NewLog = () => {
+  const submitHandler = async () => {
+    await axios.post('/logs')
+    .then(res => console.log(res))
+  }
+
   return (
     <form>
       <div className="form-group">
@@ -87,6 +92,7 @@ const NewLog = () => {
         <label htmlFor="water" className="form-check-label">Water:</label>
         <input type="checkbox" className="form-check-input" id="water" placeholder="Your Name..." />
       </div>
+      <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
     </form>
   )   
 }
