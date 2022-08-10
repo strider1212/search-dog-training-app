@@ -15,33 +15,14 @@ router.use(bodyParser.json());
 router.use(session({ 
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false,
-  cookie: {secure: true}
+  saveUninitialized: false
 }));
 router.use(passport.initialize())
 router.use(passport.session());
 
-passport.serializeUser((user, done) => {
-  console.log(`serializeUser will then take the user as an argument. The user is console logged below:`)
-  console.log(user)
-  console.log('serializeUser will then pass the user\'s id through the done argument, which is console logged below:')
-  console.log(user._id)
-  done(null, user._id);
-});
 
-passport.deserializeUser((id, done) => {
-  console.log(`Then, deserializeUser will pick up the user's id, which is console logged below:`)
-  console.log(id)
-  User.findById(id, (err, user) => {
-    console.log(`Then, User.findById will search the database by the id. It will produce an error or a user.`)
-    console.log('error:')
-    console.log(err)
-    console.log('user:')
-    console.log(user)
-    if(err) return done(err)
-    done(null, user);
-  })
-});
+
+
 
 passport.use('local', new LocalStrategy((username, password, done) => {
   console.log(`Then, it will enter the LocalStrategy Middleware, where it will pass a 'username' (${username}) and 'password' (${password}) argument.`)
@@ -64,6 +45,37 @@ passport.use('local', new LocalStrategy((username, password, done) => {
     return done(null, user)
   })
 }))
+
+passport.serializeUser((user, done) => {
+  console.log(`serializeUser will then take the user as an argument. The user is console logged below:`)
+  console.log(user)
+  console.log('serializeUser will then pass the user\'s id through the done argument, which is console logged below:')
+  console.log(user._id)
+  done(null, user._id);
+})
+
+
+passport.deserializeUser((id, done) => {
+  console.log(`Then, deserializeUser will pick up the user's id, which is console logged below:`)
+  console.log(id)
+  User.findById(id, (err, user) => {
+    console.log(`Then, User.findById will search the database by the id. It will produce an error or a user.`)
+    console.log('error:')
+    console.log(err)
+    console.log('user:')
+    console.log(user)
+    if(err) return done(err)
+    done(null, user);
+  })
+});
+
+
+
+const checkAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) { return next() }
+  console.log('did not work')
+  res.end()
+}
 
 router.get('/login', (req, res) => {
   res.send(req.body)

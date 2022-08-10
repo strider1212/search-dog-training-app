@@ -5,10 +5,16 @@ import { Registration } from "./Components/registration";
 
 function App() {
   return (
-    <Routes>
-      <Route path='/login' element={<Login />}/>
-      <Route path='/registration' element={<Registration />}/>
-    </Routes>
+    <div>
+      <header>
+
+      </header>
+      <Routes>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/registration' element={<Registration />}/>
+      </Routes>
+    </div>
+    
   );
 }
 
