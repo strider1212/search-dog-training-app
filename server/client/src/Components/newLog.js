@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const NewLog = () => {
   return (
     <form>
