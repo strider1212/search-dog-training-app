@@ -9,9 +9,6 @@ import NewLog from "./Components/newLog";
 function App() {
   return (
     <div>
-      <header>
-        <Header />
-      </header>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/login' element={<Login />}/>

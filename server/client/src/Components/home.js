@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
+import Header from "../Components/header";
 
 const Home = () => {
   return (
+    <div>
+      <header>
+        <Header />
+      </header>
     <div className="container">
       <div className="row">
         <div className="col-lg">
@@ -15,6 +20,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }
