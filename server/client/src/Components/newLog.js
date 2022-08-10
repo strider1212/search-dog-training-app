@@ -7,11 +7,11 @@ const NewLog = () => {
       </div>
       <div className="form-group">
         <label for="date">Date:</label>
-        <input type="text" className="form-control" id="date" placeholder="Date on which the drill was executed..." />
+        <input type="date" className="form-control" id="date" placeholder="Date on which the drill was executed..." />
       </div>
       <div className="form-group">
         <label for="time">Time:</label>
-        <input type="text" className="form-control" id="time" placeholder="Your Name..." />
+        <input type="time" className="form-control" id="time" placeholder="Your Name..." />
       </div>
       <div className="form-group">
         <label for="address">Address:</label>
@@ -27,23 +27,23 @@ const NewLog = () => {
       </div>
       <div className="form-group">
         <label for="training-hours">Training Hours:</label>
-        <input type="text" className="form-control" id="training-hours" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="training-hours" placeholder="Your Name..." />
       </div>
       <div className="form-group">
         <label for="travel-hours">Travel Hours:</label>
-        <input type="text" className="form-control" id="travel-hours" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="travel-hours" placeholder="Your Name..." />
       </div>
       <div className="form-group">
         <label for="aggregiate-hours">Aggregiate Hours:</label>
-        <input type="text" className="form-control" id="aggregiate-hours" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="aggregiate-hours" placeholder="Your Name..." />
       </div>
       <div className="form-group">
-        <label for="mileage">Mileage:</label>
+        <label for="number">Mileage:</label>
         <input type="text" className="form-control" id="mileage" placeholder="Your Name..." />
       </div>
       <div className="form-group">
         <label for="tolls">Tolls:</label>
-        <input type="text" className="form-control" id="tolls" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="tolls" placeholder="Your Name..." />
       </div>
       <div className="form-group">
         <label for="time-of-day">Time of Day:</label>
@@ -55,15 +55,15 @@ const NewLog = () => {
       </div>
       <div className="form-group">
         <label for="tempterature">Temperature:</label>
-        <input type="text" className="form-control" id="tempterature" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="tempterature" placeholder="Your Name..." />
       </div>
       <div className="form-group">
         <label for="wind-speed">Wind Speed:</label>
-        <input type="text" className="form-control" id="wind-speed" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="wind-speed" placeholder="Your Name..." />
       </div>
       <div className="form-group">
         <label for="humidity">Humidity:</label>
-        <input type="text" className="form-control" id="humidity" placeholder="Your Name..." />
+        <input type="number" className="form-control" id="humidity" placeholder="Your Name..." />
       </div>
       <div className="form-group">
         <label for="placement-description">Placement Description:</label>
@@ -83,7 +83,7 @@ const NewLog = () => {
       </div>
       <div className="form-group">
         <label for="water">Water:</label>
-        <input type="text" className="form-control" id="water" placeholder="Your Name..." />
+        <input type="checkbox" className="form-control" id="water" placeholder="Your Name..." />
       </div>
     </form>
   )
