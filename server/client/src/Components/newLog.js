@@ -4,9 +4,10 @@ import axios from 'axios';
 const NewLog = () => {
   const [createdBy, setCreatedBy] = useState('');
   const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
 
   const submitHandler = async () => {
-    console.log(date)
+    console.log(time)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -23,7 +24,7 @@ const NewLog = () => {
       </div>
       <div className="form-group">
         <label htmlFor="time">Time:</label>
-        <input type="time" className="form-control" id="time" />
+        <input type="time" className="form-control" id="time" onInput={(e) => setTime(e.target.value)} />
       </div>
       <div className="form-group">
         <label htmlFor="address">Address:</label>
