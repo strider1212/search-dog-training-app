@@ -10,10 +10,6 @@ const WaterLog = () => {
   const [waterType, setWaterType] = useState('');  
   const [temperature, setTemperature] = useState(0);  
 
-  //formPopulaterArray
-
-  //forMapper
-
   //submitHandler
     //consts
     //axios
@@ -21,7 +17,12 @@ const WaterLog = () => {
       //Navigate
   
   const submitHandler = () => {
-    console.log(temperature)
+    const opn = open;
+    const submrg = submerged;
+    const dpth = depth;
+    const sw = saltWater;
+    const wt = waterType;
+    const temp = temperature;
   }
   
   return (
