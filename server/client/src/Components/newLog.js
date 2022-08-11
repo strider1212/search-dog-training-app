@@ -1,16 +1,20 @@
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const NewLog = () => {
+  const [createdBy, setCreatedBy] = useState('');
+
   const submitHandler = async () => {
-    await axios.post('/logs')
-    .then(res => console.log(res))
+    console.log(createdBy)
+    // await axios.post('/logs')
+    // .then(res => console.log(res))
   }
 
   return (
     <form>
       <div className="form-group">
         <label htmlFor="created_by">Created by:</label>
-        <input type="text" className="form-control" id="created_by" placeholder="Your Name..." />
+        <input type="text" className="form-control" id="created_by" placeholder="Your Name..." onInput={(e) => setCreatedBy(e.target.valuej)}/>
       </div>
       <div className="form-group">
         <label htmlFor="date">Date:</label>
