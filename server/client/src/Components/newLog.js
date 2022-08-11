@@ -9,10 +9,11 @@ const NewLog = () => {
   const [team, setTeam] = useState('');
   const [trainingType, setTrainingType] = useState('');
   const [trainingHours, setTrainingHours] = useState('');
+  const [travelHours, setTravelHours] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(trainingHours)
+    console.log(travelHours)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -102,6 +103,7 @@ const NewLog = () => {
         className="form-control" 
         id="travel-hours" 
         placeholder="Enter a number (can use decimals)..." 
+        onInput={(e) => setTravelHours(e.target.value)}
         />
       </div>
 
@@ -224,7 +226,7 @@ const NewLog = () => {
         placeholder="Your Name..." 
         />
       </div>
-      
+
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
     </form>
   )   
