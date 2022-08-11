@@ -24,12 +24,12 @@ const WaterLog = () => {
       //Navigate
   
   const submitHandler = () => {
-    console.log('test')
+    console.log(open)
   }
   
   return (
     <form>
-      {checkboxFormPopulater('open', setOpen)}
+      {checkboxFormPopulater('open', 'Open Water?', setOpen)}
       <button type="button" className="btn btn-primary" onClick={submitHandler}>Submit</button>
     </form>
   )
