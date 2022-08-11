@@ -85,9 +85,6 @@ const NewLog = () => {
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
     </form>
   )
-
-
-  
 }
     
 export default NewLog;
