@@ -1,7 +1,14 @@
-import { formPopulater } from "../utils/formPopulater";
+import { useState } from "react";
 
 const WaterLog = () => {
   //state
+    //open
+    //submerged
+    //depth
+    //salt_water
+    //water type
+    //temperature
+    //associated log
 
   //formPopulaterArray
 
@@ -13,9 +20,14 @@ const WaterLog = () => {
       //values
       //Navigate
   
+  const stateChecker = () => {
+    console.log('test')
+  }
+  
   return (
     <form>
 
+      <button type="button" className="btn btn-secondary" onClick={stateChecker}>State Checker</button>
     </form>
   )
 }
