@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(aggregiateHours)
+    console.log(mileage)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -55,20 +55,9 @@ const NewLog = () => {
   formPopulater('training-type', 'Training Type', 'text', 'form-control', 'Training type...', setTrainingType),
   formPopulater('training-hours', 'Training Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTrainingHours),
   formPopulater('travel-hours', 'Travel Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTravelHours),
-  formPopulater('aggregiate-hours', 'Aggregiate Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setAggregiateHours)
+  formPopulater('aggregiate-hours', 'Aggregiate Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setAggregiateHours),
+  formPopulater('mileage', 'Mileage', 'number', 'form-control', 'Enter a number for the number of miles driven...', setMileage)
 ];
-
-
-  //     <div className="form-group">
-  //       <label htmlFor="aggregiate-hours">Aggregiate Hours:</label>
-  //       <input 
-  //       type="number" 
-  //       className="form-control" 
-  //       id="aggregiate-hours" 
-  //       placeholder="Enter a number (can use decimals)..." 
-  //       onInput={(e) => setAggregiateHours(e.target.value)}
-  //       />
-  //     </div>
 
   //     <div className="form-group">
   //       <label htmlFor="number">Mileage:</label>
