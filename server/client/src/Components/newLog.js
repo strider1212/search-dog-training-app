@@ -12,10 +12,11 @@ const NewLog = () => {
   const [travelHours, setTravelHours] = useState('');
   const [aggregiateHours, setAggregiateHours] = useState('');
   const [mileage, setMileage] = useState('');
+  const [tolls, setTolls] = useState('')
   
 
   const submitHandler = async () => {
-    console.log(mileage)
+    console.log(tolls)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -138,6 +139,7 @@ const NewLog = () => {
         className="form-control" 
         id="tolls" 
         placeholder="Enter a number..." 
+        onInput={(e) => setTolls(e.target.value)}
         />
       </div>
 
