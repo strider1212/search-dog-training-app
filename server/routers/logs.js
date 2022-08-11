@@ -41,7 +41,6 @@ router.post('/', (req, res) => {
     //perhaps use maps API to calculate on the front end
     "mileage": req.body.mileage,
     "tolls": req.body.tolls,
-    "time_of_day": req.query.time_of_day,
     //self-populated with weather API
     "weather": req.query.weather,
     //weather API

@@ -46,10 +46,6 @@ const logSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  "time_of_day": {
-    type: String,
-    required: true
-  },
   "weather": {
     type: String,
     required: true
