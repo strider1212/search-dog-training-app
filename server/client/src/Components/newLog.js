@@ -29,6 +29,7 @@ const NewLog = () => {
         onInput={(e) => setCreatedBy(e.target.valuej)}
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="date">Date:</label>
         <input 
@@ -39,6 +40,7 @@ const NewLog = () => {
         onInput={(e) => setDate(e.target.value)} 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="time">Time:</label>
         <input 
@@ -48,6 +50,7 @@ const NewLog = () => {
         onInput={(e) => setTime(e.target.value)} 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="address">Address:</label>
         <input 
@@ -58,6 +61,7 @@ const NewLog = () => {
         onInput={(e) => setAddress(e.target.value)}
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="team">Team:</label>
         <input 
@@ -68,6 +72,7 @@ const NewLog = () => {
         onInput={(e) => setTeam(e.target.value)}
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="training-type">Training Type:</label>
         <input 
@@ -78,6 +83,7 @@ const NewLog = () => {
         onInput={(e) => setTrainingType(e.target.value)}
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="training-hours">Training Hours:</label>
         <input 
@@ -88,6 +94,7 @@ const NewLog = () => {
         onInput={(e) => {setTrainingHours(e.target.value)}}
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="travel-hours">Travel Hours:</label>
         <input 
@@ -97,6 +104,7 @@ const NewLog = () => {
         placeholder="Enter a number (can use decimals)..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="aggregiate-hours">Aggregiate Hours:</label>
         <input 
@@ -106,6 +114,7 @@ const NewLog = () => {
         placeholder="Enter a number (can use decimals)..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="number">Mileage:</label>
         <input 
@@ -115,6 +124,7 @@ const NewLog = () => {
         placeholder="Enter a number for the number of miles driven..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="tolls">Tolls:</label>
         <input 
@@ -124,6 +134,7 @@ const NewLog = () => {
         placeholder="Enter a number..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="weather">Weather:</label>
         <input 
@@ -133,6 +144,7 @@ const NewLog = () => {
         placeholder="Description of the weather..."
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="tempterature">Temperature:</label>
         <input 
@@ -142,6 +154,7 @@ const NewLog = () => {
         placeholder="Enter a number for degrees fahrenheit..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="wind-speed">Wind Speed:</label>
         <input 
@@ -151,6 +164,7 @@ const NewLog = () => {
         placeholder="Enter a number for MPH..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="humidity">Humidity:</label>
         <input 
@@ -160,6 +174,7 @@ const NewLog = () => {
         placeholder="Enter a number..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="placement-description">Placement Description:</label>
         <input 
@@ -169,6 +184,7 @@ const NewLog = () => {
         placeholder="Placement Description..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="placed-by">Placed by:</label>
         <input 
@@ -178,6 +194,7 @@ const NewLog = () => {
         placeholder="Person who placed the source..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="scent-source">Scent Source:</label>
         <input 
@@ -187,6 +204,7 @@ const NewLog = () => {
         placeholder="Kind of source used..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="source-container">Source Container:</label>
         <input 
@@ -196,6 +214,7 @@ const NewLog = () => {
         placeholder="What the source was in..." 
         />
       </div>
+
       <div className="form-group">
         <label htmlFor="water" className="form-check-label">Water:</label>
         <input 
@@ -205,6 +224,7 @@ const NewLog = () => {
         placeholder="Your Name..." 
         />
       </div>
+      
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
     </form>
   )   
