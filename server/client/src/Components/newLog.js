@@ -20,10 +20,11 @@ const NewLog = () => {
   const [placementDescription, setplacementDescription] = useState('');
   const [placedBy, setPlacedBy] = useState('');
   const [scentSource, setScentSource] = useState('');
+  const [souceContainer, setsouceContainer] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(scentSource)
+    console.log(souceContainer)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -234,6 +235,7 @@ const NewLog = () => {
         className="form-control" 
         id="source-container" 
         placeholder="What the source was in..." 
+        onInput={(e) => setsouceContainer(e.target.value)}
         />
       </div>
 
