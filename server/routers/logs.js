@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
   console.log('POST to /')
   let postLog = new Log({
     //populated automatically in the front end
-    "log_created_by": req.query.log_created_by,
+    "log_created_by": req.body.log_created_by,
     //formatted for weather API
     "date": req.query.date,
     //formatted for weather API

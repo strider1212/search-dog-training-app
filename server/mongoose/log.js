@@ -5,7 +5,7 @@ const { individual_runsSchema } = require('./individual_runs');
 
 const logSchema = new mongoose.Schema({
   "log_created_by": {
-    type: mongoose.Schema.Types.ObjectId, 
+    type: String, 
     ref: 'User',
     required: true
   },
@@ -18,7 +18,7 @@ const logSchema = new mongoose.Schema({
     required: true
   },
   "team": {
-    type: mongoose.Schema.Types.ObjectId, 
+    type: String, 
     ref: 'Team',
     required: true
   },
@@ -71,7 +71,7 @@ const logSchema = new mongoose.Schema({
     required: true
   },
   "placed_by": {
-    type: mongoose.Schema.Types.ObjectId, 
+    type: String, 
     ref: 'User',
     required: true
   },

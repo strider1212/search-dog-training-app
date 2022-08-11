@@ -85,8 +85,26 @@ const NewLog = () => {
     const sc = souceContainer
 
 
-    await axios.post(`http://localhost:3000/logs?log_created_by=${cb}&address=${addr}&team=${tem}&training_type=${tt}&training_hours=${trainhrs}&travel_hours=${travhrs}&aggregate_hours=${agghrs}&mileage=${mile}&tolls=${toll}&weather=${weath}&date=${dt}&temperature=${temp}&wind_speed=${ws}&humidity=${hum}&placement_description=${pd}&placed_by=${pb}&scent_source=${ss}&source_container=${sc}&time=${tim}&water=false`)
+    await axios.post(`http://localhost:3000/logs`, {log_created_by: cb})
     .then(res => console.log(res))
+    .catch(error => {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log('error.response.data', error.response.data);
+        console.log('error.response.status', error.response.status);
+        console.log('error.response.headers', error.response.headers);
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log('error.request', error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('error.message', error.message);
+      }
+      console.log('error.config', error.config);
+    })
   }
 
   return (
