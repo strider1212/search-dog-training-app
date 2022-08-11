@@ -7,7 +7,8 @@ const NewLog = () => {
   const [time, setTime] = useState('');
   const [address, setAddress] = useState('');
   const [team, setTeam] = useState('');
-  const [trainingType, settrainingType] = useState('');
+  const [trainingType, setTrainingType] = useState('');
+  
 
   const submitHandler = async () => {
     console.log(trainingType)
@@ -39,7 +40,7 @@ const NewLog = () => {
       </div>
       <div className="form-group">
         <label htmlFor="training-type">Training Type:</label>
-        <input type="text" className="form-control" id="training-type" placeholder="Training type..." onInput={(e) => settrainingType(e.target.value)}/>
+        <input type="text" className="form-control" id="training-type" placeholder="Training type..." onInput={(e) => setTrainingType(e.target.value)}/>
       </div>
       <div className="form-group">
         <label htmlFor="training-hours">Training Hours:</label>
