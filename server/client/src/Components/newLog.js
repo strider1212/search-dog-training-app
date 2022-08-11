@@ -17,10 +17,11 @@ const NewLog = () => {
   const [temperature, setTemperature] = useState('');
   const [windSpeed, setWindSpeed] = useState('');
   const [humidity, setHumidity] = useState('');
+  const [placementDescription, setplacementDescription] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(humidity)
+    console.log(placementDescription)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -198,6 +199,7 @@ const NewLog = () => {
         className="form-control" 
         id="placement-description" 
         placeholder="Placement Description..." 
+        onInput={(e) => setplacementDescription(e.target.value)}
         />
       </div>
 
