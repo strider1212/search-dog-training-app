@@ -14,10 +14,11 @@ const NewLog = () => {
   const [mileage, setMileage] = useState('');
   const [tolls, setTolls] = useState('');
   const [weather, setWeather] = useState('');
+  const [temperature, setTemperature] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(weather)
+    console.log(temperature)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -162,6 +163,7 @@ const NewLog = () => {
         className="form-control" 
         id="tempterature" 
         placeholder="Enter a number for degrees fahrenheit..." 
+        onInput={(e) => setTemperature(e.target.value)}
         />
       </div>
 
