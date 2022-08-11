@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(trainingHours)
+    console.log(travelHours)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -53,19 +53,9 @@ const NewLog = () => {
   formPopulater('address', 'Address', 'text', 'form-control', 'Address of the training...', setAddress),
   formPopulater('team', 'Team', 'text', 'form-control', 'Team Name...', setTeam),
   formPopulater('training-type', 'Training Type', 'text', 'form-control', 'Training type...', setTrainingType),
-  formPopulater('training-hours', 'Training Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTrainingHours)
+  formPopulater('training-hours', 'Training Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTrainingHours),
+  formPopulater('travel-hours', 'Travel Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTravelHours)
 ];
-
-  //     <div className="form-group">
-  //       <label htmlFor="training-hours">Training Hours:</label>
-  //       <input 
-  //       type="number" 
-  //       className="form-control" 
-  //       id="training-hours" 
-  //       placeholder="Enter a number (can use decimals)..." 
-  //       onInput={(e) => {setTrainingHours(e.target.value)}}
-  //       />
-  //     </div>
 
   //     <div className="form-group">
   //       <label htmlFor="travel-hours">Travel Hours:</label>
