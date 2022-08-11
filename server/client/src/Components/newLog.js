@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(createdBy)
+    console.log(time)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -48,7 +48,8 @@ const NewLog = () => {
 
   const formPopulaterArray = 
   [formPopulater('created_by', 'Created By', 'text', 'form-control', 'Your Name...', setCreatedBy), 
-  formPopulater('"form-group"', 'Date', 'date', 'form-control', 'Date on which the drill was executed...', setDate)
+  formPopulater('"form-group"', 'Date', 'date', 'form-control', 'Date on which the drill was executed...', setDate),
+  formPopulater('time', 'Time', 'time', 'form-control', '', setTime)
 ];
 
   const formMapper = formPopulaterArray.map(func => func)
@@ -59,18 +60,6 @@ const NewLog = () => {
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
     </form>
   )
-  
-
-  //     <div className="form-group">
-  //       <label htmlFor="date">Date:</label>
-  //       <input 
-  //       type="date" 
-  //       className="form-control" 
-  //       id="date" 
-  //       placeholder="Date on which the drill was executed..." 
-  //       onInput={(e) => setDate(e.target.value)} 
-  //       />
-  //     </div>
 
   //     <div className="form-group">
   //       <label htmlFor="time">Time:</label>
