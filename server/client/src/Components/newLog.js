@@ -66,40 +66,22 @@ const NewLog = () => {
   formPopulater('placed-by', 'Placed by', 'text', 'form-control', 'Person who placed the source...', setPlacedBy),
   formPopulater('scent-source', 'Scent Source', 'text', 'form-control', 'Kind of source used...', setScentSource),
   formPopulater('source-container', 'Source Container', 'text', 'form-control', 'What the source was in...', setsouceContainer)
-];
-
-
-
-  //     <div className="form-group">
-  //       <label htmlFor="source-container">Source Container:</label>
-  //       <input 
-  //       type="text" 
-  //       className="form-control" 
-  //       id="source-container" 
-  //       placeholder="What the source was in..." 
-  //       onInput={(e) => setsouceContainer(e.target.value)}
-  //       />
-  //     </div>
-
-  //     <div className="form-group">
-  //       <label htmlFor="water" className="form-check-label">Water:</label>
-  //       <input 
-  //       type="checkbox" 
-  //       className="form-check-input" 
-  //       id="water" 
-  //       placeholder="Your Name..." 
-  //       />
-  //     </div>
-
-  //     <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
-  //   </form>
-  // )   
+]; 
 
   const formMapper = formPopulaterArray.map(func => func)
 
   return (
     <form>
       {formMapper}
+      <div className="form-group">
+        <label htmlFor="water" className="form-check-label">Water:</label>
+        <input 
+        type="checkbox" 
+        className="form-check-input" 
+        id="water" 
+        placeholder="Your Name..." 
+        />
+      </div>
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
     </form>
   )
