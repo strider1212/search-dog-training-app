@@ -85,7 +85,17 @@ const NewLog = () => {
     const sc = souceContainer
 
 
-    await axios.post(`http://localhost:3000/logs`, {log_created_by: cb})
+    await axios.post(`http://localhost:3000/logs`, {
+      log_created_by: cb,
+      date: dt,
+      address: addr, 
+      team: tem, 
+      training_hours: trainhrs,
+      travel_hours: travhrs,
+      aggregate_hours: agghrs,
+      mileage: mile,
+      tolls: toll
+    })
     .then(res => console.log(res))
     .catch(error => {
       if (error.response) {

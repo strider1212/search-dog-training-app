@@ -26,21 +26,21 @@ router.post('/', (req, res) => {
     //populated automatically in the front end
     "log_created_by": req.body.log_created_by,
     //formatted for weather API
-    "date": req.query.date,
+    "date": req.body.date,
     //formatted for weather API
     "time": req.query.time,
     //formatted for weather API
-    "address": req.query.address,
+    "address": req.body.address,
     //teamID
-    "team": req.query.team,
+    "team": req.body.team,
     "training_type": req.query.training_type,
-    "training_hours": req.query.training_hours,
-    "travel_hours": req.query.travel_hours,
+    "training_hours": req.body.training_hours,
+    "travel_hours": req.body.travel_hours,
     //self-calculate on the front-end
-    "aggregate_hours": req.query.aggregate_hours,
+    "aggregate_hours": req.body.aggregate_hours,
     //perhaps use maps API to calculate on the front end
-    "mileage": req.query.mileage,
-    "tolls": req.query.tolls,
+    "mileage": req.body.mileage,
+    "tolls": req.body.tolls,
     "time_of_day": req.query.time_of_day,
     //self-populated with weather API
     "weather": req.query.weather,
