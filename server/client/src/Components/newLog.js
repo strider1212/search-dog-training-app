@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(weather)
+    console.log(temperature)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -58,19 +58,9 @@ const NewLog = () => {
   formPopulater('aggregiate-hours', 'Aggregiate Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setAggregiateHours),
   formPopulater('mileage', 'Mileage', 'number', 'form-control', 'Enter a number for the number of miles driven...', setMileage),
   formPopulater('tolls', 'Tolls', 'number', 'form-control', 'Enter a number...', setTolls),
-  formPopulater('weather', 'Weather', 'text', 'form-control', 'Description of the weather...', setWeather)
+  formPopulater('weather', 'Weather', 'text', 'form-control', 'Description of the weather...', setWeather),
+  formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Enter a number for degrees fahrenheit...', setTemperature)
 ];
-
-  //     <div className="form-group">
-  //       <label htmlFor="weather">Weather:</label>
-  //       <input 
-  //       type="text" 
-  //       className="form-control" 
-  //       id="weather" 
-  //       placeholder="Description of the weather..."
-  //       onInput={(e) => setWeather(e.target.value)}
-  //       />
-  //     </div>
 
   //     <div className="form-group">
   //       <label htmlFor="tempterature">Temperature:</label>
