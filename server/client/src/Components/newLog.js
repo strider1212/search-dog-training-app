@@ -130,7 +130,7 @@ const NewLog = () => {
   return (
     <form>
       {formMapper}
-      {checkboxFormPopulater('water', setWater)}
+      {checkboxFormPopulater('water', 'Water', setWater)}
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
       <Link to="/">
         <button type='button' className='btn btn-primary'>Return Home</button>
