@@ -74,17 +74,16 @@ router.delete('/:id', (req, res) => {
 })
 
 router.post('/water', async (req, res) => {
-  const associatedLog = req.query.associated_log
+  
   
   const waterLog = new Water({
-    "open": req.query.open,
-    "submerged": req.query.submerged,
-    "depth": req.query.depth,
-    "salt_water": req.query.salt_water,
-    "water_type": req.query.water_type,
-    "temperature": req.query.temperature,
-    //log ID
-    "associated_log": associatedLog
+    "open": req.body.open,
+    "submerged": req.body.submerged,
+    "depth": req.body.depth,
+    "salt_water": req.body.salt_water,
+    "water_type": req.body.water_type,
+    "temperature": req.body.temperature,
+    //log ID for associated log
   })
 
   const key = 'water_data';
