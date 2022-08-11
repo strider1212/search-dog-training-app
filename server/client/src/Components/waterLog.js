@@ -13,12 +13,6 @@ const WaterLog = () => {
   const [temperature, setTemperature] = useState(0);  
 
   const navigate = useNavigate();
-
-  //submitHandler
-    //consts
-    //axios
-      //values
-      //Navigate
   
   const submitHandler = async () => {
     const opn = open;
@@ -30,7 +24,7 @@ const WaterLog = () => {
 
     await axios.post(`http://localhost:3000/logs/water`, {
       open: opn, 
-      submerged: submerged,
+      submerged: submrg,
       depth: dpth,
       salt_water: sw,
       water_type: wt,
