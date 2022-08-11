@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  console.log('POST to /')
   let postLog = new Log({
     //populated automatically in the front end
     "log_created_by": req.query.log_created_by,

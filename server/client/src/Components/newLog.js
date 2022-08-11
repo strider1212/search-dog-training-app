@@ -64,9 +64,29 @@ const NewLog = () => {
   const formMapper = formPopulaterArray.map(func => func)
 
   const submitHandler = async () => {
-    console.log(souceContainer)
-    // await axios.post('/logs')
-    // .then(res => console.log(res))
+    const cb = createdBy; 
+    const dt = date;
+    const tim = time;
+    const addr = address;
+    const tem = team;
+    const tt = trainingType
+    const trainhrs = trainingHours;
+    const travhrs = travelHours;
+    const agghrs = aggregiateHours
+    const mile = mileage;
+    const toll = tolls;
+    const weath = weather;
+    const temp = temperature;
+    const ws = windSpeed;
+    const hum = humidity;
+    const pd = placementDescription
+    const pb = placedBy;
+    const ss = scentSource;
+    const sc = souceContainer
+
+
+    await axios.post(`http://localhost:3000/logs?log_created_by=${cb}&address=${addr}&team=${tem}&training_type=${tt}&training_hours=${trainhrs}&travel_hours=${travhrs}&aggregate_hours=${agghrs}&mileage=${mile}&tolls=${toll}&weather=${weath}&date=${dt}&temperature=${temp}&wind_speed=${ws}&humidity=${hum}&placement_description=${pd}&placed_by=${pb}&scent_source=${ss}&source_container=${sc}&time=${tim}&water=false`)
+    .then(res => console.log(res))
   }
 
   return (
