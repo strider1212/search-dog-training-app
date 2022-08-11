@@ -74,7 +74,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.post('/water', async (req, res) => {
-  
+  const associatedLog = '62f53c46105ec01ba30ab9f2'
   
   const waterLog = new Water({
     "open": req.body.open,
