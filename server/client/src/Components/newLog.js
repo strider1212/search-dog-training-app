@@ -29,8 +29,6 @@ const NewLog = () => {
   let navigate = useNavigate();
 
   const submitHandler = async () => {
-    console.log(water)
-
     const cb = createdBy; 
     const dt = date;
     const tim = time;
