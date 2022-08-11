@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(team)
+    console.log(trainingType)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -51,19 +51,9 @@ const NewLog = () => {
   formPopulater('"form-group"', 'Date', 'date', 'form-control', 'Date on which the drill was executed...', setDate),
   formPopulater('time', 'Time', 'time', 'form-control', '', setTime),
   formPopulater('address', 'Address', 'text', 'form-control', 'Address of the training...', setAddress),
-  formPopulater('team', 'Team', 'text', 'form-control', 'Team Name...', setTeam)
+  formPopulater('team', 'Team', 'text', 'form-control', 'Team Name...', setTeam),
+  formPopulater('training-type', 'Training Type', 'text', 'form-control', 'Training type...', setTrainingType)
 ];
-
-  //     <div className="form-group">
-  //       <label htmlFor="team">Team:</label>
-  //       <input 
-  //       type="text" 
-  //       className="form-control" 
-  //       id="team" 
-  //       placeholder="Team Name..." 
-  //       onInput={(e) => setTeam(e.target.value)}
-  //       />
-  //     </div>
 
   //     <div className="form-group">
   //       <label htmlFor="training-type">Training Type:</label>
