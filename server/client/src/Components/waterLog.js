@@ -3,20 +3,12 @@ import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from "../utils/checkboxFormPopulater";
 
 const WaterLog = () => {
-  //state
-    //open
   const [open, setOpen] = useState(false);
-    //submerged
   const [submerged, setSubmerged] = useState(false);
-    //depth
   const [depth, setDepth] = useState(0);
-    //salt_water
   const [saltWater, setSaltWater] = useState(false);  
-    //water type
   const [waterType, setWaterType] = useState('');  
-    //temperature
   const [temperature, setTemperature] = useState(0);  
-    //associated log
 
   //formPopulaterArray
 
