@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const NewLog = () => {
@@ -23,6 +23,8 @@ const NewLog = () => {
   const [scentSource, setScentSource] = useState('');
   const [souceContainer, setsouceContainer] = useState('');
   const [water, setWater] = useState(false);
+
+  let navigate = useNavigate();
 
 
   const formPopulater = (forAndId, UIText, type, className, placeholder, setFunction) => {
@@ -87,7 +89,6 @@ const NewLog = () => {
     const sc = souceContainer;
     const watr = water; 
 
-
     await axios.post(`http://localhost:3000/logs`, {
       log_created_by: cb,
       date: dt,
@@ -110,7 +111,11 @@ const NewLog = () => {
       water: watr,
       training_type: tt
     })
-    .then(res => console.log(res))
+    .then(res => {
+      if (res.data.water) {
+        navigate("/waterLog")
+      }
+    })
     .catch(error => {
       if (error.response) {
         // The request was made and the server responded with a status code
@@ -129,6 +134,8 @@ const NewLog = () => {
       }
       console.log('error.config', error.config);
     })
+
+    console.log('Log submitted')
   }
 
   return (
