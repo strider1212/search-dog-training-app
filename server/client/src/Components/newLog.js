@@ -21,13 +21,6 @@ const NewLog = () => {
   const [placedBy, setPlacedBy] = useState('');
   const [scentSource, setScentSource] = useState('');
   const [souceContainer, setsouceContainer] = useState('');
-  
-
-  const submitHandler = async () => {
-    console.log(souceContainer)
-    // await axios.post('/logs')
-    // .then(res => console.log(res))
-  }
 
 
   const formPopulater = (forAndId, UIText, type, className, placeholder, setFunction) => {
@@ -69,6 +62,12 @@ const NewLog = () => {
 ]; 
 
   const formMapper = formPopulaterArray.map(func => func)
+
+  const submitHandler = async () => {
+    console.log(souceContainer)
+    // await axios.post('/logs')
+    // .then(res => console.log(res))
+  }
 
   return (
     <form>
