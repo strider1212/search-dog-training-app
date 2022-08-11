@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(scentSource)
+    console.log(souceContainer)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -64,20 +64,11 @@ const NewLog = () => {
   formPopulater('humidity', 'Humidity', 'number', 'form-control', 'Enter a number representing a percent...', setHumidity),
   formPopulater('placement-description', 'Placement Description', 'text', 'form-control', 'Placement Description...', setplacementDescription),
   formPopulater('placed-by', 'Placed by', 'text', 'form-control', 'Person who placed the source...', setPlacedBy),
-  formPopulater('scent-source', 'Scent Source', 'text', 'form-control', 'Kind of source used...', setScentSource)
+  formPopulater('scent-source', 'Scent Source', 'text', 'form-control', 'Kind of source used...', setScentSource),
+  formPopulater('source-container', 'Source Container', 'text', 'form-control', 'What the source was in...', setsouceContainer)
 ];
 
 
-  //     <div className="form-group">
-  //       <label htmlFor="scent-source">Scent Source:</label>
-  //       <input 
-  //       type="text" 
-  //       className="form-control" 
-  //       id="scent-source" 
-  //       placeholder="Kind of source used..." 
-  //       onInput={(e) => setScentSource(e.target.value)}
-  //       />
-  //     </div>
 
   //     <div className="form-group">
   //       <label htmlFor="source-container">Source Container:</label>
