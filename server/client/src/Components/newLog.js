@@ -18,10 +18,11 @@ const NewLog = () => {
   const [windSpeed, setWindSpeed] = useState('');
   const [humidity, setHumidity] = useState('');
   const [placementDescription, setplacementDescription] = useState('');
+  const [placedBy, setPlacedBy] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(placementDescription)
+    console.log(placedBy)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -210,6 +211,7 @@ const NewLog = () => {
         className="form-control" 
         id="placed-by" 
         placeholder="Person who placed the source..." 
+        onInput={(e) => setPlacedBy(e.target.value)}
         />
       </div>
 
