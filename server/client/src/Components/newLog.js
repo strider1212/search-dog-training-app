@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(humidity)
+    console.log(placementDescription)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -61,19 +61,9 @@ const NewLog = () => {
   formPopulater('weather', 'Weather', 'text', 'form-control', 'Description of the weather...', setWeather),
   formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Enter a number for degrees fahrenheit...', setTemperature),
   formPopulater('wind-speed', 'Wind Speed', 'number', 'form-control', 'Enter a number in MPH...', setWindSpeed),
-  formPopulater('humidity', 'Humidity', 'number', 'form-control', 'Enter a number representing a percent...', setHumidity)
+  formPopulater('humidity', 'Humidity', 'number', 'form-control', 'Enter a number representing a percent...', setHumidity),
+  formPopulater('placement-description', 'Placement Description', 'text', 'form-control', 'Placement Description...', setplacementDescription)
 ];
-
-  //     <div className="form-group">
-  //       <label htmlFor="humidity">Humidity:</label>
-  //       <input 
-  //       type="number" 
-  //       className="form-control" 
-  //       id="humidity" 
-  //       placeholder="Enter a number representing a percent..." 
-  //       onInput={(e) => setHumidity(e.target.value)}
-  //       />
-  //     </div>
 
   //     <div className="form-group">
   //       <label htmlFor="placement-description">Placement Description:</label>
