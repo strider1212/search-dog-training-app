@@ -19,10 +19,11 @@ const NewLog = () => {
   const [humidity, setHumidity] = useState('');
   const [placementDescription, setplacementDescription] = useState('');
   const [placedBy, setPlacedBy] = useState('');
+  const [scentSource, setScentSource] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(placedBy)
+    console.log(scentSource)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -222,6 +223,7 @@ const NewLog = () => {
         className="form-control" 
         id="scent-source" 
         placeholder="Kind of source used..." 
+        onInput={(e) => setScentSource(e.target.value)}
         />
       </div>
 
