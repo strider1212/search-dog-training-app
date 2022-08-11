@@ -1,7 +1,6 @@
 import { Login } from "./Components/login";
 import { Routes, Route } from 'react-router-dom';
 import { Registration } from "./Components/registration";
-import Header from './Components/header';
 import Home from './Components/home'
 import NewLog from "./Components/newLog";
 
