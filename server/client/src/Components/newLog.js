@@ -21,6 +21,7 @@ const NewLog = () => {
   const [placedBy, setPlacedBy] = useState('');
   const [scentSource, setScentSource] = useState('');
   const [souceContainer, setsouceContainer] = useState('');
+  const [water, setWater] = useState(false);
 
 
   const formPopulater = (forAndId, UIText, type, className, placeholder, setFunction) => {
@@ -82,7 +83,8 @@ const NewLog = () => {
     const pd = placementDescription
     const pb = placedBy;
     const ss = scentSource;
-    const sc = souceContainer
+    const sc = souceContainer;
+    const watr = water; 
 
 
     await axios.post(`http://localhost:3000/logs`, {
@@ -103,7 +105,8 @@ const NewLog = () => {
       placed_by: pb,
       scent_source: ss,
       source_container: sc,
-      time: tim
+      time: tim,
+      water: watr
     })
     .then(res => console.log(res))
     .catch(error => {
@@ -136,6 +139,7 @@ const NewLog = () => {
         className="form-check-input" 
         id="water" 
         placeholder="Your Name..." 
+        onChange={(e) => setWater(e.target.checked)}
         />
       </div>
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>

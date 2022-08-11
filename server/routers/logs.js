@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
     "placed_by": req.body.placed_by,
     "scent_source": req.body.scent_source,
     "source_container": req.body.source_container,
-    "water": req.query.water
+    "water": req.body.water
     //water_data and inidividual_runs aren't going to be posted with this individual post they will be added on their own
   })
   postNew(postLog, res);
