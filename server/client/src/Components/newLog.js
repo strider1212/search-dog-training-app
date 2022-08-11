@@ -11,10 +11,11 @@ const NewLog = () => {
   const [trainingHours, setTrainingHours] = useState('');
   const [travelHours, setTravelHours] = useState('');
   const [aggregiateHours, setAggregiateHours] = useState('');
+  const [mileage, setMileage] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(aggregiateHours)
+    console.log(mileage)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -126,6 +127,7 @@ const NewLog = () => {
         className="form-control" 
         id="mileage" 
         placeholder="Enter a number for the number of miles driven..." 
+        onInput={(e) => setMileage(e.target.value)}
         />
       </div>
 
