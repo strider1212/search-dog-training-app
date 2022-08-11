@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const NewLog = () => {
@@ -144,6 +145,9 @@ const NewLog = () => {
         />
       </div>
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
+      <Link to="/">
+        <button type='button' className='btn btn-primary'>Return Home</button>
+      </Link>
     </form>
   )
 }
