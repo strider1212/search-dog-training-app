@@ -15,6 +15,7 @@ const WaterLog = () => {
     //water type
   const [waterType, setWaterType] = useState('');  
     //temperature
+  const [temperature, setTemperature] = useState(0);  
     //associated log
 
   //formPopulaterArray
@@ -28,16 +29,17 @@ const WaterLog = () => {
       //Navigate
   
   const submitHandler = () => {
-    console.log(waterType)
+    console.log(temperature)
   }
   
   return (
     <form>
       {checkboxFormPopulater('open', 'Open Water?', setOpen)}
+      {checkboxFormPopulater('salt', 'Salt Water?', setSaltWater)}
       {checkboxFormPopulater('submerged', 'Source Submerged?', setSubmerged)}
       {formPopulater('depth', 'Depth', 'number', 'form-control', 'How many feet below the surface was the source?...', setDepth)}
-      {checkboxFormPopulater('salt', 'Salt Water?', setSaltWater)}
       {formPopulater('water-type', 'Water Type', 'text', 'form-control', 'Describe the type of water source it was (e.g. bay, river, etc.)...', setWaterType)}
+      {formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Give a number for the temperature in degrees fahrenheit?...', setTemperature)}
       <button type="button" className="btn btn-primary" onClick={submitHandler}>Submit</button>
     </form>
   )
