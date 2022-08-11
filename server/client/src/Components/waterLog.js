@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { formPopulater } from '../utils/formPopulater';
 
 const WaterLog = () => {
   //state
@@ -26,6 +27,7 @@ const WaterLog = () => {
   
   return (
     <form>
+
       <button type="button" className="btn btn-primary" onClick={submitHandler}>Submit</button>
     </form>
   )

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
+import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 
 const NewLog = () => {
   const [createdBy, setCreatedBy] = useState('');
@@ -52,6 +53,8 @@ const NewLog = () => {
   const formMapper = formPopulaterArray.map(func => func)
 
   const submitHandler = async () => {
+    console.log(water)
+
     const cb = createdBy; 
     const dt = date;
     const tim = time;
@@ -122,10 +125,13 @@ const NewLog = () => {
     console.log('Log submitted')
   }
 
+  
+
   return (
     <form>
       {formMapper}
-      <div className="form-group">
+      {checkboxFormPopulater('water', setWater)}
+      {/* <div className="form-group">
         <label htmlFor="water" className="form-check-label">Water:</label>
         <input 
         type="checkbox" 
@@ -134,7 +140,7 @@ const NewLog = () => {
         placeholder="Your Name..." 
         onChange={(e) => setWater(e.target.checked)}
         />
-      </div>
+      </div> */}
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
       <Link to="/">
         <button type='button' className='btn btn-primary'>Return Home</button>
