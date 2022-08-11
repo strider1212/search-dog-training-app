@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(placedBy)
+    console.log(scentSource)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -63,19 +63,10 @@ const NewLog = () => {
   formPopulater('wind-speed', 'Wind Speed', 'number', 'form-control', 'Enter a number in MPH...', setWindSpeed),
   formPopulater('humidity', 'Humidity', 'number', 'form-control', 'Enter a number representing a percent...', setHumidity),
   formPopulater('placement-description', 'Placement Description', 'text', 'form-control', 'Placement Description...', setplacementDescription),
-  formPopulater('placed-by', 'Placed by', 'text', 'form-control', 'Person who placed the source...', setPlacedBy)
+  formPopulater('placed-by', 'Placed by', 'text', 'form-control', 'Person who placed the source...', setPlacedBy),
+  formPopulater('scent-source', 'Scent Source', 'text', 'form-control', 'Kind of source used...', setScentSource)
 ];
 
-  //     <div className="form-group">
-  //       <label htmlFor="placed-by">Placed by:</label>
-  //       <input 
-  //       type="text" 
-  //       className="form-control" 
-  //       id="placed-by" 
-  //       placeholder="Person who placed the source..." 
-  //       onInput={(e) => setPlacedBy(e.target.value)}
-  //       />
-  //     </div>
 
   //     <div className="form-group">
   //       <label htmlFor="scent-source">Scent Source:</label>
