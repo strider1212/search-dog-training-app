@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
     "address": req.body.address,
     //teamID
     "team": req.body.team,
-    "training_type": req.query.training_type,
+    "training_type": req.body.training_type,
     "training_hours": req.body.training_hours,
     "travel_hours": req.body.travel_hours,
     //self-calculate on the front-end

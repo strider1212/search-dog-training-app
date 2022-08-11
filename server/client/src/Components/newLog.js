@@ -106,7 +106,8 @@ const NewLog = () => {
       scent_source: ss,
       source_container: sc,
       time: tim,
-      water: watr
+      water: watr,
+      training_type: tt
     })
     .then(res => console.log(res))
     .catch(error => {
