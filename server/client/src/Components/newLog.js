@@ -59,12 +59,8 @@ const NewLog = () => {
         <input type="number" className="form-control" id="tolls" placeholder="Enter a number..." />
       </div>
       <div className="form-group">
-        <label htmlFor="time-of-day">Time of Day:</label>
-        <input type="text" className="form-control" id="time-of-day" placeholder="e.g. morning, after, etc. ..." />
-      </div>
-      <div className="form-group">
         <label htmlFor="weather">Weather:</label>
-        <input type="text" className="form-control" id="weather" />
+        <input type="text" className="form-control" id="weather" placeholder="Description of the weather..."/>
       </div>
       <div className="form-group">
         <label htmlFor="tempterature">Temperature:</label>
