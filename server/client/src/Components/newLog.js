@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(temperature)
+    console.log(windSpeed)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -59,19 +59,9 @@ const NewLog = () => {
   formPopulater('mileage', 'Mileage', 'number', 'form-control', 'Enter a number for the number of miles driven...', setMileage),
   formPopulater('tolls', 'Tolls', 'number', 'form-control', 'Enter a number...', setTolls),
   formPopulater('weather', 'Weather', 'text', 'form-control', 'Description of the weather...', setWeather),
-  formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Enter a number for degrees fahrenheit...', setTemperature)
+  formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Enter a number for degrees fahrenheit...', setTemperature),
+  formPopulater('wind-speed', 'Wind Speed', 'number', 'form-control', 'Enter a number in MPH...', setWindSpeed)
 ];
-
-  //     <div className="form-group">
-  //       <label htmlFor="tempterature">Temperature:</label>
-  //       <input 
-  //       type="number" 
-  //       className="form-control" 
-  //       id="tempterature" 
-  //       placeholder="Enter a number for degrees fahrenheit..." 
-  //       onInput={(e) => setTemperature(e.target.value)}
-  //       />
-  //     </div>
 
   //     <div className="form-group">
   //       <label htmlFor="wind-speed">Wind Speed:</label>
@@ -79,7 +69,7 @@ const NewLog = () => {
   //       type="number" 
   //       className="form-control" 
   //       id="wind-speed" 
-  //       placeholder="Enter a number for MPH..." 
+  //       placeholder="Enter a number in MPH..." 
   //       onInput={(e) => setWindSpeed(e.target.value)}
   //       />
   //     </div>
