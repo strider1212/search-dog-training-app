@@ -1,6 +1,10 @@
 const WaterLog = () => {
+  
+  
   return (
-    <div>waterLog.js</div>
+    <form>
+
+    </form>
   )
 }
 

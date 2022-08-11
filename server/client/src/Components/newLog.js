@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { formPopulater } from '../utils/formPopulater';
 
 const NewLog = () => {
   const [createdBy, setCreatedBy] = useState('');
@@ -25,23 +26,6 @@ const NewLog = () => {
   const [water, setWater] = useState(false);
 
   let navigate = useNavigate();
-
-
-  const formPopulater = (forAndId, UIText, type, className, placeholder, setFunction) => {
-
-    return (
-      <div className="form-group">
-        <label htmlFor={forAndId}>{UIText}:</label>
-        <input 
-        type={type} 
-        className={className} 
-        id={forAndId} 
-        placeholder={placeholder}
-        onInput={(e) => setFunction(e.target.value)}
-        />
-      </div>
-    )
-  }
 
   const formPopulaterArray = 
   [formPopulater('created_by', 'Created By', 'text', 'form-control', 'Your Name...', setCreatedBy), 
