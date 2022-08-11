@@ -16,10 +16,11 @@ const NewLog = () => {
   const [weather, setWeather] = useState('');
   const [temperature, setTemperature] = useState('');
   const [windSpeed, setWindSpeed] = useState('');
+  const [humidity, setHumidity] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(windSpeed)
+    console.log(humidity)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -185,7 +186,8 @@ const NewLog = () => {
         type="number" 
         className="form-control" 
         id="humidity" 
-        placeholder="Enter a number..." 
+        placeholder="Enter a number representing a percent..." 
+        onInput={(e) => setHumidity(e.target.value)}
         />
       </div>
 
