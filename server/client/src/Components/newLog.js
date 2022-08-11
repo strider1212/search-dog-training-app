@@ -28,30 +28,6 @@ const NewLog = () => {
 
   let navigate = useNavigate();
 
-  const formPopulaterArray = 
-  [formPopulater('created_by', 'Created By', 'text', 'form-control', 'Your Name...', setCreatedBy), 
-  formPopulater('"form-group"', 'Date', 'date', 'form-control', 'Date on which the drill was executed...', setDate),
-  formPopulater('time', 'Time', 'time', 'form-control', '', setTime),
-  formPopulater('address', 'Address', 'text', 'form-control', 'Address of the training...', setAddress),
-  formPopulater('team', 'Team', 'text', 'form-control', 'Team Name...', setTeam),
-  formPopulater('training-type', 'Training Type', 'text', 'form-control', 'Training type...', setTrainingType),
-  formPopulater('training-hours', 'Training Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTrainingHours),
-  formPopulater('travel-hours', 'Travel Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTravelHours),
-  formPopulater('aggregiate-hours', 'Aggregiate Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setAggregiateHours),
-  formPopulater('mileage', 'Mileage', 'number', 'form-control', 'Enter a number for the number of miles driven...', setMileage),
-  formPopulater('tolls', 'Tolls', 'number', 'form-control', 'Enter a number...', setTolls),
-  formPopulater('weather', 'Weather', 'text', 'form-control', 'Description of the weather...', setWeather),
-  formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Enter a number for degrees fahrenheit...', setTemperature),
-  formPopulater('wind-speed', 'Wind Speed', 'number', 'form-control', 'Enter a number in MPH...', setWindSpeed),
-  formPopulater('humidity', 'Humidity', 'number', 'form-control', 'Enter a number representing a percent...', setHumidity),
-  formPopulater('placement-description', 'Placement Description', 'text', 'form-control', 'Placement Description...', setplacementDescription),
-  formPopulater('placed-by', 'Placed by', 'text', 'form-control', 'Person who placed the source...', setPlacedBy),
-  formPopulater('scent-source', 'Scent Source', 'text', 'form-control', 'Kind of source used...', setScentSource),
-  formPopulater('source-container', 'Source Container', 'text', 'form-control', 'What the source was in...', setsouceContainer)
-]; 
-
-  const formMapper = formPopulaterArray.map(func => func)
-
   const submitHandler = async () => {
     console.log(water)
 
@@ -125,11 +101,27 @@ const NewLog = () => {
     console.log('Log submitted')
   }
 
-  
-
   return (
     <form>
-      {formMapper}
+      {formPopulater('created_by', 'Created By', 'text', 'form-control', 'Your Name...', setCreatedBy)}
+      {formPopulater('"form-group"', 'Date', 'date', 'form-control', 'Date on which the drill was executed...', setDate)}
+      {formPopulater('time', 'Time', 'time', 'form-control', '', setTime)}
+      {formPopulater('address', 'Address', 'text', 'form-control', 'Address of the training...', setAddress)}
+      {formPopulater('team', 'Team', 'text', 'form-control', 'Team Name...', setTeam)}
+      {formPopulater('training-type', 'Training Type', 'text', 'form-control', 'Training type...', setTrainingType)}
+      {formPopulater('training-hours', 'Training Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTrainingHours)}
+      {formPopulater('travel-hours', 'Travel Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTravelHours)}
+      {formPopulater('aggregiate-hours', 'Aggregiate Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setAggregiateHours)}
+      {formPopulater('mileage', 'Mileage', 'number', 'form-control', 'Enter a number for the number of miles driven...', setMileage)}
+      {formPopulater('tolls', 'Tolls', 'number', 'form-control', 'Enter a number...', setTolls)}
+      {formPopulater('weather', 'Weather', 'text', 'form-control', 'Description of the weather...', setWeather)}
+      {formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Enter a number for degrees fahrenheit...', setTemperature)}
+      {formPopulater('wind-speed', 'Wind Speed', 'number', 'form-control', 'Enter a number in MPH...', setWindSpeed)}
+      {formPopulater('humidity', 'Humidity', 'number', 'form-control', 'Enter a number representing a percent...', setHumidity)}
+      {formPopulater('placement-description', 'Placement Description', 'text', 'form-control', 'Placement Description...', setplacementDescription)}
+      {formPopulater('placed-by', 'Placed by', 'text', 'form-control', 'Person who placed the source...', setPlacedBy)}
+      {formPopulater('scent-source', 'Scent Source', 'text', 'form-control', 'Kind of source used...', setScentSource)}
+      {formPopulater('source-container', 'Source Container', 'text', 'form-control', 'What the source was in...', setsouceContainer)}
       {checkboxFormPopulater('water', 'Water', setWater)}
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
       <Link to="/">
