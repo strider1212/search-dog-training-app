@@ -94,7 +94,16 @@ const NewLog = () => {
       travel_hours: travhrs,
       aggregate_hours: agghrs,
       mileage: mile,
-      tolls: toll
+      tolls: toll,
+      weather: weath,
+      temperature: temp,
+      wind_speed: ws,
+      humidity: hum,
+      placement_description: pd,
+      placed_by: pb,
+      scent_source: ss,
+      source_container: sc,
+      time: tim
     })
     .then(res => console.log(res))
     .catch(error => {

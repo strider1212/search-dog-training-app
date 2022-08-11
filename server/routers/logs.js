@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
     //formatted for weather API
     "date": req.body.date,
     //formatted for weather API
-    "time": req.query.time,
+    "time": req.body.time,
     //formatted for weather API
     "address": req.body.address,
     //teamID
@@ -42,19 +42,19 @@ router.post('/', (req, res) => {
     "mileage": req.body.mileage,
     "tolls": req.body.tolls,
     //self-populated with weather API
-    "weather": req.query.weather,
+    "weather": req.body.weather,
     //weather API
-    "temperature": req.query.temperature,
+    "temperature": req.body.temperature,
     //weather API
-    "wind_speed": req.query.wind_speed,
+    "wind_speed": req.body.wind_speed,
     //weather API
-    "humidity": req.query.humidity,
-    "placement_description": req.query.placement_description,
+    "humidity": req.body.humidity,
+    "placement_description": req.body.placement_description,
     //ID of user
     //select from available users 
-    "placed_by": req.query.placed_by,
-    "scent_source": req.query.scent_source,
-    "source_container": req.query.source_container,
+    "placed_by": req.body.placed_by,
+    "scent_source": req.body.scent_source,
+    "source_container": req.body.source_container,
     "water": req.query.water
     //water_data and inidividual_runs aren't going to be posted with this individual post they will be added on their own
   })
