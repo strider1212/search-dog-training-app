@@ -24,7 +24,7 @@ const NewLog = () => {
   
 
   const submitHandler = async () => {
-    console.log(time)
+    console.log(address)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -49,29 +49,11 @@ const NewLog = () => {
   const formPopulaterArray = 
   [formPopulater('created_by', 'Created By', 'text', 'form-control', 'Your Name...', setCreatedBy), 
   formPopulater('"form-group"', 'Date', 'date', 'form-control', 'Date on which the drill was executed...', setDate),
-  formPopulater('time', 'Time', 'time', 'form-control', '', setTime)
+  formPopulater('time', 'Time', 'time', 'form-control', '', setTime),
+  formPopulater('address', 'Address', 'text', 'form-control', 'Address of the training...', setAddress)
 ];
 
-  const formMapper = formPopulaterArray.map(func => func)
-
-  return (
-    <form>
-      {formMapper}
-      <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
-    </form>
-  )
-
-  //     <div className="form-group">
-  //       <label htmlFor="time">Time:</label>
-  //       <input 
-  //       type="time" 
-  //       className="form-control" 
-  //       id="time" 
-  //       onInput={(e) => setTime(e.target.value)} 
-  //       />
-  //     </div>
-
-  //     <div className="form-group">
+//     <div className="form-group">
   //       <label htmlFor="address">Address:</label>
   //       <input 
   //       type="text" 
@@ -260,6 +242,18 @@ const NewLog = () => {
   //     <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
   //   </form>
   // )   
+
+  const formMapper = formPopulaterArray.map(func => func)
+
+  return (
+    <form>
+      {formMapper}
+      <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
+    </form>
+  )
+
+
+  
 }
     
 export default NewLog;
