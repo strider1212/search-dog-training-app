@@ -25,6 +25,7 @@ const waterSchema = new mongoose.Schema({
     type: Number,
     required: true
   }
+  //add associated log
 })
 
 const Water = mongoose.model('Water', waterSchema);

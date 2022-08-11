@@ -20,14 +20,13 @@ const WaterLog = () => {
       //values
       //Navigate
   
-  const stateChecker = () => {
+  const submitHandler = () => {
     console.log('test')
   }
   
   return (
     <form>
-
-      <button type="button" className="btn btn-secondary" onClick={stateChecker}>State Checker</button>
+      <button type="button" className="btn btn-primary" onClick={submitHandler}>Submit</button>
     </form>
   )
 }
