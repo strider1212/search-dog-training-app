@@ -10,10 +10,11 @@ const NewLog = () => {
   const [trainingType, setTrainingType] = useState('');
   const [trainingHours, setTrainingHours] = useState('');
   const [travelHours, setTravelHours] = useState('');
+  const [aggregiateHours, setAggregiateHours] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(travelHours)
+    console.log(aggregiateHours)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -114,6 +115,7 @@ const NewLog = () => {
         className="form-control" 
         id="aggregiate-hours" 
         placeholder="Enter a number (can use decimals)..." 
+        onInput={(e) => setAggregiateHours(e.target.value)}
         />
       </div>
 
