@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
@@ -131,16 +131,6 @@ const NewLog = () => {
     <form>
       {formMapper}
       {checkboxFormPopulater('water', setWater)}
-      {/* <div className="form-group">
-        <label htmlFor="water" className="form-check-label">Water:</label>
-        <input 
-        type="checkbox" 
-        className="form-check-input" 
-        id="water" 
-        placeholder="Your Name..." 
-        onChange={(e) => setWater(e.target.checked)}
-        />
-      </div> */}
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
       <Link to="/">
         <button type='button' className='btn btn-primary'>Return Home</button>
