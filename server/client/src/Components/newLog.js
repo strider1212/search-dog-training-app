@@ -15,10 +15,11 @@ const NewLog = () => {
   const [tolls, setTolls] = useState('');
   const [weather, setWeather] = useState('');
   const [temperature, setTemperature] = useState('');
+  const [windSpeed, setWindSpeed] = useState('');
   
 
   const submitHandler = async () => {
-    console.log(temperature)
+    console.log(windSpeed)
     // await axios.post('/logs')
     // .then(res => console.log(res))
   }
@@ -174,6 +175,7 @@ const NewLog = () => {
         className="form-control" 
         id="wind-speed" 
         placeholder="Enter a number for MPH..." 
+        onInput={(e) => setWindSpeed(e.target.value)}
         />
       </div>
 
