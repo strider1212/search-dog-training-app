@@ -72,7 +72,8 @@ const WaterLog = () => {
       {checkboxFormPopulater('open', 'Open Water?', setFormValue, formValues, 'open')}
       {checkboxFormPopulater('salt', 'Salt Water?', setFormValue, formValues, 'saltWater')}
       {checkboxFormPopulater('submerged', 'Source Submerged?', setFormValue, formValues, 'submerged')}
-      <div className="form-group">
+      {formPopulater('depth', 'Depth', 'number', 'How many feet below the surface was the source?...', setFormValue, formValues, 'depth')}
+      {/* <div className="form-group">
         <label htmlFor="depth">Depth:</label>
         <input
         type="number"
@@ -84,7 +85,7 @@ const WaterLog = () => {
           depth: e.target.valueAsNumber
         })}
         />
-      </div>
+      </div> */}
       <button type="button" className="btn btn-primary" onClick={() => console.log(formValues)}>tester</button>
       {/*
       {formPopulater('depth', 'Depth', 'number', 'form-control', 'How many feet below the surface was the source?...', setDepth)}
