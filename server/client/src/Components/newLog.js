@@ -5,72 +5,57 @@ import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 
 const NewLog = () => {
-  const [createdBy, setCreatedBy] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-  const [address, setAddress] = useState('');
-  const [team, setTeam] = useState('');
-  const [trainingType, setTrainingType] = useState('');
-  const [trainingHours, setTrainingHours] = useState(0);
-  const [travelHours, setTravelHours] = useState(0);
-  const [aggregiateHours, setAggregiateHours] = useState(0);
-  const [mileage, setMileage] = useState(0);
-  const [tolls, setTolls] = useState(0);
-  const [weather, setWeather] = useState('');
-  const [temperature, setTemperature] = useState(0);
-  const [windSpeed, setWindSpeed] = useState(0);
-  const [humidity, setHumidity] = useState(0);
-  const [placementDescription, setplacementDescription] = useState('');
-  const [placedBy, setPlacedBy] = useState('');
-  const [scentSource, setScentSource] = useState('');
-  const [souceContainer, setsouceContainer] = useState('');
-  const [water, setWater] = useState(false);
+
+  const initialState = {
+    createdBy: '',
+    date: '',
+    time: '',
+    address: '',
+    team: '',
+    trainingType: '',
+    trainingHours: 0,
+    travelHours: 0,
+    aggregiateHours: 0,
+    mileage: 0,
+    tolls: 0,
+    weather: '',
+    temperature: 0,
+    windSpeed: 0,
+    humidity: 0,
+    placementDescription: '',
+    placedBy: '',
+    scentSource: '',
+    souceContainer: '',
+    water: false
+  }
+
+  const [formValues, setFormValue] = useState(initialState);
 
   let navigate = useNavigate();
 
   const submitHandler = async () => {
-    const cb = createdBy; 
-    const dt = date;
-    const tim = time;
-    const addr = address;
-    const tem = team;
-    const tt = trainingType
-    const trainhrs = trainingHours;
-    const travhrs = travelHours;
-    const agghrs = aggregiateHours
-    const mile = mileage;
-    const toll = tolls;
-    const weath = weather;
-    const temp = temperature;
-    const ws = windSpeed;
-    const hum = humidity;
-    const pd = placementDescription
-    const pb = placedBy;
-    const ss = scentSource;
-    const sc = souceContainer;
-    const watr = water; 
 
     await axios.post(`http://localhost:3000/logs`, {
-      log_created_by: cb,
-      date: dt,
-      address: addr, 
-      team: tem, 
-      training_hours: trainhrs,
-      travel_hours: travhrs,
-      aggregate_hours: agghrs,
-      mileage: mile,
-      tolls: toll,
-      weather: weath,
-      temperature: temp,
-      wind_speed: ws,
-      humidity: hum,
-      placement_description: pd,
-      placed_by: pb,
-      scent_source: ss,
-      source_container: sc,
-      time: tim,
-      water: watr,
-      training_type: tt
+      log_created_by: formValues.createdBy,
+      date: formValues.date,
+      address: formValues.address, 
+      team: formValues.team, 
+      training_hours: formValues.trainingHours,
+      travel_hours: formValues.travelHours,
+      aggregate_hours: formValues.aggregiateHours,
+      mileage: formValues.mileage,
+      tolls: formValues.tolls,
+      weather: formValues.weather,
+      temperature: formValues.temperature,
+      wind_speed: formValues.windSpeed,
+      humidity: formValues.humidity,
+      placement_description: formValues.placementDescription,
+      placed_by: formValues.placedBy,
+      scent_source: formValues.scentSource,
+      source_container: formValues.souceContainer,
+      time: formValues.time,
+      water: formValues.water,
+      training_type: formValues.trainingType
     })
     .then(res => {
       if (res.data.water) {
@@ -101,6 +86,8 @@ const NewLog = () => {
 
   return (
     <form>
+      {formPopulater('created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'log_created_by')}
+      {/* 
       {formPopulater('created_by', 'Created By', 'text', 'form-control', 'Your Name...', setCreatedBy)}
       {formPopulater('"form-group"', 'Date', 'date', 'form-control', 'Date on which the drill was executed...', setDate)}
       {formPopulater('time', 'Time', 'time', 'form-control', '', setTime)}
@@ -120,7 +107,9 @@ const NewLog = () => {
       {formPopulater('placed-by', 'Placed by', 'text', 'form-control', 'Person who placed the source...', setPlacedBy)}
       {formPopulater('scent-source', 'Scent Source', 'text', 'form-control', 'Kind of source used...', setScentSource)}
       {formPopulater('source-container', 'Source Container', 'text', 'form-control', 'What the source was in...', setsouceContainer)}
-      {checkboxFormPopulater('water', 'Water', setWater)}
+      {checkboxFormPopulater('water', 'Water', setWater)} 
+      */}
+      <button type="button" className='btn btn-secondary' onClick={() => console.log(formValues)}>Tester</button>
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
       <Link to="/">
         <button type='button' className='btn btn-primary'>Return Home</button>
