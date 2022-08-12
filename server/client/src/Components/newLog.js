@@ -77,6 +77,7 @@ const NewLog = () => {
 
     console.log('Log submitted')
   }
+      //formPopulater and checkboxFormPopulater populate the individual labels and inputs within the form.
 
       //formPopulater arguments: formPopulater(forAndIdAttribute, UIText, type, placeholder, setState, state, propertyInStateObject)
       //checkboxFormPopulater arguments: checkboxFormPopulater(forAndIdAttribute, UIText, setState, state, propertyInStateObject)
