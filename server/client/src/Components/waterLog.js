@@ -70,26 +70,16 @@ const WaterLog = () => {
   return (
     <form>
       {checkboxFormPopulater('open', 'Open Water?', setFormValue, formValues, 'open')}
-      {/* <div className="form-group">
-        <label htmlFor="open" className="form-check-label">Open Water?</label>
-        <input
-        type="checkbox"
-        className="form-check-input"
-        id="open"
-        onChange={(e) => setFormValue({
-          ...formValues,
-          open: e.target.checked
-        })}
-        />
-      </div> */}
+      {checkboxFormPopulater('salt', 'Salt Water?', setFormValue, formValues, 'saltWater')}
       <button type="button" className="btn btn-primary" onClick={() => console.log(formValues)}>tester</button>
-      {/* {checkboxFormPopulater('open', 'Open Water?', setOpen)}
+      {/*
       {checkboxFormPopulater('salt', 'Salt Water?', setSaltWater)}
       {checkboxFormPopulater('submerged', 'Source Submerged?', setSubmerged)}
       {formPopulater('depth', 'Depth', 'number', 'form-control', 'How many feet below the surface was the source?...', setDepth)}
       {formPopulater('water-type', 'Water Type', 'text', 'form-control', 'Describe the type of water source it was (e.g. bay, river, etc.)...', setWaterType)}
       {formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Give a number for the temperature in degrees fahrenheit?...', setTemperature)}
-      <button type="button" className="btn btn-primary" onClick={submitHandler}>Submit</button> */}
+      <button type="button" className="btn btn-primary" onClick={submitHandler}>Submit</button> 
+      */}
     </form>
   )
 }
