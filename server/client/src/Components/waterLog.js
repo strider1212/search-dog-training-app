@@ -69,7 +69,8 @@ const WaterLog = () => {
   
   return (
     <form>
-      <div className="form-group">
+      {checkboxFormPopulater('open', 'Open Water?', setFormValue, formValues, 'open')}
+      {/* <div className="form-group">
         <label htmlFor="open" className="form-check-label">Open Water?</label>
         <input
         type="checkbox"
@@ -80,7 +81,7 @@ const WaterLog = () => {
           open: e.target.checked
         })}
         />
-      </div>
+      </div> */}
       <button type="button" className="btn btn-primary" onClick={() => console.log(formValues)}>tester</button>
       {/* {checkboxFormPopulater('open', 'Open Water?', setOpen)}
       {checkboxFormPopulater('salt', 'Salt Water?', setSaltWater)}
