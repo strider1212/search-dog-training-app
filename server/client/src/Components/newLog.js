@@ -57,6 +57,42 @@ const NewLog = () => {
       errors.team = "Team category is required"
     }
 
+    if (!values.tolls) {
+      errors.tolls = "Tolls category is required"
+    }
+
+    if (!values.weather) {
+      errors.weather = "Weather category is required"
+    }
+
+    if (!values.temperature) {
+      errors.temperature = "Temperature category is required"
+    }
+
+    if (!values.windSpeed) {
+      errors.windSpeed = "Wind Speed category is required"
+    }
+
+    if (!values.humidity) {
+      errors.humidity = "Humidity category is required"
+    }
+
+    if (!values.placementDescription) {
+      errors.placementDescription = "Placement Description category is required"
+    }
+
+    if (!values.placedBy) {
+      errors.placedBy = "Placed By category is required"
+    }
+
+    if (!values.scentSource) {
+      errors.scentSource = "Scent Source category is required"
+    }
+
+    if (!values.souceContainer) {
+      errors.souceContainer = "Source Container category is required"
+    }
+
     return errors;
   }
 
