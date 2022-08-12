@@ -57,6 +57,26 @@ const NewLog = () => {
       errors.team = "Team category is required"
     }
 
+    if (!values.trainingType) {
+      errors.trainingType = "Trainging Type category is required"
+    }
+
+    if (!values.trainingHours) {
+      errors.trainingHours = "Training Hours category is required"
+    }
+
+    if (!values.travelHours) {
+      errors.travelHours = "Travel Hours category is required"
+    }
+
+    if (!values.aggregiateHours) {
+      errors.aggregiateHours = "Aggregiate Hours category is required"
+    }
+
+    if (!values.mileage) {
+      errors.mileage = "Mileage category is required"
+    }
+
     if (!values.tolls) {
       errors.tolls = "Tolls category is required"
     }
@@ -158,25 +178,63 @@ const NewLog = () => {
     <form>
       <p>{formErrors.createdBy}</p>
       {formPopulater('log_created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'createdBy')}
+
+      <p>{formErrors.date}</p>
       {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
+
+      <p>{formErrors.time}</p>
       {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
+
+      <p>{formErrors.address}</p>
       {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
+
+      <p>{formErrors.team}</p>
       {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')}
+
+      <p>{formErrors.trainingType}</p>
       {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
+
+      <p>{formErrors.trainingHours}</p>
       {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
+
+      <p>{formErrors.travelHours}</p>
       {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
+
+      <p>{formErrors.aggregiateHours}</p>
       {formPopulater('aggregiate-hours', 'Aggregiate Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'aggregiateHours')}
+
+      <p>{formErrors.mileage}</p>
       {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
+
+      <p>{formErrors.tolls}</p>
       {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
+
+      <p>{formErrors.weather}</p>
       {formPopulater('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather')}
+
+      <p>{formErrors.temperature}</p>
       {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')}
+
+      <p>{formErrors.windSpeed}</p>
       {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')}
+
+      <p>{formErrors.humidity}</p>
       {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')}
+
+      <p>{formErrors.placementDescription}</p>
       {formPopulater('placement-description', 'Placement Description', 'text', 'Where and how the source was placed...', setFormValue, formValues, 'placementDescription')}
+
+      <p>{formErrors.placedBy}</p>
       {formPopulater('placed-by', 'Placed By', 'text', 'Which teammate placed the source?...', setFormValue, formValues, 'placedBy')}
+
+      <p>{formErrors.scentSource}</p>
       {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
+
+      <p>{formErrors.souceContainer}</p>
       {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
+
       {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
+
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
       <Link to="/">
         <button type='submit' className='btn btn-primary'>Return Home</button>
