@@ -156,6 +156,7 @@ const NewLog = () => {
 
   return (
     <form>
+      <p>{formErrors.createdBy}</p>
       {formPopulater('log_created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'createdBy')}
       {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
       {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
