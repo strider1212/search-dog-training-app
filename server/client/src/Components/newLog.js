@@ -45,8 +45,16 @@ const NewLog = () => {
       errors.date = "Date category is required"
     }
 
-    if (!values.date) {
-      errors.date = "Date category is required"
+    if (!values.time) {
+      errors.time = "Time category is required"
+    }
+
+    if (!values.address) {
+      errors.address = "Address category is required"
+    }
+
+    if (!values.team) {
+      errors.team = "Team category is required"
     }
 
     return errors;
