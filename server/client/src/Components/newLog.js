@@ -120,8 +120,6 @@ const NewLog = () => {
     setFormErrors(validate(formValues))
     setIsSubmit(true)
 
-    console.log(formErrors)
-
     await axios.post(`http://localhost:3000/logs`, {
       log_created_by: formValues.createdBy,
       date: formValues.date,
