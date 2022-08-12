@@ -72,9 +72,21 @@ const WaterLog = () => {
       {checkboxFormPopulater('open', 'Open Water?', setFormValue, formValues, 'open')}
       {checkboxFormPopulater('salt', 'Salt Water?', setFormValue, formValues, 'saltWater')}
       {checkboxFormPopulater('submerged', 'Source Submerged?', setFormValue, formValues, 'submerged')}
+      <div className="form-group">
+        <label htmlFor="depth">Depth:</label>
+        <input
+        type="number"
+        className="form-control"
+        id="depth"
+        placeholder="How many feet below the surface was the source?..."
+        onInput={(e) => setFormValue({
+          ...formValues,
+          depth: e.target.valueAsNumber
+        })}
+        />
+      </div>
       <button type="button" className="btn btn-primary" onClick={() => console.log(formValues)}>tester</button>
       {/*
-      {checkboxFormPopulater('submerged', 'Source Submerged?', setSubmerged)}
       {formPopulater('depth', 'Depth', 'number', 'form-control', 'How many feet below the surface was the source?...', setDepth)}
       {formPopulater('water-type', 'Water Type', 'text', 'form-control', 'Describe the type of water source it was (e.g. bay, river, etc.)...', setWaterType)}
       {formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Give a number for the temperature in degrees fahrenheit?...', setTemperature)}
