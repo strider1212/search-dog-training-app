@@ -105,8 +105,7 @@ const NewLog = () => {
       {formPopulater('placed-by', 'Placed By', 'text', 'Which teammate placed the source?...', setFormValue, formValues, 'placedBy')}
       {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
       {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
-      {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')} 
-      <button type='button' className='btn-secondary' onClick={() => console.log(formValues)}>tester</button>
+      {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
       <Link to="/">
         <button type='button' className='btn btn-primary'>Return Home</button>
