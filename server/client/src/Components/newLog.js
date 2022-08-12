@@ -115,13 +115,6 @@ const NewLog = () => {
 
     return errors;
   }
-
-  useEffect(() => {
-    console.log(formErrors)
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues)
-    }
-  }, [formErrors])
   
   const submitHandler = async () => {
     setFormErrors(validate(formValues))
