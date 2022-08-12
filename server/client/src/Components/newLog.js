@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
@@ -30,10 +30,38 @@ const NewLog = () => {
   }
 
   const [formValues, setFormValue] = useState(initialState);
+  const [formErrors, setFormErrors] = useState({})
+  const [isSubmit, setIsSubmit] = useState(false)
 
   let navigate = useNavigate();
 
+  const validate = (values) => {
+    const errors = {};
+    if (!values.createdBy) {
+      errors.createdBy = "Created By category is required"
+    }
+
+    if (!values.date) {
+      errors.date = "Date category is required"
+    }
+
+    if (!values.date) {
+      errors.date = "Date category is required"
+    }
+
+    return errors;
+  }
+
+  useEffect(() => {
+    console.log(formErrors)
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues)
+    }
+  }, [formErrors])
+  
   const submitHandler = async () => {
+    setFormErrors(validate(formValues))
+    setIsSubmit(true)
 
     await axios.post(`http://localhost:3000/logs`, {
       log_created_by: formValues.createdBy,
