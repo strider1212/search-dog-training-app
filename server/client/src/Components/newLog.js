@@ -58,9 +58,10 @@ const NewLog = () => {
       training_type: formValues.trainingType
     })
     .then(res => {
-      if (res.data.water) {
-        navigate("/waterLog")
-      }
+      console.log('find data to Navigate to /waterLog', res)
+      // if (res.data.water) {
+      //   navigate("/waterLog")
+      // }
     })
     .catch(error => {
       if (error.response) {
@@ -86,7 +87,7 @@ const NewLog = () => {
 
   return (
     <form>
-      {formPopulater('created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'log_created_by')}
+      {formPopulater('log_created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'createdBy')}
       {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
       {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
       {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
@@ -106,6 +107,7 @@ const NewLog = () => {
       {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
       {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
       {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')} 
+      <button type='button' className='btn-secondary' onClick={() => console.log(formValues)}>tester</button>
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
       <Link to="/">
         <button type='button' className='btn btn-primary'>Return Home</button>

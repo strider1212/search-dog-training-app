@@ -6,7 +6,6 @@ const { individual_runsSchema } = require('./individual_runs');
 const logSchema = new mongoose.Schema({
   "log_created_by": {
     type: String, 
-    ref: 'User',
     required: true
   },
   "date": {
