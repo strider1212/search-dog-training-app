@@ -78,6 +78,9 @@ const NewLog = () => {
     console.log('Log submitted')
   }
 
+      //formPopulater arguments: formPopulater(forAndIdAttribute, UIText, type, placeholder, setState, state, propertyInStateObject)
+      //checkboxFormPopulater arguments: checkboxFormPopulater(forAndIdAttribute, UIText, setState, state, propertyInStateObject)
+
   return (
     <form>
       {formPopulater('log_created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'createdBy')}
