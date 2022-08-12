@@ -74,9 +74,9 @@ const WaterLog = () => {
       {checkboxFormPopulater('submerged', 'Source Submerged?', setFormValue, formValues, 'submerged')}
       {formPopulater('depth', 'Depth', 'number', 'How many feet below the surface was the source?...', setFormValue, formValues, 'depth')}
       {formPopulater('water-type', 'Water Type', 'text', 'Describe the type of water source it was (e.g. bay, river, etc.)...', setFormValue, formValues, 'waterType')}
+      {formPopulater('temperature', 'Temperature', 'number', 'Give a number for the temperature in degrees fahrenheit?...', setFormValue, formValues, 'temperature')}
       <button type="button" className="btn btn-primary" onClick={() => console.log(formValues)}>tester</button>
       {/*
-      {formPopulater('water-type', 'Water Type', 'text', 'form-control', 'Describe the type of water source it was (e.g. bay, river, etc.)...', setWaterType)}
       {formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Give a number for the temperature in degrees fahrenheit?...', setTemperature)}
       <button type="button" className="btn btn-primary" onClick={submitHandler}>Submit</button> 
       */}
