@@ -58,10 +58,9 @@ const NewLog = () => {
       training_type: formValues.trainingType
     })
     .then(res => {
-      console.log('find data to Navigate to /waterLog', res)
-      // if (res.data.water) {
-      //   navigate("/waterLog")
-      // }
+      if (res.data.water) {
+        navigate("/waterLog")
+      }
     })
     .catch(error => {
       if (error.response) {
