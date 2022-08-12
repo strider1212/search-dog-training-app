@@ -89,18 +89,18 @@ const NewLog = () => {
       {formPopulater('created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'log_created_by')}
       {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
       {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
-      {formPopulater('address', 'Address', 'text', '', setFormValue, formValues, 'address')}
-      {formPopulater('team', 'Team', 'text', '', setFormValue, formValues, 'team')}
-      {formPopulater('training-type', 'Training Type', 'text', '', setFormValue, formValues, 'trainingType')}
-      {formPopulater('training-hours', 'Training Hours', 'number', '', setFormValue, formValues, 'trainingHours')}
-      {formPopulater('travel-hours', 'Travel Hours', 'number', '', setFormValue, formValues, 'travelHours')}
-      {formPopulater('aggregiate-hours', 'Aggregiate Hours', 'number', '', setFormValue, formValues, 'aggregiateHours')}
-      {formPopulater('mileage', 'Mileage', 'number', '', setFormValue, formValues, 'mileage')}
-      {formPopulater('tolls', 'Tolls', 'number', '', setFormValue, formValues, 'tolls')}
+      {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
+      {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')}
+      {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
+      {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
+      {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
+      {formPopulater('aggregiate-hours', 'Aggregiate Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'aggregiateHours')}
+      {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
+      {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
       {formPopulater('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather')}
-      {formPopulater('temperature', 'Temperature', 'number', '', setFormValue, formValues, 'temperature')}
+      {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')}
+      {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')}
       {/* 
-      {formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Enter a number for degrees fahrenheit...', setTemperature)}
       {formPopulater('wind-speed', 'Wind Speed', 'number', 'form-control', 'Enter a number in MPH...', setWindSpeed)}
       {formPopulater('humidity', 'Humidity', 'number', 'form-control', 'Enter a number representing a percent...', setHumidity)}
       {formPopulater('placement-description', 'Placement Description', 'text', 'form-control', 'Placement Description...', setplacementDescription)}
