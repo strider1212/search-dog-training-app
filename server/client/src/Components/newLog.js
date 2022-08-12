@@ -91,8 +91,8 @@ const NewLog = () => {
       {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
       {formPopulater('address', 'Address', 'text', '', setFormValue, formValues, 'address')}
       {formPopulater('team', 'Team', 'text', '', setFormValue, formValues, 'team')}
+      {formPopulater('training-type', 'Training Type', 'text', '', setFormValue, formValues, 'trainingType')}
       {/* 
-      {formPopulater('team', 'Team', 'text', 'form-control', 'Team Name...', setTeam)}
       {formPopulater('training-type', 'Training Type', 'text', 'form-control', 'Training type...', setTrainingType)}
       {formPopulater('training-hours', 'Training Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTrainingHours)}
       {formPopulater('travel-hours', 'Travel Hours', 'number', 'form-control', 'Enter a number (can use decimals)...', setTravelHours)}
