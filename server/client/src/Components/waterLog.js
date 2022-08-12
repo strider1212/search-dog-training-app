@@ -5,66 +5,90 @@ import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from "../utils/checkboxFormPopulater";
 
 const WaterLog = () => {
-  const [open, setOpen] = useState(false);
-  const [submerged, setSubmerged] = useState(false);
-  const [depth, setDepth] = useState(0);
-  const [saltWater, setSaltWater] = useState(false);  
-  const [waterType, setWaterType] = useState('');  
-  const [temperature, setTemperature] = useState(0);  
+  // const [open, setOpen] = useState(false);
+  // const [submerged, setSubmerged] = useState(false);
+  // const [depth, setDepth] = useState(0);
+  // const [saltWater, setSaltWater] = useState(false);  
+  // const [waterType, setWaterType] = useState('');  
+  // const [temperature, setTemperature] = useState(0);  
 
-  const navigate = useNavigate();
-  
-  const submitHandler = async () => {
-    const opn = open;
-    const submrg = submerged;
-    const dpth = depth;
-    const sw = saltWater;
-    const wt = waterType;
-    const temp = temperature;
-
-    await axios.post(`http://localhost:3000/logs/water`, {
-      open: opn, 
-      submerged: submrg,
-      depth: dpth,
-      salt_water: sw,
-      water_type: wt,
-      temperature: temp
-    })
-    .then(res => {
-        console.log(res)
-        navigate("/")
-    })
-    .catch(error => {
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        console.log('error.response.data', error.response.data);
-        console.log('error.response.status', error.response.status);
-        console.log('error.response.headers', error.response.headers);
-      } else if (error.request) {
-        // The request was made but no response was received
-        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-        // http.ClientRequest in node.js
-        console.log('error.request', error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.log('error.message', error.message);
-      }
-      console.log('error.config', error.config);
-    })
-
-    console.log('Log submitted')
+  const initialState = {
+    open: false,
+    submerged: false,
+    depth: 0, 
+    saltWater: false,
+    waterType: '',
+    temperature: 0
   }
+
+  const [formValues, setFormValue] = useState(initialState)
+
+  // const navigate = useNavigate();
+  
+  // const submitHandler = async () => {
+  //   const opn = open;
+  //   const submrg = submerged;
+  //   const dpth = depth;
+  //   const sw = saltWater;
+  //   const wt = waterType;
+  //   const temp = temperature;
+
+  //   await axios.post(`http://localhost:3000/logs/water`, {
+  //     open: opn, 
+  //     submerged: submrg,
+  //     depth: dpth,
+  //     salt_water: sw,
+  //     water_type: wt,
+  //     temperature: temp
+  //   })
+  //   .then(res => {
+  //       console.log(res)
+  //       navigate("/")
+  //   })
+  //   .catch(error => {
+  //     if (error.response) {
+  //       // The request was made and the server responded with a status code
+  //       // that falls out of the range of 2xx
+  //       console.log('error.response.data', error.response.data);
+  //       console.log('error.response.status', error.response.status);
+  //       console.log('error.response.headers', error.response.headers);
+  //     } else if (error.request) {
+  //       // The request was made but no response was received
+  //       // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+  //       // http.ClientRequest in node.js
+  //       console.log('error.request', error.request);
+  //     } else {
+  //       // Something happened in setting up the request that triggered an Error
+  //       console.log('error.message', error.message);
+  //     }
+  //     console.log('error.config', error.config);
+  //   })
+
+  //   console.log('Log submitted')
+  // }
   
   return (
     <form>
-      {checkboxFormPopulater('open', 'Open Water?', setOpen)}
+      <div className="form-group">
+        <label htmlFor="open" className="form-check-label">Open Water?</label>
+        <input
+        type="checkbox"
+        className="form-check-input"
+        id="open"
+        onChange={(e) => setFormValue({
+          ...formValues,
+          open: e.target.checked
+        })}
+        />
+      </div>
+      <button type="button" className="btn btn-primary" onClick={() => console.log(formValues)}>tester</button>
+      {/* {checkboxFormPopulater('open', 'Open Water?', setOpen)}
       {checkboxFormPopulater('salt', 'Salt Water?', setSaltWater)}
       {checkboxFormPopulater('submerged', 'Source Submerged?', setSubmerged)}
       {formPopulater('depth', 'Depth', 'number', 'form-control', 'How many feet below the surface was the source?...', setDepth)}
       {formPopulater('water-type', 'Water Type', 'text', 'form-control', 'Describe the type of water source it was (e.g. bay, river, etc.)...', setWaterType)}
       {formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Give a number for the temperature in degrees fahrenheit?...', setTemperature)}
-      <button type="button" className="btn btn-primary" onClick={submitHandler}>Submit</button>
+      <button type="button" className="btn btn-primary" onClick={submitHandler}>Submit</button> */}
     </form>
   )
 }
