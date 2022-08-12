@@ -98,8 +98,8 @@ const NewLog = () => {
       {formPopulater('mileage', 'Mileage', 'number', '', setFormValue, formValues, 'mileage')}
       {formPopulater('tolls', 'Tolls', 'number', '', setFormValue, formValues, 'tolls')}
       {formPopulater('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather')}
+      {formPopulater('temperature', 'Temperature', 'number', '', setFormValue, formValues, 'temperature')}
       {/* 
-      {formPopulater('weather', 'Weather', 'text', 'form-control', 'Description of the weather...', setWeather)}
       {formPopulater('temperature', 'Temperature', 'number', 'form-control', 'Enter a number for degrees fahrenheit...', setTemperature)}
       {formPopulater('wind-speed', 'Wind Speed', 'number', 'form-control', 'Enter a number in MPH...', setWindSpeed)}
       {formPopulater('humidity', 'Humidity', 'number', 'form-control', 'Enter a number representing a percent...', setHumidity)}
