@@ -14,4 +14,6 @@ code {
 
 form p {
   color: red;
+  margin-top: 15px;
+  margin-bottom: 0px;
 }
