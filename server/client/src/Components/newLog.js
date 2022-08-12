@@ -106,7 +106,7 @@ const NewLog = () => {
       {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
       <Link to="/">
-        <button type='button' className='btn btn-primary'>Return Home</button>
+        <button type='submit' className='btn btn-primary'>Return Home</button>
       </Link>
     </form>
   )
