@@ -89,8 +89,8 @@ const NewLog = () => {
       {formPopulater('created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'log_created_by')}
       {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
       {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
+      {formPopulater('address', 'Address', 'text', '', setFormValue, formValues, 'address')}
       {/* 
-      {formPopulater('time', 'Time', 'time', 'form-control', '', setTime)}
       {formPopulater('address', 'Address', 'text', 'form-control', 'Address of the training...', setAddress)}
       {formPopulater('team', 'Team', 'text', 'form-control', 'Team Name...', setTeam)}
       {formPopulater('training-type', 'Training Type', 'text', 'form-control', 'Training type...', setTrainingType)}
