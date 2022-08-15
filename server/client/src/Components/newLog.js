@@ -147,12 +147,10 @@ const NewLog = () => {
       //send it through state
       //access it in waterLog
 
-      console.log(res.data._id)
-
-
-      // if (res.data.water) {
-      //   navigate("/waterLog")
-      // }
+      console.log('item Id from newLog', res.data._id)
+      if (res.data.water) {
+        navigate("/waterLog", {state: {logId: res.data._id}})
+      }
     })
     .catch(error => {
       if (error.response) {

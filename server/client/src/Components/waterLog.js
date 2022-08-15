@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from "../utils/checkboxFormPopulater";
@@ -16,7 +16,13 @@ const WaterLog = () => {
 
   const [formValues, setFormValue] = useState(initialState)
 
+  const location = useLocation();
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log('LogId state in waterLog', location.state.logId)
+  })
   
   const submitHandler = async () => {
 
