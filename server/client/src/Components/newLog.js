@@ -143,10 +143,6 @@ const NewLog = () => {
       training_type: formValues.trainingType
     })
     .then(res => {
-      //access the id once created
-      //send it through state
-      //access it in waterLog
-
       console.log('item Id from newLog', res.data._id)
       if (res.data.water) {
         navigate("/waterLog", {state: {logId: res.data._id}})
