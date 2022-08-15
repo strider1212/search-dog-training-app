@@ -17,12 +17,10 @@ const WaterLog = () => {
   const [formValues, setFormValue] = useState(initialState)
 
   const location = useLocation();
+  const logId = location.state.logId;
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log('LogId state in waterLog', location.state.logId)
-  })
   
   const submitHandler = async () => {
 
