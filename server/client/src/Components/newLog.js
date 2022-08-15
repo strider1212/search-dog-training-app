@@ -119,7 +119,7 @@ const NewLog = () => {
 
   useEffect(() => {
     if(initialRender.current) {
-      console.log('initial state is current')
+      initialRender.current = false;
     } else {
       alert('One of the request categories was not filled in. Please fill in any missing categories.')
     }
