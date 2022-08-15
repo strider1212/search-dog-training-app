@@ -22,7 +22,8 @@ const putById = require('../methodFunctions/putById');
 const deleteById = require('../methodFunctions/deleteById');
 const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 
-const weatherAPIKey = process.env.TOMORROW_IO_KEY;
+const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
+const apikey = process.env.TOMORROW_IO_KEY;
 let location = [40.758, -73.9855];
 const fields = [
   "precipitationIntensity",
@@ -55,10 +56,16 @@ const getTimelineParameters =  queryString.stringify({
   timezone,
 }, {arrayFormat: "comma"});
 
+let tempTest = ''
+
 fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
 .then((result) => result.json())
-.then((json) => console.log(json)
-.catch((error) => console.error("error: " + err));
+.then((json) => {
+  const temp = json.data.timelines[0].intervals[0].values.temperature;
+  console.log(temp)
+  tempTest = temp;
+})
+.catch((error) => console.error("error: " + error))
 
 router.get('/', (req, res) => {
   getAll(Log, res);
@@ -88,7 +95,7 @@ router.post('/', (req, res) => {
     //self-populated with weather API
     "weather": req.body.weather,
     //weather API
-    "temperature": req.body.temperature,
+    "temperature": tempTest,
     //weather API
     "wind_speed": req.body.wind_speed,
     //weather API
