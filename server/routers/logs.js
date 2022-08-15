@@ -39,6 +39,22 @@ const startTime = moment.utc(now).add(0, "minutes").toISOString();
 const endTime = moment.utc(now).add(1, "days").toISOString();
 const timezone = "America/New_York";
 
+const getTimelineParameters =  queryString.stringify({
+  apikey,
+  location,
+  fields,
+  units,
+  timesteps,
+  startTime,
+  endTime,
+  timezone,
+}, {arrayFormat: "comma"});
+
+fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
+.then((result) => result.json())
+.then((json) => console.log(json)
+.catch((error) => console.error("error: " + err));
+
 router.get('/', (req, res) => {
   getAll(Log, res);
 })
