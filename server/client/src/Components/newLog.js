@@ -121,7 +121,7 @@ const NewLog = () => {
   useEffect(() => {
     if(initialRender.current) {
       initialRender.current = false;
-    } else {
+    } else if (Object.keys(formErrors).length > 0) {
       alert('One of the request categories was not filled in. Please fill in any missing categories.')
     }
   }, [formErrors])
