@@ -33,6 +33,7 @@ const fields = [
   "weatherCode",
 ];
 const units = "imperial";
+const timesteps = ["current", "1h", "1d"];
 
 router.get('/', (req, res) => {
   getAll(Log, res);
