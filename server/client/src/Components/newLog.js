@@ -6,6 +6,7 @@ import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 
 const NewLog = () => {
 
+
   const initialState = {
     createdBy: '',
     date: '',

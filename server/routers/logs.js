@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const router = express.Router();
 
@@ -15,6 +16,8 @@ const getById = require('../methodFunctions/getById');
 const putById = require('../methodFunctions/putById');
 const deleteById = require('../methodFunctions/deleteById');
 const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
+
+const weatherAPIKey = process.env.TOMORROW_IO_KEY;
 
 router.get('/', (req, res) => {
   getAll(Log, res);
