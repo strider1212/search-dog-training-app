@@ -19,6 +19,19 @@ const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 
 const weatherAPIKey = process.env.TOMORROW_IO_KEY;
 let location = [40.758, -73.9855];
+const fields = [
+  "precipitationIntensity",
+  "precipitationType",
+  "windSpeed",
+  "windGust",
+  "windDirection",
+  "temperature",
+  "temperatureApparent",
+  "cloudCover",
+  "cloudBase",
+  "cloudCeiling",
+  "weatherCode",
+];
 
 router.get('/', (req, res) => {
   getAll(Log, res);
