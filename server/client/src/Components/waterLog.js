@@ -30,7 +30,8 @@ const WaterLog = () => {
       depth: formValues.depth,
       salt_water: formValues.saltWater,
       water_type: formValues.waterType,
-      temperature: formValues.temperature
+      temperature: formValues.temperature,
+      associated_log: logId
     })
     .then(res => {
         console.log(res)

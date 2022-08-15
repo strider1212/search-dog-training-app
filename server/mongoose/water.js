@@ -24,8 +24,11 @@ const waterSchema = new mongoose.Schema({
   "temperature": {
     type: Number,
     required: true
+  },
+  "associated_log": {
+    type: mongoose.ObjectId,
+    required: true
   }
-  //add associated log
 })
 
 const Water = mongoose.model('Water', waterSchema);

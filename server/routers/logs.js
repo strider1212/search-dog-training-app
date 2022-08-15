@@ -83,7 +83,7 @@ router.post('/water', async (req, res) => {
     "salt_water": req.body.salt_water,
     "water_type": req.body.water_type,
     "temperature": req.body.temperature,
-    //log ID for associated log
+    "associated_log": req.body.associated_log
   })
 
   const key = 'water_data';
