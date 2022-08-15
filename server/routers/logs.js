@@ -2,6 +2,11 @@ require('dotenv').config()
 const express = require('express');
 const router = express.Router();
 
+//for weather API
+const fetch = require("node-fetch");
+const queryString = require('query-string');
+const moment = require("moment");
+
 const { Log } = require('../mongoose/log');
 const { Water } = require('../mongoose/water');
 const { Individual_Runs } = require('../mongoose/individual_runs')
