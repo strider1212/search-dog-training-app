@@ -18,6 +18,7 @@ const deleteById = require('../methodFunctions/deleteById');
 const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 
 const weatherAPIKey = process.env.TOMORROW_IO_KEY;
+let location = [40.758, -73.9855];
 
 router.get('/', (req, res) => {
   getAll(Log, res);
