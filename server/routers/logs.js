@@ -37,6 +37,7 @@ const timesteps = ["current", "1h", "1d"];
 const now = moment.utc();
 const startTime = moment.utc(now).add(0, "minutes").toISOString();
 const endTime = moment.utc(now).add(1, "days").toISOString();
+const timezone = "America/New_York";
 
 router.get('/', (req, res) => {
   getAll(Log, res);
