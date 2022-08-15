@@ -31,7 +31,6 @@ const NewLog = () => {
 
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({})
-  const [isSubmit, setIsSubmit] = useState(false)
 
   let navigate = useNavigate();
 
@@ -118,7 +117,6 @@ const NewLog = () => {
   
   const submitHandler = async () => {
     setFormErrors(validate(formValues))
-    setIsSubmit(true)
 
     await axios.post(`http://localhost:3000/logs`, {
       log_created_by: formValues.createdBy,
