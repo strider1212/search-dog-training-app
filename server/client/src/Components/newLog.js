@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
@@ -114,6 +114,16 @@ const NewLog = () => {
 
     return errors;
   }
+
+  let initialRender = useRef(true);
+
+  useEffect(() => {
+    if(initialRender.current) {
+      console.log('initial state is current')
+    } else {
+      alert('One of the request categories was not filled in. Please fill in any missing categories.')
+    }
+  }, [formErrors])
   
   const submitHandler = async () => {
     setFormErrors(validate(formValues))
