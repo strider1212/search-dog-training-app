@@ -143,9 +143,16 @@ const NewLog = () => {
       training_type: formValues.trainingType
     })
     .then(res => {
-      if (res.data.water) {
-        navigate("/waterLog")
-      }
+      //access the id once created
+      //send it through state
+      //access it in waterLog
+
+      console.log(res.data._id)
+
+
+      // if (res.data.water) {
+      //   navigate("/waterLog")
+      // }
     })
     .catch(error => {
       if (error.response) {
