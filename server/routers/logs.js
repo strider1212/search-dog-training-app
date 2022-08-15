@@ -32,6 +32,7 @@ const fields = [
   "cloudCeiling",
   "weatherCode",
 ];
+const units = "imperial";
 
 router.get('/', (req, res) => {
   getAll(Log, res);
