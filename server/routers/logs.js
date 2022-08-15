@@ -95,7 +95,7 @@ router.post('/', (req, res) => {
     //self-populated with weather API
     "weather": req.body.weather,
     //weather API
-    "temperature": tempTest,
+    "temperature": req.body.temperature,
     //weather API
     "wind_speed": req.body.wind_speed,
     //weather API
