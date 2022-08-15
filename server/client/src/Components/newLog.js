@@ -5,7 +5,8 @@ import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 
 const NewLog = () => {
-
+  //introduce environment variable of API key
+  //insert tomorrow.io logic here.
 
   const initialState = {
     createdBy: '',
