@@ -22,6 +22,9 @@ const putById = require('../methodFunctions/putById');
 const deleteById = require('../methodFunctions/deleteById');
 const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 
+//--------------------------------------------------------
+//tomorrow.io
+
 const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
 const apikey = process.env.TOMORROW_IO_KEY;
 let location = [40.758, -73.9855];
@@ -58,14 +61,23 @@ const getTimelineParameters =  queryString.stringify({
 
 let tempTest = ''
 
-fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
-.then((result) => result.json())
-.then((json) => {
-  const temp = json.data.timelines[0].intervals[0].values.temperature;
-  console.log(temp)
-  tempTest = temp;
+router.get('/weathertest', (req, res) => {
+  fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
+  .then((result) => result.json())
+  .then((json) => {
+    const temp = json.data.timelines[0].intervals[0].values;
+    console.log(temp)
+    tempTest = temp;
+  })
+  .catch((error) => console.error("error: " + error))
+
+  res.end();
 })
-.catch((error) => console.error("error: " + error))
+
+
+
+//tomorrow.io
+////--------------------------------------------------------
 
 router.get('/', (req, res) => {
   getAll(Log, res);
