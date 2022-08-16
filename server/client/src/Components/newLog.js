@@ -125,8 +125,20 @@ const NewLog = () => {
     }
   }, [formErrors])
   
+  let tomorrowTemp;
+  
   const submitHandler = async () => {
     setFormErrors(validate(formValues))
+
+    await axios.get('http://localhost:3000/logs/weather')
+    .then(res => {
+      tomorrowTemp = res.data[0].values.temperature
+      console.log('weather data results:', tomorrowTemp)
+      setFormValue({
+        ...formValues,
+          temperature: tomorrowTemp
+      })
+    })
 
     await axios.post(`http://localhost:3000/logs`, {
       log_created_by: formValues.createdBy,
@@ -139,7 +151,7 @@ const NewLog = () => {
       mileage: formValues.mileage,
       tolls: formValues.tolls,
       weather: formValues.weather,
-      temperature: formValues.temperature,
+      temperature: tomorrowTemp,
       wind_speed: formValues.windSpeed,
       humidity: formValues.humidity,
       placement_description: formValues.placementDescription,
@@ -167,9 +179,6 @@ const NewLog = () => {
       }
       console.log('error.config', error.config);
     })
-
-    await axios.get('http://localhost:3000/logs/weather')
-    .then(res => console.log('weather data results:', res.data[0].values.temperature))
 
     console.log('Log submitted')
   }
