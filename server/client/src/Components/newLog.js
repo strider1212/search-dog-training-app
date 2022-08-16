@@ -32,6 +32,12 @@ const NewLog = () => {
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({})
 
+  const calculateAggregiateHours = () => {
+    const sum = formValues.travelHours + formValues.trainingHours;
+    return sum;
+  }
+
+
   let navigate = useNavigate();
 
   const validate = (values) => {
@@ -125,7 +131,7 @@ const NewLog = () => {
     }
   }, [formErrors])
   
-  let tomorrowTemp;
+  // let tomorrowTemp;
   
   const submitHandler = async () => {
     setFormErrors(validate(formValues))
@@ -256,6 +262,7 @@ const NewLog = () => {
       <Link to="/">
         <button type='submit' className='btn btn-primary'>Return Home</button>
       </Link>
+      <button type='button' className='btn btn-secondary' onClick={() => console.log(calculateAggregiateHours())}>tester</button>
     </form>
   )
 }
