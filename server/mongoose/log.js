@@ -33,7 +33,7 @@ const logSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  "aggregate_hours": {
+  "total_hours": {
     type: Number,
     required: true
   },

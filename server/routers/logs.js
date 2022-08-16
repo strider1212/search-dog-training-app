@@ -106,7 +106,7 @@ router.post('/', (req, res) => {
     "training_hours": req.body.training_hours,
     "travel_hours": req.body.travel_hours,
     //self-calculate on the front-end
-    "aggregate_hours": req.body.aggregate_hours,
+    "total_hours": req.body.total_hours,
     //perhaps use maps API to calculate on the front end
     "mileage": req.body.mileage,
     "tolls": req.body.tolls,

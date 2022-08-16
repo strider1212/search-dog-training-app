@@ -15,7 +15,6 @@ const NewLog = () => {
     trainingType: '',
     trainingHours: 0,
     travelHours: 0,
-    aggregiateHours: 0,
     mileage: 0,
     tolls: 0,
     weather: '',
@@ -32,7 +31,7 @@ const NewLog = () => {
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({})
 
-  const calculateAggregiateHours = () => {
+  const calculateTotalHours = () => {
     const sum = formValues.travelHours + formValues.trainingHours;
     return sum;
   }
@@ -72,10 +71,6 @@ const NewLog = () => {
 
     if (!values.travelHours) {
       errors.travelHours = "Travel Hours category is required"
-    }
-
-    if (!values.aggregiateHours) {
-      errors.aggregiateHours = "Aggregiate Hours category is required"
     }
 
     if (!values.mileage) {
@@ -157,7 +152,7 @@ const NewLog = () => {
       team: formValues.team, 
       training_hours: formValues.trainingHours,
       travel_hours: formValues.travelHours,
-      aggregate_hours: calculateAggregiateHours(),
+      total_hours: calculateTotalHours(),
       mileage: formValues.mileage,
       tolls: formValues.tolls,
       weather: formValues.weather,
@@ -223,7 +218,7 @@ const NewLog = () => {
       <p>{formErrors.trainingHours}</p>
       {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
 
-      <h3>Aggregate Hours: {calculateAggregiateHours()}</h3>
+      <h3>Total Hours: {calculateTotalHours()}</h3>
 
       <p>{formErrors.mileage}</p>
       {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
@@ -261,7 +256,6 @@ const NewLog = () => {
       <Link to="/">
         <button type='submit' className='btn btn-primary'>Return Home</button>
       </Link>
-      <button type='button' className='btn btn-secondary' onClick={() => console.log(calculateAggregiateHours())}>tester</button>
     </form>
   )
 }
