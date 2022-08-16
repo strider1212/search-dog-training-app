@@ -151,7 +151,6 @@ const NewLog = () => {
       training_type: formValues.trainingType
     })
     .then(res => {
-      console.log('item Id from newLog', res.data._id)
       if (res.data.water) {
         navigate("/waterLog", {state: {logId: res.data._id}})
       }
@@ -168,6 +167,9 @@ const NewLog = () => {
       }
       console.log('error.config', error.config);
     })
+
+    await axios.get('http://localhost:3000/logs/weather')
+    .then(res => console.log('weather data results:', res))
 
     console.log('Log submitted')
   }

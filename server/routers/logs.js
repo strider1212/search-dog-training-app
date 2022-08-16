@@ -40,12 +40,13 @@ const fields = [
   "cloudBase",
   "cloudCeiling",
   "weatherCode",
+  "humidity"
 ];
 const units = "imperial";
-const timesteps = ["current", "1h", "1d"];
+const timesteps = ["1h"];
 const now = moment.utc();
-const startTime = moment.utc(now).add(0, "minutes").toISOString();
-const endTime = moment.utc(now).add(1, "days").toISOString();
+const startTime = moment.utc(now).add(-6, "hours").toISOString();
+const endTime = moment.utc(now).add(0, "minutes").toISOString();
 const timezone = "America/New_York";
 
 const getTimelineParameters =  queryString.stringify({
@@ -59,15 +60,15 @@ const getTimelineParameters =  queryString.stringify({
   timezone,
 }, {arrayFormat: "comma"});
 
-let tempTest = ''
+let dataTest = ''
 
-router.get('/weathertest', (req, res) => {
+router.get('/weather', (req, res) => {
   fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
   .then((result) => result.json())
   .then((json) => {
-    const temp = json.data.timelines[0].intervals[0].values;
-    console.log(temp)
-    tempTest = temp;
+    const data = json.data.timelines[0].intervals;
+    console.log(data)
+    dataTest = data;
   })
   .catch((error) => console.error("error: " + error))
 
