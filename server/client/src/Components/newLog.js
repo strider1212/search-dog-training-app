@@ -81,7 +81,7 @@ const NewLog = () => {
       errors.mileage = "Mileage category is required"
     }
 
-    if (!values.tolls == 'empty') {
+    if (!values.tolls) {
       errors.tolls = "Tolls category is required"
     }
 
