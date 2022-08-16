@@ -28,7 +28,7 @@ const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 
 router.get('/weather', async (req, res) => {
 
-  console.log(req.params)
+  console.log(req.query)
 
   const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
   const apikey = process.env.TOMORROW_IO_KEY;

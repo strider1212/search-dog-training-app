@@ -134,10 +134,6 @@ const NewLog = () => {
     .then(res => {
       autoTemp = res.data[0].values.temperature
       console.log('weather data results:', autoTemp)
-      // setFormValue({
-      //   ...formValues,
-      //     temperature: tomorrowTemp
-      // })
     })
 
     await axios.post(`http://localhost:3000/logs`, {
