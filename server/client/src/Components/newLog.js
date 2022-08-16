@@ -169,7 +169,7 @@ const NewLog = () => {
     })
 
     await axios.get('http://localhost:3000/logs/weather')
-    .then(res => console.log('weather data results:', res))
+    .then(res => console.log('weather data results:', res.data[0].values.temperature))
 
     console.log('Log submitted')
   }
