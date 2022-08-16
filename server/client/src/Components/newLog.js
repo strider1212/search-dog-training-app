@@ -157,7 +157,7 @@ const NewLog = () => {
       team: formValues.team, 
       training_hours: formValues.trainingHours,
       travel_hours: formValues.travelHours,
-      aggregate_hours: formValues.aggregiateHours,
+      aggregate_hours: calculateAggregiateHours(),
       mileage: formValues.mileage,
       tolls: formValues.tolls,
       weather: formValues.weather,
@@ -268,3 +268,6 @@ const NewLog = () => {
 }
     
 export default NewLog;
+
+//cahnge total hours to aggregiate
+//all for number to be 0 in form validator
