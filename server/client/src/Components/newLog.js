@@ -123,19 +123,23 @@ const NewLog = () => {
 
   let initialRender = useRef(true);
 
-  useEffect(() => {
-    if(initialRender.current) {
-      initialRender.current = false;
-    } else if (Object.keys(formErrors).length > 0) {
-      alert('One of the request categories was not filled in. Please fill in any missing categories.')
-    } else {
-      postForm()
-    }
-  }, [formErrors, isSubmitted])
-  
-  // let tomorrowTemp;
+  let autoTemp;
   
   const postForm = async () => {
+    await axios.get('http://localhost:3000/logs/weather', {
+      params: {
+        test: 'testing'
+      }
+    })
+    .then(res => {
+      autoTemp = res.data[0].values.temperature
+      console.log('weather data results:', autoTemp)
+      // setFormValue({
+      //   ...formValues,
+      //     temperature: tomorrowTemp
+      // })
+    })
+
     await axios.post(`http://localhost:3000/logs`, {
       log_created_by: formValues.createdBy,
       date: formValues.date,
@@ -147,7 +151,7 @@ const NewLog = () => {
       mileage: formValues.mileage,
       tolls: formValues.tolls,
       weather: formValues.weather,
-      temperature: formValues.temperature,
+      temperature: autoTemp,
       wind_speed: formValues.windSpeed,
       humidity: formValues.humidity,
       placement_description: formValues.placementDescription,
@@ -178,6 +182,18 @@ const NewLog = () => {
 
     console.log('Log submitted')
   }
+
+  useEffect(() => {
+    if(initialRender.current) {
+      initialRender.current = false;
+    } else if (Object.keys(formErrors).length > 0) {
+      alert('One of the request categories was not filled in. Please fill in any missing categories.')
+    } else {
+      postForm()
+    }
+  }, [formErrors, isSubmitted])
+  
+  
   
   const submitHandler = () => {
     setFormErrors(validate(formValues));
@@ -260,16 +276,4 @@ export default NewLog;
 
 
 
-// await axios.get('http://localhost:3000/logs/weather', {
-    //   params: {
-    //     test: 'testing'
-    //   }
-    // })
-    // .then(res => {
-    //   tomorrowTemp = res.data[0].values.temperature
-    //   console.log('weather data results:', tomorrowTemp)
-    //   setFormValue({
-    //     ...formValues,
-    //       temperature: tomorrowTemp
-    //   })
-    // })
+
