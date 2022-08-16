@@ -217,11 +217,11 @@ const NewLog = () => {
       <p>{formErrors.trainingType}</p>
       {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
 
-      <p>{formErrors.trainingHours}</p>
-      {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
-
       <p>{formErrors.travelHours}</p>
       {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
+
+      <p>{formErrors.trainingHours}</p>
+      {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
 
       <h3>Aggregate Hours: {calculateAggregiateHours()}</h3>
 
