@@ -25,59 +25,60 @@ const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 //--------------------------------------------------------
 //tomorrow.io
 
-const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
-const apikey = process.env.TOMORROW_IO_KEY;
-let location = [40.758, -73.9855];
-const fields = [
-  "precipitationIntensity",
-  "precipitationType",
-  "windSpeed",
-  "windGust",
-  "windDirection",
-  "temperature",
-  "temperatureApparent",
-  "cloudCover",
-  "cloudBase",
-  "cloudCeiling",
-  "weatherCode",
-  "humidity"
-];
-const units = "imperial";
-const timesteps = ["1h"];
-const now = moment.utc();
-const startTime = moment.utc(now).add(-6, "hours").toISOString();
-const endTime = moment.utc(now).add(0, "minutes").toISOString();
-const timezone = "America/New_York";
 
-const getTimelineParameters =  queryString.stringify({
-  apikey,
-  location,
-  fields,
-  units,
-  timesteps,
-  startTime,
-  endTime,
-  timezone,
-}, {arrayFormat: "comma"});
+// router.get('/weather', async (req, res) => {
+
+//   const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
+//   const apikey = process.env.TOMORROW_IO_KEY;
+//   let location = [40.758, -73.9855];
+//   const fields = [
+//     "precipitationIntensity",
+//     "precipitationType",
+//     "windSpeed",
+//     "windGust",
+//     "windDirection",
+//     "temperature",
+//     "temperatureApparent",
+//     "cloudCover",
+//     "cloudBase",
+//     "cloudCeiling",
+//     "weatherCode",
+//     "humidity"
+//   ];
+//   const units = "imperial";
+//   const timesteps = ["1h"];
+//   const now = moment.utc();
+//   const startTime = moment.utc(now).add(-6, "hours").toISOString();
+//   const endTime = moment.utc(now).add(0, "minutes").toISOString();
+//   const timezone = "America/New_York";
+
+//   const getTimelineParameters =  queryString.stringify({
+//     apikey,
+//     location,
+//     fields,
+//     units,
+//     timesteps,
+//     startTime,
+//     endTime,
+//     timezone,
+//   }, {arrayFormat: "comma"});
 
 
+//   let dataHolder = '';
 
-router.get('/weather', async (req, res) => {
-  let dataHolder = '';
+//   await fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
+//   .then((result) => result.json())
+//   .then((json) => {
+//     const data = json.data.timelines[0].intervals;
+//     // console.log(data)
+//     dataHolder = data
+//   })
+//   .catch((error) => console.error("error: " + error))
 
-  await fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
-  .then((result) => result.json())
-  .then((json) => {
-    const data = json.data.timelines[0].intervals;
-    // console.log(data)
-    dataHolder = data
-  })
-  .catch((error) => console.error("error: " + error))
+//   // console.log(dataHolder)
 
-  console.log(dataHolder)
-
-  res.send(dataHolder);
-})
+//   res.send(dataHolder);
+// })
 
 
 
