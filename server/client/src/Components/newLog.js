@@ -223,8 +223,7 @@ const NewLog = () => {
       <p>{formErrors.travelHours}</p>
       {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
 
-      <p>{formErrors.aggregiateHours}</p>
-      {formPopulater('aggregiate-hours', 'Aggregiate Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'aggregiateHours')}
+      <h3>Aggregate Hours: {calculateAggregiateHours()}</h3>
 
       <p>{formErrors.mileage}</p>
       {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
