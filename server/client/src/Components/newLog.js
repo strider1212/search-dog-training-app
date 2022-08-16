@@ -32,7 +32,9 @@ const NewLog = () => {
   const [formErrors, setFormErrors] = useState({})
 
   const calculateTotalHours = () => {
-    const sum = formValues.travelHours + formValues.trainingHours;
+    const travHours = parseInt(formValues.travelHours);
+    const trainHours = parseInt(formValues.trainingHours);
+    const sum = travHours + trainHours
     return sum;
   }
 
@@ -40,7 +42,9 @@ const NewLog = () => {
   let navigate = useNavigate();
 
   const validate = (values) => {
+    console.log(formValues)
     const errors = {};
+
     if (!values.createdBy) {
       errors.createdBy = "Created By category is required"
     }
@@ -77,7 +81,7 @@ const NewLog = () => {
       errors.mileage = "Mileage category is required"
     }
 
-    if (!values.tolls) {
+    if (!values.tolls == 'empty') {
       errors.tolls = "Tolls category is required"
     }
 
@@ -262,5 +266,4 @@ const NewLog = () => {
     
 export default NewLog;
 
-//cahnge total hours to aggregiate
 //all for number to be 0 in form validator
