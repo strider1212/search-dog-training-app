@@ -29,7 +29,8 @@ const NewLog = () => {
   }
 
   const [formValues, setFormValue] = useState(initialState);
-  const [formErrors, setFormErrors] = useState({})
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const calculateTotalHours = () => {
     const travHours = parseInt(formValues.travelHours);
@@ -127,28 +128,14 @@ const NewLog = () => {
       initialRender.current = false;
     } else if (Object.keys(formErrors).length > 0) {
       alert('One of the request categories was not filled in. Please fill in any missing categories.')
+    } else {
+      postForm()
     }
-  }, [formErrors])
+  }, [formErrors, isSubmitted])
   
   // let tomorrowTemp;
   
-  const submitHandler = async () => {
-    setFormErrors(validate(formValues))
-
-    // await axios.get('http://localhost:3000/logs/weather', {
-    //   params: {
-    //     test: 'testing'
-    //   }
-    // })
-    // .then(res => {
-    //   tomorrowTemp = res.data[0].values.temperature
-    //   console.log('weather data results:', tomorrowTemp)
-    //   setFormValue({
-    //     ...formValues,
-    //       temperature: tomorrowTemp
-    //   })
-    // })
-
+  const postForm = async () => {
     await axios.post(`http://localhost:3000/logs`, {
       log_created_by: formValues.createdBy,
       date: formValues.date,
@@ -190,6 +177,11 @@ const NewLog = () => {
     })
 
     console.log('Log submitted')
+  }
+  
+  const submitHandler = () => {
+    setFormErrors(validate(formValues));
+    setIsSubmitted(true);
   }
       //formPopulater and checkboxFormPopulater populate the individual labels and inputs within the form.
 
@@ -266,4 +258,18 @@ const NewLog = () => {
     
 export default NewLog;
 
-//all for number to be 0 in form validator
+
+
+// await axios.get('http://localhost:3000/logs/weather', {
+    //   params: {
+    //     test: 'testing'
+    //   }
+    // })
+    // .then(res => {
+    //   tomorrowTemp = res.data[0].values.temperature
+    //   console.log('weather data results:', tomorrowTemp)
+    //   setFormValue({
+    //     ...formValues,
+    //       temperature: tomorrowTemp
+    //   })
+    // })
