@@ -60,19 +60,23 @@ const getTimelineParameters =  queryString.stringify({
   timezone,
 }, {arrayFormat: "comma"});
 
-let dataTest = ''
 
-router.get('/weather', (req, res) => {
-  fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
+
+router.get('/weather', async (req, res) => {
+  let dataHolder = '';
+
+  await fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
   .then((result) => result.json())
   .then((json) => {
     const data = json.data.timelines[0].intervals;
-    console.log(data)
-    dataTest = data;
+    // console.log(data)
+    dataHolder = data
   })
   .catch((error) => console.error("error: " + error))
 
-  res.end();
+  console.log(dataHolder)
+
+  res.send(dataHolder);
 })
 
 
