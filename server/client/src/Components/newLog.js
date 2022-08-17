@@ -43,7 +43,6 @@ const NewLog = () => {
   let navigate = useNavigate();
 
   const validate = (values) => {
-    console.log(formValues)
     const errors = {};
 
     if (!values.createdBy) {
@@ -133,7 +132,8 @@ const NewLog = () => {
     })
     .then(res => {
       autoTemp = res.data[0].values.temperature
-      console.log('weather data results:', autoTemp)
+      console.log('weather data results:', res.data[0].values)
+      console.log('temperature:', autoTemp)
     })
 
     await axios.post(`http://localhost:3000/logs`, {

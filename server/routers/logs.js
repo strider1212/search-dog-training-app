@@ -32,7 +32,8 @@ router.get('/weather', async (req, res) => {
 
   const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
   const apikey = process.env.TOMORROW_IO_KEY;
-  let location = [40.758, -73.9855];
+  // let location = [40.758, -73.9855];
+  let location = [65.42687069854928, -137.40147447498097];
   const fields = [
     "precipitationIntensity",
     "precipitationType",
@@ -209,3 +210,7 @@ router.delete('/individual_runs/:id', (req, res) => {
 })
 
 module.exports = router;
+
+//see if I can change weather manually in node
+//see if I can it manually in client
+//see if I can change it via address
