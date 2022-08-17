@@ -6,6 +6,7 @@ import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 
 const NewLog = () => {
 
+  //STATE
   const initialState = {
     createdBy: '',
     date: '',
@@ -27,21 +28,20 @@ const NewLog = () => {
     souceContainer: '',
     water: false
   }
-
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  let initialRender = useRef(true);
+  let autoTemp;
 
+  //FUNCTIONS
+  let navigate = useNavigate();
   const calculateTotalHours = () => {
     const travHours = parseInt(formValues.travelHours);
     const trainHours = parseInt(formValues.trainingHours);
     const sum = travHours + trainHours
     return sum;
   }
-
-
-  let navigate = useNavigate();
-
   const validate = (values) => {
     const errors = {};
 
@@ -119,11 +119,6 @@ const NewLog = () => {
 
     return errors;
   }
-
-  let initialRender = useRef(true);
-
-  let autoTemp;
-  
   const postForm = async () => {
     await axios.get('http://localhost:3000/logs/weather', {
       params: {
@@ -178,6 +173,10 @@ const NewLog = () => {
 
     console.log('Log submitted')
   }
+  const submitHandler = () => {
+    setFormErrors(validate(formValues));
+    setIsSubmitted(true);
+  }
 
   useEffect(() => {
     if(initialRender.current) {
@@ -191,10 +190,7 @@ const NewLog = () => {
   
   
   
-  const submitHandler = () => {
-    setFormErrors(validate(formValues));
-    setIsSubmitted(true);
-  }
+  
       //formPopulater and checkboxFormPopulater populate the individual labels and inputs within the form.
 
       //formPopulater arguments: formPopulater(forAndIdAttribute, UIText, type, placeholder, setState, state, propertyInStateObject)
@@ -269,6 +265,9 @@ const NewLog = () => {
 }
     
 export default NewLog;
+
+//create new log boolena input - test with console log
+//create a manual weather
 
 
 
