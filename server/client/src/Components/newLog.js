@@ -127,7 +127,7 @@ const NewLog = () => {
   const postForm = async () => {
     await axios.get('http://localhost:3000/logs/weather', {
       params: {
-        test: 'testing'
+        temperature: [65.42687069854928, -137.40147447498097]
       }
     })
     .then(res => {
