@@ -35,7 +35,7 @@ const NewLog = () => {
   // let autoTemp = useRef(0);
 
   //FUNCTIONS
-  let navigate = useNavigate();
+  
   const calculateTotalHours = () => {
     const travHours = parseInt(formValues.travelHours);
     const trainHours = parseInt(formValues.trainingHours);
@@ -124,7 +124,7 @@ const NewLog = () => {
     setIsSubmitted(true);
   }
 
-  //useEffect contains axios logic. It launches after checking form validation.
+  //HOOKS
   useEffect(() => {
     if(initialRender.current) {
       initialRender.current = false;
@@ -189,6 +189,7 @@ const NewLog = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])
+  let navigate = useNavigate();
 
   return (
     <form>
