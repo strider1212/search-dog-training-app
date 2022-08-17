@@ -119,60 +119,6 @@ const NewLog = () => {
 
     return errors;
   }
-  const postForm = async () => {
-    await axios.get('http://localhost:3000/logs/weather', {
-      params: {
-        temperature: [65.42687069854928, -137.40147447498097]
-      }
-    })
-    .then(res => {
-      autoTemp = res.data[0].values.temperature
-      console.log('weather data results:', res.data[0].values)
-      console.log('temperature:', autoTemp)
-    })
-
-    await axios.post(`http://localhost:3000/logs`, {
-      log_created_by: formValues.createdBy,
-      date: formValues.date,
-      address: formValues.address, 
-      team: formValues.team, 
-      training_hours: formValues.trainingHours,
-      travel_hours: formValues.travelHours,
-      total_hours: calculateTotalHours(),
-      mileage: formValues.mileage,
-      tolls: formValues.tolls,
-      weather: formValues.weather,
-      temperature: autoTemp,
-      wind_speed: formValues.windSpeed,
-      humidity: formValues.humidity,
-      placement_description: formValues.placementDescription,
-      placed_by: formValues.placedBy,
-      scent_source: formValues.scentSource,
-      source_container: formValues.souceContainer,
-      time: formValues.time,
-      water: formValues.water,
-      training_type: formValues.trainingType
-    })
-    .then(res => {
-      if (res.data.water) {
-        navigate("/waterLog", {state: {logId: res.data._id}})
-      }
-    })
-    .catch(error => {
-      if (error.response) {
-        console.log('error.response.data', error.response.data);
-        console.log('error.response.status', error.response.status);
-        console.log('error.response.headers', error.response.headers);
-      } else if (error.request) {
-        console.log('error.request', error.request);
-      } else {
-        console.log('error.message', error.message);
-      }
-      console.log('error.config', error.config);
-    })
-
-    console.log('Log submitted')
-  }
   const submitHandler = () => {
     setFormErrors(validate(formValues));
     setIsSubmitted(true);
@@ -183,6 +129,60 @@ const NewLog = () => {
     } else if (Object.keys(formErrors).length > 0) {
       alert('One of the request categories was not filled in. Please fill in any missing categories.')
     } else {
+      const postForm = async () => {
+        await axios.get('http://localhost:3000/logs/weather', {
+          params: {
+            temperature: [65.42687069854928, -137.40147447498097]
+          }
+        })
+        .then(res => {
+          autoTemp = res.data[0].values.temperature
+          console.log('weather data results:', res.data[0].values)
+          console.log('temperature:', autoTemp)
+        })
+    
+        await axios.post(`http://localhost:3000/logs`, {
+          log_created_by: formValues.createdBy,
+          date: formValues.date,
+          address: formValues.address, 
+          team: formValues.team, 
+          training_hours: formValues.trainingHours,
+          travel_hours: formValues.travelHours,
+          total_hours: calculateTotalHours(),
+          mileage: formValues.mileage,
+          tolls: formValues.tolls,
+          weather: formValues.weather,
+          temperature: autoTemp,
+          wind_speed: formValues.windSpeed,
+          humidity: formValues.humidity,
+          placement_description: formValues.placementDescription,
+          placed_by: formValues.placedBy,
+          scent_source: formValues.scentSource,
+          source_container: formValues.souceContainer,
+          time: formValues.time,
+          water: formValues.water,
+          training_type: formValues.trainingType
+        })
+        .then(res => {
+          if (res.data.water) {
+            navigate("/waterLog", {state: {logId: res.data._id}})
+          }
+        })
+        .catch(error => {
+          if (error.response) {
+            console.log('error.response.data', error.response.data);
+            console.log('error.response.status', error.response.status);
+            console.log('error.response.headers', error.response.headers);
+          } else if (error.request) {
+            console.log('error.request', error.request);
+          } else {
+            console.log('error.message', error.message);
+          }
+          console.log('error.config', error.config);
+        })
+    
+        console.log('Log submitted')
+      }
       postForm()
     }
   }, [formErrors, isSubmitted])
