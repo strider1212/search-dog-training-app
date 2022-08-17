@@ -177,7 +177,6 @@ const NewLog = () => {
     setFormErrors(validate(formValues));
     setIsSubmitted(true);
   }
-
   useEffect(() => {
     if(initialRender.current) {
       initialRender.current = false;
@@ -187,14 +186,6 @@ const NewLog = () => {
       postForm()
     }
   }, [formErrors, isSubmitted])
-  
-  
-  
-  
-      //formPopulater and checkboxFormPopulater populate the individual labels and inputs within the form.
-
-      //formPopulater arguments: formPopulater(forAndIdAttribute, UIText, type, placeholder, setState, state, propertyInStateObject)
-      //checkboxFormPopulater arguments: checkboxFormPopulater(forAndIdAttribute, UIText, setState, state, propertyInStateObject)
 
   return (
     <form>
