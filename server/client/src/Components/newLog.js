@@ -140,7 +140,7 @@ const NewLog = () => {
         .then(res => {
           autoTemp.current = res.data[0].values.temperature;
           console.log('weather data results:', res.data[0].values)
-          console.log('temperature:', autoTemp)
+          console.log('temperature:', autoTemp.current)
         })
     
         await axios.post(`http://localhost:3000/logs`, {
