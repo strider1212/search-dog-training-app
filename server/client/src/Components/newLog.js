@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
-import { validator } from '../utils/validator';
+import { submitHandler } from '../utils/submitHandler';
 
 const NewLog = () => {
 
@@ -44,10 +44,6 @@ const NewLog = () => {
     const trainHours = parseInt(formValues.trainingHours);
     const sum = travHours + trainHours
     return sum;
-  }
-  const submitHandler = () => {
-    setFormErrors(validator(formValues, initialStateArray));
-    setIsSubmitted(true);
   }
 
   //HOOKS
@@ -174,7 +170,7 @@ const NewLog = () => {
       {/* water info will conditionally render after this */}
 
       {/* buttons */}
-      <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
+      <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Submit</button>
       <Link to="/">
         <button type='submit' className='btn btn-primary'>Return Home</button>
       </Link>
@@ -184,7 +180,6 @@ const NewLog = () => {
     
 export default NewLog;
 
-//make form validator logic modular. move to utils
 //furthermore, make submithandlers logic modular in utils
 //make useEffect logic modular
 
