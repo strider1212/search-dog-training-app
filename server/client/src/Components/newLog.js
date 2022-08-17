@@ -208,9 +208,6 @@ const NewLog = () => {
       <p>{formErrors.address}</p>
       {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
 
-      <p>{formErrors.trainingType}</p>
-      {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
-
       <p>{formErrors.travelHours}</p>
       {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
 
@@ -218,6 +215,9 @@ const NewLog = () => {
       {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
 
       <h3>Total Hours: {calculateTotalHours()}</h3>
+
+      <p>{formErrors.trainingType}</p>
+      {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
 
       <p>{formErrors.mileage}</p>
       {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
