@@ -32,7 +32,7 @@ const NewLog = () => {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   let initialRender = useRef(true);
-  let autoTemp;
+  let autoTemp = useRef(0);
 
   //FUNCTIONS
   let navigate = useNavigate();
@@ -123,6 +123,8 @@ const NewLog = () => {
     setFormErrors(validate(formValues));
     setIsSubmitted(true);
   }
+
+  //useEffect contains axios logic. It launches after checking form validation.
   useEffect(() => {
     if(initialRender.current) {
       initialRender.current = false;
@@ -136,7 +138,7 @@ const NewLog = () => {
           }
         })
         .then(res => {
-          autoTemp = res.data[0].values.temperature
+          autoTemp.current = res.data[0].values.temperature;
           console.log('weather data results:', res.data[0].values)
           console.log('temperature:', autoTemp)
         })
