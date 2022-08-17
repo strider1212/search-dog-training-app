@@ -132,6 +132,9 @@ const NewLog = () => {
       alert('One of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
+        //CALL TOMORROW.IO WILL EVENTUALL BE SET UP TO BE AUTOMATICA AFTER TIME AND PLACE FORM,
+        //UNLESS MANUAL WEATHER CHECKBOX IS CLICKED
+
         // await axios.get('http://localhost:3000/logs/weather', {
         //   params: {
         //     temperature: [65.42687069854928, -137.40147447498097]
@@ -254,6 +257,8 @@ const NewLog = () => {
 }
     
 export default NewLog;
+
+//make form validator logic modular. move to utils
 
 
 
