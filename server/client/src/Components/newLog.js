@@ -132,16 +132,16 @@ const NewLog = () => {
       alert('One of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        await axios.get('http://localhost:3000/logs/weather', {
-          params: {
-            temperature: [65.42687069854928, -137.40147447498097]
-          }
-        })
-        .then(res => {
-          autoTemp.current = res.data[0].values.temperature;
-          console.log('weather data results:', res.data[0].values)
-          console.log('temperature:', autoTemp.current)
-        })
+        // await axios.get('http://localhost:3000/logs/weather', {
+        //   params: {
+        //     temperature: [65.42687069854928, -137.40147447498097]
+        //   }
+        // })
+        // .then(res => {
+        //   autoTemp.current = res.data[0].values.temperature;
+        //   console.log('weather data results:', res.data[0].values)
+        //   console.log('temperature:', autoTemp.current)
+        // })
     
         await axios.post(`http://localhost:3000/logs`, {
           log_created_by: formValues.createdBy,
