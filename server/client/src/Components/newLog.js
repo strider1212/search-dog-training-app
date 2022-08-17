@@ -259,6 +259,8 @@ const NewLog = () => {
 export default NewLog;
 
 //make form validator logic modular. move to utils
+//furthermore, make submithandlers logic modular in utils
+//make useEffect logic modular
 
 
 
