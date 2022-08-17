@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
+import { validator } from '../utils/validator';
 
 const NewLog = () => {
 
@@ -28,6 +29,8 @@ const NewLog = () => {
     souceContainer: '',
     water: false
   }
+    
+  const initialStateArray = ['createdBy', 'date', 'time', 'address', 'team', 'trainingType', 'trainingType', 'trainingHours', 'travelHours', 'mileage', 'tolls', 'weather', 'temperature', 'windSpeed', 'humidity', 'placementDescription', 'placedBy', 'scentSource', 'souceContainer'];
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -42,85 +45,8 @@ const NewLog = () => {
     const sum = travHours + trainHours
     return sum;
   }
-  const validate = (values) => {
-    const errors = {};
-
-    if (!values.createdBy) {
-      errors.createdBy = "Created By category is required"
-    }
-
-    if (!values.date) {
-      errors.date = "Date category is required"
-    }
-
-    if (!values.time) {
-      errors.time = "Time category is required"
-    }
-
-    if (!values.address) {
-      errors.address = "Address category is required"
-    }
-
-    if (!values.team) {
-      errors.team = "Team category is required"
-    }
-
-    if (!values.trainingType) {
-      errors.trainingType = "Trainging Type category is required"
-    }
-
-    if (!values.trainingHours) {
-      errors.trainingHours = "Training Hours category is required"
-    }
-
-    if (!values.travelHours) {
-      errors.travelHours = "Travel Hours category is required"
-    }
-
-    if (!values.mileage) {
-      errors.mileage = "Mileage category is required"
-    }
-
-    if (!values.tolls) {
-      errors.tolls = "Tolls category is required"
-    }
-
-    if (!values.weather) {
-      errors.weather = "Weather category is required"
-    }
-
-    if (!values.temperature) {
-      errors.temperature = "Temperature category is required"
-    }
-
-    if (!values.windSpeed) {
-      errors.windSpeed = "Wind Speed category is required"
-    }
-
-    if (!values.humidity) {
-      errors.humidity = "Humidity category is required"
-    }
-
-    if (!values.placementDescription) {
-      errors.placementDescription = "Placement Description category is required"
-    }
-
-    if (!values.placedBy) {
-      errors.placedBy = "Placed By category is required"
-    }
-
-    if (!values.scentSource) {
-      errors.scentSource = "Scent Source category is required"
-    }
-
-    if (!values.souceContainer) {
-      errors.souceContainer = "Source Container category is required"
-    }
-
-    return errors;
-  }
   const submitHandler = () => {
-    setFormErrors(validate(formValues));
+    setFormErrors(validator(formValues, initialStateArray));
     setIsSubmitted(true);
   }
 
@@ -129,7 +55,7 @@ const NewLog = () => {
     if(initialRender.current) {
       initialRender.current = false;
     } else if (Object.keys(formErrors).length > 0) {
-      alert('One of the request categories was not filled in. Please fill in any missing categories.')
+      alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
         //CALL TOMORROW.IO WILL EVENTUALL BE SET UP TO BE AUTOMATICA AFTER TIME AND PLACE FORM,
