@@ -208,6 +208,16 @@ const NewLog = () => {
       <p>{formErrors.address}</p>
       {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
 
+      {/* manual weather */}
+      <p>{formErrors.weather}</p>
+      {formPopulater('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather')}
+      <p>{formErrors.temperature}</p>
+      {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')}
+      <p>{formErrors.windSpeed}</p>
+      {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')}
+      <p>{formErrors.humidity}</p>
+      {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')}
+
       {/* Training hours and stats*/}
       <p>{formErrors.travelHours}</p>
       {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
@@ -218,17 +228,6 @@ const NewLog = () => {
       {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
       <p>{formErrors.tolls}</p>
       {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
-
-
-      {/* manual weather */}
-      <p>{formErrors.weather}</p>
-      {formPopulater('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather')}
-      <p>{formErrors.temperature}</p>
-      {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')}
-      <p>{formErrors.windSpeed}</p>
-      {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')}
-      <p>{formErrors.humidity}</p>
-      {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')}
 
       {/* training info */}
       <p>{formErrors.trainingType}</p>
@@ -242,6 +241,8 @@ const NewLog = () => {
       <p>{formErrors.souceContainer}</p>
       {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
       {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
+
+      {/* water info will conditionally render after this */}
 
       {/* buttons */}
       <button type='button' className='btn btn-primary' onClick={submitHandler}>Submit</button>
