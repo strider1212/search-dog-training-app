@@ -196,6 +196,9 @@ const NewLog = () => {
       <p>{formErrors.createdBy}</p>
       {formPopulater('log_created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'createdBy')}
 
+      <p>{formErrors.team}</p>
+      {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')}
+
       <p>{formErrors.date}</p>
       {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
 
@@ -204,9 +207,6 @@ const NewLog = () => {
 
       <p>{formErrors.address}</p>
       {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
-
-      <p>{formErrors.team}</p>
-      {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')}
 
       <p>{formErrors.trainingType}</p>
       {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
