@@ -154,7 +154,7 @@ const NewLog = () => {
           mileage: formValues.mileage,
           tolls: formValues.tolls,
           weather: formValues.weather,
-          temperature: autoTemp,
+          temperature: formValues.temperature,
           wind_speed: formValues.windSpeed,
           humidity: formValues.humidity,
           placement_description: formValues.placementDescription,
