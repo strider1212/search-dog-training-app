@@ -206,6 +206,7 @@ const NewLog = () => {
       {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
       <p>{formErrors.address}</p>
       {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
+      {/* eventually add an "add manual weather" checkbox which, when false, automatically pulls from tomorrow.io and adds auto weather based on time and address */}
 
       {/* manual weather */}
       <p>{formErrors.weather}</p>
