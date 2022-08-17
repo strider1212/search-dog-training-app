@@ -28,11 +28,9 @@ const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 
 router.get('/weather', async (req, res) => {
 
-  console.log('req.query.temperature', req.query.temperature)
-
   const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
   const apikey = process.env.TOMORROW_IO_KEY;
-  let location = req.query.temperature;
+  let location = [66.94093459251725, -139.00253055000704]
   const fields = [
     "precipitationIntensity",
     "precipitationType",
@@ -65,24 +63,18 @@ router.get('/weather', async (req, res) => {
     timezone,
   }, {arrayFormat: "comma"});
 
-
   let dataHolder = '';
 
   await fetch(getTimelineURL + "?" + getTimelineParameters, {method: "GET", compress: true})
   .then((result) => result.json())
   .then((json) => {
     const data = json.data.timelines[0].intervals;
-    // console.log(data)
     dataHolder = data
   })
   .catch((error) => console.error("error: " + error))
 
-  // console.log(dataHolder)
-
   res.send(dataHolder);
 })
-
-
 
 //tomorrow.io
 ////--------------------------------------------------------
