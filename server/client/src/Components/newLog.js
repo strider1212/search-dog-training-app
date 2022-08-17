@@ -260,8 +260,6 @@ const NewLog = () => {
     
 export default NewLog;
 
-//create new log boolena input - test with console log
-//create a manual weather
 
 
 
