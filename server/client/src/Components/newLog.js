@@ -199,7 +199,6 @@ const NewLog = () => {
       <p>{formErrors.team}</p>
       {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')}
 
-
       {/* Time and Place */}
       <p>{formErrors.date}</p>
       {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
