@@ -187,6 +187,7 @@ const NewLog = () => {
       }
       postForm()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])
 
   return (
