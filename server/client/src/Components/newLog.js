@@ -32,7 +32,7 @@ const NewLog = () => {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   let initialRender = useRef(true);
-  let autoTemp = useRef(0);
+  // let autoTemp = useRef(0);
 
   //FUNCTIONS
   let navigate = useNavigate();
