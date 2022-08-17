@@ -54,20 +54,6 @@ const NewLog = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        //CALL TOMORROW.IO WILL EVENTUALL BE SET UP TO BE AUTOMATICA AFTER TIME AND PLACE FORM,
-        //UNLESS MANUAL WEATHER CHECKBOX IS CLICKED
-
-        // await axios.get('http://localhost:3000/logs/weather', {
-        //   params: {
-        //     temperature: [65.42687069854928, -137.40147447498097]
-        //   }
-        // })
-        // .then(res => {
-        //   autoTemp.current = res.data[0].values.temperature;
-        //   console.log('weather data results:', res.data[0].values)
-        //   console.log('temperature:', autoTemp.current)
-        // })
-    
         await axios.post(`http://localhost:3000/logs`, {
           log_created_by: formValues.createdBy,
           date: formValues.date,
@@ -182,6 +168,21 @@ export default NewLog;
 
 //furthermore, make submithandlers logic modular in utils
 //make useEffect logic modular
+
+
+   //CALL TOMORROW.IO WILL EVENTUALL BE SET UP TO BE AUTOMATICA AFTER TIME AND PLACE FORM,
+        //UNLESS MANUAL WEATHER CHECKBOX IS CLICKED
+
+        // await axios.get('http://localhost:3000/logs/weather', {
+        //   params: {
+        //     temperature: [65.42687069854928, -137.40147447498097]
+        //   }
+        // })
+        // .then(res => {
+        //   autoTemp.current = res.data[0].values.temperature;
+        //   console.log('weather data results:', res.data[0].values)
+        //   console.log('temperature:', autoTemp.current)
+        // })
 
 
 
