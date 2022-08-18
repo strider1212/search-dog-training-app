@@ -1,25 +1,20 @@
 const mongoose = require('mongoose');
 
-const logSchema = new mongoose.Schema({
-  "log_created_by": {
-    type: String, 
-    required: true
-  },
-  "date": {
-    type: Date,
-    required: true
-  },
-  "address": {
+const manualWeatherSchema = new mongoose.Schema({
+  "weather": {
     type: String,
     required: true
   },
-  "team": {
-    type: String, 
-    ref: 'Team',
+  "temperature": {
+    type: Number,
     required: true
   },
-  "time": {
-    type: 'String',
+  "wind_speed": {
+    type: String,
+    required: true
+  },
+  "humidity": {
+    type: String,
     required: true
   }
 })

@@ -101,6 +101,9 @@ export default NewLog;
 /*
   FOR EACH NEW FORM:
     -mongoose
+      -create new schema
+      -add category for initial log in new schema
+      -add child schema of new log to the initial log
     -router
     -client form
 */
