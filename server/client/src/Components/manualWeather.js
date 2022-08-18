@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { submitHandler } from '../utils/submitHandler';
@@ -13,11 +13,13 @@ const ManualWeather = () => {
     humidity: '',
     associatedLog: ''
   }
-  const initialStateArray = ['weather', 'temperature', 'windSpeed', 'humidity', 'associatedLog'];
+  const initialStateArray = ['weather', 'temperature', 'windSpeed', 'humidity'];
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   let initialRender = useRef(true);
+  const location = useLocation();
+  const logId = location.state.logId;
   
   let navigate = useNavigate()
 
@@ -30,18 +32,19 @@ const ManualWeather = () => {
     } else {
       const postForm = async () => {
         await axios.post(`http://localhost:3000/logs`, {
-          log_created_by: formValues.createdBy,
-          date: formValues.date,
-          address: formValues.address, 
-          team: formValues.team, 
-          time: formValues.time
+          weather: formValues.weather,
+          temperature: formValues.temperature,
+          wind_speed: formValues.windSpeed, 
+          humidity: formValues.humidity, 
+          associated_log: logId
         })
         .then(res => {
-            navigate("/manualWeather", {state: 
-              {logId: res.data._id,
-              formValues: formValues
-              }
-            })
+            console.log('then substitute')
+            // navigate("/manualWeather", {state: 
+            //   {logId: res.data._id,
+            //   formValues: formValues
+            //   }
+            // })
         })
         .catch(error => {
           if (error.response) {
