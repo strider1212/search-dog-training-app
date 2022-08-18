@@ -38,7 +38,11 @@ const NewLog = () => {
           time: formValues.time
         })
         .then(res => {
-            navigate("/manualWeather", {state: {logId: res.data._id}})
+            navigate("/manualWeather", {state: 
+              {logId: res.data._id,
+              formValues: formValues
+              }
+            })
         })
         .catch(error => {
           if (error.response) {
