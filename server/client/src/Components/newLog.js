@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
-import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
 const NewLog = () => {
@@ -13,37 +12,15 @@ const NewLog = () => {
     date: '',
     time: '',
     address: '',
-    team: '',
-    trainingType: '',
-    trainingHours: 0,
-    travelHours: 0,
-    mileage: 0,
-    tolls: 0,
-    weather: '',
-    temperature: 0,
-    windSpeed: 0,
-    humidity: 0,
-    placementDescription: '',
-    placedBy: '',
-    scentSource: '',
-    souceContainer: '',
-    water: false
+    team: ''
   }
     
-  const initialStateArray = ['createdBy', 'date', 'time', 'address', 'team', 'trainingType', 'trainingType', 'trainingHours', 'travelHours', 'mileage', 'tolls', 'weather', 'temperature', 'windSpeed', 'humidity', 'placementDescription', 'placedBy', 'scentSource', 'souceContainer'];
+  const initialStateArray = ['createdBy', 'date', 'time', 'address', 'team'];
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   let initialRender = useRef(true);
   // let autoTemp = useRef(0);
-
-  //FUNCTIONS
-  const calculateTotalHours = () => {
-    const travHours = parseInt(formValues.travelHours);
-    const trainHours = parseInt(formValues.trainingHours);
-    const sum = travHours + trainHours
-    return sum;
-  }
 
   //HOOKS
   let navigate = useNavigate();
@@ -59,27 +36,10 @@ const NewLog = () => {
           date: formValues.date,
           address: formValues.address, 
           team: formValues.team, 
-          training_hours: formValues.trainingHours,
-          travel_hours: formValues.travelHours,
-          total_hours: calculateTotalHours(),
-          mileage: formValues.mileage,
-          tolls: formValues.tolls,
-          weather: formValues.weather,
-          temperature: formValues.temperature,
-          wind_speed: formValues.windSpeed,
-          humidity: formValues.humidity,
-          placement_description: formValues.placementDescription,
-          placed_by: formValues.placedBy,
-          scent_source: formValues.scentSource,
-          source_container: formValues.souceContainer,
-          time: formValues.time,
-          water: formValues.water,
-          training_type: formValues.trainingType
+          time: formValues.time
         })
         .then(res => {
-          if (res.data.water) {
-            navigate("/waterLog", {state: {logId: res.data._id}})
-          }
+            navigate("/manualWeather", {state: {logId: res.data._id}})
         })
         .catch(error => {
           if (error.response) {
@@ -118,43 +78,6 @@ const NewLog = () => {
       {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
       {/* eventually add an "add manual weather" checkbox which, when false, automatically pulls from tomorrow.io and adds auto weather based on time and address */}
 
-      {/* manual weather */}
-      <p>{formErrors.weather}</p>
-      {formPopulater('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather')}
-      <p>{formErrors.temperature}</p>
-      {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')}
-      <p>{formErrors.windSpeed}</p>
-      {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')}
-      <p>{formErrors.humidity}</p>
-      {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')}
-
-      {/* Training hours and stats*/}
-      <p>{formErrors.travelHours}</p>
-      {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
-      <p>{formErrors.trainingHours}</p>
-      {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
-      <h3>Total Hours: {calculateTotalHours()}</h3>
-      <p>{formErrors.mileage}</p>
-      {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
-      <p>{formErrors.tolls}</p>
-      {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
-
-      {/* training info */}
-      <p>{formErrors.trainingType}</p>
-      {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
-      <p>{formErrors.placementDescription}</p>
-      {formPopulater('placement-description', 'Placement Description', 'text', 'Where and how the source was placed...', setFormValue, formValues, 'placementDescription')}
-      <p>{formErrors.placedBy}</p>
-      {formPopulater('placed-by', 'Placed By', 'text', 'Which teammate placed the source?...', setFormValue, formValues, 'placedBy')}
-      <p>{formErrors.scentSource}</p>
-      {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
-      <p>{formErrors.souceContainer}</p>
-      {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
-      {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
-
-      {/* water info will conditionally render after this */}
-
-      {/* buttons */}
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Submit</button>
       <Link to="/">
         <button type='submit' className='btn btn-primary'>Return Home</button>
@@ -184,6 +107,70 @@ export default NewLog;
         // })
 
 
+// {/* <form>
+//       {/* Eventually auto populated */}
+//       <p>{formErrors.createdBy}</p>
+//       {formPopulater('log_created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'createdBy')}
+//       <p>{formErrors.team}</p>
+//       {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')}
 
+//       {/* Time and Place */}
+//       <p>{formErrors.date}</p>
+//       {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
+//       <p>{formErrors.time}</p>
+//       {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
+//       <p>{formErrors.address}</p>
+//       {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
+//       {/* eventually add an "add manual weather" checkbox which, when false, automatically pulls from tomorrow.io and adds auto weather based on time and address */}
 
+//       {/* manual weather */}
+//       <p>{formErrors.weather}</p>
+//       {formPopulater('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather')}
+//       <p>{formErrors.temperature}</p>
+//       {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')}
+//       <p>{formErrors.windSpeed}</p>
+//       {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')}
+//       <p>{formErrors.humidity}</p>
+//       {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')}
+
+//       {/* Training hours and stats*/}
+//       <p>{formErrors.travelHours}</p>
+//       {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
+//       <p>{formErrors.trainingHours}</p>
+//       {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
+//       <h3>Total Hours: {calculateTotalHours()}</h3>
+//       <p>{formErrors.mileage}</p>
+//       {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
+//       <p>{formErrors.tolls}</p>
+//       {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
+
+//       {/* training info */}
+//       <p>{formErrors.trainingType}</p>
+//       {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
+//       <p>{formErrors.placementDescription}</p>
+//       {formPopulater('placement-description', 'Placement Description', 'text', 'Where and how the source was placed...', setFormValue, formValues, 'placementDescription')}
+//       <p>{formErrors.placedBy}</p>
+//       {formPopulater('placed-by', 'Placed By', 'text', 'Which teammate placed the source?...', setFormValue, formValues, 'placedBy')}
+//       <p>{formErrors.scentSource}</p>
+//       {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
+//       <p>{formErrors.souceContainer}</p>
+//       {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
+//       {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
+
+//       {/* water info will conditionally render after this */}
+
+//       {/* buttons */}
+//       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Submit</button>
+//       <Link to="/">
+//         <button type='submit' className='btn btn-primary'>Return Home</button>
+//       </Link>
+//     </form> */}
+
+//  //FUNCTIONS
+//  const calculateTotalHours = () => {
+//   const travHours = parseInt(formValues.travelHours);
+//   const trainHours = parseInt(formValues.trainingHours);
+//   const sum = travHours + trainHours
+//   return sum;
+// }
 
