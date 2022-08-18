@@ -10,11 +10,11 @@ const manualWeatherSchema = new mongoose.Schema({
     required: true
   },
   "wind_speed": {
-    type: String,
+    type: Number,
     required: true
   },
   "humidity": {
-    type: String,
+    type: Number,
     required: true
   },
   "associated_log": {

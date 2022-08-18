@@ -5,6 +5,7 @@ import Home from './Components/home'
 import NewLog from "./Components/newLog";
 import WaterLog from "./Components/waterLog";
 import ManualWeather from "./Components/manualWeather";
+import HoursAndStats from "./Components/hoursAndStats";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/newLog' element={<NewLog />}/>
         <Route path='/waterLog' element={<WaterLog />}/>
         <Route path='/manualWeather' element={<ManualWeather />}/>
+        <Route path='/hoursAndStats' element={<HoursAndStats />}/>
       </Routes>
     </div>
     

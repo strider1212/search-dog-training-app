@@ -10,6 +10,7 @@ const moment = require("moment");
 const { Log } = require('../mongoose/log');
 const { Water } = require('../mongoose/water');
 const { ManualWeather } = require('../mongoose/manualWeather');
+const { HoursAndStats } = require('../mongoose/hoursAndStats');
 const { Individual_Runs } = require('../mongoose/individual_runs');
 
 const { logsKeyArray } = require('../data/keyArray');
@@ -97,7 +98,8 @@ router.post('/', (req, res) => {
     "address": req.body.address,
     //teamID
     "team": req.body.team,
-    "weather": req.body.weather
+    "weather": req.body.weather,
+    "hours_and_stats": req.body.hoursAndStats
   })
   postNew(postLog, res);
 })
@@ -112,6 +114,25 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   deleteById(Log, req, res);
+})
+
+router.post('/hoursAndStats', async (req, res) => {
+  
+  const hoursAndStatsLog = new HoursAndStats({
+    "travel_hours": req.body.travelHours,
+    "training_hours": req.body.trainingHours,
+    "total_hours": req.body.totalHours,
+    "mileage": req.body.mileage,
+    "tolls": req.body.tolls,
+    "associated_log":req.body.associatedLog
+  })
+
+  const key = 'hours_and_stats';
+  const value = hoursAndStatsLog._id;
+  const keyValuePair = {[key]: value};
+
+  await postChildrenSchemas(hoursAndStatsLog, HoursAndStats, req.body.associatedLog, keyValuePair, res);
+  await Log.findByIdAndUpdate(req.body.associatedLog, {"hours_and_stats": hoursAndStatsLog})
 })
 
 router.post('/manualWeather', async (req, res) => {
@@ -133,6 +154,8 @@ router.post('/manualWeather', async (req, res) => {
   await postChildrenSchemas(manualWeatherLog, Log, req.body.associatedLog, keyValuePair, res);
   await Log.findByIdAndUpdate(req.body.associatedLog, {"weather": manualWeatherLog})
 })
+
+
 
 router.post('/water', async (req, res) => {
   const associatedLog = '62f53c46105ec01ba30ab9f2'

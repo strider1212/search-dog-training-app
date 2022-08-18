@@ -39,12 +39,12 @@ const ManualWeather = () => {
           associatedLog: logId
         })
         .then(res => {
-            console.log(res)
-            // navigate("/manualWeather", {state: 
-            //   {logId: res.data._id,
-            //   formValues: formValues
-            //   }
-            // })
+          console.log('manualWeather res:',res)
+          navigate("/hoursAndStats", {state: 
+            {logId: logId,
+            formValues: formValues
+            } 
+          })
         })
         .catch(error => {
           if (error.response) {
