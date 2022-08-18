@@ -38,7 +38,6 @@ const NewLog = () => {
   // let autoTemp = useRef(0);
 
   //FUNCTIONS
-  
   const calculateTotalHours = () => {
     const travHours = parseInt(formValues.travelHours);
     const trainHours = parseInt(formValues.trainingHours);
