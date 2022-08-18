@@ -81,7 +81,7 @@ const NewLog = () => {
 
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
         <Link to="/">
-          <button type='submit' className='btn btn-primary'>Cancel form</button>
+          <button type='submit' className='btn btn-secondary'>Cancel</button>
         </Link>
       </form>
     </div>
@@ -90,8 +90,13 @@ const NewLog = () => {
     
 export default NewLog;
 
-//furthermore, make submithandlers logic modular in utils
-//make useEffect logic modular
+/*
+  TO DO List:
+    -make confirm swith on click for cancel
+    -use navigate instead of a link for the cancel
+ */
+
+
 
 
    //CALL TOMORROW.IO WILL EVENTUALL BE SET UP TO BE AUTOMATICA AFTER TIME AND PLACE FORM,
