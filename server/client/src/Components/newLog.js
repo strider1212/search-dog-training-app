@@ -80,9 +80,7 @@ const NewLog = () => {
         {/* eventually add an "add manual weather" checkbox which, when false, automatically pulls from tomorrow.io and adds auto weather based on time and address */}
 
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
-        <Link to="/">
-          <button type='submit' className='btn btn-secondary'>Cancel</button>
-        </Link>
+        <button type='submit' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
       </form>
     </div>
   )
