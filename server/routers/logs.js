@@ -9,7 +9,8 @@ const moment = require("moment");
 
 const { Log } = require('../mongoose/log');
 const { Water } = require('../mongoose/water');
-const { Individual_Runs } = require('../mongoose/individual_runs')
+const { ManualWeatherSchema } = require('../mongoose/manualWeather');
+const { Individual_Runs } = require('../mongoose/individual_runs');
 
 const { logsKeyArray } = require('../data/keyArray');
 const { logsKeyMatch } = require('../data/keyMatchArray');
@@ -95,7 +96,8 @@ router.post('/', (req, res) => {
     //formatted for weather API
     "address": req.body.address,
     //teamID
-    "team": req.body.team
+    "team": req.body.team,
+    "manual_weather": []
   })
   postNew(postLog, res);
 })
@@ -110,6 +112,23 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   deleteById(Log, req, res);
+})
+
+router.post('/manualWeather', async (req, res) => {
+  
+  const manualWeatherLog = new ManualWeatherSchema({
+    "weather": req.body.weather,
+    "temperature":req.body.temperature,
+    "wind_speed":req.body.windSpeed,
+    "humidity":req.body.humidity,
+    "associated_log":req.body.associatedLog
+  })
+
+  const key = 'manual_weather';
+  const value = manualWeatherLog._id;
+  const keyValuePair = {[key]: value};
+
+  postChildrenSchemas(manualWeatherLog, Log, req.body.associatedLog, keyValuePair, res);
 })
 
 router.post('/water', async (req, res) => {

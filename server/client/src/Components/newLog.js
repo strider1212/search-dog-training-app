@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { submitHandler } from '../utils/submitHandler';
@@ -84,7 +84,7 @@ const NewLog = () => {
         {/* eventually add an "add manual weather" checkbox which, when false, automatically pulls from tomorrow.io and adds auto weather based on time and address */}
 
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
-        <button type='submit' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
+        <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
       </form>
     </div>
   )
