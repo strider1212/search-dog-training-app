@@ -14,7 +14,6 @@ const NewLog = () => {
     address: '',
     team: ''
   }
-    
   const initialStateArray = ['createdBy', 'date', 'time', 'address', 'team'];
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
@@ -62,27 +61,30 @@ const NewLog = () => {
   }, [formErrors, isSubmitted])
 
   return (
-    <form>
-      {/* Eventually auto populated */}
-      <p>{formErrors.createdBy}</p>
-      {formPopulater('log_created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'createdBy')}
-      <p>{formErrors.team}</p>
-      {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')}
+    <div>
+      <h2>Enter Date and Time info:</h2>
+      <form>
+        {/* Eventually auto populated */}
+        <p>{formErrors.createdBy}</p>
+        {formPopulater('log_created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'createdBy')}
+        <p>{formErrors.team}</p>
+        {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')}
 
-      {/* Time and Place */}
-      <p>{formErrors.date}</p>
-      {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
-      <p>{formErrors.time}</p>
-      {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
-      <p>{formErrors.address}</p>
-      {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
-      {/* eventually add an "add manual weather" checkbox which, when false, automatically pulls from tomorrow.io and adds auto weather based on time and address */}
+        {/* Time and Place */}
+        <p>{formErrors.date}</p>
+        {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
+        <p>{formErrors.time}</p>
+        {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
+        <p>{formErrors.address}</p>
+        {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
+        {/* eventually add an "add manual weather" checkbox which, when false, automatically pulls from tomorrow.io and adds auto weather based on time and address */}
 
-      <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Submit</button>
-      <Link to="/">
-        <button type='submit' className='btn btn-primary'>Return Home</button>
-      </Link>
-    </form>
+        <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
+        <Link to="/">
+          <button type='submit' className='btn btn-primary'>Cancel form</button>
+        </Link>
+      </form>
+    </div>
   )
 }
     
