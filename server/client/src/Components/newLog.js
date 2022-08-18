@@ -46,6 +46,7 @@ const NewLog = () => {
   }
 
   //HOOKS
+  let navigate = useNavigate();
   useEffect(() => {
     if(initialRender.current) {
       initialRender.current = false;
@@ -99,7 +100,6 @@ const NewLog = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])
-  let navigate = useNavigate();
 
   return (
     <form>
