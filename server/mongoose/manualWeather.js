@@ -16,9 +16,13 @@ const manualWeatherSchema = new mongoose.Schema({
   "humidity": {
     type: String,
     required: true
+  },
+  "associated_log": {
+    type: mongoose.ObjectId,
+    required: true
   }
 })
 
-const Log = mongoose.model('Log', logSchema);
+const ManualWeatherSchema = mongoose.model('ManualWeatherSchema', manualWeatherSchema);
 
-module.exports = {logSchema, Log}
+module.exports = {manualWeatherSchema, ManualWeatherSchema}
