@@ -1,7 +1,4 @@
 const postChildrenSchemas = async (instantiation, model, associatedLog, keyValuePair, res) => {
-  console.log(keyValuePair)
-
-
   await instantiation.save();
 
   model.findByIdAndUpdate(associatedLog, keyValuePair, {new: true, lean: true}, (err, log) => {
