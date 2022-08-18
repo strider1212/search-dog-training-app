@@ -31,7 +31,9 @@ const ManualWeather = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        await axios.post(`http://localhost:3000/logs`, {
+        console.log('formValues',formValues)
+        console.log('logId',logId)
+        await axios.post(`http://localhost:3000/logs/manualWeather`, {
           weather: formValues.weather,
           temperature: formValues.temperature,
           wind_speed: formValues.windSpeed, 
@@ -39,7 +41,7 @@ const ManualWeather = () => {
           associated_log: logId
         })
         .then(res => {
-            console.log('then substitute')
+            console.log(res)
             // navigate("/manualWeather", {state: 
             //   {logId: res.data._id,
             //   formValues: formValues

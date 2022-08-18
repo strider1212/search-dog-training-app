@@ -23,6 +23,6 @@ const manualWeatherSchema = new mongoose.Schema({
   }
 })
 
-const ManualWeatherSchema = mongoose.model('ManualWeatherSchema', manualWeatherSchema);
+const ManualWeather = mongoose.model('ManualWeather', manualWeatherSchema);
 
-module.exports = {manualWeatherSchema, ManualWeatherSchema}
+module.exports = {manualWeatherSchema, ManualWeather}

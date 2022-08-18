@@ -9,7 +9,7 @@ const moment = require("moment");
 
 const { Log } = require('../mongoose/log');
 const { Water } = require('../mongoose/water');
-const { ManualWeatherSchema } = require('../mongoose/manualWeather');
+const { ManualWeather } = require('../mongoose/manualWeather');
 const { Individual_Runs } = require('../mongoose/individual_runs');
 
 const { logsKeyArray } = require('../data/keyArray');
@@ -115,11 +115,12 @@ router.delete('/:id', (req, res) => {
 })
 
 router.post('/manualWeather', async (req, res) => {
+  console.log('req.body', req.body)
   
-  const manualWeatherLog = new ManualWeatherSchema({
+  const manualWeatherLog = new ManualWeather({
     "weather": req.body.weather,
     "temperature":req.body.temperature,
-    "wind_speed":req.body.windSpeed,
+    "wind_speed":req.body.wind_speed,
     "humidity":req.body.humidity,
     "associated_log":req.body.associatedLog
   })
