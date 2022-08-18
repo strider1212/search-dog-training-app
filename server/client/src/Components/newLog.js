@@ -96,6 +96,13 @@ export default NewLog;
     -use navigate instead of a link for the cancel
  */
 
+/*
+  FOR EACH NEW FORM:
+    -mongoose
+    -router
+    -client form
+*/
+
 
 
 
