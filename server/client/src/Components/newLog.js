@@ -152,16 +152,16 @@ export default NewLog;
 //       <p>{formErrors.humidity}</p>
 //       {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')}
 
-//       {/* Training hours and stats*/}
-//       <p>{formErrors.travelHours}</p>
-//       {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
-//       <p>{formErrors.trainingHours}</p>
-//       {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
-//       <h3>Total Hours: {calculateTotalHours()}</h3>
-//       <p>{formErrors.mileage}</p>
-//       {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
-//       <p>{formErrors.tolls}</p>
-//       {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
+// {/* Training hours and stats*/}
+// <p>{formErrors.travelHours}</p>
+// {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
+// <p>{formErrors.trainingHours}</p>
+// {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
+// <h3>Total Hours: {calculateTotalHours()}</h3>
+// <p>{formErrors.mileage}</p>
+// {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
+// <p>{formErrors.tolls}</p>
+// {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
 
 //       {/* training info */}
 //       <p>{formErrors.trainingType}</p>

@@ -136,9 +136,6 @@ router.post('/hoursAndStats', async (req, res) => {
 })
 
 router.post('/manualWeather', async (req, res) => {
-
-  console.log(req.body)
-  
   const manualWeatherLog = new ManualWeather({
     "weather": req.body.weather,
     "temperature":req.body.temperature,
