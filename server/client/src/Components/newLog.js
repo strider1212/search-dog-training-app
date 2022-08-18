@@ -57,7 +57,7 @@ const NewLog = () => {
           console.log('error.config', error.config);
         })
     
-        console.log('Log submitted')
+        console.log('newLog submitted')
       }
       postForm()
     }

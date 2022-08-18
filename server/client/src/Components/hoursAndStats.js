@@ -8,12 +8,12 @@ const HoursAndStats = () => {
   const initialState = {
     travelHours: 0,
     trainingHours: 0,
-    totalHours: 0,
+    totalHours: '',
     mileage: 0,
     tolls: 0,
     associatedLog: ''
   }
-  const initialStateArray = ['travelHours', 'trainingHours', 'totalHours', 'mileage', 'tolls'];
+  const initialStateArray = ['travelHours', 'trainingHours', 'mileage', 'tolls'];
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -41,7 +41,7 @@ const HoursAndStats = () => {
         await axios.post(`http://localhost:3000/logs/hoursAndStats`, {
           travel_hours: formValues.travelHours,
           training_hours: formValues.trainingHours,
-          total_hours: formValues.totalHours, 
+          total_hours: calculateTotalHours(), 
           mileage: formValues.mileage, 
           tolls: formValues.tolls, 
           associatedLog: logId
@@ -67,7 +67,7 @@ const HoursAndStats = () => {
           console.log('error.config', error.config);
         })
     
-        console.log('Log submitted')
+        console.log('hoursAndStats submitted')
       }
       postForm()
 
@@ -90,7 +90,6 @@ const HoursAndStats = () => {
 
       <p>{formErrors.tolls}</p>
       {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
-
 
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>

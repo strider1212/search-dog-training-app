@@ -39,7 +39,6 @@ const ManualWeather = () => {
           associatedLog: logId
         })
         .then(res => {
-          console.log('manualWeather res:',res)
           navigate("/hoursAndStats", {state: 
             {logId: logId,
             formValues: formValues
@@ -59,7 +58,7 @@ const ManualWeather = () => {
           console.log('error.config', error.config);
         })
     
-        console.log('Log submitted')
+        console.log('manualWeather submitted')
       }
       postForm()
 

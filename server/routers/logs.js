@@ -119,9 +119,9 @@ router.delete('/:id', (req, res) => {
 router.post('/hoursAndStats', async (req, res) => {
   
   const hoursAndStatsLog = new HoursAndStats({
-    "travel_hours": req.body.travelHours,
-    "training_hours": req.body.trainingHours,
-    "total_hours": req.body.totalHours,
+    "travel_hours": req.body.travel_hours,
+    "training_hours": req.body.training_hours,
+    "total_hours": req.body.total_hours,
     "mileage": req.body.mileage,
     "tolls": req.body.tolls,
     "associated_log":req.body.associatedLog
@@ -131,7 +131,7 @@ router.post('/hoursAndStats', async (req, res) => {
   const value = hoursAndStatsLog._id;
   const keyValuePair = {[key]: value};
 
-  await postChildrenSchemas(hoursAndStatsLog, HoursAndStats, req.body.associatedLog, keyValuePair, res);
+  await postChildrenSchemas(hoursAndStatsLog, Log, req.body.associatedLog, keyValuePair, res);
   await Log.findByIdAndUpdate(req.body.associatedLog, {"hours_and_stats": hoursAndStatsLog})
 })
 
