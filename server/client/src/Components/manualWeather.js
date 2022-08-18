@@ -38,7 +38,7 @@ const ManualWeather = () => {
           temperature: formValues.temperature,
           wind_speed: formValues.windSpeed, 
           humidity: formValues.humidity, 
-          associated_log: logId
+          associatedLog: logId
         })
         .then(res => {
             console.log(res)

@@ -115,7 +115,8 @@ router.delete('/:id', (req, res) => {
 })
 
 router.post('/manualWeather', async (req, res) => {
-  console.log('req.body', req.body)
+
+  console.log(req.body)
   
   const manualWeatherLog = new ManualWeather({
     "weather": req.body.weather,
