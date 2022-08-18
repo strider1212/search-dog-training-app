@@ -97,7 +97,7 @@ router.post('/', (req, res) => {
     "address": req.body.address,
     //teamID
     "team": req.body.team,
-    "manual_weather": []
+    "weather": req.body.weather
   })
   postNew(postLog, res);
 })
@@ -130,7 +130,8 @@ router.post('/manualWeather', async (req, res) => {
   const value = manualWeatherLog._id;
   const keyValuePair = {[key]: value};
 
-  postChildrenSchemas(manualWeatherLog, Log, req.body.associatedLog, keyValuePair, res);
+  await postChildrenSchemas(manualWeatherLog, Log, req.body.associatedLog, keyValuePair, res);
+  await Log.findByIdAndUpdate(req.body.associatedLog, {"weather": manualWeatherLog})
 })
 
 router.post('/water', async (req, res) => {

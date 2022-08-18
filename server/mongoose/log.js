@@ -23,7 +23,7 @@ const logSchema = new mongoose.Schema({
     type: 'String',
     required: true
   },
-  child: manualWeatherSchema
+  "weather": manualWeatherSchema
 })
 
 const Log = mongoose.model('Log', logSchema);

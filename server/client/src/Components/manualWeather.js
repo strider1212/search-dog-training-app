@@ -31,8 +31,6 @@ const ManualWeather = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        console.log('formValues',formValues)
-        console.log('logId',logId)
         await axios.post(`http://localhost:3000/logs/manualWeather`, {
           weather: formValues.weather,
           temperature: formValues.temperature,
@@ -64,6 +62,7 @@ const ManualWeather = () => {
         console.log('Log submitted')
       }
       postForm()
+
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])
