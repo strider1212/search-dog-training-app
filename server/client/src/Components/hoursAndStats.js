@@ -6,11 +6,11 @@ import { submitHandler } from '../utils/submitHandler';
 
 const HoursAndStats = () => {
   const initialState = {
-    travelHours: '',
-    trainingHours: '',
-    totalHours: '',
-    mileage: '',
-    tolls: '',
+    travelHours: 0,
+    trainingHours: 0,
+    totalHours: 0,
+    mileage: 0,
+    tolls: 0,
     associatedLog: ''
   }
   const initialStateArray = ['travelHours', 'trainingHours', 'totalHours', 'mileage', 'tolls'];
@@ -26,7 +26,7 @@ const HoursAndStats = () => {
   const calculateTotalHours = () => {
     const travHours = parseInt(formValues.travelHours);
     const trainHours = parseInt(formValues.trainingHours);
-    const sum = travHours + trainHours
+    const sum = travHours + trainHours;
     return sum;
   }
 
@@ -87,13 +87,14 @@ const HoursAndStats = () => {
 
       <p>{formErrors.mileage}</p>
       {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
-      
+
       <p>{formErrors.tolls}</p>
       {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
 
 
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
+      <button type='button' className='btn btn-secondary' onClick={() => console.log(formValues)}>Test</button>
     </div>
   )
 }
