@@ -62,7 +62,7 @@ const NewLog = () => {
 
   return (
     <div>
-      <h2>Enter Date and Time info:</h2>
+      <h2>Date and Time</h2>
       <form>
         {/* Eventually auto populated */}
         <p>{formErrors.createdBy}</p>
