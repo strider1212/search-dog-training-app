@@ -43,11 +43,17 @@ const TrainingInfo = () => {
           associated_log: logId
         })
         .then(res => {
-          navigate("/waterLog", {state: 
-            {logId: logId,
-            formValues: formValues
-            } 
-          })
+          // console.log(res.data.training_info.water)
+          if (res.data.training_info.water) {
+            navigate("/waterLog", {state: 
+              {logId: logId,
+              formValues: formValues
+              } 
+            })
+          } else {
+            navigate("/")
+          }
+          
         })
         .catch(error => {
           if (error.response) {
