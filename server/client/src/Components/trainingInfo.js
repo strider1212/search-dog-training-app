@@ -15,7 +15,7 @@ const TrainingInfo = () => {
     water: '', 
     associatedLog: ''
   }
-  const initialStateArray = ['trainingType', 'placementDescription',  'placedBy',  'scentSource', 'water'];
+  const initialStateArray = ['trainingType', 'placementDescription',  'placedBy',  'scentSource'];
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -40,7 +40,7 @@ const TrainingInfo = () => {
           scent_source: formValues.scentSource, 
           source_container: formValues.sourceContainer, 
           water: formValues.water,
-          associatedLog: logId
+          associated_log: logId
         })
         .then(res => {
           navigate("/", {state: 
@@ -62,7 +62,7 @@ const TrainingInfo = () => {
           console.log('error.config', error.config);
         })
     
-        console.log('hoursAndStats submitted')
+        console.log('trainingInfo submitted')
       }
       postForm()
 

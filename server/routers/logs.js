@@ -121,20 +121,20 @@ router.delete('/:id', (req, res) => {
 router.post('/trainingInfo', async (req, res) => {
   
   const trainingInfoLog = new TrainingInfo({
-    "training_type": req.body.trainginType,
-    "placement_description": req.body.placementDescription,
-    "placed_by": req.body.placedBy,
+    "training_type": req.body.training_type,
+    "placement_description": req.body.placement_description,
+    "placed_by": req.body.placed_by,
     "scent_source": req.body.scent_source,
-    "source_container": req.body.sourceContainer,
+    "source_container": req.body.source_container,
     "water": req.body.water,
-    "associated_log": req.body.associatedLog
+    "associated_log": req.body.associated_log
   })
 
   const key = 'training_info';
   const value = trainingInfoLog._id;
   const keyValuePair = {[key]: value};
 
-  await postChildrenSchemas(trainingInfoLog, Log, req.body.associatedLog, keyValuePair, res);
+  await postChildrenSchemas(trainingInfoLog, Log, req.body.associated_log, keyValuePair, res);
   await Log.findByIdAndUpdate(req.body.associatedLog, {"training_info": trainingInfoLog})
 })
 
