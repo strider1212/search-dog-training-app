@@ -135,7 +135,7 @@ router.post('/trainingInfo', async (req, res) => {
   const keyValuePair = {[key]: value};
 
   await postChildrenSchemas(trainingInfoLog, Log, req.body.associated_log, keyValuePair, res);
-  await Log.findByIdAndUpdate(req.body.associatedLog, {"training_info": trainingInfoLog})
+  await Log.findByIdAndUpdate(req.body.associated_log, {"training_info": trainingInfoLog})
 })
 
 router.post('/hoursAndStats', async (req, res) => {

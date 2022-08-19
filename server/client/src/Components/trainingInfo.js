@@ -12,7 +12,7 @@ const TrainingInfo = () => {
     placedBy: '',
     scentSource: 0,
     sourceContainer: 0,
-    water: '', 
+    water: false, 
     associatedLog: ''
   }
   const initialStateArray = ['trainingType', 'placementDescription',  'placedBy',  'scentSource'];
