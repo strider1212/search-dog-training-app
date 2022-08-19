@@ -131,7 +131,7 @@ router.post('/trainingInfo', async (req, res) => {
   })
 
   const key = 'training_info';
-  const value = trainingInfoLog._id;
+  const value = trainingInfoLog;
   const keyValuePair = {[key]: value};
 
   await postChildrenSchemas(trainingInfoLog, Log, req.body.associated_log, keyValuePair, res);
@@ -167,7 +167,7 @@ router.post('/manualWeather', async (req, res) => {
   })
 
   const key = 'manual_weather';
-  const value = manualWeatherLog._id;
+  const value = manualWeatherLog;
   const keyValuePair = {[key]: value};
 
   await postChildrenSchemas(manualWeatherLog, Log, req.body.associatedLog, keyValuePair, res);
@@ -188,7 +188,7 @@ router.post('/water', async (req, res) => {
   })
 
   const key = 'water_data';
-  const value = waterLog._id;
+  const value = waterLog;
   const keyValuePair = {[key]: value};
 
   await postChildrenSchemas(waterLog, Log, req.body.associated_log, keyValuePair, res);
