@@ -150,7 +150,7 @@ router.post('/hoursAndStats', async (req, res) => {
   })
 
   const key = 'hours_and_stats';
-  const value = hoursAndStatsLog._id;
+  const value = hoursAndStatsLog;
   const keyValuePair = {[key]: value};
 
   await postChildrenSchemas(hoursAndStatsLog, Log, req.body.associatedLog, keyValuePair, res);
