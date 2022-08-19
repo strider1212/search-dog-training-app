@@ -177,8 +177,6 @@ router.post('/manualWeather', async (req, res) => {
 
 
 router.post('/water', async (req, res) => {
-  const associatedLog = '62f53c46105ec01ba30ab9f2'
-  
   const waterLog = new Water({
     "open": req.body.open,
     "submerged": req.body.submerged,
@@ -193,7 +191,8 @@ router.post('/water', async (req, res) => {
   const value = waterLog._id;
   const keyValuePair = {[key]: value};
 
-  postChildrenSchemas(waterLog, Log, associatedLog, keyValuePair, res);
+  await postChildrenSchemas(waterLog, Log, req.body.associated_log, keyValuePair, res);
+  await Log.findByIdAndUpdate(req.body.associated_log, {"water": waterLog})
 })
 
 router.get('/water/:id', (req, res) => {

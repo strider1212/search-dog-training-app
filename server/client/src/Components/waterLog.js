@@ -32,13 +32,13 @@ const WaterLog = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        await axios.post(`http://localhost:3000/logs/trainingInfo`, {
-          training_type: formValues.trainingType,
-          placement_description: formValues.placementDescription,
-          placed_by: formValues.placedBy, 
-          scent_source: formValues.scentSource, 
-          source_container: formValues.sourceContainer, 
-          water: formValues.water,
+        await axios.post(`http://localhost:3000/logs/water`, {
+          open: formValues.open,
+          submerged: formValues.submerged,
+          depth: formValues.depth, 
+          salt_water: formValues.saltWater, 
+          water_type: formValues.waterType, 
+          temperature: formValues.temperature,
           associated_log: logId
         })
         .then(res => {
