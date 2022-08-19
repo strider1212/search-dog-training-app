@@ -43,7 +43,7 @@ const TrainingInfo = () => {
           associated_log: logId
         })
         .then(res => {
-          navigate("/", {state: 
+          navigate("/waterLog", {state: 
             {logId: logId,
             formValues: formValues
             } 
