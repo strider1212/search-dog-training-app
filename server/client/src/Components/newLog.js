@@ -41,11 +41,12 @@ const NewLog = () => {
           manual_weather: formValues.manualWeather
         })
         .then(res => {
-            navigate("/manualWeather", {state: 
-              {logId: res.data._id,
-              formValues: formValues
-              }
-            })
+          console.log(res)
+            // navigate("/manualWeather", {state: 
+            //   {logId: res.data._id,
+            //   formValues: formValues
+            //   }
+            // })
         })
         .catch(error => {
           if (error.response) {
@@ -85,7 +86,7 @@ const NewLog = () => {
         <p>{formErrors.address}</p>
         {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
 
-        {checkboxFormPopulater('manual-weather', 'Add Weather Manually', setFormValue, formValues, 'manual_weather')}
+        {checkboxFormPopulater('manual-weather', 'Add Weather Manually', setFormValue, formValues, 'manualWeather')}
         
 
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>

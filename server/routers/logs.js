@@ -99,6 +99,7 @@ router.post('/', (req, res) => {
     "address": req.body.address,
     //teamID
     "team": req.body.team,
+    "manual_weather": req.body.manual_weather,
     "weather": req.body.weather,
     "hours_and_stats": req.body.hoursAndStats,
     "training_info": req.body.trainingInfoLog
