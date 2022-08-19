@@ -41,12 +41,21 @@ const NewLog = () => {
           manual_weather: formValues.manualWeather
         })
         .then(res => {
-          console.log(res)
-            // navigate("/manualWeather", {state: 
-            //   {logId: res.data._id,
-            //   formValues: formValues
-            //   }
-            // })
+          // console.log(res.data.manual_weather)
+          if (res.data.manual_weather) {
+            navigate("/manualWeather", {state: 
+              {logId: res.data._id,
+              formValues: formValues
+              }
+            })
+          } else {
+            navigate("/hoursAndStats", {state: 
+              {logId: res.data._id,
+              formValues: formValues
+              }
+            })
+          }
+            
         })
         .catch(error => {
           if (error.response) {
