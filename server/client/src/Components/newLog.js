@@ -164,17 +164,17 @@ export default NewLog;
 // {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
 
 //       {/* training info */}
-//       <p>{formErrors.trainingType}</p>
-//       {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
-//       <p>{formErrors.placementDescription}</p>
-//       {formPopulater('placement-description', 'Placement Description', 'text', 'Where and how the source was placed...', setFormValue, formValues, 'placementDescription')}
-//       <p>{formErrors.placedBy}</p>
-//       {formPopulater('placed-by', 'Placed By', 'text', 'Which teammate placed the source?...', setFormValue, formValues, 'placedBy')}
-//       <p>{formErrors.scentSource}</p>
-//       {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
-//       <p>{formErrors.souceContainer}</p>
-//       {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
-//       {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
+  // <p>{formErrors.trainingType}</p>
+  // {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
+  // <p>{formErrors.placementDescription}</p>
+  // {formPopulater('placement-description', 'Placement Description', 'text', 'Where and how the source was placed...', setFormValue, formValues, 'placementDescription')}
+  // <p>{formErrors.placedBy}</p>
+  // {formPopulater('placed-by', 'Placed By', 'text', 'Which teammate placed the source?...', setFormValue, formValues, 'placedBy')}
+  // <p>{formErrors.scentSource}</p>
+  // {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
+  // <p>{formErrors.souceContainer}</p>
+  // {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
+  // {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
 
 //       {/* water info will conditionally render after this */}
 

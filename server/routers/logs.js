@@ -12,6 +12,7 @@ const { Water } = require('../mongoose/water');
 const { ManualWeather } = require('../mongoose/manualWeather');
 const { HoursAndStats } = require('../mongoose/hoursAndStats');
 const { Individual_Runs } = require('../mongoose/individual_runs');
+const { TrainingInfo } = require('../mongoose/trainingInfo');
 
 const { logsKeyArray } = require('../data/keyArray');
 const { logsKeyMatch } = require('../data/keyMatchArray');
@@ -99,7 +100,8 @@ router.post('/', (req, res) => {
     //teamID
     "team": req.body.team,
     "weather": req.body.weather,
-    "hours_and_stats": req.body.hoursAndStats
+    "hours_and_stats": req.body.hoursAndStats,
+    "training_info": req.body.trainingInfoLog
   })
   postNew(postLog, res);
 })
@@ -116,6 +118,26 @@ router.delete('/:id', (req, res) => {
   deleteById(Log, req, res);
 })
 
+router.post('/trainingInfo', async (req, res) => {
+  
+  const trainingInfoLog = new TrainingInfo({
+    "training_type": req.body.trainginType,
+    "placement_description": req.body.placementDescription,
+    "placed_by": req.body.placedBy,
+    "scent_source": req.body.scent_source,
+    "source_container": req.body.sourceContainer,
+    "water": req.body.water,
+    "associated_log": req.body.associatedLog
+  })
+
+  const key = 'training_info';
+  const value = trainingInfoLog._id;
+  const keyValuePair = {[key]: value};
+
+  await postChildrenSchemas(trainingInfoLog, Log, req.body.associatedLog, keyValuePair, res);
+  await Log.findByIdAndUpdate(req.body.associatedLog, {"training_info": trainingInfoLog})
+})
+
 router.post('/hoursAndStats', async (req, res) => {
   
   const hoursAndStatsLog = new HoursAndStats({
@@ -124,7 +146,7 @@ router.post('/hoursAndStats', async (req, res) => {
     "total_hours": req.body.total_hours,
     "mileage": req.body.mileage,
     "tolls": req.body.tolls,
-    "associated_log":req.body.associatedLog
+    "associated_log": req.body.associatedLog
   })
 
   const key = 'hours_and_stats';
@@ -219,6 +241,3 @@ router.delete('/individual_runs/:id', (req, res) => {
 })
 
 module.exports = router;
-
-//see if I can it manually in client
-//see if I can change it via address

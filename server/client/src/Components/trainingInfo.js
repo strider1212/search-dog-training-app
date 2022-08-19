@@ -2,18 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
+import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
-const HoursAndStats = () => {
+const TrainingInfo = () => {
   const initialState = {
-    travelHours: 0,
-    trainingHours: 0,
-    totalHours: '',
-    mileage: 0,
-    tolls: 0,
+    trainingType: 0,
+    placementDescription: 0,
+    placedBy: '',
+    scentSource: 0,
+    sourceContainer: 0,
+    water: '', 
     associatedLog: ''
   }
-  const initialStateArray = ['travelHours', 'trainingHours', 'mileage', 'tolls'];
+  const initialStateArray = ['trainingType', 'placementDescription',  'placedBy',  'scentSource', 'water'];
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -23,13 +25,6 @@ const HoursAndStats = () => {
   
   let navigate = useNavigate()
 
-  const calculateTotalHours = () => {
-    const travHours = parseInt(formValues.travelHours);
-    const trainHours = parseInt(formValues.trainingHours);
-    const sum = travHours + trainHours;
-    return sum;
-  }
-
   //HOOKS
   useEffect(() => {
     if(initialRender.current) {
@@ -38,16 +33,17 @@ const HoursAndStats = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        await axios.post(`http://localhost:3000/logs/hoursAndStats`, {
-          travel_hours: formValues.travelHours,
-          training_hours: formValues.trainingHours,
-          total_hours: calculateTotalHours(), 
-          mileage: formValues.mileage, 
-          tolls: formValues.tolls, 
+        await axios.post(`http://localhost:3000/logs/trainingInfo`, {
+          training_type: formValues.trainingType,
+          placement_description: formValues.placementDescription,
+          placed_by: formValues.placedBy, 
+          scent_source: formValues.scentSource, 
+          source_container: formValues.sourceContainer, 
+          water: formValues.water,
           associatedLog: logId
         })
         .then(res => {
-          navigate("/trainingInfo", {state: 
+          navigate("/", {state: 
             {logId: logId,
             formValues: formValues
             } 
@@ -76,24 +72,20 @@ const HoursAndStats = () => {
   
   return (
     <div>
-      <p>{formErrors.travelHours}</p>
-      {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
-
-      <p>{formErrors.trainingHours}</p>
-      {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
-
-      <h3>Total Hours: {calculateTotalHours()}</h3>
-
-      <p>{formErrors.mileage}</p>
-      {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
-
-      <p>{formErrors.tolls}</p>
-      {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
-
-      <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
-      <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
+      <h1>trainingInfo.js</h1>
+      <p>{formErrors.trainingType}</p>
+      {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
+      <p>{formErrors.placementDescription}</p>
+      {formPopulater('placement-description', 'Placement Description', 'text', 'Where and how the source was placed...', setFormValue, formValues, 'placementDescription')}
+      <p>{formErrors.placedBy}</p>
+      {formPopulater('placed-by', 'Placed By', 'text', 'Which teammate placed the source?...', setFormValue, formValues, 'placedBy')}
+      <p>{formErrors.scentSource}</p>
+      {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
+      <p>{formErrors.souceContainer}</p>
+      {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
+      {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
     </div>
   )
 }
 
-export default HoursAndStats;
+export default TrainingInfo;

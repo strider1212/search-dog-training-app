@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const { manualWeatherSchema } = require('../mongoose/manualWeather')
-const { hoursAndStatsSchema } = require('../mongoose/hoursAndStats')
+const { manualWeatherSchema } = require('../mongoose/manualWeather');
+const { hoursAndStatsSchema } = require('../mongoose/hoursAndStats');
+const { trainingInfoSchema } = require('../mongoose/trainingInfo');
 
 const logSchema = new mongoose.Schema({
   "log_created_by": {
@@ -25,7 +26,8 @@ const logSchema = new mongoose.Schema({
     required: true
   },
   "weather": manualWeatherSchema,
-  "hours_and_stats": hoursAndStatsSchema
+  "hours_and_stats": hoursAndStatsSchema,
+  "training_info": trainingInfoSchema
 })
 
 const Log = mongoose.model('Log', logSchema);
