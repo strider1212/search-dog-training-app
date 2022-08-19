@@ -61,7 +61,7 @@ const WaterLog = () => {
           console.log('error.config', error.config);
         })
     
-        console.log('trainingInfo submitted')
+        console.log('waterLog submitted')
       }
       postForm()
 
