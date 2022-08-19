@@ -23,7 +23,11 @@ const logSchema = new mongoose.Schema({
     required: true
   },
   "time": {
-    type: 'String',
+    type: String,
+    required: true
+  },
+  "manual_weather": {
+    type: Boolean,
     required: true
   },
   "weather": manualWeatherSchema,

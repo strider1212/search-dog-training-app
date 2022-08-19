@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
+import { checkboxFormPopulater} from '../utils/checkboxFormPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
 const NewLog = () => {
@@ -12,7 +13,8 @@ const NewLog = () => {
     date: '',
     time: '',
     address: '',
-    team: ''
+    team: '',
+    manualWeather: false
   }
   const initialStateArray = ['createdBy', 'date', 'time', 'address', 'team'];
   const [formValues, setFormValue] = useState(initialState);
@@ -35,7 +37,8 @@ const NewLog = () => {
           date: formValues.date,
           address: formValues.address, 
           team: formValues.team, 
-          time: formValues.time
+          time: formValues.time,
+          manual_weather: formValues.manualWeather
         })
         .then(res => {
             navigate("/manualWeather", {state: 
@@ -81,7 +84,9 @@ const NewLog = () => {
         {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
         <p>{formErrors.address}</p>
         {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
-        {/* eventually add an "add manual weather" checkbox which, when false, automatically pulls from tomorrow.io and adds auto weather based on time and address */}
+
+        {checkboxFormPopulater('manual-weather', 'Add Weather Manually', setFormValue, formValues, 'manual_weather')}
+        
 
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
