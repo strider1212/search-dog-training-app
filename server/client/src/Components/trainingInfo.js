@@ -87,7 +87,7 @@ const TrainingInfo = () => {
       {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
       <p>{formErrors.souceContainer}</p>
       {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'souceContainer')}
-      {checkboxFormPopulater('water', 'Water', setFormValue, formValues, 'water')}
+      {checkboxFormPopulater('water', 'Source in Water?', setFormValue, formValues, 'water')}
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
     </div>
