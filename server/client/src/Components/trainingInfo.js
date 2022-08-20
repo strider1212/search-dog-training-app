@@ -40,7 +40,7 @@ const TrainingInfo = () => {
           scent_source: formValues.scentSource, 
           source_container: formValues.sourceContainer, 
           water: formValues.water,
-          associated_log: logId
+          associatedLog: logId
         })
         .then(res => {
           if (res.data.training_info.water) {

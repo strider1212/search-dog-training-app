@@ -129,15 +129,10 @@ router.post('/trainingInfo', async (req, res) => {
     "scent_source": req.body.scent_source,
     "source_container": req.body.source_container,
     "water": req.body.water,
-    "associated_log": req.body.associated_log
+    "associated_log": req.body.associatedLog
   })
 
-  const key = 'training_info';
-  const value = trainingInfoLog;
-  const keyValuePair = {[key]: value};
-
-  await postChildrenSchemas(trainingInfoLog, Log, req.body.associated_log, keyValuePair, res);
-  await Log.findByIdAndUpdate(req.body.associated_log, {"training_info": trainingInfoLog})
+  postChildForms(req, res, trainingInfoLog, "training_info");
 })
 
 router.post('/hoursAndStats', async (req, res) => {
@@ -152,13 +147,6 @@ router.post('/hoursAndStats', async (req, res) => {
   })
 
   postChildForms(req, res, hoursAndStatsLog, "hours_and_stats");
-
-  // const key = 'hours_and_stats';
-  // const value = hoursAndStatsLog;
-  // const keyValuePair = {[key]: value};
-
-  // await postChildrenSchemas(hoursAndStatsLog, Log, req.body.associatedLog, keyValuePair, res);
-  // await Log.findByIdAndUpdate(req.body.associatedLog, {"hours_and_stats": hoursAndStatsLog})
 })
 
 router.post('/manualWeather', async (req, res) => {
