@@ -39,7 +39,7 @@ const WaterLog = () => {
           salt_water: formValues.saltWater, 
           water_type: formValues.waterType, 
           temperature: formValues.temperature,
-          associated_log: logId
+          associatedLog: logId
         })
         .then(res => {
           navigate("/", {state: 

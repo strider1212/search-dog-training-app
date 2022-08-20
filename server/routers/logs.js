@@ -24,6 +24,7 @@ const getById = require('../methodFunctions/getById');
 const putById = require('../methodFunctions/putById');
 const deleteById = require('../methodFunctions/deleteById');
 const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
+const postChildForms = require('../methodFunctions/postChildForms');
 
 //--------------------------------------------------------
 //tomorrow.io
@@ -166,13 +167,14 @@ router.post('/manualWeather', async (req, res) => {
     "humidity":req.body.humidity,
     "associated_log":req.body.associatedLog
   })
+  postChildForms(req, res, manualWeatherLog, "weather");
 
-  const key = 'manual_weather';
-  const value = manualWeatherLog;
-  const keyValuePair = {[key]: value};
+  // const key = 'manual_weather';
+  // const value = manualWeatherLog;
+  // const keyValuePair = {[key]: value};
 
-  await postChildrenSchemas(manualWeatherLog, Log, req.body.associatedLog, keyValuePair, res);
-  await Log.findByIdAndUpdate(req.body.associatedLog, {"weather": manualWeatherLog})
+  // await postChildrenSchemas(manualWeatherLog, Log, req.body.associatedLog, keyValuePair, res);
+  // await Log.findByIdAndUpdate(req.body.associatedLog, {"weather": manualWeatherLog})
 })
 
 
