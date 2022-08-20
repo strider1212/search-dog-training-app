@@ -104,9 +104,6 @@ const NewLog = () => {
 }
     
 export default NewLog;
-
-//streamline child posts
-//streamline child components
 //Google Geocoding API – make a funciton out of it to convert an address to long/lat
 
 /*

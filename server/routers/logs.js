@@ -25,6 +25,7 @@ const putById = require('../methodFunctions/putById');
 const deleteById = require('../methodFunctions/deleteById');
 const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 const postChildForms = require('../methodFunctions/postChildForms');
+const geoCoder = require('../utils/geoCoder');
 
 //--------------------------------------------------------
 //tomorrow.io
@@ -89,6 +90,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   console.log('POST to /')
+  console.log('geoCoder results:', geoCoder(req.body.address))
   let postLog = new Log({
     //populated automatically in the front end
     "log_created_by": req.body.log_created_by,
