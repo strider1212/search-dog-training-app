@@ -168,13 +168,6 @@ router.post('/manualWeather', async (req, res) => {
     "associated_log":req.body.associatedLog
   })
   postChildForms(req, res, manualWeatherLog, "weather");
-
-  // const key = 'manual_weather';
-  // const value = manualWeatherLog;
-  // const keyValuePair = {[key]: value};
-
-  // await postChildrenSchemas(manualWeatherLog, Log, req.body.associatedLog, keyValuePair, res);
-  // await Log.findByIdAndUpdate(req.body.associatedLog, {"weather": manualWeatherLog})
 })
 
 
