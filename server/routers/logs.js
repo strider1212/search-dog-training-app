@@ -132,14 +132,7 @@ router.post('/water', async (req, res) => {
     "associated_log": req.body.associatedLog
   })
 
-  postChildForms(req, res, waterLog, "water")
-
-  // const key = 'water_data';
-  // const value = waterLog;
-  // const keyValuePair = {[key]: value};
-
-  // await postChildrenSchemas(waterLog, Log, req.body.associated_log, keyValuePair, res);
-  // await Log.findByIdAndUpdate(req.body.associated_log, {"water": waterLog})
+  postChildForms(req, res, waterLog, "water");
 })
 
 router.post('/trainingInfo', async (req, res) => {
