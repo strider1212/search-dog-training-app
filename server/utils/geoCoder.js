@@ -3,18 +3,28 @@ const axios = require('axios');
 
 const geoCoder = async (address) => {
 
-  let splitAddress;
+  
+  console.log('address:', address)
+  console.log('address typeof:', typeof address)
+  
+  let splitAddress = [];
 
   if (typeof address === 'string') {
     splitAddress = address.split(' ')
   } else {
     console.log('not a string')
   }
+  
+  console.log('splitAddress:',splitAddress)
+  console.log('typeof splitAddress:', typeof splitAddress)
+  console.log(splitAddress[0])
+
+  const joinedsplitAddress = splitAddress.join('+')
+  console.log(joinedsplitAddress)
 
   
-  console.log(splitAddress)
 
-  const apikey = process.env.GOOGLE_MAPS_API_KEY;
+  // const apikey = process.env.GOOGLE_MAPS_API_KEY;
 
   // let lat = '';
   // let lng = '';
