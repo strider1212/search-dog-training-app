@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/strider1212/search-dog-training-app#readme",
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.3.16",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
