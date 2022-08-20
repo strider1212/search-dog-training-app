@@ -103,7 +103,8 @@ router.post('/', (req, res) => {
     "manual_weather": req.body.manual_weather,
     "weather": req.body.weather,
     "hours_and_stats": req.body.hoursAndStats,
-    "training_info": req.body.trainingInfoLog
+    "training_info": req.body.trainingInfoLog,
+    "water": req.body.water
   })
   postNew(postLog, res);
 })
@@ -118,6 +119,27 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   deleteById(Log, req, res);
+})
+
+router.post('/water', async (req, res) => {
+  const waterLog = new Water({
+    "open": req.body.open,
+    "submerged": req.body.submerged,
+    "depth": req.body.depth,
+    "salt_water": req.body.salt_water,
+    "water_type": req.body.water_type,
+    "temperature": req.body.temperature,
+    "associated_log": req.body.associatedLog
+  })
+
+  postChildForms(req, res, waterLog, "water")
+
+  // const key = 'water_data';
+  // const value = waterLog;
+  // const keyValuePair = {[key]: value};
+
+  // await postChildrenSchemas(waterLog, Log, req.body.associated_log, keyValuePair, res);
+  // await Log.findByIdAndUpdate(req.body.associated_log, {"water": waterLog})
 })
 
 router.post('/trainingInfo', async (req, res) => {
@@ -158,25 +180,6 @@ router.post('/manualWeather', async (req, res) => {
     "associated_log":req.body.associatedLog
   })
   postChildForms(req, res, manualWeatherLog, "weather");
-})
-
-router.post('/water', async (req, res) => {
-  const waterLog = new Water({
-    "open": req.body.open,
-    "submerged": req.body.submerged,
-    "depth": req.body.depth,
-    "salt_water": req.body.salt_water,
-    "water_type": req.body.water_type,
-    "temperature": req.body.temperature,
-    "associated_log": req.body.associated_log
-  })
-
-  const key = 'water_data';
-  const value = waterLog;
-  const keyValuePair = {[key]: value};
-
-  await postChildrenSchemas(waterLog, Log, req.body.associated_log, keyValuePair, res);
-  await Log.findByIdAndUpdate(req.body.associated_log, {"water": waterLog})
 })
 
 router.get('/water/:id', (req, res) => {
