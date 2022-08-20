@@ -151,12 +151,14 @@ router.post('/hoursAndStats', async (req, res) => {
     "associated_log": req.body.associatedLog
   })
 
-  const key = 'hours_and_stats';
-  const value = hoursAndStatsLog;
-  const keyValuePair = {[key]: value};
+  postChildForms(req, res, hoursAndStatsLog, "hours_and_stats");
 
-  await postChildrenSchemas(hoursAndStatsLog, Log, req.body.associatedLog, keyValuePair, res);
-  await Log.findByIdAndUpdate(req.body.associatedLog, {"hours_and_stats": hoursAndStatsLog})
+  // const key = 'hours_and_stats';
+  // const value = hoursAndStatsLog;
+  // const keyValuePair = {[key]: value};
+
+  // await postChildrenSchemas(hoursAndStatsLog, Log, req.body.associatedLog, keyValuePair, res);
+  // await Log.findByIdAndUpdate(req.body.associatedLog, {"hours_and_stats": hoursAndStatsLog})
 })
 
 router.post('/manualWeather', async (req, res) => {
@@ -169,8 +171,6 @@ router.post('/manualWeather', async (req, res) => {
   })
   postChildForms(req, res, manualWeatherLog, "weather");
 })
-
-
 
 router.post('/water', async (req, res) => {
   const waterLog = new Water({
