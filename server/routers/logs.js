@@ -90,7 +90,6 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
   console.log('POST to /')
-  console.log('geoCoder results:', await geoCoder(req.body.address))
   let postLog = new Log({
     //populated automatically in the front end
     "log_created_by": req.body.log_created_by,
