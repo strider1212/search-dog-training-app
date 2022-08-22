@@ -54,7 +54,9 @@ const NewLog = () => {
 
         await axios.get('http://localhost:3000/logs/weather', {
           params: {
-            location: formValues.address
+            location: formValues.address,
+            date: formValues.date,
+            time: formValues.time
           }
         })
         .then(res => {

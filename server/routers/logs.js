@@ -32,12 +32,17 @@ const geoCoder = require('../utils/geoCoder');
 
 
 router.get('/weather', async (req, res) => {
+  console.log('date entered:',req.query.date)
+  console.log('time entered:', req.query.time)
+  
 
   const inputLocation = await geoCoder(req.query.location)
 
   const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
   const apikey = process.env.TOMORROW_IO_KEY;
   let location = [inputLocation.lat, inputLocation.lng]
+  const current = new Date()
+  console.log('current date:',current)
   const fields = [
     "precipitationIntensity",
     "precipitationType",
