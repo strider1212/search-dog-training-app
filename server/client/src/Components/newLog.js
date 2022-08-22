@@ -66,7 +66,7 @@ const NewLog = () => {
                   weather: 'sunny',
                   temperature: res.data[0].values.temperature,
                   windSpeed: res.data[0].values.windSpeed,
-                  humidity: 30
+                  humidity: res.data[0].values.humidity
                 }
               }
             }
