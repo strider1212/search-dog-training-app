@@ -1,22 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { formPopulater } from '../utils/formPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
 const ManualWeather = () => {
   //STATE
   const location = useLocation();
   const logId = location.state.logId;
-  const weatherLocation = location.state.weatherValue.weather;
-  const temperatureLocation = location.state.weatherValue.temperature;
-  const windspeedLocation = location.state.weatherValue.windSpeed;
+  const weatherLocation = location.state.weatherValues.weather;
+  const temperatureLocation = location.state.weatherValues.temperature;
+  const windspeedLocation = location.state.weatherValues.windSpeed;
+  const humidityLocation = location.state.weatherValues.humidity;
   
   const initialState = {
     weather: weatherLocation,
     temperature: temperatureLocation,
     windSpeed: windspeedLocation,
-    humidity: '',
+    humidity: humidityLocation,
     associatedLog: ''
   }
   const initialStateArray = ['weather', 'temperature', 'windSpeed', 'humidity'];
@@ -91,7 +91,7 @@ const ManualWeather = () => {
         <input
         type='number'
         className="form-control"
-        id='weather'
+        id='temperature'
         placeholder='Number of degrees fahrenheit...'
         onInput={(e) => setFormValue({
           ...formValues,
@@ -104,7 +104,7 @@ const ManualWeather = () => {
         <input
         type='number'
         className="form-control"
-        id='weather'
+        id='wind-speed'
         placeholder='Number of MPH...'
         onInput={(e) => setFormValue({
           ...formValues,
@@ -112,9 +112,20 @@ const ManualWeather = () => {
         })}
         defaultValue={windspeedLocation}
         />
-       {/* {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')} */}
        <p>{formErrors.humidity}</p>
-       {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')}
+       <label htmlFor='humidity'>Humidity:</label>
+        <input
+        type='number'
+        className="form-control"
+        id='humidity'
+        placeholder='Enter a number representing a percent...'
+        onInput={(e) => setFormValue({
+          ...formValues,
+          humidity: e.target.value
+        })}
+        defaultValue={humidityLocation}
+        />
+       {/* {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')} */}
 
       
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>

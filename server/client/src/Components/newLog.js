@@ -41,7 +41,7 @@ const NewLog = () => {
           navigate("/manualWeather", {state: 
             {logId: res.data._id,
             formValues: formValues,
-            weatherValue: {
+            weatherValues: {
               weather: 'sunny',
               temperature: 10,
               windSpeed: 20,
