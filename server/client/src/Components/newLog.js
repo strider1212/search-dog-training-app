@@ -13,8 +13,7 @@ const NewLog = () => {
     date: '',
     time: '',
     address: '',
-    team: '',
-    manualWeather: false
+    team: ''
   }
   const initialStateArray = ['createdBy', 'date', 'time', 'address', 'team'];
   const [formValues, setFormValue] = useState(initialState);
@@ -37,23 +36,14 @@ const NewLog = () => {
           date: formValues.date,
           address: formValues.address, 
           team: formValues.team, 
-          time: formValues.time,
-          manual_weather: formValues.manualWeather
+          time: formValues.time
         })
         .then(res => {
-          if (res.data.manual_weather) {
-            navigate("/manualWeather", {state: 
-              {logId: res.data._id,
-              formValues: formValues
-              }
-            })
-          } else {
-            navigate("/hoursAndStats", {state: 
-              {logId: res.data._id,
-              formValues: formValues
-              }
-            })
-          }
+          navigate("/manualWeather", {state: 
+            {logId: res.data._id,
+            formValues: formValues
+            }
+          })
         })
         .catch(error => {
           if (error.response) {
@@ -92,8 +82,6 @@ const NewLog = () => {
         {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
         <p>{formErrors.address}</p>
         {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
-
-        {checkboxFormPopulater('manual-weather', 'Add Weather Manually', setFormValue, formValues, 'manualWeather')}
         
 
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
@@ -104,7 +92,6 @@ const NewLog = () => {
 }
     
 export default NewLog;
-//Google Geocoding API – make a funciton out of it to convert an address to long/lat
 
 /*
   TO DO List:

@@ -26,10 +26,6 @@ const logSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  "manual_weather": {
-    type: Boolean,
-    required: true
-  },
   "weather": manualWeatherSchema,
   "hours_and_stats": hoursAndStatsSchema,
   "training_info": trainingInfoSchema,

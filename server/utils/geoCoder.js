@@ -32,6 +32,4 @@ const geoCoder = async (address) => {
   }
 }
 
-geoCoder()
-
 module.exports = geoCoder;
