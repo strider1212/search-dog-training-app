@@ -81,9 +81,20 @@ const ManualWeather = () => {
         })}
         defaultValue={location.state.weatherValue.weather}
         />
-       {/* {formPopulater('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather')} */}
        <p>{formErrors.temperature}</p>
-       {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')}
+       <label htmlFor='temperature'>Temperature:</label>
+        <input
+        type='number'
+        className="form-control"
+        id='weather'
+        placeholder='Number of degrees fahrenheit...'
+        onInput={(e) => setFormValue({
+          ...formValues,
+          temperature: e.target.value
+        })}
+        defaultValue={location.state.weatherValue.temperature}
+        />
+       {/* {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')} */}
        <p>{formErrors.windSpeed}</p>
        {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')}
        <p>{formErrors.humidity}</p>
