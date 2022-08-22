@@ -125,12 +125,9 @@ const ManualWeather = () => {
         })}
         defaultValue={humidityLocation}
         />
-       {/* {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')} */}
-
       
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
-      <button type='button' className='btn btn-secondary' onClick={() => console.log(formValues)}>Test form values</button>
     </div>
     
   )
