@@ -79,7 +79,7 @@ const ManualWeather = () => {
           ...formValues,
             weather: e.target.value
         })}
-        defaultValue='sunny'
+        defaultValue={location.state.weatherValue.weather}
         />
        {/* {formPopulater('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather')} */}
        <p>{formErrors.temperature}</p>

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
-import { checkboxFormPopulater} from '../utils/checkboxFormPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
 const NewLog = () => {
@@ -41,7 +40,13 @@ const NewLog = () => {
         .then(res => {
           navigate("/manualWeather", {state: 
             {logId: res.data._id,
-            formValues: formValues
+            formValues: formValues,
+            weatherValue: {
+              weather: 'sunny',
+              temperature: 70,
+              windspeed: 'fast',
+              humidity: 'wet'
+            }
             }
           })
         })
