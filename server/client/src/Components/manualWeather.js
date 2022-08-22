@@ -6,8 +6,12 @@ import { submitHandler } from '../utils/submitHandler';
 
 const ManualWeather = () => {
   //STATE
+  const location = useLocation();
+  const logId = location.state.logId;
+  const weatherLocation = location.state.weatherValue.weather;
+  
   const initialState = {
-    weather: '',
+    weather: weatherLocation,
     temperature: '',
     windSpeed: '',
     humidity: '',
@@ -18,8 +22,7 @@ const ManualWeather = () => {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   let initialRender = useRef(true);
-  const location = useLocation();
-  const logId = location.state.logId;
+
   
   let navigate = useNavigate()
 
@@ -79,10 +82,10 @@ const ManualWeather = () => {
           ...formValues,
             weather: e.target.value
         })}
-        defaultValue={location.state.weatherValue.weather}
+        defaultValue={weatherLocation}s
         />
        <p>{formErrors.temperature}</p>
-       <label htmlFor='temperature'>Temperature:</label>
+       {/* <label htmlFor='temperature'>Temperature:</label>
         <input
         type='number'
         className="form-control"
@@ -93,8 +96,8 @@ const ManualWeather = () => {
           temperature: e.target.value
         })}
         defaultValue={location.state.weatherValue.temperature}
-        />
-       {/* {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')} */}
+        /> */}
+       {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')}
        <p>{formErrors.windSpeed}</p>
        {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')}
        <p>{formErrors.humidity}</p>
@@ -103,6 +106,7 @@ const ManualWeather = () => {
       
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
+      <button type='button' className='btn btn-secondary' onClick={() => console.log(formValues)}>Test form values</button>
     </div>
     
   )
