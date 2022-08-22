@@ -30,6 +30,7 @@ const NewLog = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
+        let logId;
         await axios.post(`http://localhost:3000/logs`, {
           log_created_by: formValues.createdBy,
           date: formValues.date,
@@ -37,19 +38,7 @@ const NewLog = () => {
           team: formValues.team, 
           time: formValues.time
         })
-        .then(res => {
-          navigate("/manualWeather", {state: 
-            {logId: res.data._id,
-            formValues: formValues,
-            weatherValues: {
-              weather: 'sunny',
-              temperature: 10,
-              windSpeed: 20,
-              humidity: 30
-            }
-            }
-          })
-        })
+        .then(res => logId = res.data._id)
         .catch(error => {
           if (error.response) {
             console.log('error.response.data', error.response.data);
@@ -62,10 +51,28 @@ const NewLog = () => {
           }
           console.log('error.config', error.config);
         })
+
+        await axios.get('http://localhost:3000/logs/weather', {
+          params: {
+            location: formValues.address
+          }
+        })
+        .then(res => console.log(res.data[0].values))
     
         console.log('newLog submitted')
       }
       postForm()
+
+       // navigate("/manualWeather", {state: 
+          //   {logId: res.data._id,
+          //   formValues: formValues,
+          //   weatherValues: {
+          //     weather: 'sunny',
+          //     temperature: 10,
+          //     windSpeed: 20,
+          //     humidity: 30
+          //   }
+          //   }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])

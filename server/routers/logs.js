@@ -33,6 +33,8 @@ const geoCoder = require('../utils/geoCoder');
 
 router.get('/weather', async (req, res) => {
 
+  console.log(await geoCoder(req.query.location))
+
   const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
   const apikey = process.env.TOMORROW_IO_KEY;
   let location = [66.94093459251725, -139.00253055000704]
