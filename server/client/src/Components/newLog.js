@@ -43,9 +43,9 @@ const NewLog = () => {
             formValues: formValues,
             weatherValue: {
               weather: 'sunny',
-              temperature: 70,
-              windspeed: 'fast',
-              humidity: 'wet'
+              temperature: 10,
+              windSpeed: 20,
+              humidity: 30
             }
             }
           })

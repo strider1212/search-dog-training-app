@@ -10,11 +10,12 @@ const ManualWeather = () => {
   const logId = location.state.logId;
   const weatherLocation = location.state.weatherValue.weather;
   const temperatureLocation = location.state.weatherValue.temperature;
+  const windspeedLocation = location.state.weatherValue.windSpeed;
   
   const initialState = {
     weather: weatherLocation,
     temperature: temperatureLocation,
-    windSpeed: '',
+    windSpeed: windspeedLocation,
     humidity: '',
     associatedLog: ''
   }
@@ -98,9 +99,20 @@ const ManualWeather = () => {
         })}
         defaultValue={temperatureLocation}
         />
-       {/* {formPopulater('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature')} */}
        <p>{formErrors.windSpeed}</p>
-       {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')}
+       <label htmlFor='wind-speed'>Wind Speed:</label>
+        <input
+        type='number'
+        className="form-control"
+        id='weather'
+        placeholder='Number of MPH...'
+        onInput={(e) => setFormValue({
+          ...formValues,
+          windSpeed: e.target.value
+        })}
+        defaultValue={windspeedLocation}
+        />
+       {/* {formPopulater('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed')} */}
        <p>{formErrors.humidity}</p>
        {formPopulater('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity')}
 
