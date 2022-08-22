@@ -57,22 +57,28 @@ const NewLog = () => {
             location: formValues.address
           }
         })
-        .then(res => console.log(res.data[0].values))
+        .then(res => {
+          console.log(res.data[0].values)
+          navigate("/manualWeather", {state: 
+              {logId: res.data._id,
+              formValues: formValues,
+                weatherValues: {
+                  weather: 'sunny',
+                  temperature: res.data[0].values.temperature,
+                  windSpeed: 20,
+                  humidity: 30
+                }
+              }
+            }
+          )
+        }
+        )
     
         console.log('newLog submitted')
       }
       postForm()
 
-       // navigate("/manualWeather", {state: 
-          //   {logId: res.data._id,
-          //   formValues: formValues,
-          //   weatherValues: {
-          //     weather: 'sunny',
-          //     temperature: 10,
-          //     windSpeed: 20,
-          //     humidity: 30
-          //   }
-          //   }
+       
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])
