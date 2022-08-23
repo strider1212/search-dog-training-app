@@ -32,23 +32,34 @@ const geoCoder = require('../utils/geoCoder');
 
 
 router.get('/weather', async (req, res) => {
-  console.log('date entered:',req.query.date)
-  console.log('time entered:', req.query.time)
   const date = req.query.date;
   const time = req.query.time;
   const dateAndTime = date + ', ' + time;
-  const dateAndTimeUTC = new Date(dateAndTime)
-  console.log('date and time UTC:',dateAndTimeUTC);
-  
-  
+  const dateAndTimeUTC = new Date(dateAndTime);
+  const current = new Date()
+  console.log('current date:', current);
+  console.log('date and time UTC:', dateAndTimeUTC);
+  const difference = current - dateAndTimeUTC;
+  let differenceInHours = -Math.round(difference/3600000);
+  console.log('difference in hours:', differenceInHours);
 
+  const getdifferenceInHours = () => {
+    const equation = -Math.round(difference/3600000)
+
+    if (equation === -0) {
+      return -1
+    } else {
+      return equation
+    }
+  }
+
+  console.log('getDifferenceInHours:', getdifferenceInHours())
+  
   const inputLocation = await geoCoder(req.query.location)
 
   const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
   const apikey = process.env.TOMORROW_IO_KEY;
   let location = [inputLocation.lat, inputLocation.lng]
-  const current = new Date()
-  console.log('current date:',current)
   const fields = [
     "precipitationIntensity",
     "precipitationType",
@@ -66,7 +77,7 @@ router.get('/weather', async (req, res) => {
   const units = "imperial";
   const timesteps = ["1h"];
   const now = moment.utc();
-  const startTime = moment.utc(now).add(-6, "hours").toISOString();
+  const startTime = moment.utc(now).add(getdifferenceInHours(), "hours").toISOString();
   const endTime = moment.utc(now).add(0, "minutes").toISOString();
   const timezone = "America/New_York";
 
