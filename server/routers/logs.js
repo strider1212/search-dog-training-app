@@ -34,6 +34,12 @@ const geoCoder = require('../utils/geoCoder');
 router.get('/weather', async (req, res) => {
   console.log('date entered:',req.query.date)
   console.log('time entered:', req.query.time)
+  const date = req.query.date;
+  const time = req.query.time;
+  const dateAndTime = date + ', ' + time;
+  const dateAndTimeUTC = new Date(dateAndTime)
+  console.log('date and time UTC:',dateAndTimeUTC);
+  
   
 
   const inputLocation = await geoCoder(req.query.location)
