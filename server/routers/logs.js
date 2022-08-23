@@ -26,7 +26,7 @@ const deleteById = require('../methodFunctions/deleteById');
 const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 const postChildForms = require('../methodFunctions/postChildForms');
 const geoCoder = require('../utils/geoCoder');
-const getdifferenceInHours = require('../utils/getDifferenceInHours');
+const getDifferenceInHours = require('../utils/getDifferenceInHours');
 
 //--------------------------------------------------------
 //tomorrow.io
@@ -75,7 +75,7 @@ router.get('/weather', async (req, res) => {
   const units = "imperial";
   const timesteps = ["1h"];
   const now = moment.utc();
-  const startTime = moment.utc(now).add(getdifferenceInHours(date, time), "hours").toISOString();
+  const startTime = moment.utc(now).add(getDifferenceInHours(date, time), "hours").toISOString();
   const endTime = moment.utc(now).add(0, "minutes").toISOString();
   const timezone = "America/New_York";
 

@@ -1,4 +1,4 @@
-const getDifferenceInHours = (date, time) => {
+export const getDifferenceInHours = (date, time) => {
   const dateAndTime = date + ', ' + time;
   const dateAndTimeUTC = new Date(dateAndTime);
   const current = new Date()
@@ -11,5 +11,3 @@ const getDifferenceInHours = (date, time) => {
     return equation
   }
 }
-
-module.exports = getDifferenceInHours;

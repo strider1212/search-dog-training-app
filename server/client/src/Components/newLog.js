@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { submitHandler } from '../utils/submitHandler';
+import { getDifferenceInHours } from '../utils/getDifferenceInHours';
 
 const NewLog = () => {
 
@@ -60,7 +61,7 @@ const NewLog = () => {
           }
         })
         .then(res => {
-          console.log(res.data[0].values)
+          console.log(getDifferenceInHours(formValues.date, formValues.time))
           navigate("/manualWeather", {state: 
               {logId: res.data._id,
               formValues: formValues,
