@@ -65,7 +65,6 @@ const NewLog = () => {
               {logId: res.data._id,
               formValues: formValues,
                 weatherValues: {
-                  weather: 'sunny',
                   temperature: res.data[0].values.temperature,
                   windSpeed: res.data[0].values.windSpeed,
                   humidity: res.data[0].values.humidity
