@@ -37,11 +37,7 @@ router.get('/weather', async (req, res) => {
   const dateAndTime = date + ', ' + time;
   const dateAndTimeUTC = new Date(dateAndTime);
   const current = new Date()
-  console.log('current date:', current);
-  console.log('date and time UTC:', dateAndTimeUTC);
   const difference = current - dateAndTimeUTC;
-  let differenceInHours = -Math.round(difference/3600000);
-  console.log('difference in hours:', differenceInHours);
 
   const getdifferenceInHours = () => {
     const equation = -Math.round(difference/3600000)
@@ -53,8 +49,6 @@ router.get('/weather', async (req, res) => {
     }
   }
 
-  console.log('getDifferenceInHours:', getdifferenceInHours())
-  
   const inputLocation = await geoCoder(req.query.location)
 
   const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
