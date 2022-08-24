@@ -70,7 +70,7 @@ const IndividualRuns = () => {
       distractions: '',
       notes: '' */}
       {/*make sure that minues are what are rendered */}
-      {formPopulater('time', 'Time:', 'number', 'How long did it take you (minutes)?', setFormValue, formValues, 'time')}
+      {formPopulater('time', 'Time', 'number', 'How long did it take you (minutes)?', setFormValue, formValues, 'time')}
 
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
