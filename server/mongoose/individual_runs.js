@@ -19,7 +19,7 @@ const individual_runsSchema = new mongoose.Schema({
   },
   "notes": {
     type: String,
-    required: true
+    required: false
   },
   "associated_log": {
     type: mongoose.ObjectId,
