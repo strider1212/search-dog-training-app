@@ -35,23 +35,6 @@ const getDifferenceInHours = require('../utils/getDifferenceInHours');
 router.get('/weather', async (req, res) => {
   const date = req.query.date;
   const time = req.query.time;
-  const dateAndTime = date + ', ' + time;
-  const dateAndTimeUTC = new Date(dateAndTime);
-  const current = new Date()
-
-  // const getdifferenceInHours = (date, time) => {
-  //   const dateAndTime = date + ', ' + time;
-  //   const dateAndTimeUTC = new Date(dateAndTime);
-  //   const current = new Date()
-  //   const difference = current - dateAndTimeUTC;
-  //   const equation = -Math.round(difference/3600000)
-
-  //   if (equation === -0) {
-  //     return -1
-  //   } else {
-  //     return equation
-  //   }
-  // }
 
   const inputLocation = await geoCoder(req.query.location)
 
