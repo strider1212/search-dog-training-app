@@ -64,7 +64,7 @@ const IndividualRuns = () => {
   }, [formErrors, isSubmitted])
   return (
     <form>
-      {/* time: 0,
+      {/* 
       blind: false,
       k9: '', 
       distractions: '',
