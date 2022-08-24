@@ -63,7 +63,7 @@ const NewLog = () => {
         .then(res => {
           console.log(getDifferenceInHours(formValues.date, formValues.time))
           navigate("/manualWeather", {state: 
-              {logId: res.data._id,
+              {logId: logId,
               formValues: formValues,
                 weatherValues: {
                   temperature: res.data[0].values.temperature,
