@@ -50,7 +50,11 @@ const TrainingInfo = () => {
               } 
             })
           } else {
-            navigate("/")
+            navigate("/individualRuns", {state: 
+              {logId: logId,
+              formValues: formValues
+              } 
+            })
           }
           
         })

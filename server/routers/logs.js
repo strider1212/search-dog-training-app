@@ -126,6 +126,21 @@ router.delete('/:id', (req, res) => {
   deleteById(Log, req, res);
 })
 
+router.post('/individual_runs', async (req, res) => {
+  const logIndividual_runsLog = new Individual_Runs({
+    //member ID
+    "time": req.body.time,
+    "blind": req.body.blind,
+    "k9": req.body.k9,
+    "distractions": req.body.distractions,
+    "notes": req.body.notes,
+    //log ID
+    "associated_log": req.body.associatedLog
+  })
+
+  postChildForms(res, req, logIndividual_runsLog, "Individual_Runs")
+})
+
 router.post('/water', async (req, res) => {
   const waterLog = new Water({
     "open": req.body.open,
@@ -190,26 +205,6 @@ router.put('/water/:id', (req, res) => {
 
 router.delete('/water/:id', (req, res) => {
   deleteById(Water, req, res)
-})
-
-router.post('/individual_runs', async (req, res) => {
-  const associatedLog = req.query.associated_log
-
-  const logIndividual_runs = new Individual_Runs({
-    //member ID
-    "user": req.query.user,
-    "time": req.query.time,
-    "blind": req.query.blind,
-    "k9": req.query.k9,
-    "distractions": req.query.distractions,
-    "notes": req.query.notes,
-    //log ID
-    "associated_log": associatedLog
-  })
-
-  const keyValuePair = {$push: {"individual_runs.children": logIndividual_runs}};
-
-  postChildrenSchemas(logIndividual_runs, Log, associatedLog, keyValuePair, res);
 })
 
 router.get('/individual_runs/:id', (req, res) => {

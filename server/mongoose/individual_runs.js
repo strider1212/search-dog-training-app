@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const individual_runsSchema = new mongoose.Schema({
-  "user": {
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'User',
-    required: true
-  }, 
   "time": {
     type: String,
     required: true
@@ -19,7 +14,7 @@ const individual_runsSchema = new mongoose.Schema({
     required: true
   },
   "distractions": {
-    type: [String],
+    type: String,
     required: true
   },
   "notes": {
@@ -27,7 +22,7 @@ const individual_runsSchema = new mongoose.Schema({
     required: true
   },
   "associated_log": {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.ObjectId,
     required: true
   }
 });

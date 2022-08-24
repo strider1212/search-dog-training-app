@@ -42,7 +42,7 @@ const WaterLog = () => {
           associatedLog: logId
         })
         .then(res => {
-          navigate("/", {state: 
+          navigate("/individualRuns", {state: 
             {logId: logId,
             formValues: formValues
             } 

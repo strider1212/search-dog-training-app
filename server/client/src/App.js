@@ -7,6 +7,7 @@ import WaterLog from "./Components/waterLog";
 import ManualWeather from "./Components/manualWeather";
 import HoursAndStats from "./Components/hoursAndStats";
 import TrainingInfo from "./Components/trainingInfo";
+import IndividualRuns from "./Components/individualRuns";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/manualWeather' element={<ManualWeather />}/>
         <Route path='/hoursAndStats' element={<HoursAndStats />}/>
         <Route path='/trainingInfo' element={<TrainingInfo />}/>
+        <Route path='/individualRuns' element={<IndividualRuns />}/>
       </Routes>
     </div>
     
