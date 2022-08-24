@@ -7,10 +7,17 @@ const ManualWeather = () => {
   //STATE
   const location = useLocation();
   const logId = location.state.logId;
-  const weatherLocation = location.state.weatherValues.weather;
-  const temperatureLocation = location.state.weatherValues.temperature;
-  const windspeedLocation = location.state.weatherValues.windSpeed;
-  const humidityLocation = location.state.weatherValues.humidity;
+  let weatherLocation = '';
+  let temperatureLocation = '';
+  let windspeedLocation = '';
+  let humidityLocation = '';
+
+  if (location.state.weatherValues != null) {
+    weatherLocation = location.state.weatherValues.weather;
+    temperatureLocation = location.state.weatherValues.temperature;
+    windspeedLocation = location.state.weatherValues.windSpeed;
+    humidityLocation = location.state.weatherValues.humidity;
+  }
   
   const initialState = {
     weather: weatherLocation,
