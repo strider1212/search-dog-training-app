@@ -15,7 +15,7 @@ const individual_runsSchema = new mongoose.Schema({
   },
   "distractions": {
     type: String,
-    required: true
+    required: false
   },
   "notes": {
     type: String,
