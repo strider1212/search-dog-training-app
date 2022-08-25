@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #faf1cf;
+  text-align: center;
 }
 
 code {
@@ -16,6 +18,9 @@ form {
   height: 80%;
   width: 60%;
   margin-left: 20px;
+  background-color: #d9e8a4;
+  padding: 15px;
+  display: inline-block;
 }
 
 p {
@@ -32,4 +37,8 @@ h3 {
 
 .btn {
   margin-top: 15px;
+}
+
+label {
+  color: #465317;
 }
