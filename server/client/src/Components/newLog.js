@@ -82,6 +82,7 @@ const NewLog = () => {
             )
           }
           )
+          .catch(err => console.log(err))
         }
 
         

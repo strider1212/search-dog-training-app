@@ -21,7 +21,6 @@ const geoCoder = async (address) => {
 
   await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${joinedsplitAddress}&key=${apikey}`)
   .then(res => {
-    console.log(res.data.results[0].geometry.location.lat)
     lat = res.data.results[0].geometry.location.lat;
     lng = res.data.results[0].geometry.location.lng;
   })

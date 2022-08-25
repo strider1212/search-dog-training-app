@@ -31,7 +31,7 @@ const IndividualRuns = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        await axios.post(`http://localhost:3000/logs/water`, {
+        await axios.post(`http://localhost:3000/logs/individual_runs`, {
           time: formValues.time,
           blind: formValues.blind,
           k9: formValues.k9, 
@@ -55,7 +55,7 @@ const IndividualRuns = () => {
           console.log('error.config', error.config);
         })
     
-        console.log('waterLog submitted')
+        console.log('Individual run submitted')
       }
       postForm()
 
