@@ -97,7 +97,7 @@ const NewLog = () => {
   }, [formErrors, isSubmitted])
 
   return (
-    <div>
+    <body>
       <h2>Date and Time</h2>
       <form>
         {/* Eventually auto populated */}
@@ -118,7 +118,7 @@ const NewLog = () => {
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
       </form>
-    </div>
+    </body>
   )
 }
     
