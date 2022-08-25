@@ -65,12 +65,13 @@ const IndividualRuns = () => {
   return (
     <form>
       {/* 
-      blind: false,
       k9: '', 
       distractions: '',
       notes: '' */}
       {/*make sure that minues are what are rendered */}
-      {formPopulater('time', 'Time', 'number', 'How long did it take you (minutes)?', setFormValue, formValues, 'time')}
+      {formPopulater('time', 'Time', 'number', 'How long did it take you (minutes)?...', setFormValue, formValues, 'time')}
+      {checkboxFormPopulater('blind', 'Was it blind?', setFormValue, formValues, 'blind')}
+      {formPopulater('k9', 'K9', 'text', 'Name of the k9...', setFormValue, formValues, 'k9')}
 
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
