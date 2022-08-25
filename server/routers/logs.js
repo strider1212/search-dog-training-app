@@ -109,7 +109,8 @@ router.post('/', async (req, res) => {
     "weather": req.body.weather,
     "hours_and_stats": req.body.hoursAndStats,
     "training_info": req.body.trainingInfoLog,
-    "water": req.body.water
+    "water": req.body.water,
+    "individual_runs": req.body.individual_runs
   })
   postNew(postLog, res);
 })
@@ -127,7 +128,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.post('/individual_runs', async (req, res) => {
-  const logIndividual_runsLog = new Individual_Runs({
+  const Individual_runsLog = new Individual_Runs({
     //member ID
     "time": req.body.time,
     "blind": req.body.blind,
@@ -138,10 +139,10 @@ router.post('/individual_runs', async (req, res) => {
     "associated_log": req.body.associatedLog
   })
 
-  const keyValuePair = {"Individual_Runs": logIndividual_runsLog};
+  const keyValuePair = {"individual_runs": Individual_runsLog};
 
-  await postChildrenSchemas(logIndividual_runsLog, Log, req.body.associatedLog, keyValuePair, res);
-  await Log.findByIdAndUpdate(req.body.associatedLog, {"Individual_Runs": logIndividual_runsLog})
+  await postChildrenSchemas(Individual_runsLog, Log, req.body.associatedLog, keyValuePair, res);
+  await Log.findByIdAndUpdate(req.body.associatedLog, {"individual_runs": Individual_runsLog})
   
   // postChildForms(res, req, logIndividual_runsLog, "Individual_Runs")
 })
