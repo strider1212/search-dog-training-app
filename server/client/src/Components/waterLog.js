@@ -69,7 +69,9 @@ const WaterLog = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])
   return (
-    <form>
+    <div>
+      <h2>Water</h2>
+      <form>
       {checkboxFormPopulater('open', 'Open Water?', setFormValue, formValues, 'open')}
       {checkboxFormPopulater('salt', 'Salt Water?', setFormValue, formValues, 'saltWater')}
       {checkboxFormPopulater('submerged', 'Source Submerged?', setFormValue, formValues, 'submerged')}
@@ -80,6 +82,7 @@ const WaterLog = () => {
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
      
     </form>
+    </div>
   )
 }
 

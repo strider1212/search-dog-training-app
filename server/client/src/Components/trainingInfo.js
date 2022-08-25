@@ -81,6 +81,7 @@ const TrainingInfo = () => {
   
   return (
     <div>
+      <h2>Source Placement</h2>
       <p>{formErrors.trainingType}</p>
       {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
       <p>{formErrors.placementDescription}</p>

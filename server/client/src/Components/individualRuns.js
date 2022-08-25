@@ -63,7 +63,9 @@ const IndividualRuns = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])
   return (
-    <form>
+    <div>
+      <h2>Individual Drill</h2>
+      <form>
       {/*make sure that minues are what are rendered */}
       {formPopulater('time', 'Time', 'number', 'How long did it take you (minutes)?...', setFormValue, formValues, 'time')}
       {checkboxFormPopulater('blind', 'Was it blind?', setFormValue, formValues, 'blind')}
@@ -74,6 +76,7 @@ const IndividualRuns = () => {
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
     </form>
+    </div>
   )
 }
 

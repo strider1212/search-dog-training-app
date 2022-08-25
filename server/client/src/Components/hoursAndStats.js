@@ -76,6 +76,7 @@ const HoursAndStats = () => {
   
   return (
     <div>
+      <h2>Hours and Travel</h2>
       <p>{formErrors.travelHours}</p>
       {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
 
