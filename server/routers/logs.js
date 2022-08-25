@@ -143,8 +143,6 @@ router.post('/individual_runs', async (req, res) => {
 
   await postChildrenSchemas(Individual_runsLog, Log, req.body.associatedLog, keyValuePair, res);
   await Log.findByIdAndUpdate(req.body.associatedLog, {"individual_runs": Individual_runsLog})
-  
-  // postChildForms(res, req, logIndividual_runsLog, "Individual_Runs")
 })
 
 router.post('/water', async (req, res) => {
