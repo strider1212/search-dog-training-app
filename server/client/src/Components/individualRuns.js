@@ -64,8 +64,6 @@ const IndividualRuns = () => {
   }, [formErrors, isSubmitted])
   return (
     <form>
-      {/* 
-      notes: '' */}
       {/*make sure that minues are what are rendered */}
       {formPopulater('time', 'Time', 'number', 'How long did it take you (minutes)?...', setFormValue, formValues, 'time')}
       {checkboxFormPopulater('blind', 'Was it blind?', setFormValue, formValues, 'blind')}
