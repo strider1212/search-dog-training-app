@@ -16,9 +16,29 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const postHandler = () => {
-    console.log('Pokemon')
-    // await axios.post('/users')
+  const postHandler = async () => {
+    console.log('POST /users')
+    await axios.post('http://localhost:3000/users', {
+      username: 'testing 1, 2, 3...',
+      password: 'secret',
+      firstName: 'this',
+      lastName: 'guy',
+      email: 'asdf',
+      phoneNumber: '111'
+    })
+    .then(res => console.log('check compass too!', res))
+    .catch(error => {
+      if (error.response) {
+        console.log('error.response.data', error.response.data);
+        console.log('error.response.status', error.response.status);
+        console.log('error.response.headers', error.response.headers);
+      } else if (error.request) {
+        console.log('error.request', error.request);
+      } else {
+        console.log('error.message', error.message);
+      }
+      console.log('error.config', error.config);
+    })
   }
 
   const blackText = {
@@ -26,7 +46,7 @@ const SignUp = () => {
   }
   
   return (
-    <body>
+    <div>
       <h2>Sign Up</h2>
       <form>
         <label htmlFor='username'>Username:</label>
@@ -70,7 +90,7 @@ const SignUp = () => {
         <button type='button' className='btn btn-primary' onClick={() => postHandler()}>Submit</button>
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
       </form>
-    </body>
+      </div>
   )
 }
 

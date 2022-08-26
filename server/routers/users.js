@@ -24,13 +24,13 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) =>  {
   //check all field on the front end
   let postUser = new User({
-    "username": req.query.username,
+    "username": req.body.username,
     // "password": await hasher(req.query.password, 10),
-    "password": req.query.password,
-    "firstName": req.query.firstName,
-    "lastName": req.query.lastName,
-    "email": req.query.email,
-    "phoneNumber": req.query.phoneNumber,
+    "password": req.body.password,
+    "firstName": req.body.firstName,
+    "lastName": req.body.lastName,
+    "email": req.body.email,
+    "phoneNumber": req.body.phoneNumber,
     "dateCreated": new Date(),
     //query must must be formatted like
     //&k9s[]=spike&k9s[]=lucey
