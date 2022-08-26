@@ -8,6 +8,7 @@ import ManualWeather from "./Components/manualWeather";
 import HoursAndStats from "./Components/hoursAndStats";
 import TrainingInfo from "./Components/trainingInfo";
 import IndividualRuns from "./Components/individualRuns";
+import SignUp from "./Components/signUp";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/hoursAndStats' element={<HoursAndStats />}/>
         <Route path='/trainingInfo' element={<TrainingInfo />}/>
         <Route path='/individualRuns' element={<IndividualRuns />}/>
+        <Route path='/signUp' element={<SignUp />}/>
       </Routes>
     </div>
     
