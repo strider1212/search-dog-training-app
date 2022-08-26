@@ -53,8 +53,11 @@ const SignUp = () => {
           lastName: e.target.value
         })}/>
 
-        {/* <label htmlFor='email'>Email:</label>
-        <input type='email' className="form-control" id='email' placeholder="Email" onInput={(e) => setEmail(e.target.value)}/> */}
+        <label htmlFor='email'>Email:</label>
+        <input type='email' className="form-control" id='email' placeholder="Email" onInput={(e) => setFormValue({
+          ...formValues,
+          email: e.target.value
+        })}/>
 
         {/* <label htmlFor='tel'>Phone Number:</label>
         <input type='tel' className="form-control" id='tel' placeholder="Phone Number" onInput={(e) => setTel(e.target.value)}/> */}
