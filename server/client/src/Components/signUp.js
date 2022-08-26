@@ -8,6 +8,7 @@ const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
+  const [tel, setTel] = useState('');
 
   const navigate = useNavigate();
 
@@ -35,6 +36,8 @@ const SignUp = () => {
         <label htmlFor='email'>Email:</label>
         <input type='email' className="form-control" id='email' placeholder="Email" onInput={(e) => setEmail(e.target.value)}/>
 
+        <label htmlFor='tel'>Phone Number:</label>
+        <input type='tel' className="form-control" id='tel' placeholder="Phone Number" onInput={(e) => setTel(e.target.value)}/>
 
         <button type='button' className='btn btn-primary' onClick={() => postHandler()}>Submit</button>
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
