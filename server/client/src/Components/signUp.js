@@ -41,8 +41,11 @@ const SignUp = () => {
           password: e.target.value
         })}/>
 
-        {/* <label htmlFor='first-name'>First Name:</label>
-        <input type='text' className="form-control" id='first-name' placeholder="First Name" onInput={(e) => setFirstName(e.target.value)}/> */}
+        <label htmlFor='first-name'>First Name:</label>
+        <input type='text' className="form-control" id='first-name' placeholder="First Name" onInput={(e) => setFormValue({
+          ...formValues,
+          firstName: e.target.value
+        })}/>
 
         {/* <label htmlFor='last-name'>Last Name:</label>
         <input type='text' className="form-control" id='last-name' placeholder="Last Name" onInput={(e) => setLastName(e.target.value)}/> */}
