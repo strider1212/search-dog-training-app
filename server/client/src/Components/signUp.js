@@ -59,8 +59,11 @@ const SignUp = () => {
           email: e.target.value
         })}/>
 
-        {/* <label htmlFor='tel'>Phone Number:</label>
-        <input type='tel' className="form-control" id='tel' placeholder="Phone Number" onInput={(e) => setTel(e.target.value)}/> */}
+        <label htmlFor='tel'>Phone Number:</label>
+        <input type='tel' className="form-control" id='tel' placeholder="Phone Number" onInput={(e) => setFormValue({
+          ...formValues,
+          tel: e.target.value
+        })}/>
 
         <p style={blackText}>(User will add k9s after sign up.)</p>
 
