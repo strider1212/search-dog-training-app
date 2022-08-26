@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
   },
   "k9s": {
     type: [String],
-    required: true
+    required: false
   }
 })
 

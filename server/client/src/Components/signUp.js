@@ -16,6 +16,10 @@ const SignUp = () => {
     console.log('Pokemon')
     // await axios.post('/users')
   }
+
+  const blackText = {
+    color: 'black'
+  }
   
   return (
     <body>
@@ -38,6 +42,8 @@ const SignUp = () => {
 
         <label htmlFor='tel'>Phone Number:</label>
         <input type='tel' className="form-control" id='tel' placeholder="Phone Number" onInput={(e) => setTel(e.target.value)}/>
+
+        <p style={blackText}>(User will add k9s after sign up.)</p>
 
         <button type='button' className='btn btn-primary' onClick={() => postHandler()}>Submit</button>
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
