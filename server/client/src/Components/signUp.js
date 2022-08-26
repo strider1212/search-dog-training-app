@@ -7,6 +7,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
 
   const navigate = useNavigate();
 
@@ -20,16 +21,19 @@ const SignUp = () => {
       <h2>Sign Up</h2>
       <form>
         <label htmlFor='username'>Username:</label>
-        <input type='text' className="form-control" id='username' placeholder="username" onInput={(e) => setUsername(e.target.value)}/>
+        <input type='text' className="form-control" id='username' placeholder="Username" onInput={(e) => setUsername(e.target.value)}/>
 
         <label htmlFor='password'>Username:</label>
-        <input type='password' className="form-control" id='password' placeholder="password" onInput={(e) => setPassword(e.target.value)}/>
+        <input type='password' className="form-control" id='password' placeholder="Password" onInput={(e) => setPassword(e.target.value)}/>
 
         <label htmlFor='first-name'>First Name:</label>
         <input type='text' className="form-control" id='first-name' placeholder="First Name" onInput={(e) => setFirstName(e.target.value)}/>
 
         <label htmlFor='last-name'>Last Name:</label>
         <input type='text' className="form-control" id='last-name' placeholder="Last Name" onInput={(e) => setLastName(e.target.value)}/>
+
+        <label htmlFor='email'>Email:</label>
+        <input type='email' className="form-control" id='email' placeholder="Email" onInput={(e) => setEmail(e.target.value)}/>
 
 
         <button type='button' className='btn btn-primary' onClick={() => postHandler()}>Submit</button>
