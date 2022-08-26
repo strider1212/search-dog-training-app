@@ -6,6 +6,7 @@ const SignUp = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   const navigate = useNavigate();
 
@@ -26,6 +27,9 @@ const SignUp = () => {
 
         <label htmlFor='first-name'>First Name:</label>
         <input type='text' className="form-control" id='first-name' placeholder="First Name" onInput={(e) => setFirstName(e.target.value)}/>
+
+        <label htmlFor='last-name'>Last Name:</label>
+        <input type='text' className="form-control" id='last-name' placeholder="Last Name" onInput={(e) => setLastName(e.target.value)}/>
 
 
         <button type='button' className='btn btn-primary' onClick={() => postHandler()}>Submit</button>
