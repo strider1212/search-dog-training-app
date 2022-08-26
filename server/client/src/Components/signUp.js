@@ -19,12 +19,12 @@ const SignUp = () => {
   const postHandler = async () => {
     console.log('POST /users')
     await axios.post('http://localhost:3000/users', {
-      username: 'testing 1, 2, 3...',
-      password: 'secret',
-      firstName: 'this',
-      lastName: 'guy',
-      email: 'asdf',
-      phoneNumber: '111'
+      username: formValues.username,
+      password: formValues.password,
+      firstName: formValues.firstName,
+      lastName: formValues.lastName,
+      email: formValues.email,
+      phoneNumber: formValues.tel
     })
     .then(res => console.log('check compass too!', res))
     .catch(error => {
