@@ -35,19 +35,22 @@ const SignUp = () => {
           username: e.target.value
         })}/>
 
-        {/* <label htmlFor='password'>Username:</label>
-        <input type='password' className="form-control" id='password' placeholder="Password" onInput={(e) => setPassword(e.target.value)}/>
+        <label htmlFor='password'>Username:</label>
+        <input type='password' className="form-control" id='password' placeholder="Password" onInput={(e) => setFormValue({
+          ...formValues,
+          password: e.target.value
+        })}/>
 
-        <label htmlFor='first-name'>First Name:</label>
-        <input type='text' className="form-control" id='first-name' placeholder="First Name" onInput={(e) => setFirstName(e.target.value)}/>
+        {/* <label htmlFor='first-name'>First Name:</label>
+        <input type='text' className="form-control" id='first-name' placeholder="First Name" onInput={(e) => setFirstName(e.target.value)}/> */}
 
-        <label htmlFor='last-name'>Last Name:</label>
-        <input type='text' className="form-control" id='last-name' placeholder="Last Name" onInput={(e) => setLastName(e.target.value)}/>
+        {/* <label htmlFor='last-name'>Last Name:</label>
+        <input type='text' className="form-control" id='last-name' placeholder="Last Name" onInput={(e) => setLastName(e.target.value)}/> */}
 
-        <label htmlFor='email'>Email:</label>
-        <input type='email' className="form-control" id='email' placeholder="Email" onInput={(e) => setEmail(e.target.value)}/>
+        {/* <label htmlFor='email'>Email:</label>
+        <input type='email' className="form-control" id='email' placeholder="Email" onInput={(e) => setEmail(e.target.value)}/> */}
 
-        <label htmlFor='tel'>Phone Number:</label>
+        {/* <label htmlFor='tel'>Phone Number:</label>
         <input type='tel' className="form-control" id='tel' placeholder="Phone Number" onInput={(e) => setTel(e.target.value)}/> */}
 
         <p style={blackText}>(User will add k9s after sign up.)</p>
