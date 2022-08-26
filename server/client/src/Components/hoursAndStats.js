@@ -76,23 +76,25 @@ const HoursAndStats = () => {
   
   return (
     <div>
-      <h2>Hours and Travel</h2>
-      <p>{formErrors.travelHours}</p>
-      {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
+      <form>
+        <h2>Hours and Travel</h2>
+        <p>{formErrors.travelHours}</p>
+        {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')}
 
-      <p>{formErrors.trainingHours}</p>
-      {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
+        <p>{formErrors.trainingHours}</p>
+        {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')}
 
-      <h3>Total Hours: {calculateTotalHours()}</h3>
+        <h3>Total Hours: {calculateTotalHours()}</h3>
 
-      <p>{formErrors.mileage}</p>
-      {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
+        <p>{formErrors.mileage}</p>
+        {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')}
 
-      <p>{formErrors.tolls}</p>
-      {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
+        <p>{formErrors.tolls}</p>
+        {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')}
 
-      <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
-      <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
+        <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
+        <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
+      </form>
     </div>
   )
 }
