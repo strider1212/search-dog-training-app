@@ -38,7 +38,7 @@ const SignUp = () => {
           email: formValues.email,
           phoneNumber: formValues.tel
         })
-        .then(res => console.log('check compass too!', res))
+        .then(res => navigate('/'))
         .catch(error => {
           if (error.response) {
             console.log('error.response.data', error.response.data);
