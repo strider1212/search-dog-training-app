@@ -79,7 +79,7 @@ const ManualWeather = () => {
   }, [formErrors, isSubmitted])
 
   return (
-    <body>
+    <div>
       <h2>Weather</h2>
        <p>{formErrors.weather}</p>
        <form>
@@ -138,7 +138,7 @@ const ManualWeather = () => {
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
       </form>
-    </body>
+    </div>
     
   )
 }

@@ -81,7 +81,7 @@ const WaterLog = () => {
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
      
-    </form>
+      </form>
     </div>
   )
 }

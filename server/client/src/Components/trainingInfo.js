@@ -80,7 +80,7 @@ const TrainingInfo = () => {
   }, [formErrors, isSubmitted])
   
   return (
-    <body>
+    <div>
       <h2>Source Placement</h2>
       <form>
         <p>{formErrors.trainingType}</p>
@@ -97,7 +97,7 @@ const TrainingInfo = () => {
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
       </form>
-    </body>
+    </div>
   )
 }
 
