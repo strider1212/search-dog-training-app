@@ -9,6 +9,7 @@ import HoursAndStats from "./Components/hoursAndStats";
 import TrainingInfo from "./Components/trainingInfo";
 import IndividualRuns from "./Components/individualRuns";
 import SignUp from "./Components/signUp";
+import SignIn from "./Components/signIn";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/trainingInfo' element={<TrainingInfo />}/>
         <Route path='/individualRuns' element={<IndividualRuns />}/>
         <Route path='/signUp' element={<SignUp />}/>
+        <Route path='/signIn' element={<SignIn />}/>
       </Routes>
     </div>
     

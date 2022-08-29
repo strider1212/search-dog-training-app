@@ -6,7 +6,7 @@ const Header = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div>DogLog</div>
       <button type="button" className="btn btn-primary" onClick={() => navigate('/signUp')}>Sign up</button>
-      <button type="button" className="btn btn-primary">Sign in</button>
+      <button type="button" className="btn btn-primary" onClick={() => navigate('/signIn')}>Sign in</button>
     </nav>
   )
 }
