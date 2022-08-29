@@ -20,8 +20,6 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  
-
   useEffect(() => {
     if(initialRender.current) {
       initialRender.current = false;
