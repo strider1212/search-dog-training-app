@@ -39,8 +39,9 @@ router.post('/', async (req, res) =>  {
   postNew(postUser, res)
 })
 
-router.post('/signIn', () => {
+router.post('/signIn', async (req, res) => {
   console.log('sign in test')
+  res.send('testing')
 })
 
 router.get('/:id', (req, res) => {
