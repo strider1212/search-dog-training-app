@@ -23,24 +23,7 @@ const SignIn = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        console.log('POST /users')
-        await axios.post('http://localhost:3000/users', {
-          username: formValues.username,
-          password: formValues.password
-        })
-        .then(res => navigate('/'))
-        .catch(error => {
-          if (error.response) {
-            console.log('error.response.data', error.response.data);
-            console.log('error.response.status', error.response.status);
-            console.log('error.response.headers', error.response.headers);
-          } else if (error.request) {
-            console.log('error.request', error.request);
-          } else {
-            console.log('error.message', error.message);
-          }
-          console.log('error.config', error.config);
-        })
+        console.log('sign in')
 
         console.log('signIn submitted')
       }
