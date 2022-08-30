@@ -34,6 +34,8 @@ authUser = async (username, password) => {
   const test = await User.findOne({username: username}, (err, user) => {
     if (err) return err
 
+    if(!user) return false;
+
     return user
   })
   .clone()
