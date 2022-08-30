@@ -30,18 +30,25 @@ router.use(passport.initialize())
 router.use(passport.session())    
 
 authUser = async (username, password) => {
-  //Search the user, password in the DB to authenticate the user
+  
   const test = await User.findOne({username: username}, (err, user) => {
-    if (err) return err
-
-    if(!user) return false;
-
-    return user
+    if (err) {
+      return err
+    } else if (!user) {
+      console.log('username not found')
+      return false
+    } else if (user.password !== password) {
+      console.log('password does not match username')
+      return false
+    } else {
+      console.log('golden')
+      return user
+    }
   })
   .clone()
 
-  return test;
-  //Let's assume that a search within your DB returned the username and password match for "Kyle".
+
+  return test
   
 }
 
@@ -70,8 +77,6 @@ router.post('/', async (req, res) =>  {
 })
 
 router.post('/signIn', async (req, res) => {
-  console.log('req.body.username', req.body.username)
-  console.log('req.body.password', req.body.password)
 
   console.log('authUser return:', await authUser(req.body.username, req.body.password))
 
