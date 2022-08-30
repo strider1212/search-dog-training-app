@@ -23,7 +23,10 @@ const SignIn = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        await axios.post('http://localhost:3000/users/signIn')
+        await axios.post('http://localhost:3000/users/signIn', {
+          username: formValues.username,
+          password: formValues.password
+        })
         .then((res) => {
           console.log('sign in test');
           navigate('/');

@@ -1,6 +1,9 @@
 const { query } = require('express');
 const express = require('express')
 const router = express.Router()
+const passport = require('passport')
+const session = require('express-session')
+const LocalStrategy = require('passport-local').Strategy
 
 const { User } = require('../mongoose/user');
 
@@ -14,8 +17,19 @@ const getById = require('../methodFunctions/getById')
 const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
 const hasher = require('../utils/hasher');
-require('dotenv').config();
+require('dotenv').config(); 
 
+// router.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: false ,
+//   saveUninitialized: true ,
+// }))
+
+// router.use(passport.initialize()) 
+
+// router.use(passport.session())    
+
+// passport.use(new LocalStrategy (authUser))
 
 router.get('/', (req, res) => {
   getAll(User, res)
@@ -40,7 +54,9 @@ router.post('/', async (req, res) =>  {
 })
 
 router.post('/signIn', async (req, res) => {
-  console.log('sign in test')
+  console.log('req.body.username', req.body.username)
+  console.log('req.body.password', req.body.password)
+
   res.send('testing')
 })
 
