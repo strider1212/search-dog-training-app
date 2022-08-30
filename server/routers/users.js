@@ -19,15 +19,29 @@ const deleteById = require('../methodFunctions/deleteById');
 const hasher = require('../utils/hasher');
 require('dotenv').config(); 
 
-// router.use(session({
-//   secret: process.env.SESSION_SECRET,
-//   resave: false ,
-//   saveUninitialized: true ,
-// }))
+router.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false ,
+  saveUninitialized: true ,
+}))
 
-// router.use(passport.initialize()) 
+router.use(passport.initialize()) 
 
-// router.use(passport.session())    
+router.use(passport.session())    
+
+authUser = async (username, password) => {
+  //Search the user, password in the DB to authenticate the user
+  const test = await User.findOne({username: username}, (err, user) => {
+    if (err) return err
+
+    return user
+  })
+  .clone()
+
+  return test;
+  //Let's assume that a search within your DB returned the username and password match for "Kyle".
+  
+}
 
 // passport.use(new LocalStrategy (authUser))
 
@@ -56,6 +70,8 @@ router.post('/', async (req, res) =>  {
 router.post('/signIn', async (req, res) => {
   console.log('req.body.username', req.body.username)
   console.log('req.body.password', req.body.password)
+
+  console.log('authUser return:', await authUser(req.body.username, req.body.password))
 
   res.send('testing')
 })
