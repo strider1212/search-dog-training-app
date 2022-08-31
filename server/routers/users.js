@@ -4,6 +4,7 @@ const router = express.Router()
 const passport = require('passport')
 const session = require('express-session')
 const LocalStrategy = require('passport-local').Strategy
+const cors = require('cors');
 
 const { User } = require('../mongoose/user');
 
@@ -19,6 +20,10 @@ const deleteById = require('../methodFunctions/deleteById');
 const hasher = require('../utils/hasher');
 require('dotenv').config(); 
 
+router.use(cors({
+  origin: 'http://localhost:3001'
+}))
+
 router.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false ,
@@ -29,9 +34,9 @@ router.use(passport.initialize())
 
 router.use(passport.session())    
 
-authUser = async (username, password) => {
+authUser = async (username, password, done) => {
   
-  const test = await User.findOne({username: username}, (err, user) => {
+  const returnedUser = await User.findOne({username: username}, (err, user) => {
     if (err) {
       return err
     } else {
@@ -41,20 +46,24 @@ authUser = async (username, password) => {
   .clone()
 
 
-  if (!test) {
-    console.log('username did\'t match')
-    return false
-  } else if (test.password != password) {
-    console.log('password didn\'t match.')
-    return false
+  if (!returnedUser) {
+    return done(null, false) 
+  } else if (returnedUser.password != password) {
+    return done(null, false) 
   } else {
-    return true
+    return done(null, returnedUser)
   }
-  
-  
 }
 
-// passport.use(new LocalStrategy (authUser))
+passport.use(new LocalStrategy (authUser))
+
+passport.serializeUser( (userObj, done) => {
+  done(null, userObj)
+})
+
+passport.deserializeUser((userObj, done) => {
+  done (null, userObj )
+})
 
 router.get('/', (req, res) => {
   getAll(User, res)
@@ -78,11 +87,11 @@ router.post('/', async (req, res) =>  {
   postNew(postUser, res)
 })
 
-router.post('/signIn', async (req, res) => {
-
-  console.log('authUser return:', await authUser(req.body.username, req.body.password))
-
-  res.send('testing')
+router.post('/signIn', passport.authenticate('local', {
+  successRedirect: "http://localhost:3001/",
+  failureRedirect: "http://localhost:3001/signIn",
+}), (req, res) => {
+  res.send('finished')
 })
 
 router.get('/:id', (req, res) => {
