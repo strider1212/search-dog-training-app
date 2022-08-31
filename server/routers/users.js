@@ -29,26 +29,28 @@ router.use(passport.initialize())
 
 router.use(passport.session())    
 
-authUser = (username, password) => {
+authUser = async (username, password) => {
   
-  const test = User.findOne({username: username}, (err, user) => {
+  const test = await User.findOne({username: username}, (err, user) => {
     if (err) {
       return err
-    } else if (!user) {
-      console.log('username not found')
-      return false
-    } else if (user.password !== password) {
-      console.log('password does not match username')
-      return false
     } else {
-      console.log('golden')
       return user
     }
   })
   .clone()
 
 
-  return test
+  if (!test) {
+    console.log('username did\'t match')
+    return false
+  } else if (test.password != password) {
+    console.log('password didn\'t match.')
+    return false
+  } else {
+    return true
+  }
+  
   
 }
 
