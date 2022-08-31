@@ -29,9 +29,9 @@ router.use(passport.initialize())
 
 router.use(passport.session())    
 
-authUser = async (username, password) => {
+authUser = (username, password) => {
   
-  const test = await User.findOne({username: username}, (err, user) => {
+  const test = User.findOne({username: username}, (err, user) => {
     if (err) {
       return err
     } else if (!user) {
