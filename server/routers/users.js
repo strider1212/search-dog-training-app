@@ -82,9 +82,7 @@ router.post('/', async (req, res) =>  {
   postNew(postUser, res)
 })
 
-router.post('/signIn', passport.authenticate('local', {
-  failureMessage: "username and/or password were not found.",
-}), (req, res) => {
+router.post('/signIn', passport.authenticate('local'), (req, res) => {
   res.send('finished')
 })
 
