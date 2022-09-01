@@ -4,7 +4,6 @@ const router = express.Router()
 const passport = require('passport')
 const session = require('express-session')
 const LocalStrategy = require('passport-local').Strategy
-const cors = require('cors');
 
 const { User } = require('../mongoose/user');
 
@@ -19,10 +18,6 @@ const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
 const hasher = require('../utils/hasher');
 require('dotenv').config(); 
-
-router.use(cors({
-  origin: 'http://localhost:3001'
-}))
 
 router.use(session({
   secret: process.env.SESSION_SECRET,
@@ -88,8 +83,7 @@ router.post('/', async (req, res) =>  {
 })
 
 router.post('/signIn', passport.authenticate('local', {
-  successRedirect: "http://localhost:3001/",
-  failureRedirect: "http://localhost:3001/signIn",
+  failureMessage: "username and/or password were not found.",
 }), (req, res) => {
   res.send('finished')
 })
