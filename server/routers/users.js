@@ -60,6 +60,10 @@ passport.deserializeUser((userObj, done) => {
   done (null, userObj )
 })
 
+router.post('/signIn', passport.authenticate('local'), (req, res) => {
+  res.send('finished')
+})
+
 router.get('/', (req, res) => {
   getAll(User, res)
 })
@@ -80,10 +84,6 @@ router.post('/', async (req, res) =>  {
     "k9s": req.query.k9s
   })
   postNew(postUser, res)
-})
-
-router.post('/signIn', passport.authenticate('local'), (req, res) => {
-  res.send('finished')
 })
 
 router.get('/:id', (req, res) => {
