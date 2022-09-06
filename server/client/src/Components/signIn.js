@@ -28,10 +28,14 @@ const SignIn = () => {
           password: formValues.password
         })
         .then((res) => {
-          console.log('sign in test');
+          console.log('res:', res)
           navigate('/');
         })
         .catch(error => {
+          if(error.response.status === 401) {
+            alert('Invalid username or password')
+          }
+
           if (error.response) {
             console.log('error.response.data', error.response.data);
             console.log('error.response.status', error.response.status);

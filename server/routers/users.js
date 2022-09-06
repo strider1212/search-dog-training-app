@@ -61,7 +61,8 @@ passport.deserializeUser((userObj, done) => {
 })
 
 router.post('/signIn', passport.authenticate('local', {
-  failureRedirect: 'http://localhost:3001/signIn'
+  // failureRedirect: 'http://localhost:3000/users/signIn'
+  failureMessage: 'failure'
 }), (req, res) => {
   res.send('finished')
 })
