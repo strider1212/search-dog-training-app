@@ -16,7 +16,7 @@ const postNew = require('../methodFunctions/postNew')
 const getById = require('../methodFunctions/getById')
 const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
-const hasher = require('../utils/hasher');
+// const hasher = require('../utils/hasher');
 require('dotenv').config(); 
 
 router.use(session({
@@ -64,6 +64,7 @@ router.post('/signIn', passport.authenticate('local', {
   // failureRedirect: 'http://localhost:3000/users/signIn'
   failureMessage: 'failure'
 }), (req, res) => {
+  console.log('req.session after signIn:', req.session)
   res.send('finished')
 })
 
@@ -72,6 +73,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) =>  {
+  console.log('req.session at signUp:', req.session)
   //check all field on the front end
   let postUser = new User({
     "username": req.body.username,

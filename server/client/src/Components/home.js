@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "../Components/header";
 
 const Home = () => {
+  
   return (
     <div>
       <header>

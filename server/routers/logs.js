@@ -28,6 +28,8 @@ const postChildForms = require('../methodFunctions/postChildForms');
 const geoCoder = require('../utils/geoCoder');
 const getDifferenceInHours = require('../utils/getDifferenceInHours');
 
+const users = require('./users');
+
 //--------------------------------------------------------
 //tomorrow.io
 
