@@ -21,8 +21,8 @@ require('dotenv').config();
 
 router.use(session({
   secret: process.env.SESSION_SECRET,
-  resave: false ,
-  saveUninitialized: true ,
+  resave: false,
+  saveUninitialized: true,
 }))
 
 router.use(passport.initialize()) 
@@ -64,7 +64,6 @@ router.post('/signIn', passport.authenticate('local', {
   // failureRedirect: 'http://localhost:3000/users/signIn'
   failureMessage: 'failure'
 }), (req, res) => {
-  console.log('req.session after signIn:', req.session)
   res.send('finished')
 })
 
@@ -73,7 +72,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) =>  {
-  console.log('req.session at signUp:', req.session)
   //check all field on the front end
   let postUser = new User({
     "username": req.body.username,

@@ -110,7 +110,7 @@ const NewLog = () => {
         <p>{formErrors.date}</p>
         {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
         <p>{formErrors.time}</p>
-        {formPopulater('time', 'Time', 'time', '', setFormValue, formValues, 'time')}
+        {formPopulater('time', 'Time (can be autopopulated within 6 hours of current time)', 'time', '', setFormValue, formValues, 'time')}
         <p>{formErrors.address}</p>
         {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')}
         
