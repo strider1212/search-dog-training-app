@@ -2,7 +2,6 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-require('dotenv').config({path: __dirname + '/.env'});
 const cors = require('cors');
 
 //routers
@@ -11,13 +10,10 @@ const teams = require('./routers/teams');
 const logs = require('./routers/logs');
 const auth = require('./routers/auth');
 
-//.env imports
-const connectUsername = process.env.USERNAME;
-const connectPassword = process.env.PASSWORD;
-const connectDatabase = process.env.DATABASE;
+const ATLAS_CONNECT = users.ATLAS_CONNECT
+
 
 //staging variables
-const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@cluster0.tgm5d.mongodb.net/${connectDatabase}`;
 const PORT = 3000;
 
 mongoose.connect(ATLAS_CONNECT);

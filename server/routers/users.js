@@ -3,7 +3,17 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const session = require('express-session')
+const MongoDBSession = require('connect-mongodb-session')(session)
 const LocalStrategy = require('passport-local').Strategy
+require('dotenv').config('.env');
+
+const connectUsername = process.env.USERNAME;
+const connectPassword = process.env.PASSWORD;
+const connectDatabase = process.env.DATABASE;
+
+const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@cluster0.tgm5d.mongodb.net/${connectDatabase}`;
+
+console.log('atlas connect:', ATLAS_CONNECT)
 
 const { User } = require('../mongoose/user');
 
@@ -22,12 +32,16 @@ require('dotenv').config();
 router.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false
 }))
 
 router.use(passport.initialize()) 
 
 router.use(passport.session())    
+
+const store = new MongoDBSession({
+  
+})
 
 authUser = async (username, password, done) => {
   
@@ -64,6 +78,8 @@ router.post('/signIn', passport.authenticate('local', {
   // failureRedirect: 'http://localhost:3000/users/signIn'
   failureMessage: 'failure'
 }), (req, res) => {
+  console.log('req.session:', req.session)
+  console.log('session ID:', req.session.id)
   res.send('finished')
 })
 
@@ -72,6 +88,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) =>  {
+  console.log(req.session)
+  console.log('session ID:', req.session.id)
   //check all field on the front end
   let postUser = new User({
     "username": req.body.username,
@@ -189,3 +207,4 @@ router.delete('/:id/k9s/:k9', (req, res) => {
 })
 
 module.exports = router;
+module.exports.ATLAS_CONNECT = ATLAS_CONNECT;
