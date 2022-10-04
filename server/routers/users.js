@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const session = require('express-session')
+const cookieSession = require('cookie-session')
 const MongoDBSession = require('connect-mongodb-session')(session)
 const LocalStrategy = require('passport-local').Strategy
 require('dotenv').config('.env');
@@ -12,8 +13,6 @@ const connectPassword = process.env.PASSWORD;
 const connectDatabase = process.env.DATABASE;
 
 const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@cluster0.tgm5d.mongodb.net/${connectDatabase}`;
-
-console.log('atlas connect:', ATLAS_CONNECT)
 
 const { User } = require('../mongoose/user');
 
@@ -29,19 +28,22 @@ const deleteById = require('../methodFunctions/deleteById');
 // const hasher = require('../utils/hasher');
 require('dotenv').config(); 
 
+const store = new MongoDBSession({
+  uri: ATLAS_CONNECT,
+  databaseName: 'search-dog-test',
+  collection: 'users'
+})
+
 router.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: store
 }))
 
 router.use(passport.initialize()) 
 
 router.use(passport.session())    
-
-const store = new MongoDBSession({
-  
-})
 
 authUser = async (username, password, done) => {
   
