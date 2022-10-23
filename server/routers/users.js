@@ -31,7 +31,7 @@ require('dotenv').config();
 const store = new MongoDBSession({
   uri: ATLAS_CONNECT,
   databaseName: 'search-dog-test',
-  collection: 'users'
+  collection: 'sessions'
 })
 
 router.use(session({
