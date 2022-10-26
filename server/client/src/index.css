@@ -18,6 +18,10 @@ code {
   background-color: #6b6e70;
 }
 
+.nav-link {
+  color: white;
+}
+
 form {
   height: 80%;
   width: 60%;
