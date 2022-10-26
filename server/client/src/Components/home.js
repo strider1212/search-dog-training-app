@@ -12,12 +12,16 @@ const Home = () => {
       <div className="row">
         <div className="col-lg">
           <div className="row">
-            <Link to="/newLog">
-              <button type="button" className="btn btn-primary">New Log</button>
-            </Link>
+            <div className="col">
+              <Link to="/newLog">
+                <button type="button" className="btn btn-primary">New Log</button>
+              </Link>
+            </div>
           </div>
           <div className="row">
-            <button type="button" className="btn btn-primary">Edit Logs</button>
+            <div className="col">
+              <button type="button" className="btn btn-primary">Edit Logs</button>
+            </div>
           </div>
         </div>
       </div>
