@@ -22,6 +22,10 @@ code {
   color: white;
 }
 
+.home-margin {
+  margin-top: 15px;
+}
+
 form {
   height: 80%;
   width: 60%;
