@@ -61,13 +61,20 @@ h3 {
 }
 
 .btn-primary:hover {
-  background-color: #6b6e70;
+  background-color: #61882f;
   border-color: #86c232;
+  color: #222629;
 }
 
 .btn-secondary {
-  background-color: #222629;
+  background-color: #474b4f;
   border-color: #222629;
+}
+
+.btn-secondary:hover {
+  background-color: #222629;
+  border-color: #474b4f;
+  color: #474b4f;
 }
 
 label {
