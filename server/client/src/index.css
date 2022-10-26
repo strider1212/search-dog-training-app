@@ -18,6 +18,10 @@ code {
   background-color: #6b6e70;
 }
 
+.navbar-brand {
+  color: #86c232;
+}
+
 .nav-link {
   color: white;
 }
@@ -55,6 +59,12 @@ h3 {
   background-color: #86c232;
   border-color: #86c232;
 }
+
+.btn-primary:hover {
+  background-color: #6b6e70;
+  border-color: #86c232;
+}
+
 .btn-secondary {
   background-color: #222629;
   border-color: #222629;
