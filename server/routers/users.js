@@ -1,11 +1,10 @@
-const { query } = require('express');
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const session = require('express-session')
-const cookieSession = require('cookie-session')
-const MongoDBSession = require('connect-mongodb-session')(session)
-const LocalStrategy = require('passport-local').Strategy
+// const cookieSession = require('cookie-session')
+// const MongoDBSession = require('connect-mongodb-session')(session)
+// const LocalStrategy = require('passport-local').Strategy
 require('dotenv').config('.env');
 
 const connectUsername = process.env.USERNAME;
@@ -28,70 +27,63 @@ const deleteById = require('../methodFunctions/deleteById');
 // const hasher = require('../utils/hasher');
 require('dotenv').config(); 
 
-const store = new MongoDBSession({
-  uri: ATLAS_CONNECT,
-  databaseName: 'search-dog-test',
-  collection: 'sessions'
-})
+//PASSPORT STUFF => NO LONGER BEING USED
 
-router.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  store: store
-}))
+// const store = new MongoDBSession({
+//   uri: ATLAS_CONNECT,
+//   databaseName: 'search-dog-test',
+//   collection: 'sessions'
+// })
 
-router.use(passport.initialize()) 
+// router.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: false,
+//   store: store
+// }))
 
-router.use(passport.session())    
+// router.use(passport.initialize()) 
 
-authUser = async (username, password, done) => {
+// router.use(passport.session())    
+
+// authUser = async (username, password, done) => {
   
-  const returnedUser = await User.findOne({username: username}, (err, user) => {
-    if (err) {
-      return err
-    } else {
-      return user
-    }
-  })
-  .clone()
+//   const returnedUser = await User.findOne({username: username}, (err, user) => {
+//     if (err) {
+//       return err
+//     } else {
+//       return user
+//     }
+//   })
+//   .clone()
 
 
-  if (!returnedUser) {
-    return done(null, false) 
-  } else if (returnedUser.password != password) {
-    return done(null, false) 
-  } else {
-    return done(null, returnedUser)
-  }
-}
+//   if (!returnedUser) {
+//     return done(null, false) 
+//   } else if (returnedUser.password != password) {
+//     return done(null, false) 
+//   } else {
+//     return done(null, returnedUser)
+//   }
+// }
 
-passport.use(new LocalStrategy (authUser))
+// passport.use(new LocalStrategy (authUser))
 
-passport.serializeUser( (userObj, done) => {
-  done(null, userObj)
-})
+// passport.serializeUser( (userObj, done) => {
+//   done(null, userObj)
+// })
 
-passport.deserializeUser((userObj, done) => {
-  done (null, userObj )
-})
+// passport.deserializeUser((userObj, done) => {
+//   done (null, userObj )
+// })
 
-router.post('/signIn', passport.authenticate('local', {
-  // failureRedirect: 'http://localhost:3000/users/signIn'
-  failureMessage: 'failure'
-}), (req, res) => {
-  console.log('req.session:', req.session)
-  console.log('session ID:', req.session.id)
-  res.send('finished')
-})
+router.post('/signIn', () => console.log('sign in triggered on the backend. It doesn\'t do anything yet.'))
 
 router.get('/', (req, res) => {
   getAll(User, res)
 })
 
 router.post('/', async (req, res) =>  {
-  console.log(req.session)
-  console.log('session ID:', req.session.id)
   //check all field on the front end
   let postUser = new User({
     "username": req.body.username,
