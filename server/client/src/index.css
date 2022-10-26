@@ -14,11 +14,15 @@ code {
     monospace;
 }
 
+.navbar {
+  background-color: #6b6e70;
+}
+
 form {
   height: 80%;
   width: 60%;
   margin-left: 20px;
-  background-color: #d9e8a4;
+  background-color: #6b6e70;
   padding: 15px;
   display: inline-block;
 }
@@ -44,7 +48,11 @@ h3 {
   background-color: #86c232;
   border-color: #86c232;
 }
+.btn-secondary {
+  background-color: #222629;
+  border-color: #222629;
+}
 
 label {
-  color: #465317;
+  color: white;
 }
