@@ -27,12 +27,23 @@ const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
 require('dotenv').config(); 
 
+router.use(passport.initialize());
+
+const tokenForUser = function (user) {
+  return jwt.encode(
+    {
+      sub: user.myID,
+      iat: Math.round(Date.now() / 1000),
+      exp: Math.round(Date.now() / 1000 + 5 * 60 * 60),
+    },
+    "bananas"
+  );
+};
+
 passport.use(
   "login",
   new LocalStrategy(function (username, password, done) {
     const authenticated = username === "John" && password === "Smith";
-
-    console.log('first this')
 
     if (authenticated) {
       return done(null, { myUser: "user", myID: 1234 });
@@ -45,7 +56,7 @@ passport.use(
 const requireSignin = passport.authenticate("login", { session: false });
 
 router.post('/signIn', requireSignin, (req, res, next) => {
-  console.log('then this')
+  console.log(tokenForUser(req.user))
 })
 
 router.get('/', (req, res) => {
