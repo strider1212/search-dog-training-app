@@ -10,6 +10,7 @@ import TrainingInfo from "./Components/trainingInfo";
 import IndividualRuns from "./Components/individualRuns";
 import SignUp from "./Components/signUp";
 import SignIn from "./Components/signIn";
+import EditLogs from "./Components/editLogs";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/individualRuns' element={<IndividualRuns />}/>
         <Route path='/signUp' element={<SignUp />}/>
         <Route path='/signIn' element={<SignIn />}/>
+        <Route path='editLogs' element={<EditLogs />} />
       </Routes>
     </div>
     
