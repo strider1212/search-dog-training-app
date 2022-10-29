@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const LocalStrategy = require("passport-local").Strategy;
+const jwt = require("jwt-simple");
 require('dotenv').config('.env');
 
 const connectUsername = process.env.USERNAME;
