@@ -1,10 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
-const session = require('express-session')
-// const cookieSession = require('cookie-session')
-// const MongoDBSession = require('connect-mongodb-session')(session)
-// const LocalStrategy = require('passport-local').Strategy
 require('dotenv').config('.env');
 
 const connectUsername = process.env.USERNAME;
@@ -24,58 +20,7 @@ const postNew = require('../methodFunctions/postNew')
 const getById = require('../methodFunctions/getById')
 const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
-// const hasher = require('../utils/hasher');
 require('dotenv').config(); 
-
-//PASSPORT STUFF => NO LONGER BEING USED
-
-// const store = new MongoDBSession({
-//   uri: ATLAS_CONNECT,
-//   databaseName: 'search-dog-test',
-//   collection: 'sessions'
-// })
-
-// router.use(session({
-//   secret: process.env.SESSION_SECRET,
-//   resave: false,
-//   saveUninitialized: false,
-//   store: store
-// }))
-
-// router.use(passport.initialize()) 
-
-// router.use(passport.session())    
-
-// authUser = async (username, password, done) => {
-  
-//   const returnedUser = await User.findOne({username: username}, (err, user) => {
-//     if (err) {
-//       return err
-//     } else {
-//       return user
-//     }
-//   })
-//   .clone()
-
-
-//   if (!returnedUser) {
-//     return done(null, false) 
-//   } else if (returnedUser.password != password) {
-//     return done(null, false) 
-//   } else {
-//     return done(null, returnedUser)
-//   }
-// }
-
-// passport.use(new LocalStrategy (authUser))
-
-// passport.serializeUser( (userObj, done) => {
-//   done(null, userObj)
-// })
-
-// passport.deserializeUser((userObj, done) => {
-//   done (null, userObj )
-// })
 
 router.post('/signIn', () => console.log('sign in triggered on the backend. It doesn\'t do anything yet.'))
 
@@ -202,3 +147,60 @@ router.delete('/:id/k9s/:k9', (req, res) => {
 
 module.exports = router;
 module.exports.ATLAS_CONNECT = ATLAS_CONNECT;
+
+
+
+// const session = require('express-session')
+// const cookieSession = require('cookie-session')
+// const MongoDBSession = require('connect-mongodb-session')(session)
+// const LocalStrategy = require('passport-local').Strategy
+
+//PASSPORT STUFF => NO LONGER BEING USED
+
+// const store = new MongoDBSession({
+//   uri: ATLAS_CONNECT,
+//   databaseName: 'search-dog-test',
+//   collection: 'sessions'
+// })
+
+// router.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: false,
+//   store: store
+// }))
+
+// router.use(passport.initialize()) 
+
+// router.use(passport.session())    
+
+// authUser = async (username, password, done) => {
+  
+//   const returnedUser = await User.findOne({username: username}, (err, user) => {
+//     if (err) {
+//       return err
+//     } else {
+//       return user
+//     }
+//   })
+//   .clone()
+
+
+//   if (!returnedUser) {
+//     return done(null, false) 
+//   } else if (returnedUser.password != password) {
+//     return done(null, false) 
+//   } else {
+//     return done(null, returnedUser)
+//   }
+// }
+
+// passport.use(new LocalStrategy (authUser))
+
+// passport.serializeUser( (userObj, done) => {
+//   done(null, userObj)
+// })
+
+// passport.deserializeUser((userObj, done) => {
+//   done (null, userObj )
+// })
