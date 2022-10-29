@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
+const LocalStrategy = require("passport-local").Strategy;
 require('dotenv').config('.env');
 
 const connectUsername = process.env.USERNAME;
@@ -22,7 +23,26 @@ const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
 require('dotenv').config(); 
 
-router.post('/signIn', () => console.log('sign in triggered on the backend. It doesn\'t do anything yet.'))
+passport.use(
+  "login",
+  new LocalStrategy(function (username, password, done) {
+    const authenticated = username === "John" && password === "Smith";
+
+    console.log('first this')
+
+    if (authenticated) {
+      return done(null, { myUser: "user", myID: 1234 });
+    } else {
+      return done(null, false);
+    }
+  })
+);
+
+const requireSignin = passport.authenticate("login", { session: false });
+
+router.post('/signIn', requireSignin, (req, res, next) => {
+  console.log('then this')
+})
 
 router.get('/', (req, res) => {
   getAll(User, res)
