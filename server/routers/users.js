@@ -29,17 +29,6 @@ require('dotenv').config();
 
 router.use(passport.initialize());
 
-const tokenForUser = function (user) {
-  return jwt.encode(
-    {
-      sub: user.myID,
-      iat: Math.round(Date.now() / 1000),
-      exp: Math.round(Date.now() / 1000 + 5 * 60 * 60),
-    },
-    "bananas"
-  );
-};
-
 passport.use(
   "login",
   new LocalStrategy(function (username, password, done) {
@@ -53,10 +42,38 @@ passport.use(
   })
 );
 
+const jwtOptions = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: "bananas",
+};
+
+passport.use(
+  "jwt",
+  new JwtStrategy(jwtOptions, function (payload, done) {
+    return done(null, { myUser: "user", myID: payload.sub });
+  })
+);
+
+const tokenForUser = function (user) {
+  return jwt.encode(
+    {
+      sub: user.myID,
+      iat: Math.round(Date.now() / 1000),
+      exp: Math.round(Date.now() / 1000 + 5 * 60 * 60),
+    },
+    "bananas"
+  );
+};
+
 const requireSignin = passport.authenticate("login", { session: false });
+
+const requireAuth = passport.authenticate("jwt", { session: false });
 
 router.post('/signIn', requireSignin, (req, res, next) => {
   console.log(tokenForUser(req.user))
+  res.send({
+    token: tokenForUser(req.user)
+  });
 })
 
 router.get('/', (req, res) => {
@@ -65,6 +82,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) =>  {
   //check all field on the front end
+  console.log('test post')
   let postUser = new User({
     "username": req.body.username,
     // "password": await hasher(req.query.password, 10),
