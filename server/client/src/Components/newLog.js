@@ -38,7 +38,9 @@ const NewLog = () => {
           address: formValues.address, 
           team: formValues.team, 
           time: formValues.time
-        })
+        },
+        {headers: {Authorization: localStorage.getItem('token')}}
+        )
         .then(res => logId = res.data._id)
         .catch(error => {
           if (error.response) {

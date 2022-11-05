@@ -28,6 +28,7 @@ const geoCoder = require('../utils/geoCoder');
 const getDifferenceInHours = require('../utils/getDifferenceInHours');
 
 const auth = require('./auth');
+const { default: axios } = require('axios');
 const requireAuth = auth.requireAuth;
 
 //--------------------------------------------------------
