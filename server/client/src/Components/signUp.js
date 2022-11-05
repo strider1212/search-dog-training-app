@@ -42,9 +42,6 @@ const SignUp = () => {
           navigate('/')
         })
         .catch(error => {
-          if(error.response.data === "Unauthorized") {
-            alert('Must sign in to perform this action')
-          }
           if (error.response) {
             console.log('error.response.data', error.response.data);
             console.log('error.response.status', error.response.status);

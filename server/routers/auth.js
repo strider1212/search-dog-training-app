@@ -3,6 +3,7 @@ const router = express.Router()
 
 const passport = require('passport')
 const jwt = require("jwt-simple");
+const { default: axios } = require('axios');
 const LocalStrategy = require("passport-local").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const JwtStrategy = require("passport-jwt").Strategy;
@@ -55,10 +56,17 @@ module.exports.requireAuth = requireAuth;
 module.exports.tokenForUser = tokenForUser;
 
 
+//CLIENT PACKAGE
+// axios.post('route', {headers: {Authorization: localStorage.getItem('token')}})
+//INSIDE OF CATCH STATEMENTs
+// if(error.response.data === "Unauthorized") {
+//   alert('Must sign in to perform this action')
+// }
 
 
 
 
+//OLD ATTEMPT
 // require('dotenv').config();
 // const express = require('express')
 // const router = express.Router()
