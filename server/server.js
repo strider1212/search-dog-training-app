@@ -8,7 +8,7 @@ const cors = require('cors');
 const users = require('./routers/users');
 const teams = require('./routers/teams');
 const logs = require('./routers/logs');
-const auth = require('./routers/auth');
+// const auth = require('./routers/auth');
 
 const ATLAS_CONNECT = users.ATLAS_CONNECT
 

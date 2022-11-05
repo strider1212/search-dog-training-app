@@ -71,7 +71,7 @@ const requireAuth = passport.authenticate("jwt", { session: false });
 
 router.post('/signIn', requireSignin, (req, res, next) => {
   console.log(tokenForUser(req.user))
-  res.send({
+  res.json({
     token: tokenForUser(req.user)
   });
 })
@@ -82,7 +82,6 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) =>  {
   //check all field on the front end
-  console.log('test post')
   let postUser = new User({
     "username": req.body.username,
     // "password": await hasher(req.query.password, 10),

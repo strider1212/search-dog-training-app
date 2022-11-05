@@ -28,7 +28,8 @@ const SignIn = () => {
           password: formValues.password
         })
         .then((res) => {
-          console.log('res:', res)
+          console.log('res:', res.data.token)
+          localStorage.setItem('token', res.data.token)
           navigate('/');
         })
         .catch(error => {
