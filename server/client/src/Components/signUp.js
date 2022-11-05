@@ -26,6 +26,7 @@ const SignUp = () => {
     } else if (Object.keys(formErrors).length > 0) {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
+      // localStorage.getItem('token')
       const postForm = async () => {
         console.log('POST /users')
         await axios.post('http://localhost:3000/users', {
@@ -35,8 +36,11 @@ const SignUp = () => {
           lastName: formValues.lastName,
           email: formValues.email,
           phoneNumber: formValues.tel
+        },
+        {headers: {'test': 'testing header'}})
+        .then(res => {
+          navigate('/')
         })
-        .then(res => navigate('/'))
         .catch(error => {
           if (error.response) {
             console.log('error.response.data', error.response.data);
