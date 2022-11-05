@@ -59,7 +59,7 @@ module.exports.tokenForUser = tokenForUser;
 // axios.post('route', {headers: {Authorization: localStorage.getItem('token')}})
 //INSIDE OF CATCH STATEMENTs
 // if(error.response.data === "Unauthorized") {
-//   alert('Must sign in to perform this action')
+//   alert('Must sign in to perform this action. Your session may have timed out. Please, sign back in and try again.')
 // }
 
 

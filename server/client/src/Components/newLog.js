@@ -5,6 +5,8 @@ import { formPopulater } from '../utils/formPopulater';
 import { submitHandler } from '../utils/submitHandler';
 import { getDifferenceInHours } from '../utils/getDifferenceInHours';
 
+import { HeaderInsert } from '../utils/headerInsert';
+
 const NewLog = () => {
 
   //STATE
@@ -39,7 +41,7 @@ const NewLog = () => {
           team: formValues.team, 
           time: formValues.time
         },
-        {headers: {Authorization: localStorage.getItem('token')}}
+        HeaderInsert()
         )
         .then(res => logId = res.data._id)
         .then(async () => {
@@ -51,7 +53,7 @@ const NewLog = () => {
               }
             })
           } else {
-            await axios.get('http://localhost:3000/logs/weather', {
+            axios.get('http://localhost:3000/logs/weather', {
             params: {
               location: formValues.address,
               date: formValues.date,
@@ -76,6 +78,9 @@ const NewLog = () => {
           }
         })
         .catch(error => {
+          if(error.response.data === "Unauthorized") {
+              alert('Must sign in to perform this action. Your session may have timed out. Please, sign back in and try again.')
+            }
           if (error.response) {
             console.log('error.response.data', error.response.data);
             console.log('error.response.status', error.response.status);

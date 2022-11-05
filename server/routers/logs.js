@@ -188,7 +188,7 @@ router.post('/hoursAndStats', async (req, res) => {
   postChildForms(req, res, hoursAndStatsLog, "hours_and_stats");
 })
 
-router.post('/manualWeather', async (req, res) => {
+router.post('/manualWeather', requireAuth, async (req, res) => {
   const manualWeatherLog = new ManualWeather({
     "weather": req.body.weather,
     "temperature":req.body.temperature,
