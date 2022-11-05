@@ -4,6 +4,9 @@ import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
+import { HeaderInsert } from '../utils/headerInsert';
+import { AuthorizationAlert } from '../utils/authorizationAlert';
+
 const HoursAndStats = () => {
   const initialState = {
     travelHours: 0,
@@ -45,7 +48,9 @@ const HoursAndStats = () => {
           mileage: formValues.mileage, 
           tolls: formValues.tolls, 
           associatedLog: logId
-        })
+        },
+        HeaderInsert()
+        )
         .then(res => {
           navigate("/trainingInfo", {state: 
             {logId: logId,
@@ -54,6 +59,7 @@ const HoursAndStats = () => {
           })
         })
         .catch(error => {
+          AuthorizationAlert(error)
           if (error.response) {
             console.log('error.response.data', error.response.data);
             console.log('error.response.status', error.response.status);

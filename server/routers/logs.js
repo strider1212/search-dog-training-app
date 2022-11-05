@@ -28,7 +28,6 @@ const geoCoder = require('../utils/geoCoder');
 const getDifferenceInHours = require('../utils/getDifferenceInHours');
 
 const auth = require('./auth');
-const { default: axios } = require('axios');
 const requireAuth = auth.requireAuth;
 
 //--------------------------------------------------------
@@ -174,7 +173,7 @@ router.post('/trainingInfo', async (req, res) => {
   postChildForms(req, res, trainingInfoLog, "training_info");
 })
 
-router.post('/hoursAndStats', async (req, res) => {
+router.post('/hoursAndStats', requireAuth, async (req, res) => {
   
   const hoursAndStatsLog = new HoursAndStats({
     "travel_hours": req.body.travel_hours,
