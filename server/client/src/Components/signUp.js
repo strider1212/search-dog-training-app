@@ -37,7 +37,7 @@ const SignUp = () => {
           email: formValues.email,
           phoneNumber: formValues.tel
         },
-        {headers: {Authorization: 'testing athorization'}})
+        {headers: {Authorization: localStorage.getItem('token')}})
         .then(res => {
           navigate('/')
         })
