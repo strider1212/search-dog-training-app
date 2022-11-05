@@ -54,6 +54,17 @@ module.exports.requireSignin = requireSignin;
 module.exports.requireAuth = requireAuth;
 module.exports.tokenForUser = tokenForUser;
 
+/*
+  Authentication Method
+    serverside
+      requireAuth to router
+    clientside
+      add header to axios.post
+      add alert to .catch
+      test authorized
+      test unauthorized
+*/
+
 
 //CLIENT PACKAGE
 // axios.post('route', {headers: {Authorization: localStorage.getItem('token')}})
