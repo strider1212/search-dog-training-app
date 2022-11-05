@@ -22,8 +22,8 @@ const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
 require('dotenv').config(); 
 
+//authentication require package
 const auth = require('./auth');
-
 const requireSignin = auth.requireSignin;
 const requireAuth = auth.requireAuth;
 const tokenForUser = auth.tokenForUser;
