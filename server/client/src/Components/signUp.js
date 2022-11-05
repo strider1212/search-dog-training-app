@@ -38,7 +38,7 @@ const SignUp = () => {
           phoneNumber: formValues.tel
         },
         {headers: {Authorization: localStorage.getItem('token')}})
-        .then(res => {
+        .then(() => {
           navigate('/')
         })
         .catch(error => {
