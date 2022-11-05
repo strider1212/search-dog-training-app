@@ -1,12 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const passport = require('passport')
-const jwt = require("jwt-simple");
-require('dotenv').config('.env');
 
-const LocalStrategy = require("passport-local").Strategy;
-const ExtractJwt = require("passport-jwt").ExtractJwt;
-const JwtStrategy = require("passport-jwt").Strategy;
+require('dotenv').config('.env');
 
 const connectUsername = process.env.USERNAME;
 const connectPassword = process.env.PASSWORD;
@@ -27,47 +22,11 @@ const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
 require('dotenv').config(); 
 
-router.use(passport.initialize());
+const auth = require('./auth');
 
-passport.use(
-  "login",
-  new LocalStrategy(function (username, password, done) {
-    const authenticated = username === "John" && password === "Smith";
-
-    if (authenticated) {
-      return done(null, { myUser: "user", myID: 1234 });
-    } else {
-      return done(null, false);
-    }
-  })
-);
-
-const jwtOptions = {
-  jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: "bananas",
-};
-
-passport.use(
-  "jwt",
-  new JwtStrategy(jwtOptions, function (payload, done) {
-    return done(null, { myUser: "user", myID: payload.sub });
-  })
-);
-
-const tokenForUser = function (user) {
-  return jwt.encode(
-    {
-      sub: user.myID,
-      iat: Math.round(Date.now() / 1000),
-      exp: Math.round(Date.now() / 1000 + 5 * 60 * 60),
-    },
-    "bananas"
-  );
-};
-
-const requireSignin = passport.authenticate("login", { session: false });
-
-const requireAuth = passport.authenticate("jwt", { session: false });
+const requireSignin = auth.requireSignin;
+const requireAuth = auth.requireAuth;
+const tokenForUser = auth.tokenForUser;
 
 router.post('/signIn', requireSignin, (req, res, next) => {
   res.json({
