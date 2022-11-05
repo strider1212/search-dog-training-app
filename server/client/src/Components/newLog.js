@@ -42,6 +42,39 @@ const NewLog = () => {
         {headers: {Authorization: localStorage.getItem('token')}}
         )
         .then(res => logId = res.data._id)
+        .then(async () => {
+          if (getDifferenceInHours(formValues.date, formValues.time) < -6) {
+            navigate('/manualWeather', {state:
+              { logId: logId,
+                formValues: formValues,
+                weatherValues: null
+              }
+            })
+          } else {
+            await axios.get('http://localhost:3000/logs/weather', {
+            params: {
+              location: formValues.address,
+              date: formValues.date,
+              time: formValues.time
+            }
+            })
+            .then(res => {
+              navigate("/manualWeather", {state: 
+                  {logId: logId,
+                  formValues: formValues,
+                    weatherValues: {
+                      temperature: res.data[0].values.temperature,
+                      windSpeed: res.data[0].values.windSpeed,
+                      humidity: res.data[0].values.humidity
+                    }
+                  }
+                }
+              )
+            }
+            )
+            .catch(err => console.log(err))
+          }
+        })
         .catch(error => {
           if (error.response) {
             console.log('error.response.data', error.response.data);
@@ -55,37 +88,7 @@ const NewLog = () => {
           console.log('error.config', error.config);
         })
 
-        if (getDifferenceInHours(formValues.date, formValues.time) < -6) {
-          navigate('/manualWeather', {state:
-            { logId: logId,
-              formValues: formValues,
-              weatherValues: null
-            }
-          })
-        } else {
-          await axios.get('http://localhost:3000/logs/weather', {
-          params: {
-            location: formValues.address,
-            date: formValues.date,
-            time: formValues.time
-          }
-          })
-          .then(res => {
-            navigate("/manualWeather", {state: 
-                {logId: logId,
-                formValues: formValues,
-                  weatherValues: {
-                    temperature: res.data[0].values.temperature,
-                    windSpeed: res.data[0].values.windSpeed,
-                    humidity: res.data[0].values.humidity
-                  }
-                }
-              }
-            )
-          }
-          )
-          .catch(err => console.log(err))
-        }
+        
 
         
     
