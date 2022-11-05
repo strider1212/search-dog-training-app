@@ -43,7 +43,7 @@ passport.use(
 );
 
 const jwtOptions = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  jwtFromRequest: ExtractJwt.fromHeader('authorization'),
   secretOrKey: "bananas",
 };
 
@@ -70,7 +70,6 @@ const requireSignin = passport.authenticate("login", { session: false });
 const requireAuth = passport.authenticate("jwt", { session: false });
 
 router.post('/signIn', requireSignin, (req, res, next) => {
-  console.log(tokenForUser(req.user))
   res.json({
     token: tokenForUser(req.user)
   });
@@ -80,9 +79,8 @@ router.get('/', (req, res) => {
   getAll(User, res)
 })
 
-router.post('/', async (req, res) =>  {
+router.post('/', requireAuth, async (req, res) =>  {
   //check all field on the front end
-  console.log(req.headers)
   let postUser = new User({
     "username": req.body.username,
     // "password": await hasher(req.query.password, 10),
