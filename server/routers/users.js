@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
   getAll(User, res)
 })
 
-router.post('/', requireAuth, async (req, res) =>  {
+router.post('/', async (req, res) =>  {
   //check all field on the front end
   let postUser = new User({
     "username": req.body.username,

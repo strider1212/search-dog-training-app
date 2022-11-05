@@ -23,12 +23,12 @@ const postNew = require('../methodFunctions/postNew');
 const getById = require('../methodFunctions/getById');
 const putById = require('../methodFunctions/putById');
 const deleteById = require('../methodFunctions/deleteById');
-const postChildrenSchemas = require('../methodFunctions/postChildrenSchemas');
 const postChildForms = require('../methodFunctions/postChildForms');
 const geoCoder = require('../utils/geoCoder');
 const getDifferenceInHours = require('../utils/getDifferenceInHours');
 
-const users = require('./users');
+const auth = require('./auth');
+const requireAuth = auth.requireAuth;
 
 //--------------------------------------------------------
 //tomorrow.io
@@ -95,8 +95,7 @@ router.get('/', (req, res) => {
   getAll(Log, res);
 })
 
-router.post('/', async (req, res) => {
-  console.log('POST to /')
+router.post('/', requireAuth, async (req, res) => {
   let postLog = new Log({
     //populated automatically in the front end
     "log_created_by": req.body.log_created_by,
@@ -115,6 +114,7 @@ router.post('/', async (req, res) => {
     "individual_runs": req.body.individual_runs
   })
   postNew(postLog, res);
+  console.log('POST to /');
 })
 
 router.get('/:id', (req, res) => {

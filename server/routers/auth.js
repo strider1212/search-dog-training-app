@@ -3,7 +3,6 @@ const router = express.Router()
 
 const passport = require('passport')
 const jwt = require("jwt-simple");
-const { default: axios } = require('axios');
 const LocalStrategy = require("passport-local").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const JwtStrategy = require("passport-jwt").Strategy;
