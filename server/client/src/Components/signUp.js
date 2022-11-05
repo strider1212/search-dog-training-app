@@ -37,7 +37,7 @@ const SignUp = () => {
           email: formValues.email,
           phoneNumber: formValues.tel
         },
-        {headers: {'test': 'testing header'}})
+        {headers: {Authorization: 'testing athorization'}})
         .then(res => {
           navigate('/')
         })
