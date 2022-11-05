@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { submitHandler } from '../utils/submitHandler';
 
+import { HeaderInsert } from '../utils/headerInsert';
+
 const ManualWeather = () => {
   //STATE
   const location = useLocation();
@@ -50,7 +52,7 @@ const ManualWeather = () => {
           humidity: formValues.humidity, 
           associatedLog: logId
         },
-        {headers: {Authorization: localStorage.getItem('token')}}
+        HeaderInsert()
         )
         .then(res => {
           navigate("/hoursAndStats", {state: 
@@ -61,7 +63,7 @@ const ManualWeather = () => {
         })
         .catch(error => {
           if(error.response.data === "Unauthorized") {
-              alert('Must sign in to perform this action');
+              alert('Must sign in to perform this action. Your session may have timed out. Please, sign back in and try again.');
             }
           if (error.response) {
             console.log('error.response.data', error.response.data);
