@@ -6,6 +6,7 @@ import { submitHandler } from '../utils/submitHandler';
 import { getDifferenceInHours } from '../utils/getDifferenceInHours';
 
 import { HeaderInsert } from '../utils/headerInsert';
+import { AuthorizationAlert } from '../utils/authorizationAlert';
 
 const NewLog = () => {
 
@@ -78,9 +79,7 @@ const NewLog = () => {
           }
         })
         .catch(error => {
-          if(error.response.data === "Unauthorized") {
-              alert('Must sign in to perform this action. Your session may have timed out. Please, sign back in and try again.')
-            }
+          AuthorizationAlert(error)
           if (error.response) {
             console.log('error.response.data', error.response.data);
             console.log('error.response.status', error.response.status);
