@@ -158,7 +158,7 @@ router.post('/water', async (req, res) => {
   postChildForms(req, res, waterLog, "water");
 })
 
-router.post('/trainingInfo', async (req, res) => {
+router.post('/trainingInfo', requireAuth, async (req, res) => {
   
   const trainingInfoLog = new TrainingInfo({
     "training_type": req.body.training_type,

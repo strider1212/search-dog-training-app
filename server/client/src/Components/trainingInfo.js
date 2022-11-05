@@ -5,6 +5,9 @@ import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
+import { HeaderInsert } from '../utils/headerInsert';
+import { AuthorizationAlert } from '../utils/authorizationAlert';
+
 const TrainingInfo = () => {
   const initialState = {
     trainingType: 0,
@@ -41,7 +44,9 @@ const TrainingInfo = () => {
           source_container: formValues.sourceContainer, 
           water: formValues.water,
           associatedLog: logId
-        })
+        },
+        HeaderInsert()
+        )
         .then(res => {
           if (res.data.training_info.water) {
             navigate("/waterLog", {state: 
@@ -59,6 +64,7 @@ const TrainingInfo = () => {
           
         })
         .catch(error => {
+          AuthorizationAlert(error)
           if (error.response) {
             console.log('error.response.data', error.response.data);
             console.log('error.response.status', error.response.status);

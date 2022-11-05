@@ -11,7 +11,7 @@ const trainingInfoSchema = new mongoose.Schema({
   },
   "placed_by": {
     type: String,
-    required: true
+    required: false
   },
   "scent_source": {
     type: String,
