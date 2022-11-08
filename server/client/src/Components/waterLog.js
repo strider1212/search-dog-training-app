@@ -5,6 +5,9 @@ import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
+import { HeaderInsert } from '../utils/headerInsert';
+import { AuthorizationAlert } from '../utils/authorizationAlert';
+
 const WaterLog = () => {
   const initialState = {
     open: false,
@@ -40,7 +43,9 @@ const WaterLog = () => {
           water_type: formValues.waterType, 
           temperature: formValues.temperature,
           associatedLog: logId
-        })
+        },
+        HeaderInsert()
+        )
         .then(res => {
           navigate("/individualRuns", {state: 
             {logId: logId,
@@ -49,6 +54,7 @@ const WaterLog = () => {
           })
         })
         .catch(error => {
+          AuthorizationAlert(error)
           if (error.response) {
             console.log('error.response.data', error.response.data);
             console.log('error.response.status', error.response.status);

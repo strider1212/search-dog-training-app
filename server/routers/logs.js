@@ -144,7 +144,7 @@ router.post('/individual_runs', async (req, res) => {
   postChildForms(req, res, Individual_runsLog, "individual_runs")
 })
 
-router.post('/water', async (req, res) => {
+router.post('/water', requireAuth, async (req, res) => {
   const waterLog = new Water({
     "open": req.body.open,
     "submerged": req.body.submerged,
