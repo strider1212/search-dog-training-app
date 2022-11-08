@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
+//Mongoose imports
 const { User } = require('../mongoose/user');
 
+//authentication imports
 const passport = require('passport')
 const jwt = require("jwt-simple");
 const LocalStrategy = require("passport-local").Strategy;
@@ -10,11 +12,14 @@ const ExtractJwt = require("passport-jwt").ExtractJwt;
 const JwtStrategy = require("passport-jwt").Strategy;
 
 
+//app-level middleware
 router.use(passport.initialize());
 
 passport.use(
   "login",
   new LocalStrategy(function (username, password, done) {
+
+    //replace with a User.findOne (review docs)
 
     const authenticated = username === "John" && password === "Smith";
 
@@ -25,19 +30,20 @@ passport.use(
     }
   })
 );
+    const jwtOptions = {
+      jwtFromRequest: ExtractJwt.fromHeader('authorization'),
+      secretOrKey: "bananas",
+    };
 
-const jwtOptions = {
-  jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: "bananas",
-};
-
-passport.use(
+    passport.use(
   "jwt",
   new JwtStrategy(jwtOptions, function (payload, done) {
     return done(null, { myUser: "user", myID: payload.sub });
   })
 );
 
+
+//this is to be exported to axiox.post('/singIn')
 const tokenForUser = function (user) {
   return jwt.encode(
     {
