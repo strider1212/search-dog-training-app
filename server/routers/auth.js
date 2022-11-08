@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const { User } = require('../mongoose/user');
+
 const passport = require('passport')
 const jwt = require("jwt-simple");
 const LocalStrategy = require("passport-local").Strategy;
@@ -13,6 +15,7 @@ router.use(passport.initialize());
 passport.use(
   "login",
   new LocalStrategy(function (username, password, done) {
+
     const authenticated = username === "John" && password === "Smith";
 
     if (authenticated) {
