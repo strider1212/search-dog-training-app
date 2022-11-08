@@ -5,6 +5,9 @@ import { formPopulater } from '../utils/formPopulater';
 import { checkboxFormPopulater } from '../utils/checkboxFormPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
+import { HeaderInsert } from '../utils/headerInsert';
+import { AuthorizationAlert } from '../utils/authorizationAlert';
+
 const IndividualRuns = () => {
   const initialState = {
     time: 0,
@@ -38,11 +41,14 @@ const IndividualRuns = () => {
           distractions: formValues.distractions, 
           notes: formValues.notes, 
           associatedLog: logId
-        })
+        },
+        HeaderInsert()
+        )
         .then(res => {
           navigate("/")
         })
         .catch(error => {
+          AuthorizationAlert(error)
           if (error.response) {
             console.log('error.response.data', error.response.data);
             console.log('error.response.status', error.response.status);

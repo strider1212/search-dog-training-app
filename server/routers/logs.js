@@ -129,7 +129,7 @@ router.delete('/:id', (req, res) => {
   deleteById(Log, req, res);
 })
 
-router.post('/individual_runs', async (req, res) => {
+router.post('/individual_runs', requireAuth, async (req, res) => {
   const Individual_runsLog = new Individual_Runs({
     //member ID
     "time": req.body.time,
