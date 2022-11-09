@@ -29,9 +29,9 @@ passport.use(
     }).clone()
 
     if (findUser) {
-      console.log(`found ${username}`)
+      return done(null, username)
     } else {
-      console.log(`didn't find ${username} in the database`)
+      return done(null, false)
     }
   })
 );
