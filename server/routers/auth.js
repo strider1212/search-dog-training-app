@@ -20,7 +20,7 @@ passport.use(
   new LocalStrategy(async (username, password, done) => {
 
     //replace with a User.findOne (review docs)
-    const findUser = await User.findOne({username: username}, (error, user) => {
+    const foundUser = await User.findOne({username: username}, (error, user) => {
       if (error) return false;
 
       if (!user) return false;
@@ -28,15 +28,22 @@ passport.use(
       return true;
     }).clone()
 
-    if (!findUser) {
+    const returnedUser = await User.findOne({username: username}, (error, user) => {
+      if (error) return false;
+
+      if (!user) return false;
+
+      return username;
+    }).clone()
+
+    if (!foundUser) {
      return done(null, false)
     }
 
-    if (findUser) {
-      return done(null, username)
-    }
+    if(returnedUser.password != password) return done(null, false)
 
-    console.log('How did we get here?')
+    return done(null, username)
+
 
 
     // if (findUser) {
