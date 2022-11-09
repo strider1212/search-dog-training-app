@@ -28,11 +28,22 @@ passport.use(
       return true;
     }).clone()
 
+    if (!findUser) {
+     return done(null, false)
+    }
+
     if (findUser) {
       return done(null, username)
-    } else {
-      return done(null, false)
     }
+
+    console.log('How did we get here?')
+
+
+    // if (findUser) {
+    //   return done(null, username)
+    // } else {
+    //   return done(null, false)
+    // }
   })
 );
     const jwtOptions = {
