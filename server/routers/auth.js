@@ -43,14 +43,6 @@ passport.use(
     if(returnedUser.password != password) return done(null, false)
 
     return done(null, username)
-
-
-
-    // if (findUser) {
-    //   return done(null, username)
-    // } else {
-    //   return done(null, false)
-    // }
   })
 );
     const jwtOptions = {
