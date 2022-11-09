@@ -20,7 +20,6 @@ const postNew = require('../methodFunctions/postNew')
 const getById = require('../methodFunctions/getById')
 const putById = require('../methodFunctions/putById')
 const deleteById = require('../methodFunctions/deleteById');
-require('dotenv').config(); 
 
 //authentication require package
 const auth = require('./auth');
