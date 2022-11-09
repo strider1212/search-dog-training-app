@@ -17,16 +17,21 @@ router.use(passport.initialize());
 
 passport.use(
   "login",
-  new LocalStrategy(function (username, password, done) {
+  new LocalStrategy(async (username, password, done) => {
 
     //replace with a User.findOne (review docs)
+    const findUser = await User.findOne({username: username}, (error, user) => {
+      if (error) return false;
 
-    const authenticated = username === "John" && password === "Smith";
+      if (!user) return false;
 
-    if (authenticated) {
-      return done(null, { myUser: "user", myID: 1234 });
+      return true;
+    }).clone()
+
+    if (findUser) {
+      console.log(`found ${username}`)
     } else {
-      return done(null, false);
+      console.log(`didn't find ${username} in the database`)
     }
   })
 );
