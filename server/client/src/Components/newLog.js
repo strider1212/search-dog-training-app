@@ -33,9 +33,9 @@ const NewLog = () => {
     } else if (Object.keys(formErrors).length > 0) {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
-      const postForm = async () => {
+      const postForm = () => {
         let logId;
-        await axios.post(`http://localhost:3000/logs`, {
+        axios.post(`http://localhost:3000/logs`, {
           log_created_by: formValues.createdBy,
           date: formValues.date,
           address: formValues.address, 
