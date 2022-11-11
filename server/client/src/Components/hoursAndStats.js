@@ -40,8 +40,8 @@ const HoursAndStats = () => {
     } else if (Object.keys(formErrors).length > 0) {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
-      const postForm = async () => {
-        await axios.post(`http://localhost:3000/logs/hoursAndStats`, {
+      const postForm = () => {
+        axios.post(`http://localhost:3000/logs/hoursAndStats`, {
           travel_hours: formValues.travelHours,
           training_hours: formValues.trainingHours,
           total_hours: calculateTotalHours(), 
