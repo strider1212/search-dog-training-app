@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
+require('dotenv').config('.env');
+console.log('dotenv:', process.env.AUTH_SECRETE_KEY)
+
 //Mongoose imports
 const { User } = require('../mongoose/user');
 
@@ -47,7 +50,7 @@ passport.use(
 );
     const jwtOptions = {
       jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-      secretOrKey: "bananas",
+      secretOrKey: process.env.AUTH_SECRETE_KEY,
     };
 
     passport.use(
@@ -66,7 +69,7 @@ const tokenForUser = function (user) {
       iat: Math.round(Date.now() / 1000),
       exp: Math.round(Date.now() / 1000 + 5 * 60 * 60),
     },
-    "bananas"
+    process.env.AUTH_SECRETE_KEY
   );
 };
 
