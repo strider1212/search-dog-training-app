@@ -45,8 +45,8 @@ const ManualWeather = () => {
     } else if (Object.keys(formErrors).length > 0) {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
-      const postForm = async () => {
-        await axios.post(`http://localhost:3000/logs/manualWeather`, {
+      const postForm = () => {
+        axios.post(`http://localhost:3000/logs/manualWeather`, {
           weather: formValues.weather,
           temperature: formValues.temperature,
           wind_speed: formValues.windSpeed, 
