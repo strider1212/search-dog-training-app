@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 require('dotenv').config('.env');
-console.log('dotenv:', process.env.AUTH_SECRETE_KEY)
 
 //Mongoose imports
 const { User } = require('../mongoose/user');
