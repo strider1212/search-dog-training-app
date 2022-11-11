@@ -35,8 +35,8 @@ const TrainingInfo = () => {
     } else if (Object.keys(formErrors).length > 0) {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
-      const postForm = async () => {
-        await axios.post(`http://localhost:3000/logs/trainingInfo`, {
+      const postForm = () => {
+        axios.post(`http://localhost:3000/logs/trainingInfo`, {
           training_type: formValues.trainingType,
           placement_description: formValues.placementDescription,
           placed_by: formValues.placedBy, 
