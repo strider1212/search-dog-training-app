@@ -11,12 +11,8 @@ const Home = () => {
   
   const editLogsClickHandler = () => {
     axios.post('http://localhost:3000/logs/editRequest', {something: 'something'}, HeaderInsert())
-    .then(res => {
-      if (res.data.access === 'granted') {
-        navigate('/editLogs')
-      } else {
-        alert('Must be signed in to access this feature')
-      }
+    .then(() => {
+      navigate('/editLogs')
     })
     .catch(error => {
       AuthorizationAlert(error)
