@@ -92,7 +92,6 @@ router.get('/weather', async (req, res) => {
 ////--------------------------------------------------------
 
 router.post('/editRequest', requireAuth, (req, res) => {
-  console.log('test /editRequest')
   res.json({access: 'granted'})
 })
 
