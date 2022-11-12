@@ -20,9 +20,10 @@ const Home = () => {
           </div>
           <div className="row home-margin">
             <div className="col">
-              <Link to="/editLogs">
+              <button type="button" className="btn btn-primary" onClick={() => alert('clicked')}>Edit Logs</button>
+              {/* <Link to="/editLogs">
                 <button type="button" className="btn btn-primary">Edit Logs</button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
