@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../Components/header";
 import axios from 'axios';
 
+import { HeaderInsert } from '../utils/headerInsert';
 import { AuthorizationAlert } from '../utils/authorizationAlert';
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
   let navigate = useNavigate()
   
   const editLogsClickHandler = () => {
-    axios.post('http://localhost:3000/logs/editRequest')
+    axios.post('http://localhost:3000/logs/editRequest', {something: 'something'}, HeaderInsert())
     .then(res => {
       if (res.data.access === 'granted') {
         navigate('/editLogs')

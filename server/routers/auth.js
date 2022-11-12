@@ -52,7 +52,7 @@ passport.use(
       secretOrKey: process.env.AUTH_SECRETE_KEY,
     };
 
-    passport.use(
+passport.use(
   "jwt",
   new JwtStrategy(jwtOptions, function (payload, done) {
     return done(null, { myUser: "user", myID: payload.sub });
