@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../Components/header";
 import axios from 'axios';
 
+import { AuthorizationAlert } from '../utils/authorizationAlert';
+
 const Home = () => {
 
   let navigate = useNavigate()
@@ -14,6 +16,19 @@ const Home = () => {
       } else {
         alert('Must be signed in to access this feature')
       }
+    })
+    .catch(error => {
+      AuthorizationAlert(error)
+      if (error.response) {
+        console.log('error.response.data', error.response.data);
+        console.log('error.response.status', error.response.status);
+        console.log('error.response.headers', error.response.headers);
+      } else if (error.request) {
+        console.log('error.request', error.request);
+      } else {
+        console.log('error.message', error.message);
+      }
+      console.log('error.config', error.config);
     })
   }
   
