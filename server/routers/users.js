@@ -28,7 +28,7 @@ const tokenForUser = auth.tokenForUser;
 
 router.post('/signIn', requireSignin, (req, res, next) => {
   res.json({
-    token: tokenForUser(req.user)
+    token: tokenForUser(req.body)
   });
 })
 
