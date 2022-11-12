@@ -51,9 +51,6 @@ const Home = () => {
           <div className="row home-margin">
             <div className="col">
               <button type="button" className="btn btn-primary" onClick={() => editLogsClickHandler()}>Edit Logs</button>
-              {/* <Link to="/editLogs">
-                <button type="button" className="btn btn-primary">Edit Logs</button>
-              </Link> */}
             </div>
           </div>
         </div>
