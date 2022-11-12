@@ -91,7 +91,7 @@ router.get('/weather', async (req, res) => {
 //tomorrow.io
 ////--------------------------------------------------------
 
-router.post('/editRequest', requireAuth, (req, res) => {
+router.post('/defaultAutRequest', requireAuth, (req, res) => {
   res.json({access: 'granted'})
 })
 

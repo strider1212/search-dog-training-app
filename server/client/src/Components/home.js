@@ -10,7 +10,7 @@ const Home = () => {
   let navigate = useNavigate()
   
   const editLogsClickHandler = () => {
-    axios.post('http://localhost:3000/logs/editRequest', {something: 'something'}, HeaderInsert())
+    axios.post('http://localhost:3000/logs/defaultAutRequest', {something: 'something'}, HeaderInsert())
     .then(() => {
       navigate('/editLogs')
     })
