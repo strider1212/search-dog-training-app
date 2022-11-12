@@ -2,8 +2,19 @@ import React, {useEffect} from 'react';
 
 const EditLogs = () => {
 
+  const arrayOfLogs = []
+
+  const arrayOfLogDisplayed = arrayOfLogs.map((e, i) => {
+    return `Number ${i} is ${e}`
+  })
+  
   const editLogsDisplayGrid = () => {
-    return 'testing editLogdsDisplayGrid'
+    console.log(arrayOfLogDisplayed.length)
+    if (arrayOfLogDisplayed.length === 0) {
+      return 'No logs loaded'
+    } else {
+      return arrayOfLogDisplayed;
+    }
   }
   // const testingUseEffect = () => {
   //   console.log('testing useEffect')
