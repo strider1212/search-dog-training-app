@@ -15,7 +15,18 @@ const EditLogs = () => {
     })
   }, [])
 
-  const listLogs = logsState.map((log, index) => <li key={index} className="list-group-item list-group-item-action">{log.address}</li>)
+  
+
+  const listLogs = logsState.map((log, index) => {
+    const formattedDate = new Date(log.date);
+    return (
+      <li 
+      key={index} 
+      className="list-group-item list-group-item-action">
+      {`${formattedDate}: ${log.address}`}
+      </li>
+    )
+  })
 
 
   return (
