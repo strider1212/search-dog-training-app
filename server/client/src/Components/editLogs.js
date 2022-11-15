@@ -20,7 +20,11 @@ const EditLogs = () => {
 
   return (
     <div style={{color: 'peachpuff'}}>
-      <ul className="list-group">{listLogs}</ul>
+      <div className="row">
+        <div className="col-5">
+          <ul className="list-group">{listLogs}</ul>
+        </div>
+      </div>
     </div>
   )
 }
