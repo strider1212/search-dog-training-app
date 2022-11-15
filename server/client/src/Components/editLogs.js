@@ -19,7 +19,7 @@ const EditLogs = () => {
 
   return (
     <div style={{color: 'peachpuff'}}>
-      {holder.map(() => 'lala')}
+      {/* {holder.map((e, i) => <p style={{color: 'peachpuff'}} key={i}>{e}</p>)} */}
       <button type='button' className="btn btn-primary" onClick={() => console.log('holder:', holder)}>Tester</button>
     </div>
   )
