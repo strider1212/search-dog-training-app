@@ -16,11 +16,12 @@ const EditLogs = () => {
     })
   }, [])
 
-  
+  const listLogs = logsState.map(log => String(<li>{log.address}</li>))
 
 
   return (
     <div style={{color: 'peachpuff'}}>
+      <ul>{listLogs}</ul>
     </div>
   )
 }
