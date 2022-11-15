@@ -10,18 +10,17 @@ const EditLogs = () => {
     .then(res => {
       console.log(res)
       res.data.map(e => {
-        console.log(e)
         setLogsState(current => [...current, e])
       })
     })
   }, [])
 
-  const listLogs = logsState.map(log => <li>{log.address}</li>)
+  const listLogs = logsState.map((log, index) => <li key={index} className="list-group-item">{log.address}</li>)
 
 
   return (
     <div style={{color: 'peachpuff'}}>
-      <ul>{listLogs}</ul>
+      <ul className="list-group">{listLogs}</ul>
     </div>
   )
 }
