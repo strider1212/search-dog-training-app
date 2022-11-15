@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
+import React, {useEffect} from "react"
+import axios from 'axios';
 
 const EditLogs = () => {
   
-  const [testState, setTestState] = useState([])
-  const [baseNumber, setBaseNumber] = useState(0)
-
-
-  const tester = () => {
-    let newBaseNumber = baseNumber + 1
-    setBaseNumber(newBaseNumber)
-    setTestState([...testState, baseNumber])
-  }
+  useEffect(() => {
+    axios.get('http://localhost:3000/logs/')
+    .then(res => console.log(res))
+  })
 
   return (
     <div style={{color: 'peachpuff'}}>
-      {testState}
-      <button type='button' className='btn btn-primary' onClick={() => tester()}>Test</button>
+      test
     </div>
   )
 }
