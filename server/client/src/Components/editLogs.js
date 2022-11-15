@@ -1,44 +1,21 @@
-// import React, {useEffect} from 'react';
-// import axios from 'axios';
+import React, { useState } from 'react';
 
 const EditLogs = () => {
-
-  // const arrayOfLogs = []
-
-  // const arrayOfLogDisplayed = arrayOfLogs.map((e, i) => {
-  //   return `<p>Number ${i} is ${e}</p>`
-  // })
   
-  // const editLogsDisplayGrid = () => {
-  //   // if (arrayOfLogDisplayed.length === 0) {
-  //   //   return 'No logs loaded'
-  //   // } else {
-  //   //   return arrayOfLogDisplayed;
-  //   // }
-  //   return 'test'
-  // }
-  // // const testingUseEffect = () => {
-  // //   console.log('testing useEffect')
-  // // }
+  const [testState, setTestState] = useState([])
+  const [baseNumber, setBaseNumber] = useState(0)
 
-  // useEffect(() => {
-  //   axios.get('http://localhost:3000/logs')
-  //   .then(res => {
-  //     console.log('result from the get request to all logs', res)
-  //     console.log('res.data array:', res.data)
-  //     res.data.map(e => arrayOfLogs.push(e))
-  //   })
-  // })
 
-  // // const arrayOne = [1, 2, 3, 4]
+  const tester = () => {
+    let newBaseNumber = baseNumber + 1
+    setBaseNumber(newBaseNumber)
+    setTestState([...testState, baseNumber])
+  }
 
-  // // const mapTest = arrayOne.map(i => {
-  // //   return `the next number is ${i}`
-  // // })
-  
   return (
-    <div>
-      <p>editLogs.js</p>
+    <div style={{color: 'peachpuff'}}>
+      {testState}
+      <button type='button' className='btn btn-primary' onClick={() => tester()}>Test</button>
     </div>
   )
 }
