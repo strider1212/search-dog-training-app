@@ -1,24 +1,26 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import axios from 'axios';
 
 const EditLogs = () => {
   
-  let holder = []
+  const [holder, setHolder] = useState([])
   
   useEffect(() => {
     axios.get('http://localhost:3000/logs/')
     .then(res => {
-      const pusher = res.data
-      pusher.map((e) => {
-        holder.push(e)
+      console.log(res)
+      res.data.map(e => {
+        console.log(e)
+        setHolder(current => [...current, e])
       })
     })
-    .then(console.log('holder:', holder))
-  })
+  }, [])
+
 
   return (
     <div style={{color: 'peachpuff'}}>
-      test
+      {holder.map(() => 'lala')}
+      <button type='button' className="btn btn-primary" onClick={() => console.log('holder:', holder)}>Tester</button>
     </div>
   )
 }
