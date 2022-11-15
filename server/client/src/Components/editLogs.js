@@ -21,7 +21,7 @@ const EditLogs = () => {
   return (
     <div style={{color: 'peachpuff'}}>
       <div className="row">
-        <div className="col-5">
+        <div className="col-5 mx-auto">
           <ul className="list-group">{listLogs}</ul>
         </div>
       </div>
