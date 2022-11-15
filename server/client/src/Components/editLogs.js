@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const EditLogs = () => {
   
-  const [holder, setHolder] = useState([])
+  const [logsState, setLogsState] = useState([])
   
   useEffect(() => {
     axios.get('http://localhost:3000/logs/')
@@ -11,16 +11,16 @@ const EditLogs = () => {
       console.log(res)
       res.data.map(e => {
         console.log(e)
-        setHolder(current => [...current, e])
+        setLogsState(current => [...current, e])
       })
     })
   }, [])
 
+  
+
 
   return (
     <div style={{color: 'peachpuff'}}>
-      {/* {holder.map((e, i) => <p style={{color: 'peachpuff'}} key={i}>{e}</p>)} */}
-      <button type='button' className="btn btn-primary" onClick={() => console.log('holder:', holder)}>Tester</button>
     </div>
   )
 }
