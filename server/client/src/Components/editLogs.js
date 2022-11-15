@@ -16,7 +16,7 @@ const EditLogs = () => {
     })
   }, [])
 
-  const listLogs = logsState.map(log => String(<li>{log.address}</li>))
+  const listLogs = logsState.map(log => <li>{log.address}</li>)
 
 
   return (
