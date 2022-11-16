@@ -23,7 +23,7 @@ const EditLogs = () => {
       <li 
       key={index} 
       className="list-group-item list-group-item-action">
-      {`${formattedDate}: ${log.address}`}
+      {`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`}
       </li>
     )
   })
