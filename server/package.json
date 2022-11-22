@@ -19,7 +19,6 @@
   "homepage": "https://github.com/strider1212/search-dog-training-app#readme",
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.3.16",
-    "@reduxjs/toolkit": "^1.9.0",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
@@ -39,7 +38,8 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "query-string": "^7.1.1",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
