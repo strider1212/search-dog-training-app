@@ -96,7 +96,6 @@ router.post('/defaultAutRequest', requireAuth, (req, res) => {
 })
 
 router.get('/', (req, res) => {
-  console.log('token: ', req.headers.authorizationtoken)
   getAll(Log, res);
 })
 
