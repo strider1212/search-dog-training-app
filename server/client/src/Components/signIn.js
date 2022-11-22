@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { submitHandler } from '../utils/submitHandler';
 import { useDispatch } from 'react-redux';
+import { currentUserToState } from '../Redux/actions';
 
 const SignIn = () => {
   const initialState = {
@@ -31,6 +32,7 @@ const SignIn = () => {
         })
         .then((res) => {
           localStorage.setItem('token', res.data.token)
+          dispatch(currentUserToState(formValues.username))
           navigate('/');
         })
         .catch(error => {
