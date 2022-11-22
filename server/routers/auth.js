@@ -64,7 +64,7 @@ passport.use(
 const tokenForUser = function (user) {
   return jwt.encode(
     {
-      sub: user.myID,
+      username: user.username,
       iat: Math.round(Date.now() / 1000),
       exp: Math.round(Date.now() / 1000 + 5 * 60 * 60),
     },
