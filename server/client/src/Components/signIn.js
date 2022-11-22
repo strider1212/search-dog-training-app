@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { submitHandler } from '../utils/submitHandler';
+import { useDispatch } from 'react-redux';
 
 const SignIn = () => {
   const initialState = {
@@ -15,6 +16,7 @@ const SignIn = () => {
   let initialRender = useRef(true);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if(initialRender.current) {
