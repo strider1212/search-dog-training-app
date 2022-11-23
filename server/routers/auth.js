@@ -54,7 +54,7 @@ passport.use(
 
 passport.use(
   "jwt",
-  new JwtStrategy(jwtOptions, function (payload, done) {
+  new JwtStrategy(jwtOptions, function (payload, done) {  
     return done(null, { username: payload.username });
   })
 );
