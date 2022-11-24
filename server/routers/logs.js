@@ -100,8 +100,22 @@ router.get('/', (req, res) => {
 })
 
 router.get('/username/:username', (req, res) => {
-  console.log('req.params.username: ', req.params.username)
-  res.send('still testing')
+  const username = req.params.username;
+
+  Log.findOne({log_created_by: username}, (err, log) =>{
+    if (err) {
+       console.error(err)
+       res.status(404).end()
+       return
+    }
+  
+    if (log) {
+       res.status(200).send(log)
+       return
+    }
+  
+    console.error('how did we get here?')
+  })
 })
 
 router.post('/', requireAuth, async (req, res) => {
