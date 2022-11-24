@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import { RetrieveCurrentUsernameFromToken } from '../utils/retrieveCurrentUsernameFromToken';
+
 const EditLogs = () => {
   
   const [logsState, setLogsState] = useState([])
@@ -11,7 +13,7 @@ const EditLogs = () => {
   const navigate = useNavigate()
   
   useEffect(() => {
-    axios.get(`http://localhost:3000/logs/`, {
+    axios.get(`http://localhost:3000/logs/username/${RetrieveCurrentUsernameFromToken()}`, {
       headers: {
         authorizationToken: tokenFromLocalStorage
       }
