@@ -11,6 +11,7 @@ import IndividualRuns from "./Components/individualRuns";
 import SignUp from "./Components/signUp";
 import SignIn from "./Components/signIn";
 import EditLogs from "./Components/editLogs";
+import ViewAllLogs from "./Components/viewAllLogs";
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
         <Route path='/individualRuns' element={<IndividualRuns />}/>
         <Route path='/signUp' element={<SignUp />}/>
         <Route path='/signIn' element={<SignIn />}/>
-        <Route path='editLogs' element={<EditLogs />} />
+        <Route path='/editLogs' element={<EditLogs />} />
+        <Route path='/viewAllLogs' element={<ViewAllLogs />} />
       </Routes>
     </div>
     
