@@ -60,12 +60,17 @@ const Home = () => {
         <div className="col-lg">
           <div className="row home-margin">
             <div className="col">
-              <button type="button" className="btn btn-primary" onClick={() => newLogClickHandler()}>New Log</button>
+              <button type="button" className="btn btn-primary" onClick={() => newLogClickHandler()}>Create New Log</button>
             </div>
           </div>
           <div className="row home-margin">
             <div className="col">
               <button type="button" className="btn btn-primary" onClick={() => editLogsClickHandler()}>Edit My Logs</button>
+            </div>
+          </div>
+          <div className="row home-margin">
+            <div className="col">
+              <button type="button" className="btn btn-primary" onClick={() => editLogsClickHandler()}>View All Logs</button>
             </div>
           </div>
         </div>
