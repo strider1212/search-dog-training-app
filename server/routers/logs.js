@@ -102,7 +102,7 @@ router.get('/', (req, res) => {
 router.get('/username/:username', (req, res) => {
   const username = req.params.username;
 
-  Log.findOne({log_created_by: username}, (err, log) =>{
+  Log.find({log_created_by: username}, (err, log) =>{
     if (err) {
        console.error(err)
        res.status(404).end()
