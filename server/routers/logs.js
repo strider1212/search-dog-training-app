@@ -99,6 +99,11 @@ router.get('/', (req, res) => {
   getAll(Log, res);
 })
 
+router.get('/username/:username', (req, res) => {
+  console.log('req.params.username: ', req.params.username)
+  res.send('still testing')
+})
+
 router.post('/', requireAuth, async (req, res) => {
   let postLog = new Log({
     //populated automatically in the front end
