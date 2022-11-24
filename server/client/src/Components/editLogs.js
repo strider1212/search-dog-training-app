@@ -30,11 +30,13 @@ const EditLogs = () => {
 
   const listLogs = logsState.map((log, index) => {
     const formattedDate = new Date(log.date);
+    
     return (
       <li 
       key={index} 
       className="list-group-item list-group-item-action">
-      {`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`}
+      {`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`} 
+      <button type='button' className="btn btn-danger">Delete</button>
       </li>
     )
   })
