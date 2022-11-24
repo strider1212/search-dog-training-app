@@ -42,7 +42,7 @@ const NewLog = () => {
       const postForm = () => {
         let logId;
         axios.post(`http://localhost:3000/logs`, {
-          log_created_by: formValues.createdBy,
+          log_created_by: decodedUsername,
           date: formValues.date,
           address: formValues.address, 
           team: formValues.team, 
