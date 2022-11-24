@@ -28,7 +28,9 @@ const EditLogs = () => {
 
   const deleteSelectedLog = (index) => {
     const logId = logsState[index]._id
-    console.log('Testing logId: ', logId)
+    console.log('logsState before delete: ', logsState)
+    axios.delete(`http://localhost:3000/logs/${logId}`)
+    .then(() => console.log('logsState after deletion: ', logsState))
   }
 
   const listLogs = logsState.map((log, index) => {
