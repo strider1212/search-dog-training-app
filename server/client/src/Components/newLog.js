@@ -19,7 +19,7 @@ const NewLog = () => {
     address: '',
     team: ''
   }
-  const initialStateArray = ['createdBy', 'date', 'time', 'address', 'team'];
+  const initialStateArray = ['date', 'time', 'address', 'team'];
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -116,8 +116,6 @@ const NewLog = () => {
       <h2>Date and Time</h2>
       <form>
         {/* Eventually auto populated */}
-        <p>{formErrors.createdBy}</p>
-        {formPopulater('log_created_by', 'Created By', 'text', 'Your Name...', setFormValue, formValues, 'createdBy')}
         <p>{formErrors.team}</p>
         {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')}
 
