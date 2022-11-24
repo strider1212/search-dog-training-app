@@ -65,7 +65,7 @@ const Home = () => {
           </div>
           <div className="row home-margin">
             <div className="col">
-              <button type="button" className="btn btn-primary" onClick={() => editLogsClickHandler()}>Edit Logs</button>
+              <button type="button" className="btn btn-primary" onClick={() => editLogsClickHandler()}>Edit My Logs</button>
             </div>
           </div>
         </div>
