@@ -28,9 +28,11 @@ const EditLogs = () => {
 
   const deleteSelectedLog = (index) => {
     const logId = logsState[index]._id
-    console.log('logsState before delete: ', logsState)
     axios.delete(`http://localhost:3000/logs/${logId}`)
-    .then(() => console.log('logsState after deletion: ', logsState))
+    .then(() => setLogsState([
+      ...logsState.slice(0, index),
+      ...logsState.slice(index + 1, logsState.length)
+    ]))
   }
 
   const listLogs = logsState.map((log, index) => {
@@ -40,7 +42,7 @@ const EditLogs = () => {
       <li 
       key={index} 
       className="list-group-item list-group-item-action">
-      {`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`} 
+      {`Log ID#: ${log._id}/${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`} 
       <button type='button' className="btn btn-danger" onClick={() => deleteSelectedLog(index)}>Delete</button>
       </li>
     )
@@ -50,7 +52,6 @@ const EditLogs = () => {
   return (
     <div style={{color: 'peachpuff'}}>
       <button type="button" className="btn btn-secondary" onClick={() => navigate('/')}>Go Back</button>
-      <button type="button" className="btn btn-secondary" onClick={() => console.log(logsState[1]._id)}>Test Log State</button>
       <div className="row">
         <div className="col-5 mx-auto">
           <ul className="list-group">{listLogs}</ul>
