@@ -4,6 +4,7 @@ import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { submitHandler } from '../utils/submitHandler';
 import { getDifferenceInHours } from '../utils/getDifferenceInHours';
+import { RetrieveCurrentUsernameFromToken } from '../utils/retrieveCurrentUsernameFromToken';
 
 import { HeaderInsert } from '../utils/headerInsert';
 import { AuthorizationAlert } from '../utils/authorizationAlert';
@@ -30,6 +31,9 @@ const NewLog = () => {
   const token = localStorage.getItem('token')
   const decoded = jwt_decode(token);
   const decodedUsername = decoded.username
+
+  console.log('new function working?: ', RetrieveCurrentUsernameFromToken() )
+
 
   //HOOKS
   let navigate = useNavigate();

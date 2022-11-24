@@ -11,7 +11,7 @@ const EditLogs = () => {
   const navigate = useNavigate()
   
   useEffect(() => {
-    axios.get('http://localhost:3000/logs/', {
+    axios.get(`http://localhost:3000/logs/`, {
       headers: {
         authorizationToken: tokenFromLocalStorage
       }
