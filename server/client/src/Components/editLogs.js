@@ -26,7 +26,10 @@ const EditLogs = () => {
     })
   }, [])
 
-  
+  const deleteSelectedLog = (index) => {
+    const logId = logsState[index]._id
+    console.log('Testing logId: ', logId)
+  }
 
   const listLogs = logsState.map((log, index) => {
     const formattedDate = new Date(log.date);
@@ -36,7 +39,7 @@ const EditLogs = () => {
       key={index} 
       className="list-group-item list-group-item-action">
       {`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`} 
-      <button type='button' className="btn btn-danger">Delete</button>
+      <button type='button' className="btn btn-danger" onClick={() => deleteSelectedLog(index)}>Delete</button>
       </li>
     )
   })
@@ -45,6 +48,7 @@ const EditLogs = () => {
   return (
     <div style={{color: 'peachpuff'}}>
       <button type="button" className="btn btn-secondary" onClick={() => navigate('/')}>Go Back</button>
+      <button type="button" className="btn btn-secondary" onClick={() => console.log(logsState[1]._id)}>Test Log State</button>
       <div className="row">
         <div className="col-5 mx-auto">
           <ul className="list-group">{listLogs}</ul>
