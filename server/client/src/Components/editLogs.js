@@ -37,12 +37,15 @@ const EditLogs = () => {
 
   const listLogs = logsState.map((log, index) => {
     const formattedDate = new Date(log.date);
+    const logId = log._id
+    const readableId = logId.slice(logId.length - 4, logId.length)
     
     return (
       <li 
       key={index} 
       className="list-group-item list-group-item-action">
-      {`Log ID#: ${log._id}/${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`} 
+      <div>{`ID#: ${readableId}`}</div>
+      <div>{`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`}</div>
       <button type='button' className="btn btn-danger" onClick={() => deleteSelectedLog(index)}>Delete</button>
       </li>
     )
@@ -53,7 +56,7 @@ const EditLogs = () => {
     <div style={{color: 'peachpuff'}}>
       <button type="button" className="btn btn-secondary" onClick={() => navigate('/')}>Go Back</button>
       <div className="row">
-        <div className="col-5 mx-auto">
+        <div className="col-7 mx-auto">
           <ul className="list-group">{listLogs}</ul>
         </div>
       </div>
