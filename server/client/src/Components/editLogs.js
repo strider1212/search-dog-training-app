@@ -9,7 +9,7 @@ const EditLogs = () => {
   const [logsState, setLogsState] = useState([])
 
   const tokenFromLocalStorage = localStorage.getItem('token')
-
+  
   const navigate = useNavigate()
   
   useEffect(() => {
@@ -36,9 +36,9 @@ const EditLogs = () => {
   }
 
   const listLogs = logsState.map((log, index) => {
-    const formattedDate = new Date(log.date);
     const logId = log._id
     const readableId = logId.slice(logId.length - 4, logId.length)
+    const formattedDate = new Date(log.date);
     
     return (
       <li 
@@ -53,7 +53,7 @@ const EditLogs = () => {
 
 
   return (
-    <div style={{color: 'peachpuff'}}>
+    <div>
       <button type="button" className="btn btn-secondary" onClick={() => navigate('/')}>Go Back</button>
       <div className="row">
         <div className="col-7 mx-auto">
