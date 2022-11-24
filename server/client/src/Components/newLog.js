@@ -8,7 +8,6 @@ import { RetrieveCurrentUsernameFromToken } from '../utils/retrieveCurrentUserna
 
 import { HeaderInsert } from '../utils/headerInsert';
 import { AuthorizationAlert } from '../utils/authorizationAlert';
-import jwt_decode from "jwt-decode";
 
 const NewLog = () => {
 
@@ -26,12 +25,6 @@ const NewLog = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   let initialRender = useRef(true);
   // let autoTemp = useRef(0);
-
-  //decode username from jwt token
-  // const token = localStorage.getItem('token')
-  // const decoded = jwt_decode(token);
-  // const decodedUsername = decoded.username
-
 
   //HOOKS
   let navigate = useNavigate();
