@@ -28,11 +28,9 @@ const NewLog = () => {
   // let autoTemp = useRef(0);
 
   //decode username from jwt token
-  const token = localStorage.getItem('token')
-  const decoded = jwt_decode(token);
-  const decodedUsername = decoded.username
-
-  console.log('new function working?: ', RetrieveCurrentUsernameFromToken() )
+  // const token = localStorage.getItem('token')
+  // const decoded = jwt_decode(token);
+  // const decodedUsername = decoded.username
 
 
   //HOOKS
@@ -46,7 +44,7 @@ const NewLog = () => {
       const postForm = () => {
         let logId;
         axios.post(`http://localhost:3000/logs`, {
-          log_created_by: decodedUsername,
+          log_created_by: RetrieveCurrentUsernameFromToken(),
           date: formValues.date,
           address: formValues.address, 
           team: formValues.team, 
