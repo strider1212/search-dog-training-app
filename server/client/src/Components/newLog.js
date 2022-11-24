@@ -4,21 +4,12 @@ import axios from 'axios';
 import { formPopulater } from '../utils/formPopulater';
 import { submitHandler } from '../utils/submitHandler';
 import { getDifferenceInHours } from '../utils/getDifferenceInHours';
-import jwt_decode from "jwt-decode";
-
 
 import { HeaderInsert } from '../utils/headerInsert';
 import { AuthorizationAlert } from '../utils/authorizationAlert';
+import jwt_decode from "jwt-decode";
 
 const NewLog = () => {
-
-  //testing jwt-decode
-  const token = localStorage.getItem('token')
-  const decoded = jwt_decode(token);
-  const decodedUsername = decoded.username
-
- 
-  console.log('decoded token username: ', decodedUsername); 
 
   //STATE
   const initialState = {
@@ -34,6 +25,11 @@ const NewLog = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   let initialRender = useRef(true);
   // let autoTemp = useRef(0);
+
+  //decode username from jwt token
+  const token = localStorage.getItem('token')
+  const decoded = jwt_decode(token);
+  const decodedUsername = decoded.username
 
   //HOOKS
   let navigate = useNavigate();
