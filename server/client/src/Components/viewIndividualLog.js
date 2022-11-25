@@ -131,19 +131,7 @@ const ViewIndividualLog = () => {
             {RenderHeader('General Info')}
             <div className="row">
               {RenderColumn(RenderIndividualInfo('', individualLogValues.address), RenderIndividualInfo('Created by: ', individualLogValues.log_created_by, ''))}
-              {RenderColumn(dateAndTimeInfo)}
-              {/* <div className="col">
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    {`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}`} @ {individualLogValues.time}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Team: {individualLogValues.team}
-                  </div>
-                </div>
-              </div> */}
+              {RenderColumn(dateAndTimeInfo, RenderIndividualInfo('Team: ', individualLogValues.team))}
             </div>
             {RenderHeader('Weather Info')}
             <div className="row">
