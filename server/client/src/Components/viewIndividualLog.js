@@ -125,7 +125,7 @@ const ViewIndividualLog = () => {
               </div>
               <div className="col">
                 <div className="row view-individual-log-top-row text-white">{`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}`} @ {individualLogValues.time}</div>
-                <div className="row view-individual-log-top-row text-white">Address</div>
+                <div className="row view-individual-log-top-row text-white">Team: {individualLogValues.team}</div>
               </div>
             </div>
           </div>
