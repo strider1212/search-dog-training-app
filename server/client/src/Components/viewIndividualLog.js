@@ -69,7 +69,17 @@ const ViewIndividualLog = () => {
       submerged: '',
       temperature: '',
       water_type: ''
+    },
+    weather: {
+      humidity: '',
+      temperature: ''
     }
+
+    // weather
+      // humidity
+      // temperature
+      // weather
+      // wind_speed
   }
   
   const [individualLogValues, setIndividualLogValues] = useState(initialState)
