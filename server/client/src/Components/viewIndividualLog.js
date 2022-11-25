@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ViewIndividualLog = () => {
 
-  const standInLogId = '637f502fe5a2feca81424f15'
+  const logIdFromProps = '637f502fe5a2feca81424f15'
 
   const initialState = {
     address: '',
@@ -51,7 +51,7 @@ const ViewIndividualLog = () => {
   const [individualLogValues, setIndividualLogValues] = useState(initialState)
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/logs/${standInLogId}`)
+    axios.get(`http://localhost:3000/logs/${logIdFromProps}`)
     .then(res => {
       console.log('res from individual log get():', res.data)
       setIndividualLogValues({
