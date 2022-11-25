@@ -22,7 +22,7 @@ const ViewIndividualLog = () => {
 
   return (
     <div>
-      <div style={{color: 'white'}}>View Inidividual Logs here</div>
+      <div style={{color: 'white'}}>{addressState}</div>
       <button type="button" className="btn btn-primary" onClick={() => console.log(addressState)}>Tester</button>
     </div>
   )
