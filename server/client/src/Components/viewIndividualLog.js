@@ -47,7 +47,14 @@ const ViewIndividualLog = () => {
     date: '',
     log_created_by: '',
     team: '',
-    time: ''
+    time: '',
+    individual_runs: {
+      blind: '',
+      distractions: '',
+      k9: '',
+      notes: '',
+      times: ''
+    }
   }
   
   const [individualLogValues, setIndividualLogValues] = useState(initialState)
@@ -66,18 +73,27 @@ const ViewIndividualLog = () => {
         // team
         team: res.data.team,
         // time
-        time: res.data.time
+        time: res.data.time,
+        individual_runs: {
+          blind: res.data.individual_runs.blind,
+          // distractions
+          distractions: res.data.individual_runs.distractions,
+          // k9
+          k9: res.data.individual_runs.k9,
+          // notes
+          notes: res.data.individual_runs.notes,
+          // times
+          times: res.data.individual_runs.times
+        }
+        // blind
+        
       })
     })
   })
 
   return (
     <div>
-      <div style={{color: 'white'}}>Address: {individualLogValues.address}</div>
-      <div style={{color: 'white'}}>Date: {individualLogValues.date}</div>
-      <div style={{color: 'white'}}>Log Creator: {individualLogValues.log_created_by}</div>
-      <div style={{color: 'white'}}>Team: {individualLogValues.team}</div>
-      <div style={{color: 'white'}}>Time: {individualLogValues.time}</div>
+      <div style={{color: 'turquoise'}}>Stand in</div>
     </div>
   )
 }
