@@ -72,14 +72,10 @@ const ViewIndividualLog = () => {
     },
     weather: {
       humidity: '',
-      temperature: ''
+      temperature: '',
+      weather: '',
+      wind_speed: ''
     }
-
-    // weather
-      // humidity
-      // temperature
-      // weather
-      // wind_speed
   }
   
   const [individualLogValues, setIndividualLogValues] = useState(initialState)
@@ -125,7 +121,19 @@ const ViewIndividualLog = () => {
           submerged: res.data.water.submerged,
           temperature: res.data.water.temperature,
           water_type: res.data.water.water_type
+        },
+        weather: {
+          humidity: res.data.weather.humidity,
+          temperature: res.data.weather.temperature,
+          weather: res.data.weather.weather,
+          wind_speed: res.data.weather.wind_speed
         }
+
+        // weather
+          // humidity
+          // temperature
+          // weather
+          // wind_speed
       })
     })
   })
