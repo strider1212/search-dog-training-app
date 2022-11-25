@@ -129,18 +129,18 @@ const ViewIndividualLog = () => {
         <div className="row grey-background">
           <div className="col">
             {RenderHeader('General Info')}
-            <div className="row">
-              {RenderColumn(RenderIndividualInfo('', individualLogValues.address), RenderIndividualInfo('Created by: ', individualLogValues.log_created_by, ''))}
-              {RenderColumn(dateAndTimeInfo, RenderIndividualInfo('Team: ', individualLogValues.team))}
-            </div>
+              <div className="row">
+                {RenderColumn(
+                  RenderIndividualInfo('', individualLogValues.address), 
+                  RenderIndividualInfo('Created by: ', individualLogValues.log_created_by, ''))}
+                {RenderColumn(
+                  dateAndTimeInfo, 
+                  RenderIndividualInfo('Team: ', individualLogValues.team))}
+              </div>
             {RenderHeader('Weather Info')}
             <div className="row">
               <div className="col">
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Weather Description: {individualLogValues.weather.weather}
-                  </div>
-                </div>
+                {RenderIndividualInfo('Weather Description: ', individualLogValues.weather.weather)}
                 <div className="row">
                   <div className="col view-individual-log-main">
                     Humidy: {individualLogValues.weather.humidity}%
