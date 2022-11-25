@@ -119,6 +119,11 @@ const ViewIndividualLog = () => {
         <div className="row grey-background">
           <div className="col">
             <div className="row">
+              <div className="col view-individual-log-header">
+                General Info:
+              </div>
+            </div>
+            <div className="row">
               <div className="col">
                 <div className="row">
                   <div className="col view-individual-log-top-row">
