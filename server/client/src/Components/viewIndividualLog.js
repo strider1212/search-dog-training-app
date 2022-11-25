@@ -44,18 +44,37 @@ const ViewIndividualLog = () => {
 
   const [addressState, setAddressState] = useState('')
 
+  const initialState = {
+    address: ''
+  }
+  
+  const [individualLogValues, setIndividualLogValues] = useState(initialState)
+
   useEffect(() => {
     axios.get(`http://localhost:3000/logs/${standInLogId}`)
     .then(res => {
-      console.log(res.data)
-      return setAddressState(res.data.address)
+      setIndividualLogValues({
+        ...individualLogValues,
+        address: res.data.address
+      })
     })
   })
+
+  
+
+  const stateTesterHandler = () => {
+    setIndividualLogValues({
+      ...individualLogValues,
+      address: 'here'
+    })
+    console.log(individualLogValues)
+  }
 
   return (
     <div>
       <div style={{color: 'white'}}>{addressState}</div>
       <button type="button" className="btn btn-primary" onClick={() => console.log(addressState)}>Tester</button>
+      <button type="button" className="btn btn-primary" onClick={() => stateTesterHandler()}>State Tester</button>
     </div>
   )
 }
