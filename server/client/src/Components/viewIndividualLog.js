@@ -180,6 +180,42 @@ const ViewIndividualLog = () => {
                 </div>
               </div>
             </div>
+            <div className="row">
+              <div className="col view-individual-log-header">
+                Time and Mileage:
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Mileage: {individualLogValues.hours_and_stats.mileage}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Training Hours: {individualLogValues.hours_and_stats.training_hours}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Total Hours: {individualLogValues.hours_and_stats.total_hours}
+                  </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Tolls: {individualLogValues.hours_and_stats.tolls}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Travel Hours: {individualLogValues.hours_and_stats.travel_hours}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
