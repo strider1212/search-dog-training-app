@@ -149,37 +149,17 @@ const ViewIndividualLog = () => {
                 )}
               </div>
             {RenderHeader('Time and Mileage')}
-            <div className="row">
-              <div className="col">
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Mileage: {individualLogValues.hours_and_stats.mileage}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Training Hours: {individualLogValues.hours_and_stats.training_hours}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Total Hours: {individualLogValues.hours_and_stats.total_hours}
-                  </div>
-                </div>
+              <div className="row">
+                {RenderColumn(
+                  RenderIndividualInfo('Mileage: ', individualLogValues.hours_and_stats.mileage),
+                  RenderIndividualInfo('Training Hours: ', individualLogValues.hours_and_stats.training_hours),
+                  RenderIndividualInfo('Total Hours: ', individualLogValues.hours_and_stats.total_hours)
+                )}
+                {RenderColumn(
+                  RenderIndividualInfo('Tolls: ', individualLogValues.hours_and_stats.tolls),
+                  RenderIndividualInfo('Travel Hours: ', individualLogValues.hours_and_stats.travel_hours)
+                )}
               </div>
-              <div className="col">
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Tolls: {individualLogValues.hours_and_stats.tolls}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Travel Hours: {individualLogValues.hours_and_stats.travel_hours}
-                  </div>
-                </div>
-              </div>
-            </div>
             {RenderHeader('Training Information')}
             <div className="row">
               <div className="col">
