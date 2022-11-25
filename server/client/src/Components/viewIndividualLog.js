@@ -152,7 +152,7 @@ const ViewIndividualLog = () => {
                   RenderIndividualInfo('Humidity: ', individualLogValues.weather.humidity, '%')
                 )}
                 {RenderColumn(
-                  RenderIndividualInfo('Temperature: ', individualLogValues.weather.temperature, '°'),
+                  RenderIndividualInfo('Temperature: ', individualLogValues.weather.temperature, '°F'),
                   RenderIndividualInfo('Wind speed: ', individualLogValues.weather.wind_speed, ' mph')
                 )}
               </div>
@@ -189,7 +189,9 @@ const ViewIndividualLog = () => {
                   RenderIndividualInfo('Salt Water?: ', booleanRenderer(individualLogValues.water.salt_water))
                 )}
                 {RenderColumn(
-                  RenderIndividualInfo('Open Water?: ', )
+                  RenderIndividualInfo('Open Water?: ', booleanRenderer(individualLogValues.water.open)),
+                  RenderIndividualInfo('Depth: ', individualLogValues.water.depth, ' ft.'),
+                  RenderIndividualInfo('Temperature: ', individualLogValues.water.temperature, '°F')
                 )}
               </div>
           </div>
