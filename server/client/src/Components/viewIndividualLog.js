@@ -111,7 +111,13 @@ const ViewIndividualLog = () => {
 
   return (
     <div>
-      <div style={{color: 'turquoise'}}>Stand in</div>
+      <div className="container">
+        <div className="row grey-background">
+          <div className="col">
+            
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
