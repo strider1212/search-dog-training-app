@@ -61,6 +61,14 @@ const ViewIndividualLog = () => {
       scent_source: '',
       source_container: '',
       training_type: ''
+    },
+    water: {
+      depth: '',
+      open: '',
+      salt_water: '',
+      submerged: '',
+      temperature: '',
+      water_type: ''
     }
   }
   
@@ -99,15 +107,15 @@ const ViewIndividualLog = () => {
           scent_source: res.data.training_info.scent_source,
           source_container: res.data.training_info.source_container,
           training_type: res.data.training_info.training_type
+        },
+        water: {
+          depth: res.data.water.depth,
+          open: res.data.water.open,
+          salt_water: res.data.water.salt_water,
+          submerged: res.data.water.submerged,
+          temperature: res.data.water.temperature,
+          water_type: res.data.water.water_type
         }
-
-
-        // training_info
-          // placed_by
-          // placement_description
-          // scent_source
-          // source_container
-          // training_type
       })
     })
   })
