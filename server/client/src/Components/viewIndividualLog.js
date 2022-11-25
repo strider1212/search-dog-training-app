@@ -138,24 +138,16 @@ const ViewIndividualLog = () => {
                   RenderIndividualInfo('Team: ', individualLogValues.team))}
               </div>
             {RenderHeader('Weather Info')}
-            <div className="row">
-              <div className="col">
-                {RenderIndividualInfo('Weather Description: ', individualLogValues.weather.weather)}
-                {RenderIndividualInfo('Humidity: ', individualLogValues.weather.humidity, '%')}
-              </div>
-              <div className="col">
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Temperature: {individualLogValues.weather.temperature}°
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Wind speed: {individualLogValues.weather.wind_speed} mph
-                  </div>
+              <div className="row">
+                {RenderColumn(
+                  RenderIndividualInfo('Weather Description: ', individualLogValues.weather.weather),
+                  RenderIndividualInfo('Humidity: ', individualLogValues.weather.humidity, '%')
+                )}
+                <div className="col">
+                  {RenderIndividualInfo('Temperature: ', individualLogValues.weather.temperature, '°')}
+                  {RenderIndividualInfo('Wind speed: ', individualLogValues.weather.wind_speed, ' mph')}
                 </div>
               </div>
-            </div>
             {RenderHeader('Time and Mileage')}
             <div className="row">
               <div className="col">
