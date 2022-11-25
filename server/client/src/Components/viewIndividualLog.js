@@ -141,11 +141,7 @@ const ViewIndividualLog = () => {
             <div className="row">
               <div className="col">
                 {RenderIndividualInfo('Weather Description: ', individualLogValues.weather.weather)}
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Humidy: {individualLogValues.weather.humidity}%
-                  </div>
-                </div>
+                {RenderIndividualInfo('Humidity: ', individualLogValues.weather.humidity, '%')}
               </div>
               <div className="col">
                 <div className="row">
