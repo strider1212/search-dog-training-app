@@ -5,43 +5,6 @@ const ViewIndividualLog = () => {
 
   const standInLogId = '637f502fe5a2feca81424f15'
 
-  /*
-    date
-    log_created_by
-    team
-    time
-    hours and stats
-      mileage
-      tolls
-      total_hours
-      training_hours
-      travel_hours
-    individual_runs
-      blind
-      distractions
-      k9
-      notes
-      times
-    training_info
-      placed_by
-      placement_description
-      scent_source
-      source_container
-      training_type
-    water
-      depth
-      open
-      salt_water
-      submerged
-      temperature
-      water_type
-    weather
-      humidity
-      temperature
-      weather
-      wind_speed
-  */
-
   const initialState = {
     address: '',
     date: '',
@@ -90,7 +53,7 @@ const ViewIndividualLog = () => {
   useEffect(() => {
     axios.get(`http://localhost:3000/logs/${standInLogId}`)
     .then(res => {
-      console.log(res.data)
+      console.log('res from individual log get():', res.data)
       setIndividualLogValues({
         ...individualLogValues,
         address: res.data.address,
