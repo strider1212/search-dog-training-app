@@ -20,7 +20,7 @@ const ViewIndividualLog = () => {
       distractions: '',
       k9: '',
       notes: '',
-      times: ''
+      time: ''
     },
     training_info: {
       placed_by: '',
@@ -191,6 +191,18 @@ const ViewIndividualLog = () => {
                 {RenderColumn(
                   RenderIndividualInfo('Depth: ', individualLogValues.water.depth, ' ft.'),
                   RenderIndividualInfo('Temperature: ', individualLogValues.water.temperature, '°F')
+                )}
+              </div>
+            {RenderHeader('Individual Runs')}
+              <div className="row">
+                {RenderColumn(
+                  RenderIndividualInfo('K9: ', individualLogValues.individual_runs.k9),
+                  RenderIndividualInfo('Blind?: ', booleanRenderer(individualLogValues.individual_runs.blind)),
+                  RenderIndividualInfo('Time: ', individualLogValues.individual_runs.time, ' minutes'),
+                )}
+                {RenderColumn(
+                  RenderIndividualInfo('Distractions: ', individualLogValues.individual_runs.distractions), 
+                  RenderIndividualInfo('Notes: ', individualLogValues.individual_runs.notes)
                 )}
               </div>
           </div>
