@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 
+import { RenderHeader } from "../utils/ViewIndividualLog/renderHeader";
+
 const ViewIndividualLog = () => {
 
   const logIdFromProps = '638123912cb3b7937f20e6b2'
@@ -118,11 +120,12 @@ const ViewIndividualLog = () => {
       <div className="container">
         <div className="row grey-background">
           <div className="col">
-            <div className="row">
+            {RenderHeader('General Info')}
+            {/* <div className="row">
               <div className="col view-individual-log-header">
                 General Info:
               </div>
-            </div>
+            </div> */}
             <div className="row">
               <div className="col">
                 <div className="row">
@@ -242,7 +245,46 @@ const ViewIndividualLog = () => {
               <div className="col">
                 <div className="row">
                   <div className="col view-individual-log-main">
-                    
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Placement Description: {individualLogValues.training_info.placement_description}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Source Container: {individualLogValues.training_info.source_container}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col view-individual-log-header">
+                Water Information:
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Training Type: {individualLogValues.training_info.training_type}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Placed by: {individualLogValues.training_info.placed_by}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Scent Source: {individualLogValues.training_info.scent_source}
+                  </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className="row">
+                  <div className="col view-individual-log-main">
                   </div>
                 </div>
                 <div className="row">
