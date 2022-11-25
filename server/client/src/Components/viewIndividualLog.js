@@ -120,12 +120,12 @@ const ViewIndividualLog = () => {
           <div className="col">
             <div className="row">
               <div className="col">
-                <div className="row view-individual-log-top-row text-white">{individualLogValues.address}</div>
-                <div className="row view-individual-log-top-row text-white">Created by: {individualLogValues.log_created_by}</div>
+                <div className="row view-individual-log-top-row">{individualLogValues.address}</div>
+                <div className="row view-individual-log-top-row">Created by: {individualLogValues.log_created_by}</div>
               </div>
               <div className="col">
-                <div className="row view-individual-log-top-row text-white">{`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}`} @ {individualLogValues.time}</div>
-                <div className="row view-individual-log-top-row text-white">Team: {individualLogValues.team}</div>
+                <div className="row view-individual-log-top-row">{`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}`} @ {individualLogValues.time}</div>
+                <div className="row view-individual-log-top-row">Team: {individualLogValues.team}</div>
               </div>
             </div>
           </div>
