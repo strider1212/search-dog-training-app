@@ -121,11 +121,6 @@ const ViewIndividualLog = () => {
         <div className="row grey-background">
           <div className="col">
             {RenderHeader('General Info')}
-            {/* <div className="row">
-              <div className="col view-individual-log-header">
-                General Info:
-              </div>
-            </div> */}
             <div className="row">
               <div className="col">
                 <div className="row">
@@ -152,11 +147,7 @@ const ViewIndividualLog = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col view-individual-log-header">
-                Weather Info:
-              </div>
-            </div>
+            {RenderHeader('Weather Info')}
             <div className="row">
               <div className="col">
                 <div className="row">
