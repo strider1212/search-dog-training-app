@@ -75,6 +75,7 @@ const ViewIndividualLog = () => {
         // time
         time: res.data.time,
         individual_runs: {
+          // blind
           blind: res.data.individual_runs.blind,
           // distractions
           distractions: res.data.individual_runs.distractions,
@@ -85,8 +86,6 @@ const ViewIndividualLog = () => {
           // times
           times: res.data.individual_runs.times
         }
-        // blind
-        
       })
     })
   })
