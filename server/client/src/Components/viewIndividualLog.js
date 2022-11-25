@@ -242,11 +242,7 @@ const ViewIndividualLog = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col view-individual-log-header">
-                Water Information:
-              </div>
-            </div>
+            {RenderHeader('Water Information')}
             <div className="row">
               <div className="col">
                 <div className="row">
