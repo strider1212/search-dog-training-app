@@ -12,6 +12,7 @@ import SignUp from "./Components/signUp";
 import SignIn from "./Components/signIn";
 import EditLogs from "./Components/editLogs";
 import ViewAllLogs from "./Components/viewAllLogs";
+import ViewIndividualLog from "./Components/viewIndividualLog";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path='/signIn' element={<SignIn />}/>
         <Route path='/editLogs' element={<EditLogs />} />
         <Route path='/viewAllLogs' element={<ViewAllLogs />} />
+        <Route path='/viewIndividualLog' element={<ViewIndividualLog />} />
       </Routes>
     </div>
     
