@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { RenderHeader } from "../utils/ViewIndividualLog/renderHeader";
 import { RenderIndividualInfo } from "../utils/ViewIndividualLog/renderIndividualInfo";
+import { RenderColumn } from "../utils/ViewIndividualLog/renderColumn";
 
 const ViewIndividualLog = () => {
 
@@ -123,19 +124,11 @@ const ViewIndividualLog = () => {
           <div className="col">
             {RenderHeader('General Info')}
             <div className="row">
-              <div className="col">
+              {RenderColumn(RenderIndividualInfo('', individualLogValues.address), RenderIndividualInfo('Created by: ', individualLogValues.log_created_by, ''))}
+              {/* <div className="col">
                 {RenderIndividualInfo('', individualLogValues.address)}
-                {/* <div className="row">
-                  <div className="col view-individual-log-main">
-                    {individualLogValues.address}
-                  </div>
-                </div> */}
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Created by: {individualLogValues.log_created_by}
-                  </div>
-                </div>
-              </div>
+                {RenderIndividualInfo('Created by: ', individualLogValues.log_created_by, '')}
+              </div> */}
               <div className="col">
                 <div className="row">
                   <div className="col view-individual-log-main">
