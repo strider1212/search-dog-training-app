@@ -75,6 +75,13 @@ const ViewIndividualLog = () => {
       temperature: '',
       weather: '',
       wind_speed: ''
+    },
+    hours_and_stats: {
+      mileage: '',
+      tolls: '',
+      total_hours: '',
+      training_hours: '',
+      travel_hours: ''
     }
   }
   
@@ -127,13 +134,15 @@ const ViewIndividualLog = () => {
           temperature: res.data.weather.temperature,
           weather: res.data.weather.weather,
           wind_speed: res.data.weather.wind_speed
-        }
+        },
+        
 
-        // weather
-          // humidity
-          // temperature
-          // weather
-          // wind_speed
+        // hours and stats
+          //   mileage
+          //   tolls
+          //   total_hours
+          //   training_hours
+          //   travel_hours
       })
     })
   })
