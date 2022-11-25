@@ -88,5 +88,10 @@ label {
 .view-individual-log-top-row {
   height: 80px;
   width: 100%;
-  color: #86c232;
+  color: white;
+}
+
+.view-individual-log-header {
+  font-weight: bold;
+  color: white;
 }
