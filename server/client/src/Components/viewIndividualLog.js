@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from 'axios';
 
 import { RenderHeader } from "../utils/ViewIndividualLog/renderHeader";
+import { RenderIndividualInfo } from "../utils/ViewIndividualLog/renderIndividualInfo";
 
 const ViewIndividualLog = () => {
 
@@ -123,11 +124,12 @@ const ViewIndividualLog = () => {
             {RenderHeader('General Info')}
             <div className="row">
               <div className="col">
-                <div className="row">
+                {RenderIndividualInfo('', individualLogValues.address)}
+                {/* <div className="row">
                   <div className="col view-individual-log-main">
                     {individualLogValues.address}
                   </div>
-                </div>
+                </div> */}
                 <div className="row">
                   <div className="col view-individual-log-main">
                     Created by: {individualLogValues.log_created_by}
