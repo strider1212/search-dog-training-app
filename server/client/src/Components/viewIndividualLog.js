@@ -216,6 +216,47 @@ const ViewIndividualLog = () => {
                 </div>
               </div>
             </div>
+            <div className="row">
+              <div className="col view-individual-log-header">
+                Training Information:
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Training Type: {individualLogValues.training_info.training_type}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Placed by: {individualLogValues.training_info.placed_by}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Scent Source: {individualLogValues.training_info.scent_source}
+                  </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Placement Description: {individualLogValues.training_info.placement_description}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Source Container: {individualLogValues.training_info.source_container}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
