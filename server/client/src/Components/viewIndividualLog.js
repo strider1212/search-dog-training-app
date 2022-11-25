@@ -122,6 +122,14 @@ const ViewIndividualLog = () => {
       </div>
     </div>
   )
+
+  const booleanRenderer = (boolean) => {
+    if (boolean) {
+      return 'Yes'
+    } else {
+      return 'No'
+    }
+  }
   
   return (
     <div>
@@ -174,41 +182,16 @@ const ViewIndividualLog = () => {
                 )}
               </div>
             {RenderHeader('Water Information')}
-            <div className="row">
-              <div className="col">
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Training Type: {individualLogValues.training_info.training_type}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Placed by: {individualLogValues.training_info.placed_by}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Scent Source: {individualLogValues.training_info.scent_source}
-                  </div>
-                </div>
+              <div className="row">
+                {RenderColumn(
+                  RenderIndividualInfo(),
+                  RenderIndividualInfo('Water Type: ', individualLogValues.water.water_type),
+                  RenderIndividualInfo('Salt Water?: ', booleanRenderer(individualLogValues.water.salt_water))
+                )}
+                {RenderColumn(
+                  RenderIndividualInfo('Open Water?: ', )
+                )}
               </div>
-              <div className="col">
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Placement Description: {individualLogValues.training_info.placement_description}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col view-individual-log-main">
-                    Source Container: {individualLogValues.training_info.source_container}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
