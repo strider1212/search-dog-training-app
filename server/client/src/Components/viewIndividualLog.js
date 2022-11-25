@@ -174,11 +174,7 @@ const ViewIndividualLog = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col view-individual-log-header">
-                Time and Mileage:
-              </div>
-            </div>
+            {RenderHeader('Time and Mileage')}
             <div className="row">
               <div className="col">
                 <div className="row">
