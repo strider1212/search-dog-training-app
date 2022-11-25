@@ -143,10 +143,10 @@ const ViewIndividualLog = () => {
                   RenderIndividualInfo('Weather Description: ', individualLogValues.weather.weather),
                   RenderIndividualInfo('Humidity: ', individualLogValues.weather.humidity, '%')
                 )}
-                <div className="col">
-                  {RenderIndividualInfo('Temperature: ', individualLogValues.weather.temperature, '°')}
-                  {RenderIndividualInfo('Wind speed: ', individualLogValues.weather.wind_speed, ' mph')}
-                </div>
+                {RenderColumn(
+                  RenderIndividualInfo('Temperature: ', individualLogValues.weather.temperature, '°'),
+                  RenderIndividualInfo('Wind speed: ', individualLogValues.weather.wind_speed, ' mph')
+                )}
               </div>
             {RenderHeader('Time and Mileage')}
             <div className="row">
