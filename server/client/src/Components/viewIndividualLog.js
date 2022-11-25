@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ViewIndividualLog = () => {
 
-  const logIdFromProps = '637f502fe5a2feca81424f15'
+  const logIdFromProps = '638123912cb3b7937f20e6b2'
 
   const initialState = {
     address: '',
@@ -126,25 +126,56 @@ const ViewIndividualLog = () => {
             <div className="row">
               <div className="col">
                 <div className="row">
-                  <div className="col view-individual-log-top-row">
+                  <div className="col view-individual-log-main">
                     {individualLogValues.address}
                   </div>
                 </div>
-                <div className="row view-individual-log-top-row">
-                  <div className="col view-individual-log-top-rows">
+                <div className="row">
+                  <div className="col view-individual-log-main">
                     Created by: {individualLogValues.log_created_by}
                   </div>
                 </div>
               </div>
               <div className="col">
                 <div className="row">
-                  <div className="col view-individual-log-top-row">
+                  <div className="col view-individual-log-main">
                     {`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}`} @ {individualLogValues.time}
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col view-individual-log-top-row">
+                  <div className="col view-individual-log-main">
                     Team: {individualLogValues.team}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col view-individual-log-header">
+                Weather Info:
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Weather Description: {individualLogValues.weather.weather}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Humidy: {individualLogValues.weather.humidity}%
+                  </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Temperature: {individualLogValues.weather.temperature}°
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col view-individual-log-main">
+                    Wind speed: {individualLogValues.weather.wind_speed} mph
                   </div>
                 </div>
               </div>
