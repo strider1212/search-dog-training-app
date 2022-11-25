@@ -184,12 +184,11 @@ const ViewIndividualLog = () => {
             {RenderHeader('Water Information')}
               <div className="row">
                 {RenderColumn(
-                  RenderIndividualInfo(),
+                  RenderIndividualInfo('Open Water?: ', booleanRenderer(individualLogValues.water.open)),
                   RenderIndividualInfo('Water Type: ', individualLogValues.water.water_type),
                   RenderIndividualInfo('Salt Water?: ', booleanRenderer(individualLogValues.water.salt_water))
                 )}
                 {RenderColumn(
-                  RenderIndividualInfo('Open Water?: ', booleanRenderer(individualLogValues.water.open)),
                   RenderIndividualInfo('Depth: ', individualLogValues.water.depth, ' ft.'),
                   RenderIndividualInfo('Temperature: ', individualLogValues.water.temperature, '°F')
                 )}
