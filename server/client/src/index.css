@@ -84,3 +84,8 @@ label {
 .grey-background {
   background-color: #474b4f;
 }
+
+.view-individual-log-top-row {
+  margin: 20px auto;
+  width: 80%;
+}

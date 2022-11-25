@@ -109,12 +109,25 @@ const ViewIndividualLog = () => {
     })
   })
 
+  const formattedDate = new Date(individualLogValues.date)
+
+  
+
   return (
     <div>
       <div className="container">
         <div className="row grey-background">
           <div className="col">
-            
+            <div className="row">
+              <div className="col">
+                <div className="row view-individual-log-top-row text-white">{individualLogValues.address}</div>
+                <div className="row view-individual-log-top-row text-white">Created by: {individualLogValues.log_created_by}</div>
+              </div>
+              <div className="col">
+                <div className="row view-individual-log-top-row text-white">{`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}`} @ {individualLogValues.time}</div>
+                <div className="row view-individual-log-top-row text-white">Address</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
