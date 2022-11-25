@@ -43,7 +43,11 @@ const ViewIndividualLog = () => {
   */
 
   const initialState = {
-    address: ''
+    address: '',
+    date: '',
+    log_created_by: '',
+    team: '',
+    time: ''
   }
   
   const [individualLogValues, setIndividualLogValues] = useState(initialState)
@@ -51,17 +55,29 @@ const ViewIndividualLog = () => {
   useEffect(() => {
     axios.get(`http://localhost:3000/logs/${standInLogId}`)
     .then(res => {
-      console.log(res)
+      console.log(res.data)
       setIndividualLogValues({
         ...individualLogValues,
-        address: res.data.address
+        address: res.data.address,
+        // date
+        date: res.data.date,
+        // log_created_by
+        log_created_by: res.data.log_created_by,
+        // team
+        team: res.data.team,
+        // time
+        time: res.data.time
       })
     })
   })
 
   return (
     <div>
-      <div style={{color: 'white'}}>{individualLogValues.address}</div>
+      <div style={{color: 'white'}}>Address: {individualLogValues.address}</div>
+      <div style={{color: 'white'}}>Date: {individualLogValues.date}</div>
+      <div style={{color: 'white'}}>Log Creator: {individualLogValues.log_created_by}</div>
+      <div style={{color: 'white'}}>Team: {individualLogValues.team}</div>
+      <div style={{color: 'white'}}>Time: {individualLogValues.time}</div>
     </div>
   )
 }
