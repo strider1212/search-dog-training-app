@@ -135,14 +135,13 @@ const ViewIndividualLog = () => {
           weather: res.data.weather.weather,
           wind_speed: res.data.weather.wind_speed
         },
-        
-
-        // hours and stats
-          //   mileage
-          //   tolls
-          //   total_hours
-          //   training_hours
-          //   travel_hours
+        hours_and_stats: {
+          mileage: res.data.hours_and_stats.mileage,
+          tolls: res.data.hours_and_stats.tolls,
+          total_hours: res.data.hours_and_stats.total_hours,
+          training_hours: res.data.hours_and_stats.training_hours,
+          travel_hours: res.data.hours_and_stats.travel_hours
+        }
       })
     })
   })
