@@ -41,13 +41,14 @@ const EditLogs = () => {
     const formattedDate = new Date(log.date);
     
     return (
-      <li 
+      <button 
+      type="button"
       key={index} 
       className="list-group-item list-group-item-action">
       <div>{`ID#: ${readableId}`}</div>
       <div>{`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`}</div>
       <button type='button' className="btn btn-danger" onClick={() => deleteSelectedLog(index)}>Delete</button>
-      </li>
+      </button>
     )
   })
 
