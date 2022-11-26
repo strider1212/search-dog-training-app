@@ -47,7 +47,7 @@ const EditLogs = () => {
       <li 
         type="button"
         key={index} 
-        className="list-group-item list-group-item-action">
+        className="list-group-item list-group-item-action light-grey-background text-white">
         <div>{`ID#: ${readableId}`}</div>
         <div>{`${formattedMonth}/${formattedDay}/${formattedDate.getFullYear()}: ${log.address}`}</div>
         <button type='button' className="btn btn-danger" onClick={() => deleteSelectedLog(index)}>Delete</button>

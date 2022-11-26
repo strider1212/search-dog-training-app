@@ -85,6 +85,10 @@ label {
   background-color: #474b4f;
 }
 
+.light-grey-background {
+  background-color: #6b6e70;
+}
+
 .view-individual-log-main {
   height: 80px;
   width: 100%;
