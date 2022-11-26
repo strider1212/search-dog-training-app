@@ -59,7 +59,6 @@ const ViewIndividualLog = () => {
   useEffect(() => {
     axios.get(`http://localhost:3000/logs/${logIdFromProps}`)
     .then(res => {
-      console.log('res from individual log get():', res.data)
       setIndividualLogValues({
         ...individualLogValues,
         address: res.data.address,
