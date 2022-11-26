@@ -35,8 +35,8 @@ const EditLogs = () => {
     ]))
   }
 
-  const navigateToIndividualLog = () => {
-    navigate('/viewIndividualLog')
+  const navigateToIndividualLog = (Id) => {
+    navigate('/viewIndividualLog', {state: {_id: Id}})
   }
 
   const listLogs = logsState.map((log, index) => {
@@ -51,7 +51,7 @@ const EditLogs = () => {
       <li 
         key={index} 
         className="list-group-item list-group-item-action light-grey-background text-white"
-        onClick={() => navigateToIndividualLog()}
+        onClick={() => navigateToIndividualLog(logId)}
         >
           <div>{`ID#: ${readableId}`}</div>
           <div>{`${formattedMonth}/${formattedDay}/${formattedDate.getFullYear()}: ${log.address}`}</div>

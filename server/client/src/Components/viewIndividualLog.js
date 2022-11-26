@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 
 import { RenderHeader } from "../utils/ViewIndividualLog/renderHeader";
@@ -7,9 +7,11 @@ import { RenderIndividualInfo } from "../utils/ViewIndividualLog/renderIndividua
 import { RenderColumn } from "../utils/ViewIndividualLog/renderColumn";
 
 const ViewIndividualLog = () => {
+  const location = useLocation()
+  
   const navigate = useNavigate()
 
-  const logIdFromProps = '638123912cb3b7937f20e6b2'
+  const logIdFromProps = location.state._id;
 
   const initialState = {
     address: '',
