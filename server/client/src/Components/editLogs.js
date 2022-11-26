@@ -7,6 +7,7 @@ import { RetrieveCurrentUsernameFromToken } from '../utils/retrieveCurrentUserna
 const EditLogs = () => {
   
   const [logsState, setLogsState] = useState([])
+  console.log('logState: ', logsState)
 
   const tokenFromLocalStorage = localStorage.getItem('token')
   
@@ -41,14 +42,14 @@ const EditLogs = () => {
     const formattedDate = new Date(log.date);
     
     return (
-      <button 
-      type="button"
-      key={index} 
-      className="list-group-item list-group-item-action">
-      <div>{`ID#: ${readableId}`}</div>
-      <div>{`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`}</div>
-      <button type='button' className="btn btn-danger" onClick={() => deleteSelectedLog(index)}>Delete</button>
-      </button>
+      <li 
+        type="button"
+        key={index} 
+        className="list-group-item list-group-item-action">
+        <div>{`ID#: ${readableId}`}</div>
+        <div>{`${formattedDate.getMonth()}/${formattedDate.getDay()}/${formattedDate.getFullYear()}: ${log.address}`}</div>
+        <button type='button' className="btn btn-danger" onClick={() => deleteSelectedLog(index)}>Delete</button>
+      </li>
     )
   })
 
