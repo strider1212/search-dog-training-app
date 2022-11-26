@@ -35,6 +35,10 @@ const EditLogs = () => {
     ]))
   }
 
+  const navigateToIndividualLog = () => {
+    console.log('testing navigateToIndividualLogHandler(): ')
+  }
+
   const listLogs = logsState.map((log, index) => {
     const logId = log._id
     const readableId = logId.slice(logId.length - 4, logId.length)
@@ -47,7 +51,7 @@ const EditLogs = () => {
       <li 
         key={index} 
         className="list-group-item list-group-item-action light-grey-background text-white"
-        onClick={() => console.log('click works')}
+        onClick={() => navigateToIndividualLog()}
         >
           <div>{`ID#: ${readableId}`}</div>
           <div>{`${formattedMonth}/${formattedDay}/${formattedDate.getFullYear()}: ${log.address}`}</div>
