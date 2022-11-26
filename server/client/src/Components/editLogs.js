@@ -36,7 +36,7 @@ const EditLogs = () => {
   }
 
   const navigateToIndividualLog = () => {
-    console.log('testing navigateToIndividualLogHandler(): ')
+    navigate('/viewIndividualLog')
   }
 
   const listLogs = logsState.map((log, index) => {
