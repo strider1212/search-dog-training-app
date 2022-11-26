@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 import { RenderHeader } from "../utils/ViewIndividualLog/renderHeader";
@@ -6,6 +7,7 @@ import { RenderIndividualInfo } from "../utils/ViewIndividualLog/renderIndividua
 import { RenderColumn } from "../utils/ViewIndividualLog/renderColumn";
 
 const ViewIndividualLog = () => {
+  const navigate = useNavigate()
 
   const logIdFromProps = '638123912cb3b7937f20e6b2'
 
@@ -133,6 +135,7 @@ const ViewIndividualLog = () => {
   
   return (
     <div>
+      <button type='button' className="btn btn-secondary" onClick={() => navigate('/editLogs')}>Go Back</button>
       <div className="container">
         <div className="row grey-background">
           <div className="col">
