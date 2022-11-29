@@ -61,8 +61,17 @@ const ViewIndividualLog = () => {
   useEffect(() => {
     axios.get(`http://localhost:3000/logs/${logIdFromProps}`)
     .then(res => {
-      if (2 + 2 === 4) {
-        console.log('test')
+      if (res.data.water !== undefined) {
+        setIndividualLogValues({
+          water: {
+              depth: res.data.water.depth,
+              open: res.data.water.open,
+              salt_water: res.data.water.salt_water,
+              submerged: res.data.water.submerged,
+              temperature: res.data.water.temperature,
+              water_type: res.data.water.water_type
+            }
+        })
       }
       setIndividualLogValues({
         ...individualLogValues,
@@ -117,7 +126,7 @@ const ViewIndividualLog = () => {
         }
       })
     })
-  })
+  }, [])
 
   const formattedDate = new Date(individualLogValues.date)
 
