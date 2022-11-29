@@ -61,6 +61,9 @@ const ViewIndividualLog = () => {
   useEffect(() => {
     axios.get(`http://localhost:3000/logs/${logIdFromProps}`)
     .then(res => {
+      if (2 + 2 === 4) {
+        console.log('test')
+      }
       setIndividualLogValues({
         ...individualLogValues,
         address: res.data.address,
@@ -91,14 +94,14 @@ const ViewIndividualLog = () => {
           source_container: res.data.training_info.source_container,
           training_type: res.data.training_info.training_type
         },
-        water: {
-          depth: res.data.water.depth,
-          open: res.data.water.open,
-          salt_water: res.data.water.salt_water,
-          submerged: res.data.water.submerged,
-          temperature: res.data.water.temperature,
-          water_type: res.data.water.water_type
-        },
+        // water: {
+        //   depth: res.data.water.depth,
+        //   open: res.data.water.open,
+        //   salt_water: res.data.water.salt_water,
+        //   submerged: res.data.water.submerged,
+        //   temperature: res.data.water.temperature,
+        //   water_type: res.data.water.water_type
+        // },
         weather: {
           humidity: res.data.weather.humidity,
           temperature: res.data.weather.temperature,
@@ -207,8 +210,8 @@ const ViewIndividualLog = () => {
                 {RenderColumn(
                   RenderIndividualInfo('Distractions: ', individualLogValues.individual_runs.distractions), 
                   RenderIndividualInfo('Notes: ', individualLogValues.individual_runs.notes)
-                )}
-              </div>
+                )} 
+                </div>
           </div>
         </div>
       </div>
