@@ -98,11 +98,11 @@ const ViewIndividualLog = () => {
           times: res.data.individual_runs?.times
         },
         training_info: {
-          placed_by:res.data.training_info.placed_by,
-          placement_description: res.data.training_info.placement_description,
-          scent_source: res.data.training_info.scent_source,
-          source_container: res.data.training_info.source_container,
-          training_type: res.data.training_info.training_type
+          placed_by:res.data.training_info?.placed_by,
+          placement_description: res.data.training_info?.placement_description,
+          scent_source: res.data.training_info?.scent_source,
+          source_container: res.data.training_info?.source_container,
+          training_type: res.data.training_info?.training_type
         },
         water: {
           depth: res.data.water?.depth,
@@ -113,17 +113,17 @@ const ViewIndividualLog = () => {
           water_type: res.data.water?.water_type
         },
         weather: {
-          humidity: dataInputGenerater('weather', 'humidity'),
-          temperature: dataInputGenerater('weather', 'temperature'),
-          weather: dataInputGenerater('weather', 'weather'),
-          wind_speed: dataInputGenerater('weather', 'wind_speed')
+          humidity: res.data.weather?.humidity,
+          temperature: res.data.weather?.temperature,
+          weather: res.data.weather?.weather,
+          wind_speed: res.data.weather?.wind_speed
         },
         hours_and_stats: {
-          mileage: dataInputGenerater('hours_and_stats', 'mileage'),
-          tolls: dataInputGenerater('hours_and_stats', 'tolls'),
-          total_hours: dataInputGenerater('hours_and_stats', 'total_hours'),
-          training_hours: dataInputGenerater('hours_and_stats', 'training_hours'),
-          travel_hours: dataInputGenerater('hours_and_stats', 'travel_hours')
+          mileage: res.data.hours_and_stats?.mileage,
+          tolls: res.data.hours_and_stats?.tolls,
+          total_hours: res.data.hours_and_stats?.total_hours,
+          training_hours: res.data.hours_and_stats?.training_hours,
+          travel_hours: res.data.hours_and_stats?.travel_hours
         }
       })
     })
