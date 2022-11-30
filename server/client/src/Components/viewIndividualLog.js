@@ -105,7 +105,7 @@ const ViewIndividualLog = () => {
           training_type: dataInputGenerater('training_info', 'training_type')
         },
         water: {
-          depth: dataInputGenerater('water', 'depth'),
+          depth: res.data.water?.depth,
           open: dataInputGenerater('water', 'depth'),
           salt_water: dataInputGenerater('water', 'salt_water'),
           submerged: dataInputGenerater('water', 'submerged'),
