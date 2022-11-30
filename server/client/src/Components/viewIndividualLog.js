@@ -58,21 +58,18 @@ const ViewIndividualLog = () => {
   
   const [individualLogValues, setIndividualLogValues] = useState(initialState)
 
+
   useEffect(() => {
     axios.get(`http://localhost:3000/logs/${logIdFromProps}`)
     .then(res => {
-      if (res.data.water !== undefined) {
-        setIndividualLogValues({
-          water: {
-              depth: res.data.water.depth,
-              open: res.data.water.open,
-              salt_water: res.data.water.salt_water,
-              submerged: res.data.water.submerged,
-              temperature: res.data.water.temperature,
-              water_type: res.data.water.water_type
-            }
-        })
+      const dataInputGenerater = (category, subCategory) => {
+        if (res.data[category] !== undefined) {
+          return res.data[category][subCategory]
+        } else {
+          return ''
+        }
       }
+
       setIndividualLogValues({
         ...individualLogValues,
         address: res.data.address,
@@ -103,14 +100,14 @@ const ViewIndividualLog = () => {
           source_container: res.data.training_info.source_container,
           training_type: res.data.training_info.training_type
         },
-        // water: {
-        //   depth: res.data.water.depth,
-        //   open: res.data.water.open,
-        //   salt_water: res.data.water.salt_water,
-        //   submerged: res.data.water.submerged,
-        //   temperature: res.data.water.temperature,
-        //   water_type: res.data.water.water_type
-        // },
+        water: {
+          depth: dataInputGenerater('water', 'depth'),
+          open: dataInputGenerater('water', 'depth'),
+          salt_water: res.data.water.salt_water,
+          submerged: res.data.water.submerged,
+          temperature: res.data.water.temperature,
+          water_type: res.data.water.water_type
+        },
         weather: {
           humidity: res.data.weather.humidity,
           temperature: res.data.weather.temperature,
@@ -126,6 +123,7 @@ const ViewIndividualLog = () => {
         }
       })
     })
+    .catch(err => console.log(err))
   }, [])
 
   const formattedDate = new Date(individualLogValues.date)
