@@ -28,11 +28,14 @@ const EditLogs = () => {
 
   const deleteSelectedLog = (index) => {
     const logId = logsState[index]._id
-    axios.delete(`http://localhost:3000/logs/${logId}`)
-    .then(() => setLogsState([
-      ...logsState.slice(0, index),
-      ...logsState.slice(index + 1, logsState.length)
-    ]))
+    const confirmation = window.confirm(`You are about to delete Log #${logId}. Are you sure that you want to do that?`)
+    if (confirmation) {
+      axios.delete(`http://localhost:3000/logs/${logId}`)
+      .then(() => setLogsState([
+        ...logsState.slice(0, index),
+        ...logsState.slice(index + 1, logsState.length)
+      ]))
+    }
   }
 
   const navigateToIndividualLog = (Id) => {
