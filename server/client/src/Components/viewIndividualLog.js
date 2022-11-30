@@ -140,6 +140,14 @@ const ViewIndividualLog = () => {
     }
   }
   
+  const deleteSelectedLog = (logId) => {
+    const confirmation = window.confirm(`You are about to delete Log #${logId}. Are you sure that you want to do that?`)
+    if (confirmation) {
+      axios.delete(`http://localhost:3000/logs/${logId}`)
+      .then(() => navigate('/editLogs'))
+    }
+  }
+
   return (
     <div>
       <button type='button' className="btn btn-secondary" onClick={() => navigate('/editLogs')}>Go Back</button>
@@ -219,6 +227,7 @@ const ViewIndividualLog = () => {
           </div>
         </div>
       </div>
+      <button type="button" className="btn btn-danger" onClick={() => deleteSelectedLog(logIdFromProps)}>Delete</button>
     </div>
   )
 }
