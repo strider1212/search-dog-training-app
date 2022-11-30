@@ -146,6 +146,7 @@ const ViewIndividualLog = () => {
       <div className="container">
         <div className="row grey-background">
           <div className="col">
+            <h2 style={{color: 'white'}}>Log #{logIdFromProps}</h2>
             {RenderHeader('General Info')}
               <div className="row">
                 {RenderColumn(
