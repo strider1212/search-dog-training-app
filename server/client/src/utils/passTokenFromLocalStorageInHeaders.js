@@ -3,7 +3,7 @@ export const PassTokenFromLocalStorageInHeaders = () => {
 
   return {
     headers: {
-      authorizationToken: tokenFromLocalStorage
+      authorization: tokenFromLocalStorage
     }
   }
 }
