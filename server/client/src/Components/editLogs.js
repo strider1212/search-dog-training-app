@@ -3,21 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { RetrieveCurrentUsernameFromToken } from '../utils/retrieveCurrentUsernameFromToken';
+import { PassTokenFromLocalStorageInHeaders } from "../utils/passTokenFromLocalStorageInHeaders";
 
 const EditLogs = () => {
   
   const [logsState, setLogsState] = useState([])
-
-  const tokenFromLocalStorage = localStorage.getItem('token')
   
   const navigate = useNavigate()
   
   useEffect(() => {
-    axios.get(`http://localhost:3000/logs/username/${RetrieveCurrentUsernameFromToken()}`, {
-      headers: {
-        authorizationToken: tokenFromLocalStorage
-      }
-    })
+    axios.get(`http://localhost:3000/logs/username/${RetrieveCurrentUsernameFromToken()}`, PassTokenFromLocalStorageInHeaders())
     .then(res => {
       console.log(res)
       res.data.map(e => {

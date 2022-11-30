@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { HeaderInsert } from '../utils/headerInsert';
+import { AuthorizationAlert } from "../utils/authorizationAlert";
 
 const ViewAllLogs = () => {
   const [logsState, setLogsState] = useState([])
@@ -15,6 +16,19 @@ const ViewAllLogs = () => {
       res.data.map(e => {
         setLogsState(current => [...current, e])
       })
+    })
+    .catch(error => {
+      AuthorizationAlert(error)
+      if (error.response) {
+        console.log('error.response.data', error.response.data);
+        console.log('error.response.status', error.response.status);
+        console.log('error.response.headers', error.response.headers);
+      } else if (error.request) {
+        console.log('error.request', error.request);
+      } else {
+        console.log('error.message', error.message);
+      }
+      console.log('error.config', error.config);
     })
   }, [])
 

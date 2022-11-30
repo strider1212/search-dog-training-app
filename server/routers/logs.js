@@ -95,11 +95,13 @@ router.post('/defaultAutRequest', requireAuth, (req, res) => {
   res.json({access: 'granted'})
 })
 
-router.get('/',  (req, res) => {
+router.get('/', (req, res) => {
+  console.log('req.headers from /logs/', req.headers)
   getAll(Log, res);
 })
 
 router.get('/username/:username', (req, res) => {
+  console.log('edit: ', req.headers)
   const username = req.params.username;
 
   Log.find({log_created_by: username}, (err, log) =>{
