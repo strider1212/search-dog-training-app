@@ -82,23 +82,18 @@ const ViewIndividualLog = () => {
         // time
         time: res.data.time,
         individual_runs: {
-          // blind
           blind: res.data.individual_runs.blind,
-          // distractions
           distractions: res.data.individual_runs.distractions,
-          // k9
           k9: res.data.individual_runs.k9,
-          // notes
           notes: res.data.individual_runs.notes,
-          // times
           times: res.data.individual_runs.times
         },
         training_info: {
-          placed_by: res.data.training_info.placed_by,
-          placement_description: res.data.training_info.placement_description,
-          scent_source: res.data.training_info.scent_source,
-          source_container: res.data.training_info.source_container,
-          training_type: res.data.training_info.training_type
+          placed_by: dataInputGenerater('training_info', 'placed_by'),
+          placement_description: dataInputGenerater('training_info', 'placement_description'),
+          scent_source: dataInputGenerater('training_info', 'scent_source'),
+          source_container: dataInputGenerater('training_info', 'source_container'),
+          training_type: dataInputGenerater('training_info', 'training_type')
         },
         water: {
           depth: dataInputGenerater('water', 'depth'),
@@ -109,10 +104,10 @@ const ViewIndividualLog = () => {
           water_type: dataInputGenerater('water', 'water_type')
         },
         weather: {
-          humidity: res.data.weather.humidity,
-          temperature: res.data.weather.temperature,
-          weather: res.data.weather.weather,
-          wind_speed: res.data.weather.wind_speed
+          humidity: dataInputGenerater('weather', 'humidity'),
+          temperature: dataInputGenerater('weather', 'temperature'),
+          weather: dataInputGenerater('weather', 'weather'),
+          wind_speed: dataInputGenerater('weather', 'wind_speed')
         },
         hours_and_stats: {
           mileage: res.data.hours_and_stats.mileage,
