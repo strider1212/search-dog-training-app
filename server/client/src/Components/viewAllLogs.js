@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react"
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { HeaderInsert } from '../utils/headerInsert';
+// import { HeaderInsert } from '../utils/headerInsert';
 import { AuthorizationAlert } from "../utils/authorizationAlert";
+import { PassTokenFromLocalStorageInHeaders } from "../utils/passTokenFromLocalStorageInHeaders";
 
 const ViewAllLogs = () => {
   const [logsState, setLogsState] = useState([])
@@ -10,7 +11,7 @@ const ViewAllLogs = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get('http://localhost:3000/logs/', {something: 'something'}, HeaderInsert())
+    axios.get('http://localhost:3000/logs/', PassTokenFromLocalStorageInHeaders())
     .then(res => {
       console.log(res)
       res.data.map(e => {
