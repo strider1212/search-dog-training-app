@@ -70,14 +70,6 @@ const ViewIndividualLog = () => {
           return '';
         }
       }
-      
-      const dataInputGenerater = (category, subCategory) => {
-        if (res.data[category] !== undefined) {
-          return res.data[category][subCategory]
-        } else {
-          return ''
-        }
-      }
 
       setIndividualLogValues({
         ...individualLogValues,
