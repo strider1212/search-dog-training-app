@@ -50,25 +50,25 @@ const Home = () => {
     })
   }
 
-  const viewAllLogsClickHandler = () => {
-    axios.post('http://localhost:3000/logs/defaultAutRequest', {something: 'something'}, HeaderInsert())
-    .then(() => {
-      navigate('/viewAllLogs')
-    })
-    .catch(error => {
-      AuthorizationAlert(error)
-      if (error.response) {
-        console.log('error.response.data', error.response.data);
-        console.log('error.response.status', error.response.status);
-        console.log('error.response.headers', error.response.headers);
-      } else if (error.request) {
-        console.log('error.request', error.request);
-      } else {
-        console.log('error.message', error.message);
-      }
-      console.log('error.config', error.config);
-    })
-  }
+  // const viewAllLogsClickHandler = () => {
+  //   axios.post('http://localhost:3000/logs/defaultAutRequest', {something: 'something'}, HeaderInsert())
+  //   .then(() => {
+  //     navigate('/viewAllLogs')
+  //   })
+  //   .catch(error => {
+  //     AuthorizationAlert(error)
+  //     if (error.response) {
+  //       console.log('error.response.data', error.response.data);
+  //       console.log('error.response.status', error.response.status);
+  //       console.log('error.response.headers', error.response.headers);
+  //     } else if (error.request) {
+  //       console.log('error.request', error.request);
+  //     } else {
+  //       console.log('error.message', error.message);
+  //     }
+  //     console.log('error.config', error.config);
+  //   })
+  // }
   
   return (
     <div>
@@ -88,11 +88,11 @@ const Home = () => {
               <button type="button" className="btn btn-primary" onClick={() => editLogsClickHandler()}>Edit My Logs</button>
             </div>
           </div>
-          <div className="row home-margin">
+          {/* <div className="row home-margin">
             <div className="col">
               <button type="button" className="btn btn-primary" onClick={() => viewAllLogsClickHandler()}>View All Logs</button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
