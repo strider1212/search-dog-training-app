@@ -98,11 +98,11 @@ const ViewIndividualLog = () => {
           times: res.data.individual_runs?.times
         },
         training_info: {
-          placed_by: dataInputGenerater('training_info', 'placed_by'),
-          placement_description: dataInputGenerater('training_info', 'placement_description'),
-          scent_source: dataInputGenerater('training_info', 'scent_source'),
-          source_container: dataInputGenerater('training_info', 'source_container'),
-          training_type: dataInputGenerater('training_info', 'training_type')
+          placed_by:res.data.training_info.placed_by,
+          placement_description: res.data.training_info.placement_description,
+          scent_source: res.data.training_info.scent_source,
+          source_container: res.data.training_info.source_container,
+          training_type: res.data.training_info.training_type
         },
         water: {
           depth: res.data.water?.depth,
