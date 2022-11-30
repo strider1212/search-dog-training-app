@@ -91,11 +91,11 @@ const ViewIndividualLog = () => {
         // time
         time: headerInfoDataInputGenerater('time'),
         individual_runs: {
-          blind: dataInputGenerater('individual_runs', 'blind'),
-          distractions: dataInputGenerater('individual_runs', 'distractions'),
-          k9: dataInputGenerater('individual_runs', 'k9'),
-          notes: dataInputGenerater('individual_runs', 'notes'),
-          times: dataInputGenerater('individual_runs', 'times')
+          blind: res.data.individual_runs?.blind,
+          distractions: res.data.individual_runs?.distractions,
+          k9: res.data.individual_runs?.k9,
+          notes: res.data.individual_runs?.notes,
+          times: res.data.individual_runs?.times
         },
         training_info: {
           placed_by: dataInputGenerater('training_info', 'placed_by'),
