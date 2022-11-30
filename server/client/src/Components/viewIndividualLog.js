@@ -106,11 +106,11 @@ const ViewIndividualLog = () => {
         },
         water: {
           depth: res.data.water?.depth,
-          open: dataInputGenerater('water', 'depth'),
-          salt_water: dataInputGenerater('water', 'salt_water'),
-          submerged: dataInputGenerater('water', 'submerged'),
-          temperature: dataInputGenerater('water', 'temperature'),
-          water_type: dataInputGenerater('water', 'water_type')
+          open: res.data.water?.open,
+          salt_water: res.data.water?.salt_water,
+          submerged: res.data.water?.submerged,
+          temperature: res.data.water?.temperature,
+          water_type: res.data.water?.water_type
         },
         weather: {
           humidity: dataInputGenerater('weather', 'humidity'),
