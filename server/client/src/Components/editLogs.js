@@ -52,6 +52,8 @@ const EditLogs = () => {
       const navigateToIndividualLog = (Id) => {
         if (stateHolder === 0) {
           navigate('/viewIndividualLog', {state: {_id: Id}})
+        } else {
+          window.location.reload(false)
         }
       }
       
