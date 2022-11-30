@@ -26,21 +26,6 @@ const EditLogs = () => {
     })
   }, [])
 
-  const deleteSelectedLog = (index) => {
-    const logId = logsState[index]._id
-    const confirmation = window.confirm(`You are about to delete Log #${logId}. Are you sure that you want to do that?`)
-    if (confirmation) {
-      axios.delete(`http://localhost:3000/logs/${logId}`)
-      .then(() => setLogsState([
-        ...logsState.slice(0, index),
-        ...logsState.slice(index + 1, logsState.length)
-      ]))
-    }
-  }
-
-  const navigateToIndividualLog = (Id) => {
-    navigate('/viewIndividualLog', {state: {_id: Id}})
-  }
 
   const listLogs = logsState.map((log, index) => {
     const logId = log._id
@@ -49,6 +34,22 @@ const EditLogs = () => {
     const formattedMonth = formattedDate.getMonth() + 1
     const formattedDay = formattedDate.getDate()
 
+
+    const deleteSelectedLog = (index) => {
+      const logId = logsState[index]._id
+      const confirmation = window.confirm(`You are about to delete Log #${logId}. Are you sure that you want to do that?`)
+      if (confirmation) {
+        axios.delete(`http://localhost:3000/logs/${logId}`)
+        .then(() => setLogsState([
+          ...logsState.slice(0, index),
+          ...logsState.slice(index + 1, logsState.length)
+        ]))
+      }
+    }
+  
+    const navigateToIndividualLog = (Id) => {
+      navigate('/viewIndividualLog', {state: {_id: Id}})
+    }
     
     return (
       <li 
