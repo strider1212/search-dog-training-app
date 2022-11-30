@@ -62,6 +62,15 @@ const ViewIndividualLog = () => {
   useEffect(() => {
     axios.get(`http://localhost:3000/logs/${logIdFromProps}`)
     .then(res => {
+      
+      const headerInfoDataInputGenerater = (category) => {
+        if (res.data[category] !== undefined) {
+          return res.data[category]
+        } else {
+          return '';
+        }
+      }
+      
       const dataInputGenerater = (category, subCategory) => {
         if (res.data[category] !== undefined) {
           return res.data[category][subCategory]
@@ -72,21 +81,21 @@ const ViewIndividualLog = () => {
 
       setIndividualLogValues({
         ...individualLogValues,
-        address: res.data.address,
+        address: headerInfoDataInputGenerater('address'),
         // date
-        date: res.data.date,
+        date: headerInfoDataInputGenerater('date'),
         // log_created_by
-        log_created_by: res.data.log_created_by,
+        log_created_by: headerInfoDataInputGenerater('log_created_by'),
         // team
-        team: res.data.team,
+        team: headerInfoDataInputGenerater('team'),
         // time
-        time: res.data.time,
+        time: headerInfoDataInputGenerater('time'),
         individual_runs: {
-          blind: res.data.individual_runs.blind,
-          distractions: res.data.individual_runs.distractions,
-          k9: res.data.individual_runs.k9,
-          notes: res.data.individual_runs.notes,
-          times: res.data.individual_runs.times
+          blind: dataInputGenerater('individual_runs', 'blind'),
+          distractions: dataInputGenerater('individual_runs', 'distractions'),
+          k9: dataInputGenerater('individual_runs', 'k9'),
+          notes: dataInputGenerater('individual_runs', 'notes'),
+          times: dataInputGenerater('individual_runs', 'times')
         },
         training_info: {
           placed_by: dataInputGenerater('training_info', 'placed_by'),
@@ -110,11 +119,11 @@ const ViewIndividualLog = () => {
           wind_speed: dataInputGenerater('weather', 'wind_speed')
         },
         hours_and_stats: {
-          mileage: res.data.hours_and_stats.mileage,
-          tolls: res.data.hours_and_stats.tolls,
-          total_hours: res.data.hours_and_stats.total_hours,
-          training_hours: res.data.hours_and_stats.training_hours,
-          travel_hours: res.data.hours_and_stats.travel_hours
+          mileage: dataInputGenerater('hours_and_stats', 'mileage'),
+          tolls: dataInputGenerater('hours_and_stats', 'tolls'),
+          total_hours: dataInputGenerater('hours_and_stats', 'total_hours'),
+          training_hours: dataInputGenerater('hours_and_stats', 'training_hours'),
+          travel_hours: dataInputGenerater('hours_and_stats', 'travel_hours')
         }
       })
     })
