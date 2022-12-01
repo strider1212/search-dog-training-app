@@ -99,7 +99,7 @@ router.get('/', requireAuth, (req, res) => {
   getAll(Log, res);
 })
 
-router.get('/username/:username', (req, res) => {
+router.get('/username/:username', requireAuth, (req, res) => {
   const username = req.params.username;
 
   Log.find({log_created_by: username}, (err, log) =>{
