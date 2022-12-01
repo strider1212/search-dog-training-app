@@ -10,6 +10,9 @@ const getById = require('../methodFunctions/getById');
 const putById = require('../methodFunctions/putById');
 const deleteById = require('../methodFunctions/deleteById');
 
+const auth = require('./auth');
+const requireAuth = auth.requireAuth;
+
 router.post('/', (req, res) => {
   let postTeam = new Team({
     "team_name": req.query.team_name,
@@ -24,15 +27,15 @@ router.post('/', (req, res) => {
   postNew(postTeam, res);
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', requireAuth, (req, res) => {
   getById(Team, req, res);
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', requireAuth, (req, res) => {
   putById(Team, teamsKeyMatch, teamsKeyArray, req, res);
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', requireAuth, (req, res) => {
   deleteById(Team, req, res);
 })
 
