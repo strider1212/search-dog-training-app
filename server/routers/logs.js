@@ -140,15 +140,15 @@ router.post('/', requireAuth, async (req, res) => {
   console.log('POST to /');
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', requireAuth, (req, res) => {
   getById(Log, req, res);
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', requireAuth, (req, res) => {
   putById(Log, logsKeyMatch, logsKeyArray, req, res);
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', requireAuth, (req, res) => {
   deleteById(Log, req, res);
 })
 
@@ -221,27 +221,27 @@ router.post('/manualWeather', requireAuth, async (req, res) => {
   postChildForms(req, res, manualWeatherLog, "weather");
 })
 
-router.get('/water/:id', (req, res) => {
+router.get('/water/:id', requireAuth, (req, res) => {
   getById(Water, req, res)
 })
 
-router.put('/water/:id', (req, res) => {
+router.put('/water/:id', requireAuth, (req, res) => {
   putById(Water, [], waterKeyArray, req, res)
 })
 
-router.delete('/water/:id', (req, res) => {
+router.delete('/water/:id', requireAuth, (req, res) => {
   deleteById(Water, req, res)
 })
 
-router.get('/individual_runs/:id', (req, res) => {
+router.get('/individual_runs/:id', requireAuth, (req, res) => {
   getById(Individual_Runs, req, res)
 })
 
-router.put('/individual_runs/:id', (req, res) => {
+router.put('/individual_runs/:id', requireAuth, (req, res) => {
   putById(Individual_Runs, [], individual_runsKeyArray, req, res)
 })
 
-router.delete('/individual_runs/:id', (req, res) => {
+router.delete('/individual_runs/:id', requireAuth, (req, res) => {
   deleteById(Individual_Runs, req, res)
 })
 
