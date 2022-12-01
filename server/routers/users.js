@@ -24,6 +24,7 @@ const deleteById = require('../methodFunctions/deleteById');
 //authentication require package
 const auth = require('./auth');
 const requireSignin = auth.requireSignin;
+const requireAuth = auth.requireAuth;
 const tokenForUser = auth.tokenForUser;
 
 router.post('/signIn', requireSignin, (req, res, next) => {
@@ -32,7 +33,7 @@ router.post('/signIn', requireSignin, (req, res, next) => {
   });
 })
 
-router.get('/', (req, res) => {
+router.get('/', requireAuth, (req, res) => {
   getAll(User, res)
 })
 
@@ -55,21 +56,21 @@ router.post('/', async (req, res) =>  {
   postNew(postUser, res)
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', requireAuth, (req, res) => {
   getById(User, req, res);
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', requireAuth, (req, res) => {
   putById(User, usersKeyMatch, usersKeyArray, req, res)
 })
 
 //make sure that this is accompanied by a warning message in the front end and only executable by the admin or user themself
 //the user and deleter should also recieve an email
-router.delete('/:id', (req, res) => {
+router.delete('/:id', requireAuth, (req, res) => {
   deleteById(User, req, res);
 })
 
-router.get('/:id/k9s', (req, res) => {
+router.get('/:id/k9s', requireAuth, (req, res) => {
   const id = req.params.id;
 
   User.findById(id, (err, user) =>{
@@ -88,7 +89,7 @@ router.get('/:id/k9s', (req, res) => {
   })
 }) 
 
-router.post('/:id/k9s', (req, res) => {
+router.post('/:id/k9s', requireAuth, (req, res) => {
   const id = req.params.id;
   const k9ToAdd = req.query.k9
   
@@ -118,7 +119,7 @@ router.post('/:id/k9s', (req, res) => {
   })
 })
 
-router.delete('/:id/k9s/:k9', (req, res) => {
+router.delete('/:id/k9s/:k9', requireAuth, (req, res) => {
   const id = req.params.id;
   const k9 = req.params.k9;
 
