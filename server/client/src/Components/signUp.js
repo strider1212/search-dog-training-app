@@ -56,13 +56,17 @@ const SignUp = () => {
 
         console.log('signUp submitted')
       }
+
+      let booleanReturnedFromCheckIfUsernameExists = [];
       
       const checkIfUsernameExists = () => {
-        
+        axios.get(`http://localhost:3000/users/findByUsername/${formValues.username}`)
+        .then(res => booleanReturnedFromCheckIfUsernameExists.push(res))
       }
 
       //this needs to return true or false to work
-      console.log('result from called checkIfUsernameExists: ', checkIfUsernameExists())
+      checkIfUsernameExists()
+      console.log('result from called checkIfUsernameExists: ', booleanReturnedFromCheckIfUsernameExists[0])
       
       // if (!checkIfUsernameExists()) {
       //   alert('That username already exists. Try another one.')
