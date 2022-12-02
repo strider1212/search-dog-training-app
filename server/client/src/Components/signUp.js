@@ -58,15 +58,17 @@ const SignUp = () => {
       }
       
       const checkIfUsernameExists = () => {
-        axios.get(`http://localhost:3000/users/findByUsername/${formValues.username}`)
-        .then(res => console.log('res from checkIfUsernameExists', res.data))
+        
       }
+
+      //this needs to return true or false to work
+      console.log('result from called checkIfUsernameExists: ', checkIfUsernameExists())
       
-
-      checkIfUsernameExists()
-      postForm()
-
-       
+      // if (!checkIfUsernameExists()) {
+      //   alert('That username already exists. Try another one.')
+      // } else {
+      //   postForm()
+      // } 
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])
