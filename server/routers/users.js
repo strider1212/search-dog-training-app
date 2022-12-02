@@ -60,6 +60,24 @@ router.get('/:id', requireAuth, (req, res) => {
   getById(User, req, res);
 })
 
+router.get('/findByUsername/:username', (req, res) => {
+  const username = req.params.username
+  User.findOne({username: username}, (err, user) => {
+    if (user) {
+      res.send(true)
+      return
+    }
+
+    if (!user) {
+      res.send(false)
+      return
+    }
+
+    console.log('How did we get here?')
+
+  })
+})
+
 router.put('/:id', requireAuth, (req, res) => {
   putById(User, usersKeyMatch, usersKeyArray, req, res)
 })
