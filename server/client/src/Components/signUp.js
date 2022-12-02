@@ -56,6 +56,14 @@ const SignUp = () => {
 
         console.log('signUp submitted')
       }
+      
+      const checkIfUsernamExists = () => {
+        axios.get(`http://localhost:3000/users/findByUsername/${formValues.username}`)
+        .then(res => console.log('res from checkIfUsernameExists', res.data))
+      }
+      
+
+      checkIfUsernamExists()
       postForm()
 
        
