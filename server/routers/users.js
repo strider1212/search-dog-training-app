@@ -38,7 +38,17 @@ router.get('/', requireAuth, (req, res) => {
 })
 
 router.post('/', async (req, res) =>  {
-  //check all field on the front end
+  // const usernameExists = () => {
+  //   User.findOne({username: req.body.username})
+  //   .then(res => console.log(res))
+  // }
+
+  const usernameExists = User.findOne({username: req.body.username}).exec()
+
+  usernameExists
+  .then(res => console.log(res))
+
+  
   let postUser = new User({
     "username": req.body.username,
     // "password": await hasher(req.query.password, 10),
@@ -60,23 +70,23 @@ router.get('/:id', requireAuth, (req, res) => {
   getById(User, req, res);
 })
 
-router.get('/findByUsername/:username', (req, res) => {
-  const username = req.params.username
-  User.findOne({username: username}, (err, user) => {
-    if (user) {
-      res.send(true)
-      return
-    }
+// router.get('/findByUsername/:username', (req, res) => {
+//   const username = req.params.username
+//   User.findOne({username: username}, (err, user) => {
+//     if (user) {
+//       res.send(true)
+//       return
+//     }
 
-    if (!user) {
-      res.send(false)
-      return
-    }
+//     if (!user) {
+//       res.send(false)
+//       return
+//     }
 
-    console.log('How did we get here?')
+//     console.log('How did we get here?')
 
-  })
-})
+//   })
+// })
 
 router.put('/:id', requireAuth, (req, res) => {
   putById(User, usersKeyMatch, usersKeyArray, req, res)

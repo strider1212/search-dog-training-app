@@ -16,7 +16,6 @@ const SignUp = () => {
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [usernameExists, setUsernameExists] = useState(false)
   let initialRender = useRef(true);
 
   const navigate = useNavigate();
@@ -58,24 +57,8 @@ const SignUp = () => {
         console.log('signUp submitted')
       }
 
-      
-      const checkIfUsernameExists = () => {
-        axios.get(`http://localhost:3000/users/findByUsername/${formValues.username}`)
-        .then(res => {
-          console.log('res.data from the .then(): ', res.data)
-          setUsernameExists(res.data)
-        })
-      }
-
-      //this needs to return true or false to work
-      checkIfUsernameExists()
-      console.log('usernameExists state after checkIfUsernameExists() is calle: ', usernameExists)
-      
-      // if (!checkIfUsernameExists()) {
-      //   alert('That username already exists. Try another one.')
-      // } else {
-      //   postForm()
-      // } 
+    postForm()  
+     
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors, isSubmitted])
