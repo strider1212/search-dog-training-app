@@ -37,11 +37,13 @@ const SignUp = () => {
           phoneNumber: formValues.tel
         },
         {headers: {Authorization: localStorage.getItem('token')}})
-        .then(res => {
-          console.log('res from axios request: ', res)
-          // navigate('/')
+        .then(() => {
+          navigate('/')
         })
         .catch(error => {
+          if(error.response.status === 400) {
+            alert('This username already exists. Try another one.')
+          }
           if (error.response) {
             console.log('error.response.data', error.response.data);
             console.log('error.response.status', error.response.status);
