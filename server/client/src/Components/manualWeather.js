@@ -5,6 +5,7 @@ import { submitHandler } from '../utils/submitHandler';
 
 import { HeaderInsert } from '../utils/headerInsert';
 import { AuthorizationAlert } from '../utils/authorizationAlert';
+import { FormPopulaterForWeather } from './formPopulaterForWeather';
 
 const ManualWeather = () => {
   //STATE
@@ -88,48 +89,13 @@ const ManualWeather = () => {
     <div>
       <form>
         
+        {FormPopulaterForWeather('weather', 'Weather', 'text', 'Description of the weather...', setFormValue, formValues, 'weather', formErrors, 'weather', weatherLocation)}
+      
+        {FormPopulaterForWeather('temperature', 'Temperature', 'number', 'Number of degrees fahrenheit...', setFormValue, formValues, 'temperature', formErrors, 'temperature', temperatureLocation)}
+
+        {FormPopulaterForWeather('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed', formErrors, 'windSpeed', windspeedLocation)}
+
         
-       {/* <p>{formErrors.weather}</p>
-       <label htmlFor='weather'>Weather:</label>
-        <input
-        type='text'
-        className="form-control"
-        id='weather'
-        placeholder='Description of the weather...'
-        onInput={(e) => setFormValue({
-          ...formValues,
-            weather: e.target.value
-        })}
-        defaultValue={weatherLocation}
-        /> */}
-
-       {/* <p>{formErrors.temperature}</p>
-       <label htmlFor='temperature'>Temperature:</label>
-        <input
-        type='number'
-        className="form-control"
-        id='temperature'
-        placeholder='Number of degrees fahrenheit...'
-        onInput={(e) => setFormValue({
-          ...formValues,
-          temperature: e.target.value
-        })}
-        defaultValue={temperatureLocation}
-        /> */}
-
-       {/* <p>{formErrors.windSpeed}</p>
-       <label htmlFor='wind-speed'>Wind Speed:</label>
-        <input
-        type='number'
-        className="form-control"
-        id='wind-speed'
-        placeholder='Number of MPH...'
-        onInput={(e) => setFormValue({
-          ...formValues,
-          windSpeed: e.target.value
-        })}
-        defaultValue={windspeedLocation}
-        /> */}
 
        {/* <p>{formErrors.humidity}</p>
        <label htmlFor='humidity'>Humidity:</label>
