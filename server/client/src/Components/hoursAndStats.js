@@ -85,19 +85,14 @@ const HoursAndStats = () => {
       <h2>Hours and Travel</h2>
       <form>
         {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours', formErrors, 'travelHours')}
-        {/* <p>{formErrors.travelHours}</p>
-        {formPopulater('travel-hours', 'Travel Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'travelHours')} */}
+       
+        {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours', formErrors, 'trainingHours')}
 
-        {/* <p>{formErrors.trainingHours}</p>
-        {formPopulater('training-hours', 'Training Hours', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'trainingHours')} */}
+        <h3>Total Hours: {calculateTotalHours()}</h3>
 
-        {/* <h3>Total Hours: {calculateTotalHours()}</h3> */}
+        {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage', formErrors, 'mileage')}
 
-        {/* <p>{formErrors.mileage}</p>
-        {formPopulater('mileage', 'Mileage', 'number', 'Provide a number. Can use decimals...', setFormValue, formValues, 'mileage')} */}
-
-        {/* <p>{formErrors.tolls}</p>
-        {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls')} */}
+        {formPopulater('tolls', 'Tolls', 'number', 'Provide a number...', setFormValue, formValues, 'tolls', formErrors, 'tolls')}
 
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
