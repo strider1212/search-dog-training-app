@@ -78,12 +78,19 @@ const WaterLog = () => {
     <div>
       <h2>Water</h2>
       <form>
+      
       {checkboxFormPopulater('open', 'Open Water?', setFormValue, formValues, 'open')}
+
       {checkboxFormPopulater('salt', 'Salt Water?', setFormValue, formValues, 'saltWater')}
+
       {checkboxFormPopulater('submerged', 'Source Submerged?', setFormValue, formValues, 'submerged')}
-      {formPopulater('depth', 'Depth', 'number', 'How many feet below the surface was the source?...', setFormValue, formValues, 'depth')}
-      {formPopulater('water-type', 'Water Type', 'text', 'Describe the type of water source it was (e.g. bay, river, etc.)...', setFormValue, formValues, 'waterType')}
-      {formPopulater('temperature', 'Temperature', 'number', 'Give a number for the temperature in degrees fahrenheit?...', setFormValue, formValues, 'temperature')}
+
+      {formPopulater('depth', 'Depth', 'number', 'How many feet below the surface was the source?...', setFormValue, formValues, 'depth', formErrors, 'depth')}
+
+      {formPopulater('water-type', 'Water Type', 'text', 'Describe the type of water source it was (e.g. bay, river, etc.)...', setFormValue, formValues, 'waterType', formErrors, 'waterType')}
+
+      {formPopulater('temperature', 'Temperature', 'number', 'Give a number for the temperature in degrees fahrenheit?...', setFormValue, formValues, 'temperature', formErrors, 'temperature')}
+
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
      
