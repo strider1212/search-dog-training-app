@@ -18,7 +18,7 @@ const TrainingInfo = () => {
     water: false, 
     associatedLog: ''
   }
-  const initialStateArray = ['trainingType', 'placementDescription',  'placedBy',  'scentSource'];
+  const initialStateArray = ['trainingType', 'placementDescription',  'placedBy', 'scentSource', 'sourceContainer'];
   const [formValues, setFormValue] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -89,17 +89,19 @@ const TrainingInfo = () => {
     <div>
       <h2>Source Placement</h2>
       <form>
-        <p>{formErrors.trainingType}</p>
-        {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType')}
-        <p>{formErrors.placementDescription}</p>
-        {formPopulater('placement-description', 'Placement Description', 'text', 'Where and how the source was placed...', setFormValue, formValues, 'placementDescription')}
-        <p>{formErrors.placedBy}</p>
-        {formPopulater('placed-by', 'Placed By', 'text', 'Which teammate placed the source?...', setFormValue, formValues, 'placedBy')}
-        <p>{formErrors.scentSource}</p>
-        {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource')}
-        <p>{formErrors.souceContainer}</p>
-        {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'sourceContainer')}
+
+        {formPopulater('training-type', 'Training Type', 'text', 'Give a brief description of the training...', setFormValue, formValues, 'trainingType', formErrors, 'trainingType')} 
+
+        {formPopulater('placement-description', 'Placement Description', 'text', 'Where and how the source was placed...', setFormValue, formValues, 'placementDescription', formErrors, 'placementDescription')}
+
+        {formPopulater('placed-by', 'Placed By', 'text', 'Which teammate placed the source?...', setFormValue, formValues, 'placedBy', formErrors, 'placedBy')}
+
+        {formPopulater('scent-source', 'Scent Source', 'text', 'Kind of source used...', setFormValue, formValues, 'scentSource', formErrors, 'scentSource')}
+
+        {formPopulater('source-container', 'Source Container', 'text', 'In what material was the source contained?...', setFormValue, formValues, 'sourceContainer', formErrors, 'sourceContainer')}
+
         {checkboxFormPopulater('water', 'Source in Water?', setFormValue, formValues, 'water')}
+
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
       </form>
