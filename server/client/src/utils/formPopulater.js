@@ -1,8 +1,8 @@
 
-export const formPopulater = (forAndId, UIText, type, placeholder, setFunction, currentState, property, errorFunction, errorCategory) => {
+export const formPopulater = (forAndId, UIText, type, placeholder, setFunction, currentState, property, errorState, errorCategory) => {
   return (
     <div>
-      <p>{errorFunction[errorCategory]}</p>
+      <p>{errorState[errorCategory]}</p>
       <div className="form-group">
         <label htmlFor={forAndId}>{UIText}:</label>
         <input
