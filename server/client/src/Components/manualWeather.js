@@ -86,7 +86,6 @@ const ManualWeather = () => {
 
   return (
     <div>
-      <h2>Weather</h2>
        <p>{formErrors.weather}</p>
        <form>
        <label htmlFor='weather'>Weather:</label>
