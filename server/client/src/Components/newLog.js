@@ -112,16 +112,12 @@ const NewLog = () => {
       <form>
         {/* Eventually auto populated */}
         {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team', formErrors, 'team')}
-        {/* <p>{formErrors.team}</p>
-        {formPopulater('team', 'Team', 'text', 'Team Name...', setFormValue, formValues, 'team')} */}
 
-        {/* Time and Place */}
-        {/* <p>{formErrors.date}</p>
-        {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date')}
-        <p>{formErrors.time}</p>
-        {formPopulater('time', 'Time (can be autopopulated within 6 hours of current time)', 'time', '', setFormValue, formValues, 'time')}
-        <p>{formErrors.address}</p>
-        {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address')} */}
+        {formPopulater('date', 'Date', 'date', 'Date on which the drill was executed...', setFormValue, formValues, 'date', formErrors, 'date')}
+
+        {formPopulater('time', 'Time (can be autopopulated within 6 hours of current time)', 'time', '', setFormValue, formValues, 'time', formErrors, 'time')}
+
+        {formPopulater('address', 'Address', 'text', 'Address where the training took place...', setFormValue, formValues, 'address', formErrors, 'address')}
         
 
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
