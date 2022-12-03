@@ -1,4 +1,4 @@
-export const formPopulater = (forAndId, UIText, type, placeholder, setFunction, currentState, property, errorFunction, errorCategory, defaultValue) => {
+export const FormPopulaterForWeather = (forAndId, UIText, type, placeholder, setFunction, currentState, property, errorFunction, errorCategory, defaultValue) => {
   return (
     <div>
       <p>{errorFunction[errorCategory]}</p>

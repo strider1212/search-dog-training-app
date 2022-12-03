@@ -86,8 +86,10 @@ const ManualWeather = () => {
 
   return (
     <div>
-       <p>{formErrors.weather}</p>
-       <form>
+      <form>
+        
+        
+       {/* <p>{formErrors.weather}</p>
        <label htmlFor='weather'>Weather:</label>
         <input
         type='text'
@@ -99,9 +101,9 @@ const ManualWeather = () => {
             weather: e.target.value
         })}
         defaultValue={weatherLocation}
-        />
+        /> */}
 
-       <p>{formErrors.temperature}</p>
+       {/* <p>{formErrors.temperature}</p>
        <label htmlFor='temperature'>Temperature:</label>
         <input
         type='number'
@@ -113,9 +115,9 @@ const ManualWeather = () => {
           temperature: e.target.value
         })}
         defaultValue={temperatureLocation}
-        />
-        
-       <p>{formErrors.windSpeed}</p>
+        /> */}
+
+       {/* <p>{formErrors.windSpeed}</p>
        <label htmlFor='wind-speed'>Wind Speed:</label>
         <input
         type='number'
@@ -127,8 +129,9 @@ const ManualWeather = () => {
           windSpeed: e.target.value
         })}
         defaultValue={windspeedLocation}
-        />
-       <p>{formErrors.humidity}</p>
+        /> */}
+
+       {/* <p>{formErrors.humidity}</p>
        <label htmlFor='humidity'>Humidity:</label>
         <input
         type='number'
@@ -140,7 +143,7 @@ const ManualWeather = () => {
           humidity: e.target.value
         })}
         defaultValue={humidityLocation}
-        />
+        /> */}
       
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
