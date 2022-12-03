@@ -72,15 +72,20 @@ const IndividualRuns = () => {
     <div>
       <h2>Individual Drill</h2>
       <form>
-      {/*make sure that minues are what are rendered */}
-      {formPopulater('time', 'Time', 'number', 'How long did it take you (minutes)?...', setFormValue, formValues, 'time')}
-      {checkboxFormPopulater('blind', 'Was it blind?', setFormValue, formValues, 'blind')}
-      {formPopulater('k9', 'K9', 'text', 'Name of the k9...', setFormValue, formValues, 'k9')}
-      {formPopulater('distractions', 'Distractions', 'text', 'List any distractions to the k9 that may have occured...', setFormValue, formValues, 'distractions')}
-      {formPopulater('notes', 'Notes', 'text', 'Record any notes here...', setFormValue, formValues, 'notes')}
+        {formPopulater('time', 'Time', 'number', 'How long did it take you (minutes)?...', setFormValue, formValues, 'time', formErrors, 'time')}
 
-      <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
-      <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
+        {checkboxFormPopulater('blind', 'Was it blind?', setFormValue, formValues, 'blind')}
+
+        {formPopulater('k9', 'K9', 'text', 'Name of the k9...', setFormValue, formValues, 'k9', formErrors, 'k9')}
+
+        {formPopulater('distractions', 'Distractions', 'text', 'List any distractions to the k9 that may have occured...', setFormValue, formValues, 'distractions', formErrors, 'distractions')}
+
+        {formPopulater('notes', 'Notes', 'text', 'Record any notes here...', setFormValue, formValues, 'notes', formErrors, 'notes')}
+
+        <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
+
+        <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
+        
     </form>
     </div>
   )
