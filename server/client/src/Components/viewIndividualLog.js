@@ -5,6 +5,7 @@ import axios from 'axios';
 import { RenderHeader } from "../utils/ViewIndividualLog/renderHeader";
 import { RenderIndividualInfo } from "../utils/ViewIndividualLog/renderIndividualInfo";
 import { RenderColumn } from "../utils/ViewIndividualLog/renderColumn";
+import { HeaderInsert } from "../utils/headerInsert";
 
 const ViewIndividualLog = () => {
   const location = useLocation()
@@ -143,7 +144,7 @@ const ViewIndividualLog = () => {
   const deleteSelectedLog = (logId) => {
     const confirmation = window.confirm(`You are about to delete Log #${logId}. Are you sure that you want to do that?`)
     if (confirmation) {
-      axios.delete(`http://localhost:3000/logs/${logId}`)
+      axios.delete(`http://localhost:3000/logs/${logId}`, HeaderInsert())
       .then(() => navigate('/editLogs'))
     }
   }
