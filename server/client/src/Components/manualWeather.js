@@ -114,6 +114,7 @@ const ManualWeather = () => {
         })}
         defaultValue={temperatureLocation}
         />
+        
        <p>{formErrors.windSpeed}</p>
        <label htmlFor='wind-speed'>Wind Speed:</label>
         <input
