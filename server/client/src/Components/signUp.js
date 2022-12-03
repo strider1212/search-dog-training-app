@@ -26,7 +26,6 @@ const SignUp = () => {
     } else if (Object.keys(formErrors).length > 0) {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
-      // localStorage.getItem('token')
       const postForm = async () => {
         console.log('POST /users')
         await axios.post('http://localhost:3000/users', {
