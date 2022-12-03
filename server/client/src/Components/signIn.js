@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { formPopulater } from '../utils/formPopulater';
 import { submitHandler } from '../utils/submitHandler';
 
 const SignIn = () => {
@@ -59,23 +60,16 @@ const SignIn = () => {
   
   return (
     <div>
-      <h2>Sign In</h2>
       <form>
-        <p>{formErrors.username}</p>
-        <label htmlFor='username'>Username:</label>
-        <input type='text' className="form-control" id='username' placeholder="Username" onInput={(e) => setFormValue({
-          ...formValues,
-          username: e.target.value
-        })}/>
 
-        <p>{formErrors.password}</p>
-        <label htmlFor='password'>Username:</label>
-        <input type='password' className="form-control" id='password' placeholder="Password" onInput={(e) => setFormValue({
-          ...formValues,
-          password: e.target.value
-        })}/>
+        {formPopulater('username', 'Username', 'text', 'Username', setFormValue, formValues, 'username', formErrors, 'username')}
+
+        {formPopulater('password', 'Passowrd', 'password', 'Password', setFormValue, formValues, 'password', formErrors, 'password')}
+
+        <br></br>
 
         <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Submit</button>
+
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
 
       </form>
