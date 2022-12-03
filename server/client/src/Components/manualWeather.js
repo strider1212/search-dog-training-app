@@ -96,20 +96,6 @@ const ManualWeather = () => {
         {FormPopulaterForWeather('wind-speed', 'Wind Speed', 'number', 'Number of MPH...', setFormValue, formValues, 'windSpeed', formErrors, 'windSpeed', windspeedLocation)}
 
         {FormPopulaterForWeather('humidity', 'Humidity', 'number', 'Enter a number representing a percent...', setFormValue, formValues, 'humidity', formErrors, 'humidity', humidityLocation)}
-
-       {/* <p>{formErrors.humidity}</p>
-       <label htmlFor='humidity'>Humidity:</label>
-        <input
-        type='number'
-        className="form-control"
-        id='humidity'
-        placeholder='Enter a number representing a percent...'
-        onInput={(e) => setFormValue({
-          ...formValues,
-          humidity: e.target.value
-        })}
-        defaultValue={humidityLocation}
-        /> */}
       
       <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
       <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
