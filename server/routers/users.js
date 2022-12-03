@@ -44,26 +44,30 @@ router.post('/', async (req, res) =>  {
   // }
 
   const usernameExists = User.findOne({username: req.body.username}).exec()
-
-  usernameExists
-  .then(res => console.log(res))
-
   
-  let postUser = new User({
-    "username": req.body.username,
-    // "password": await hasher(req.query.password, 10),
-    //or bcrypt
-    "password": req.body.password,
-    "firstName": req.body.firstName,
-    "lastName": req.body.lastName,
-    "email": req.body.email,
-    "phoneNumber": req.body.phoneNumber,
-    "dateCreated": new Date(),
-    //query must must be formatted like
-    //&k9s[]=spike&k9s[]=lucey
-    "k9s": req.query.k9s
+  usernameExists
+  .then(username => {
+    if (username) {
+      res.status(400).send('username already exists')
+      return
+    }
+    let postUser = new User({
+      "username": req.body.username,
+      // "password": await hasher(req.query.password, 10),
+      //or bcrypt
+      "password": req.body.password,
+      "firstName": req.body.firstName,
+      "lastName": req.body.lastName,
+      "email": req.body.email,
+      "phoneNumber": req.body.phoneNumber,
+      "dateCreated": new Date(),
+      //query must must be formatted like
+      //&k9s[]=spike&k9s[]=lucey
+      "k9s": req.query.k9s
+    })
+    postNew(postUser, res)
+
   })
-  postNew(postUser, res)
 })
 
 router.get('/:id', requireAuth, (req, res) => {

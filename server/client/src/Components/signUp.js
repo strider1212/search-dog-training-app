@@ -38,8 +38,9 @@ const SignUp = () => {
           phoneNumber: formValues.tel
         },
         {headers: {Authorization: localStorage.getItem('token')}})
-        .then(() => {
-          navigate('/')
+        .then(res => {
+          console.log('res from axios request: ', res)
+          // navigate('/')
         })
         .catch(error => {
           if (error.response) {
