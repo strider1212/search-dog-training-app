@@ -38,10 +38,6 @@ router.get('/', requireAuth, (req, res) => {
 })
 
 router.post('/', async (req, res) =>  {
-  // const usernameExists = () => {
-  //   User.findOne({username: req.body.username})
-  //   .then(res => console.log(res))
-  // }
 
   const usernameExists = User.findOne({username: req.body.username}).exec()
   
@@ -66,7 +62,6 @@ router.post('/', async (req, res) =>  {
       "k9s": req.query.k9s
     })
     postNew(postUser, res)
-
   })
 })
 
