@@ -5,7 +5,7 @@ import { submitHandler } from '../utils/submitHandler';
 
 import { HeaderInsert } from '../utils/headerInsert';
 import { AuthorizationAlert } from '../utils/authorizationAlert';
-import { FormPopulaterForWeather } from './formPopulaterForWeather';
+import { FormPopulaterForWeather } from '../utils/formPopulaterForWeather';
 
 const ManualWeather = () => {
   //STATE
