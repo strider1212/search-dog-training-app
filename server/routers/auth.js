@@ -13,6 +13,10 @@ const LocalStrategy = require("passport-local").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const JwtStrategy = require("passport-jwt").Strategy;
 
+//bcrypt
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 
 //app-level middleware
 router.use(passport.initialize());
@@ -42,9 +46,13 @@ passport.use(
      return done(null, false)
     }
 
-    if(returnedUser.password != password) return done(null, false)
-
-    return done(null, username)
+    
+    if(await bcrypt.compare(password, returnedUser.password)) {
+      return done(null, username)
+    } else {
+      return done(null, false)
+    }
+    // if(returnedUser.password != password) return done(null, false)
   })
 );
     const jwtOptions = {
