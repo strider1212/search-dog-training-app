@@ -27,6 +27,10 @@ const requireSignin = auth.requireSignin;
 const requireAuth = auth.requireAuth;
 const tokenForUser = auth.tokenForUser;
 
+//bcrypt
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 router.post('/signIn', requireSignin, (req, res, next) => {
   res.json({
     token: tokenForUser(req.body)
@@ -42,26 +46,35 @@ router.post('/', async (req, res) =>  {
   const usernameExists = User.findOne({username: req.body.username}).exec()
   
   usernameExists
-  .then(username => {
+  .then(async username => {
     if (username) {
       res.status(400).send('username already exists')
       return
     }
-    let postUser = new User({
-      "username": req.body.username,
-      // "password": await hasher(req.query.password, 10),
-      //or bcrypt
-      "password": req.body.password,
-      "firstName": req.body.firstName,
-      "lastName": req.body.lastName,
-      "email": req.body.email,
-      "phoneNumber": req.body.phoneNumber,
-      "dateCreated": new Date(),
-      //query must must be formatted like
-      //&k9s[]=spike&k9s[]=lucey
-      "k9s": req.query.k9s
-    })
-    postNew(postUser, res)
+
+    try {
+      const encyptedPassword = await bcrypt.hash(req.body.password, saltRounds);
+
+      let postUser = new User({
+        "username": req.body.username,
+        // "password": await hasher(req.query.password, 10),
+        //or bcrypt
+        "password": encyptedPassword,
+        "firstName": req.body.firstName,
+        "lastName": req.body.lastName,
+        "email": req.body.email,
+        "phoneNumber": req.body.phoneNumber,
+        "dateCreated": new Date(),
+        //query must must be formatted like
+        //&k9s[]=spike&k9s[]=lucey
+        "k9s": req.query.k9s
+      })
+      postNew(postUser, res)
+    } catch {
+      res.status(500).send()
+    }
+
+   
   })
 })
 
