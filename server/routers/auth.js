@@ -52,7 +52,6 @@ passport.use(
     } else {
       return done(null, false)
     }
-    // if(returnedUser.password != password) return done(null, false)
   })
 );
     const jwtOptions = {
