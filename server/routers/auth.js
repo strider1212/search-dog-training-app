@@ -73,7 +73,7 @@ const tokenForUser = function (user) {
     {
       username: user.username,
       iat: Math.round(Date.now() / 1000),
-      exp: Math.round(Date.now() / 1000 + 5 * 60 * 60),
+      exp: Math.round(Date.now() / 1000 + 1 * 60 * 60),
     },
     process.env.AUTH_SECRETE_KEY
   );
