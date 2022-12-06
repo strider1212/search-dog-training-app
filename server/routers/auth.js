@@ -86,22 +86,3 @@ const requireAuth = passport.authenticate("jwt", { session: false });
 module.exports.requireSignin = requireSignin;
 module.exports.requireAuth = requireAuth;
 module.exports.tokenForUser = tokenForUser;
-
-/*
-  AUTHENTICATION METHOD CHECKLIST
-    serverside
-      requireAuth to router
-    clientside
-      add header to axios.post
-      add alert to .catch
-      test authorized
-      test unauthorized
-
-  CLIENT PACKAGE
-  axios.post('route', {headers: {Authorization: localStorage.getItem('token')}})
-  INSIDE OF CATCH STATEMENTs
-  if(error.response.data === "Unauthorized") {
-    alert('Must sign in to perform this action. Your session may have timed out. Please, sign back in and try again.')
-  }
-
-*/
