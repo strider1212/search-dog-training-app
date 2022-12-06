@@ -61,7 +61,7 @@ const ViewIndividualLog = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/logs/${logIdFromProps}`)
+    axios.get(`http://localhost:3000/logs/${logIdFromProps}`, HeaderInsert())
     .then(res => {
       
       const headerInfoDataInputGenerater = (category) => {
