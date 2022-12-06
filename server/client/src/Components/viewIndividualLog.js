@@ -88,7 +88,7 @@ const ViewIndividualLog = () => {
           distractions: res.data.individual_runs?.distractions,
           k9: res.data.individual_runs?.k9,
           notes: res.data.individual_runs?.notes,
-          times: res.data.individual_runs?.times
+          time: res.data.individual_runs?.time
         },
         training_info: {
           placed_by:res.data.training_info?.placed_by,
