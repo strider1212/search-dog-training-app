@@ -1,14 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-require('dotenv').config('.env');
-
-const connectUsername = process.env.USERNAME;
-const connectPassword = process.env.PASSWORD;
-const connectDatabase = process.env.DATABASE;
-
-const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@cluster0.tgm5d.mongodb.net/${connectDatabase}`;
-
 const { User } = require('../mongoose/user');
 
 //utils & data
@@ -196,7 +188,6 @@ router.delete('/:id/k9s/:k9', requireAuth, (req, res) => {
 })
 
 module.exports = router;
-module.exports.ATLAS_CONNECT = ATLAS_CONNECT;
 
 
 

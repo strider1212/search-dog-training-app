@@ -10,11 +10,15 @@ const teams = require('./routers/teams');
 const logs = require('./routers/logs');
 // const auth = require('./routers/auth');
 
-const ATLAS_CONNECT = users.ATLAS_CONNECT
-
 
 //staging variables
 const PORT = 3000;
+
+const connectUsername = process.env.USERNAME;
+const connectPassword = process.env.PASSWORD;
+const connectDatabase = process.env.DATABASE;
+
+const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@cluster0.tgm5d.mongodb.net/${connectDatabase}`;
 
 mongoose.connect(ATLAS_CONNECT);
 
