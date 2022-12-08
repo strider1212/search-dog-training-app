@@ -12,7 +12,8 @@ const logs = require('./routers/logs');
 
 
 //staging variables
-const PORT = 3000;
+const serverPort = process.env.SERVER_PORT;
+console.log('env test: ', process.env.SERVER_PORT)
 
 const connectUsername = process.env.USERNAME;
 const connectPassword = process.env.PASSWORD;
@@ -39,6 +40,6 @@ app.use('/teams', teams);
 app.use('/logs', logs);
 // app.use('/auth', auth);
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}.`)
+app.listen(serverPort, () => {
+  console.log(`Listening on port ${serverPort}.`)
 })
