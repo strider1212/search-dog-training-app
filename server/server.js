@@ -13,7 +13,7 @@ const logs = require('./routers/logs');
 
 //staging variables
 const serverPort = process.env.SERVER_PORT;
-console.log('env test: ', process.env.SERVER_PORT)
+const clientPort = process.env.CLIENT_PORT
 
 const connectUsername = process.env.USERNAME;
 const connectPassword = process.env.PASSWORD;
@@ -29,7 +29,7 @@ app.set('view-engine', 'ejs');
 app.use(express.json())
 app.use(
   cors({
-    origin: 'http://localhost:3001',
+    origin: `http://localhost:${clientPort}`,
     credentials: true
   })
 )
