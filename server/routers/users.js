@@ -49,8 +49,6 @@ router.post('/', async (req, res) =>  {
 
       let postUser = new User({
         "username": req.body.username,
-        // "password": await hasher(req.query.password, 10),
-        //or bcrypt
         "password": encyptedPassword,
         "firstName": req.body.firstName,
         "lastName": req.body.lastName,
