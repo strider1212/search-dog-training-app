@@ -16,9 +16,9 @@ const EditLogs = () => {
     axios.get(`http://localhost:3000/logs/username/${RetrieveCurrentUsernameFromToken()}`, PassTokenFromLocalStorageInHeaders())
     .then(res => {
       console.log(res)
-      res.data.map(e => {
+      res.data.map(e => 
         setLogsState(current => [...current, e])
-      })
+      )
     })
     .catch(error => {
       AuthorizationAlert(error)
