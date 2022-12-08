@@ -1,5 +1,5 @@
 export const HeaderInsert = () => {
   return (
-    {headers: {Authorization: localStorage.getItem('token')}}
+    {headers: {authorization: localStorage.getItem('token')}}
   )
 }
