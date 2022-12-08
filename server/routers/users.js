@@ -78,8 +78,7 @@ router.put('/:id', requireAuth, (req, res) => {
   putById(User, usersKeyMatch, usersKeyArray, req, res)
 })
 
-//make sure that this is accompanied by a warning message in the front end and only executable by the admin or user themself
-//the user and deleter should also recieve an email
+//the user and deleter should also recieve an email (later update)
 router.delete('/:id', requireAuth, (req, res) => {
   deleteById(User, req, res);
 })
