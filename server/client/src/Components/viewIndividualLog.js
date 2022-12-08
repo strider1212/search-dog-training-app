@@ -121,7 +121,7 @@ const ViewIndividualLog = () => {
       })
     })
     .catch(err => console.log(err))
-  }, [])
+  }, [individualLogValues, logIdFromProps])
 
   const formattedDate = new Date(individualLogValues.date)
 
