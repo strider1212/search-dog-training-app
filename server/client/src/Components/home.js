@@ -1,12 +1,18 @@
 import Header from "../Components/header";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+// import dotenv from 'dotenv';
+
 
 //utils
 import { HeaderInsert } from '../utils/headerInsert';
 import { AuthorizationAlert } from '../utils/authorizationAlert';
 
+// dotenv.config();
+
 const Home = () => {
+
+  // console.log('process.env: ', process.env)
 
   let navigate = useNavigate()
 

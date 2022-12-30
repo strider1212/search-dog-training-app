@@ -14,9 +14,7 @@ const ViewAllLogs = () => {
     axios.get('http://localhost:3000/logs/', PassTokenFromLocalStorageInHeaders())
     .then(res => {
       console.log(res)
-      res.data.map(e => {
-        setLogsState(current => [...current, e])
-      })
+      res.data.map(e => setLogsState(current => [...current, e]))
     })
     .catch(error => {
       AuthorizationAlert(error)
