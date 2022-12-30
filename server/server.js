@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-// const cors = require('cors');
+const cors = require('cors');
 
 //routers
 const users = require('./routers/users');
@@ -27,12 +27,12 @@ app.set('view-engine', 'ejs');
 
 //middleware
 app.use(express.json())
-// app.use(
-//   cors({
-//     origin: `http://localhost:${clientPort}`,
-//     credentials: true
-//   })
-// )
+app.use(
+  cors({
+    origin: `http://localhost:${clientPort}`,
+    credentials: true
+  })
+)
 
 //routes and methods
 app.use('/users', users);
