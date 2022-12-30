@@ -12,7 +12,7 @@ const Home = () => {
   let navigate = useNavigate()
 
   const newLogClickHandler = () => {
-    axios.post('http://localhost:3000/logs/defaultAutRequest', {something: 'something'}, HeaderInsert())
+    axios.post(`${process.env.REACT_APP_BASE_URL}/logs/defaultAutRequest`, {something: 'something'}, HeaderInsert())
     .then(() => {
       navigate('/newLog')
     })
@@ -32,7 +32,7 @@ const Home = () => {
   }
   
   const editLogsClickHandler = () => {
-    axios.post('http://localhost:3000/logs/defaultAutRequest', {something: 'something'}, HeaderInsert())
+    axios.post(`${process.env.REACT_APP_BASE_URL}/logs/defaultAutRequest`, {something: 'something'}, HeaderInsert())
     .then(() => {
       navigate('/editLogs')
     })

@@ -36,7 +36,7 @@ const TrainingInfo = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = () => {
-        axios.post(`http://localhost:3000/logs/trainingInfo`, {
+        axios.post(`${process.env.REACT_APP_BASE_URL}/logs/trainingInfo`, {
           training_type: formValues.trainingType,
           placement_description: formValues.placementDescription,
           placed_by: formValues.placedBy, 

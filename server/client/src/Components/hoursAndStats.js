@@ -41,7 +41,7 @@ const HoursAndStats = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = () => {
-        axios.post(`http://localhost:3000/logs/hoursAndStats`, {
+        axios.post(`${process.env.REACT_APP_BASE_URL}/logs/hoursAndStats`, {
           travel_hours: formValues.travelHours,
           training_hours: formValues.trainingHours,
           total_hours: calculateTotalHours(), 

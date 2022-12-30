@@ -11,7 +11,7 @@ const ViewAllLogs = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get('http://localhost:3000/logs/', PassTokenFromLocalStorageInHeaders())
+    axios.get(`${process.env.REACT_APP_BASE_URL}/logs/`, PassTokenFromLocalStorageInHeaders())
     .then(res => {
       console.log(res)
       res.data.map(e => setLogsState(current => [...current, e]))

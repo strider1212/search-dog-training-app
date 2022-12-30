@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { HeaderInsert } from '../utils/headerInsert';
 export const HomePageAuthenticater = () => {
-  const authenticationStatus = axios.post('http://localhost:3000/logs/defaultAutRequest', {something: 'something'}, HeaderInsert())
+  const authenticationStatus = axios.post(`${process.env.REACT_APP_BASE_URL}/logs/defaultAutRequest`, {something: 'something'}, HeaderInsert())
   
   let holder = []
   

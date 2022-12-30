@@ -36,7 +36,7 @@ const NewLog = () => {
     } else {
       const postForm = () => {
         let logId;
-        axios.post(`http://localhost:3000/logs`, {
+        axios.post(`${process.env.REACT_APP_BASE_URL}/logs`, {
           log_created_by: RetrieveCurrentUsernameFromToken(),
           date: formValues.date,
           address: formValues.address, 
@@ -55,7 +55,7 @@ const NewLog = () => {
               }
             })
           } else {
-            axios.get('http://localhost:3000/logs/weather', {
+            axios.get(`${process.env.REACT_APP_BASE_URL}/logs/weather`, {
             params: {
               location: formValues.address,
               date: formValues.date,

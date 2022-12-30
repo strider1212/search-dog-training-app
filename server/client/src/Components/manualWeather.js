@@ -47,7 +47,7 @@ const ManualWeather = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = () => {
-        axios.post(`http://localhost:3000/logs/manualWeather`, {
+        axios.post(`${process.env.REACT_APP_BASE_URL}/logs/manualWeather`, {
           weather: formValues.weather,
           temperature: formValues.temperature,
           wind_speed: formValues.windSpeed, 

@@ -30,7 +30,7 @@ const SignUp = () => {
     } else {
       const postForm = async () => {
         console.log('POST /users')
-        await axios.post('http://localhost:3000/users', {
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/users`, {
           username: formValues.username,
           password: formValues.password,
           firstName: formValues.firstName,

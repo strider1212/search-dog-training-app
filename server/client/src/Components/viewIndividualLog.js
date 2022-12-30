@@ -61,7 +61,7 @@ const ViewIndividualLog = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/logs/${logIdFromProps}`, HeaderInsert())
+    axios.get(`${process.env.REACT_APP_BASE_URL}/logs/${logIdFromProps}`, HeaderInsert())
     .then(res => {
       
       const headerInfoDataInputGenerater = (category) => {
@@ -144,7 +144,7 @@ const ViewIndividualLog = () => {
   const deleteSelectedLog = (logId) => {
     const confirmation = window.confirm(`You are about to delete Log #${logId}. Are you sure that you want to do that?`)
     if (confirmation) {
-      axios.delete(`http://localhost:3000/logs/${logId}`, HeaderInsert())
+      axios.delete(`${process.env.REACT_APP_BASE_URL}/logs/${logId}`, HeaderInsert())
       .then(() => navigate('/editLogs'))
     }
   }

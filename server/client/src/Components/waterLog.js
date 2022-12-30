@@ -35,7 +35,7 @@ const WaterLog = () => {
       alert('One or more of the request categories was not filled in. Please fill in any missing categories.')
     } else {
       const postForm = async () => {
-        await axios.post(`http://localhost:3000/logs/water`, {
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/logs/water`, {
           open: formValues.open,
           submerged: formValues.submerged,
           depth: formValues.depth, 
