@@ -8,8 +8,7 @@ import { HeaderInsert } from '../utils/headerInsert';
 import { AuthorizationAlert } from '../utils/authorizationAlert';
 
 const Home = () => {
-  console.log(process.env.REACT_APP_BASE_URL)
-
+  
   let navigate = useNavigate()
 
   const newLogClickHandler = () => {

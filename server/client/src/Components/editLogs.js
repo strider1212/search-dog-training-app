@@ -13,7 +13,7 @@ const EditLogs = () => {
   const navigate = useNavigate()
   
   useEffect(() => {
-    axios.get(`http://localhost:3000/logs/username/${RetrieveCurrentUsernameFromToken()}`, PassTokenFromLocalStorageInHeaders())
+    axios.get(`${process.env.REACT_APP_BASE_URL}/logs/username/${RetrieveCurrentUsernameFromToken()}`, PassTokenFromLocalStorageInHeaders())
     .then(res => {
       console.log(res)
       res.data.map(e => 
