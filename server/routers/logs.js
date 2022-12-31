@@ -95,7 +95,7 @@ router.post('/defaultAutRequest', requireAuth, (req, res) => {
   res.json({access: 'granted'})
 })
 
-router.get('/', requireAuth, (req, res) => {
+router.get('/', (req, res) => {
   getAll(Log, res);
 })
 
