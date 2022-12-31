@@ -29,7 +29,7 @@ app.set('view-engine', 'ejs');
 app.use(express.json())
 app.use(
   cors({
-    origin: `http://localhost:${clientPort}`,
+    origin: `${process.env.ROOT_URL}:${clientPort}`,
     credentials: true
   })
 )
