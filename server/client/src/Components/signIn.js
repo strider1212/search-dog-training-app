@@ -27,7 +27,11 @@ const SignIn = () => {
         await axios.post(`${process.env.REACT_APP_BASE_URL}/users/signIn`, {
           username: formValues.username,
           password: formValues.password
-        })
+        },
+        {headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+        }})
         .then((res) => {
           localStorage.setItem('token', res.data.token)
           navigate('/');
