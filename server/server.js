@@ -28,10 +28,7 @@ app.set('view-engine', 'ejs');
 //middleware
 app.use(express.json())
 app.use(
-  cors({
-    origin: `${process.env.ROOT_URL}:${clientPort}`,
-    credentials: true
-  })
+  cors()
 )
 
 //routes and methods
