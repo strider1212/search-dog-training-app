@@ -18,8 +18,9 @@ const clientPort = process.env.CLIENT_PORT
 const connectUsername = process.env.USERNAME;
 const connectPassword = process.env.PASSWORD;
 const connectDatabase = process.env.DATABASE;
+const clusterInfo = process.env.CLUSTER_INFO;
 
-const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@cluster0.tgm5d.mongodb.net/${connectDatabase}`;
+const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@${clusterInfo}${connectDatabase}`;
 
 mongoose.connect(ATLAS_CONNECT);
 
