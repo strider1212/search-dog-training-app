@@ -68,7 +68,7 @@ const SignIn = () => {
 
         {formPopulater('username', 'Username', 'text', 'Username', setFormValue, formValues, 'username', formErrors, 'username')}
 
-        {formPopulater('password', 'Passowrd', 'password', 'Password', setFormValue, formValues, 'password', formErrors, 'password')}
+        {formPopulater('password', 'Password', 'password', 'Password', setFormValue, formValues, 'password', formErrors, 'password')}
 
         <br></br>
 
