@@ -82,7 +82,7 @@ const IndividualRuns = () => {
 
         {formPopulater('notes', 'Notes', 'text', 'Record any notes here...', setFormValue, formValues, 'notes', formErrors, 'notes')}
 
-        <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Next</button>
+        <button type='button' className='btn btn-primary' onClick={() => submitHandler(setFormErrors, formValues, initialStateArray, setIsSubmitted)}>Submit</button>
 
         <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>Cancel</button>
         
