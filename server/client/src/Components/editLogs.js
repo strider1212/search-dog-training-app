@@ -54,7 +54,7 @@ const EditLogs = () => {
           onClick={() => navigateToIndividualLog(logId)}
           >
             <div>{`ID#: ${readableId}`}</div>
-            <div>{`${formattedMonth}/${formattedDay}/${formattedDate.getFullYear()}: ${log.address}`}</div>
+            <div>{`${formattedMonth}/${formattedDay + 1}/${formattedDate.getFullYear()}: ${log.address}`}</div>
         </li>
       )
   })
