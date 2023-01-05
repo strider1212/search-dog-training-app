@@ -46,38 +46,39 @@ const NewLog = () => {
         HeaderInsert()
         )
         .then(res => logId = res.data._id)
-        .then(async () => {
-          if (getDifferenceInHours(formValues.date, formValues.time) < -6) {
-            navigate('/manualWeather', {state:
-              { logId: logId,
-                formValues: formValues,
-                weatherValues: null
-              }
-            })
-          } else {
-            axios.get(`${process.env.REACT_APP_BASE_URL}/logs/weather`, {
-            params: {
-              location: formValues.address,
-              date: formValues.date,
-              time: formValues.time
-            }
-            })
-            .then(res => {
-              navigate("/manualWeather", {state: 
-                  {logId: logId,
+        .then(
+          () => {
+            if (getDifferenceInHours(formValues.date, formValues.time) < -6) {
+              navigate('/manualWeather', {state:
+                { logId: logId,
                   formValues: formValues,
-                    weatherValues: {
-                      temperature: res.data[0].values.temperature,
-                      windSpeed: res.data[0].values.windSpeed,
-                      humidity: res.data[0].values.humidity
+                  weatherValues: null
+                }
+              })
+            } else {
+              axios.get(`${process.env.REACT_APP_BASE_URL}/logs/weather`, {
+              params: {
+                location: formValues.address,
+                date: formValues.date,
+                time: formValues.time
+              }
+              })
+              .then(res => {
+                navigate("/manualWeather", {state: 
+                    {logId: logId,
+                    formValues: formValues,
+                      weatherValues: {
+                        temperature: res.data[0].values.temperature,
+                        windSpeed: res.data[0].values.windSpeed,
+                        humidity: res.data[0].values.humidity
+                      }
                     }
                   }
-                }
+                )
+              }
               )
+              .catch(err => console.log(err))
             }
-            )
-            .catch(err => console.log(err))
-          }
         })
         .catch(error => {
           AuthorizationAlert(error)
