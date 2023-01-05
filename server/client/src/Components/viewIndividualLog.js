@@ -128,7 +128,7 @@ const ViewIndividualLog = () => {
   const dateAndTimeInfo = (
     <div className="row">
       <div className="col view-individual-log-main">
-        {`${formattedDate.getMonth() + 1}/${formattedDate.getDate()}/${formattedDate.getFullYear()}`} @ {individualLogValues.time}
+        {`${formattedDate.getMonth() + 1}/${formattedDate.getDate() + 1}/${formattedDate.getFullYear()}`} @ {individualLogValues.time}
       </div>
     </div>
   )
