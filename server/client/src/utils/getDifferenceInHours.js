@@ -1,4 +1,6 @@
 export const getDifferenceInHours = (date, time) => {
+  console.log('date in getDifferenceInHours(): ', date)
+  console.log('time in getDifferenceInHours(): ', time)
   const dateAndTime = date + ', ' + time;
   console.log('dateAndTime in getDifferenceInHours(): ', dateAndTime)
   const dateAndTimeUTC = new Date(dateAndTime);
