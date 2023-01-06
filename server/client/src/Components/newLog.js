@@ -55,7 +55,7 @@ const NewLog = () => {
               navigate('/manualWeather', {state:
                 { logId: logId,
                   formValues: formValues,
-                  weatherValues: {}
+                  weatherValues: null
                 }
               })
             } else {
