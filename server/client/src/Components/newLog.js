@@ -48,11 +48,14 @@ const NewLog = () => {
         .then(res => logId = res.data._id)
         .then(
           () => {
+            console.log('date: ', formValues.date)
+            console.log('time: ', formValues.time)
+            console.log('getDifferenceInHours: ', getDifferenceInHours(formValues.date, formValues.time))
             if (getDifferenceInHours(formValues.date, formValues.time) < -6) {
               navigate('/manualWeather', {state:
                 { logId: logId,
                   formValues: formValues,
-                  weatherValues: null
+                  weatherValues: {}
                 }
               })
             } else {

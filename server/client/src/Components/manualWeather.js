@@ -41,6 +41,7 @@ const ManualWeather = () => {
 
   //HOOKS
   useEffect(() => {
+    console.log('manualWeather.js state: ', location.state)
     if(initialRender.current) {
       initialRender.current = false;
     } else if (Object.keys(formErrors).length > 0) {
