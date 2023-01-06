@@ -4,6 +4,7 @@ export const getDifferenceInHours = (date, time) => {
   const current = new Date()
   const difference = current - dateAndTimeUTC;
   const equation = -Math.round(difference/3600000)
+  console.log('equation in getDifferenceInHours(): ', equation)
 
   if (equation === -0) {
     return -1
