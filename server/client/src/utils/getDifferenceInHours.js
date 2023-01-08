@@ -1,8 +1,6 @@
 export const getDifferenceInHours = (date, time) => {
-  console.log('date in getDifferenceInHours(): ', date)
-  console.log('time in getDifferenceInHours(): ', time)
-  const dateAndTime = date + ', ' + time;
-  console.log('dateAndTime in getDifferenceInHours(): ', dateAndTime)
+  const dateAndTime = `${date}T${time}`;
+  console.log('dateAndTime: ', dateAndTime)
   const dateAndTimeUTC = new Date(dateAndTime);
   console.log('dateAndTimeUTC in getDifferenceInHours(): ', dateAndTimeUTC)
   const current = new Date()
