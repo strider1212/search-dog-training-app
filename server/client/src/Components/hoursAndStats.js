@@ -27,8 +27,8 @@ const HoursAndStats = () => {
   let navigate = useNavigate()
 
   const calculateTotalHours = () => {
-    const travHours = parseInt(formValues.travelHours);
-    const trainHours = parseInt(formValues.trainingHours);
+    const travHours = parseFloat(formValues.travelHours);
+    const trainHours = parseFloat(formValues.trainingHours);
     const sum = travHours + trainHours;
     return sum;
   }
