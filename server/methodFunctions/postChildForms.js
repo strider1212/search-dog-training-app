@@ -7,7 +7,6 @@ const postChildForms = async (req, res, postLog, key) => {
   const keyValuePair = {[key]: value};
 
   await postChildrenSchemas(postLog, Log, req.body.associatedLog, keyValuePair, res);
-  await Log.findByIdAndUpdate(req.body.associatedLog, {[key]: postLog})
 }
 
 module.exports = postChildForms;
