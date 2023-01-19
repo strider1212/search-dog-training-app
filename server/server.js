@@ -8,12 +8,10 @@ const cors = require('cors');
 const users = require('./routers/users');
 const teams = require('./routers/teams');
 const logs = require('./routers/logs');
-// const auth = require('./routers/auth');
 
 
 //staging variables
 const serverPort = process.env.SERVER_PORT;
-const clientPort = process.env.CLIENT_PORT
 
 const connectUsername = process.env.USERNAME;
 const connectPassword = process.env.PASSWORD;
@@ -23,8 +21,6 @@ const clusterInfo = process.env.CLUSTER_INFO;
 const ATLAS_CONNECT = `mongodb+srv://${connectUsername}:${connectPassword}@${clusterInfo}${connectDatabase}`;
 
 mongoose.connect(ATLAS_CONNECT);
-
-app.set('view-engine', 'ejs');
 
 //middleware
 app.use(express.json())

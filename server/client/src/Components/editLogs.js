@@ -15,7 +15,6 @@ const EditLogs = () => {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_BASE_URL}/logs/username/${RetrieveCurrentUsernameFromToken()}`, PassTokenFromLocalStorageInHeaders())
     .then(res => {
-      console.log(res)
       res.data.map(e => 
         setLogsState(current => [...current, e])
       )
